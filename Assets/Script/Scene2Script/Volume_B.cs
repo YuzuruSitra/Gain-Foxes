@@ -1,0 +1,125 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class Volume_B : MonoBehaviour
+{
+    //額縁の中身変更用
+    public Sprite BrSword;
+    public Sprite Potion;
+    public Sprite Stock;
+    //フレーム
+    public GameObject Toolflame;
+    private SpriteRenderer ToolFlame;
+
+    //民衆生成
+    public GameObject[] PeopleIns = new GameObject[4];
+    private int Cp;
+
+    //フィネアニメーション用
+    public static int ShuAnim;
+    public GameObject TalkPanel1;
+    public GameObject TalkPanel2;
+    //画面遷移
+    private bool trnOne;
+
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        trnOne = true;
+        
+
+        
+        ToolFlame = Toolflame.GetComponent<SpriteRenderer>();
+        //販売商品に合わせる
+        switch (ParameterCalc.ToolType)
+        {
+            case 0: //銅剣
+                ToolFlame.sprite = BrSword;
+                break;
+
+            case 1: //薬
+                ToolFlame.sprite = Potion;
+                break;
+
+            case 2: //株
+                ToolFlame.sprite = Stock;
+                break;
+            
+        }
+
+        /*--デバッグ用--*/
+        /*
+        ParameterCalc.GenePeopleCount = 4;
+        ParameterCalc.GenePeopleType[0] = 0;
+        ParameterCalc.GenePeopleType[1] = 1;
+        ParameterCalc.GenePeopleType[2] = 2;
+        ParameterCalc.GenePeopleType[3] = 3;
+        */
+
+        /*-------------------------*/
+
+        Cp = 0;
+        StartCoroutine("GenePeople");
+
+        //フィネアニメーション用
+        TalkPanel1.gameObject.SetActive(false);
+        TalkPanel2.gameObject.SetActive(false);
+        ShuAnim = 0;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        //フィネアニメーション用
+        if (ShuAnim > ParameterCalc.GenePeopleCount)
+        {
+            TalkPanel1.gameObject.SetActive(false);
+            TalkPanel2.gameObject.SetActive(false);
+
+            //画面遷移
+            if (trnOne)
+            {
+                Invoke("GoFade", 6.0f);
+                trnOne = false;
+            }
+        }
+        else if(ShuAnim > 0)
+        {
+            if (ShuAnim == 2)
+            {
+                TalkPanel2.gameObject.SetActive(true);
+                TalkPanel1.gameObject.SetActive(true);
+            }
+            else if (ShuAnim % 2 == 1)
+            {
+                TalkPanel2.gameObject.SetActive(false);
+                TalkPanel1.gameObject.SetActive(true);
+            }
+            else
+            {
+                TalkPanel1.gameObject.SetActive(false);
+                TalkPanel2.gameObject.SetActive(true);
+            }
+        }
+    }
+    private IEnumerator GenePeople()
+    {
+        while (Cp <= ParameterCalc.GenePeopleCount)
+        {
+            
+            Instantiate(PeopleIns[ParameterCalc.GenePeopleType[Cp]], this.transform.position, Quaternion.identity);
+            Cp++;
+            yield return new WaitForSeconds(2.5f);
+        }
+        
+    }
+
+    //フェード
+    void GoFade()
+    {
+        SceneCnt_B.isFadeOut_B = true;
+    }
+}
