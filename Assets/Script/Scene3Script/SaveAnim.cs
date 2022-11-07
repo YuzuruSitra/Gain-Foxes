@@ -13,6 +13,7 @@ public class SaveAnim : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        SaveText.gameObject.SetActive(true);
         InvokeRepeating("ChangeText", 0.1f, 0.6f);
         Saving = "Saving";
         iSave = 0;
@@ -48,9 +49,10 @@ public class SaveAnim : MonoBehaviour
                 goBreak++;
                 if(goBreak == 2)
                 {
-                    Destroy(SaveText.gameObject);
+                    SaveText.gameObject.SetActive(false);
                 }
                 break;
+            
         }
     }
 }

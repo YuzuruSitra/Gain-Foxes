@@ -78,11 +78,11 @@ public class LogSystem : MonoBehaviour
         int earnings = ParameterCalc.TotalReceiveMoney - ParameterCalc.TotalPayment;
         if (earnings > 0) //収支
         {
-            LogText += " �� �x �F +" + earnings + "z \n";
+            LogText += " 収支 : +" + earnings + "z \n";
         }
         else
         {
-            LogText += " �� �x �F " + earnings + "z \n";
+            LogText += " 収支 : " + earnings + "z \n";
         }
 
         //ChangeLogTex.text = LogText;
@@ -105,16 +105,5 @@ public class LogSystem : MonoBehaviour
             yield return new WaitForSeconds(0.04f);
 
         }
-        
-        
     }
-
-
-
 }
-
-/*
- * 
- * �C�x���g���������ɏ��������Ă��������B
- * 
- */

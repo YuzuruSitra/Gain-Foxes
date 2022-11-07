@@ -10,6 +10,9 @@ public class ParameterCalc : MonoBehaviour
 
     /* パラメータ宣言 */
 
+    //初見プレイか
+    public static bool initialPlay;
+
     //ターンカウント
     public static int TurnCount = 0;
 
@@ -29,7 +32,7 @@ public class ParameterCalc : MonoBehaviour
     //イベント管理
     public static double CrimeRate = 0.0;
     public static double PoorMoney = 2000.0;
-    public static int Slave = 1;
+    public static int Slave = 0;
     public static int ToolType; //どの商品を選んだか
 
     //銅の剣
@@ -103,6 +106,8 @@ public class ParameterCalc : MonoBehaviour
 
     public void Awake()
     {
+        //初見プレイ初期化
+        initialPlay = false;
         if (instance == null)
         {
             instance = this;
@@ -122,6 +127,11 @@ public class ParameterCalc : MonoBehaviour
             {
                 LoadData();
             }
+        }
+        else
+        {
+            //初見
+            initialPlay = true;
         }
 
         //ターン追加
@@ -194,7 +204,7 @@ public class ParameterCalc : MonoBehaviour
         switch (SelectRepleItem)
         {
             case 0: //銅の剣
-                if (HaveMoney >= BrSwordUp)
+                //if (HaveMoney >= BrSwordUp)
                 {
                     HaveMoney -= (int)BrSwordUp;
                     BrSwordUp *= 1.5;
@@ -206,7 +216,7 @@ public class ParameterCalc : MonoBehaviour
 
             case 1: //ハイポーション
 
-                if (HaveMoney >= PotionUp)
+                //if (HaveMoney >= PotionUp)
                 {
                     HaveMoney -= (int)PotionUp;
                     PotionUp *= 1.5;
@@ -217,7 +227,7 @@ public class ParameterCalc : MonoBehaviour
                 break;
 
             case 2: //株
-                if (HaveMoney >= StockGet * StockReceived)
+                //if (HaveMoney >= StockGet * StockReceived)
                 {
                     HaveMoney -= StockGet * StockReceived;
                     StockQuantity += StockReceived;
@@ -226,7 +236,7 @@ public class ParameterCalc : MonoBehaviour
                 break;
 
             case 3: //薬入荷
-                if (HaveMoney >= PotionGet)
+                //if (HaveMoney >= PotionGet)
                 {
                     HaveMoney -= PotionGet;
                     HavePotionJ = true;
@@ -234,12 +244,11 @@ public class ParameterCalc : MonoBehaviour
                 break;
 
             case 4: //株入荷
-                if (HaveMoney >= StockOpen)
+                //if (HaveMoney >= StockOpen)
                 {
                     HaveMoney -= StockOpen;
                     HaveStockJ = true;
                 }
-
                 break;
         }
     }

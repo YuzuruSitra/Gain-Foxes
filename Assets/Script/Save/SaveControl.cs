@@ -9,7 +9,7 @@ public class SaveControl : MonoBehaviour
     //public static bool LoadJ;
     private bool NewGame1;
 
-    //‘¼‚ÌƒXƒNƒŠƒvƒg‚©‚çƒƒ\ƒbƒh‚ğŒÄ‚×‚é‚æ‚¤‚É
+    //ï¿½ï¿½ï¿½ÌƒXï¿½Nï¿½ï¿½ï¿½vï¿½gï¿½ï¿½ï¿½çƒï¿½\ï¿½bï¿½hï¿½ï¿½ï¿½Ä‚×‚ï¿½æ‚¤ï¿½ï¿½
     public static SaveControl instanceSave;
     private int i;
 
@@ -19,13 +19,12 @@ public class SaveControl : MonoBehaviour
         {
             instanceSave = this;
         }
-        
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        // ƒf[ƒ^‚Ì•Û‘¶æ‚ğApplication.dataPath‚É•ÏX
+        // ï¿½fï¿½[ï¿½^ï¿½Ì•Û‘ï¿½ï¿½ï¿½ï¿½Application.dataPathï¿½É•ÏX
         QuickSaveGlobalSettings.StorageLocation = Application.dataPath;
 
         DoEncryption();
@@ -33,46 +32,46 @@ public class SaveControl : MonoBehaviour
     }
 
 
-    void DoEncryption()//ˆÃ†‰»—p
+    void DoEncryption()//ï¿½Ãï¿½ï¿½ï¿½ï¿½p
     {
-        // QuickSaveSettings‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ğì¬-ˆÃ†‰»—p
+        // QuickSaveSettingsï¿½ÌƒCï¿½ï¿½ï¿½Xï¿½^ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ì¬-ï¿½Ãï¿½ï¿½ï¿½ï¿½p
         QuickSaveSettings settings = new QuickSaveSettings();
 
-        // ˆÃ†‰»‚Ì•û–@ 
+        // ï¿½Ãï¿½ï¿½ï¿½ï¿½Ì•ï¿½ï¿½@ 
         settings.SecurityMode = SecurityMode.None;
-        // Aes‚ÌˆÃ†‰»ƒL[
+        // Aesï¿½ÌˆÃï¿½ï¿½ï¿½ï¿½Lï¿½[
         settings.Password = "Pass";
-        // ˆ³k‚Ì•û–@
+        // ï¿½ï¿½ï¿½kï¿½Ì•ï¿½ï¿½@
         settings.CompressionMode = CompressionMode.Gzip;
     }
 
     
-    //‰‹N“®‚©”Û‚©‚Ìˆ—
+    //ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½Û‚ï¿½ï¿½Ìï¿½ï¿½ï¿½
     void CheckSave()
     {
-        // QuickSaveSettings‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ğì¬-ˆÃ†‰»—p
+        // QuickSaveSettingsï¿½ÌƒCï¿½ï¿½ï¿½Xï¿½^ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ì¬-ï¿½Ãï¿½ï¿½ï¿½ï¿½p
         QuickSaveSettings settings = new QuickSaveSettings();
-        // QuickSaveReader‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ğì¬-load—p
+        // QuickSaveReaderï¿½ÌƒCï¿½ï¿½ï¿½Xï¿½^ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ì¬-loadï¿½p
         QuickSaveReader reader = QuickSaveReader.Create("Player", settings);
 
-        // ƒf[ƒ^‚ğ“Ç‚İ‚Ş
+        // ï¿½fï¿½[ï¿½^ï¿½ï¿½Ç‚İï¿½ï¿½ï¿½
 
 
         NewGame = reader.Read<bool>("newGame");
     }
 
 
-    //ƒ^[ƒ“I‚í‚è‚ÉÀs
+    //ï¿½^ï¿½[ï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½Éï¿½ï¿½s
     public void Dosave()
     {
-        // QuickSaveSettings‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ğì¬-ˆÃ†‰»—p
+        // QuickSaveSettingsï¿½ÌƒCï¿½ï¿½ï¿½Xï¿½^ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ì¬-ï¿½Ãï¿½ï¿½ï¿½ï¿½p
         QuickSaveSettings settings = new QuickSaveSettings();
 
-        // QuickSaveWriter‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ğì¬-save—p
+        // QuickSaveWriterï¿½ÌƒCï¿½ï¿½ï¿½Xï¿½^ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ì¬-saveï¿½p
         QuickSaveWriter writer = QuickSaveWriter.Create("Player",settings);
 
 
-        // ƒf[ƒ^‚ğ‘‚«‚Ş
+        // ï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         writer.Write("newGame", NewGame);
         writer.Write("turnCount", ParameterCalc.TurnCount);
         writer.Write("haveMoney", ParameterCalc.HaveMoney);
@@ -99,28 +98,24 @@ public class SaveControl : MonoBehaviour
         writer.Write("resultScore2", ParameterCalc.ResultScore[2]);
 
         i = 0;
-        //‹‹—¿x•¥
+        //ï¿½ï¿½ï¿½ï¿½ï¿½xï¿½ï¿½
         while (i <= ParameterCalc.TurnCount)
         {
             writer.Write("payCheck" + i, ParameterCalc.Paycheck[i]);
             i++;
         }
-        // •ÏX‚ğ”½‰f
+        // ï¿½ÏXï¿½ğ”½‰f
         writer.Commit();
-        Debug.Log("‘‚«‚İ");
     }
 
-    //ƒXƒ^[ƒg‰æ–Ê‚ÅÀs
+    //ï¿½Xï¿½^ï¿½[ï¿½gï¿½ï¿½Ê‚Åï¿½ï¿½s
     public void Doload()
     {
-        // QuickSaveSettings‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ğì¬-ˆÃ†‰»—p
+        // QuickSaveSettingsï¿½ÌƒCï¿½ï¿½ï¿½Xï¿½^ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ì¬-ï¿½Ãï¿½ï¿½ï¿½ï¿½p
         QuickSaveSettings settings = new QuickSaveSettings();
-        // QuickSaveReader‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ğì¬-load—p
+        // QuickSaveReaderï¿½ÌƒCï¿½ï¿½ï¿½Xï¿½^ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ì¬-loadï¿½p
         QuickSaveReader reader = QuickSaveReader.Create("Player", settings);
-
-        // ƒf[ƒ^‚ğ“Ç‚İ‚Ş
-       
-
+        
         ParameterCalc.TurnCount = reader.Read<int>("turnCount");
         ParameterCalc.HaveMoney = reader.Read<int>("haveMoney");
         ParameterCalc.CrimeRate = reader.Read<double>("crimeRate");
@@ -146,54 +141,54 @@ public class SaveControl : MonoBehaviour
         ParameterCalc.ResultScore[2] = reader.Read<int>("resultScore2");
 
         i = 0;
-        //‹‹—¿x•¥
+        //ï¿½ï¿½ï¿½ï¿½ï¿½xï¿½ï¿½
         while (i <= ParameterCalc.TurnCount)
         {
             ParameterCalc.Paycheck[i] = reader.Read<int>("payCheck" + i);
             i++;
         }
-        Debug.Log("“Ç‚İ‚İ");
+        
     }
 
-    //ƒf[ƒ^íœˆ—
+    //ï¿½fï¿½[ï¿½^ï¿½íœï¿½ï¿½ï¿½ï¿½
     public void DeleteDate()
     {
-        // QuickSaveSettings‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ğì¬-ˆÃ†‰»—p
+        // QuickSaveSettingsï¿½ÌƒCï¿½ï¿½ï¿½Xï¿½^ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ì¬-ï¿½Ãï¿½ï¿½ï¿½ï¿½p
         QuickSaveSettings settings = new QuickSaveSettings();
 
-        // QuickSaveWriter‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ğì¬-save—p
+        // QuickSaveWriterï¿½ÌƒCï¿½ï¿½ï¿½Xï¿½^ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ì¬-saveï¿½p
         QuickSaveWriter writer = QuickSaveWriter.Create("Player", settings);
 
 
         NewGame = true;
 
-        // ƒf[ƒ^‚ğ‘‚«‚Ş
+        // ï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         writer.Write("newGame", NewGame);
 
-        //ƒNƒŠƒAƒXƒRƒA‚ÍƒŠƒZƒbƒg
+        //ï¿½Nï¿½ï¿½ï¿½Aï¿½Xï¿½Rï¿½Aï¿½Íƒï¿½ï¿½Zï¿½bï¿½g
         writer.Write("resultScore0", 0);
         writer.Write("resultScore1", 0);
         writer.Write("resultScore2", 0);
 
-        // •ÏX‚ğ”½‰f
+        // ï¿½ÏXï¿½ğ”½‰f
         writer.Commit();
     }
     
-    //ƒNƒŠƒAƒf[ƒ^•Û‘¶ˆ—
+    //ï¿½Nï¿½ï¿½ï¿½Aï¿½fï¿½[ï¿½^ï¿½Û‘ï¿½ï¿½ï¿½ï¿½ï¿½
     public void ClearDateSave()
     {
-        // QuickSaveSettings‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ğì¬-ˆÃ†‰»—p
+        // QuickSaveSettingsï¿½ÌƒCï¿½ï¿½ï¿½Xï¿½^ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ì¬-ï¿½Ãï¿½ï¿½ï¿½ï¿½p
         QuickSaveSettings settings = new QuickSaveSettings();
 
-        // QuickSaveWriter‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ğì¬-save—p
+        // QuickSaveWriterï¿½ÌƒCï¿½ï¿½ï¿½Xï¿½^ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ì¬-saveï¿½p
         QuickSaveWriter writer = QuickSaveWriter.Create("Player", settings);
 
 
-        //ƒjƒ…[ƒQ[ƒ€‚Å‚Í‚È‚¢
+        //ï¿½jï¿½ï¿½ï¿½[ï¿½Qï¿½[ï¿½ï¿½ï¿½Å‚Í‚È‚ï¿½
         NewGame = false;
         writer.Write("newGame", NewGame);
 
-        // ƒf[ƒ^‚ğ‰Šú‚É–ß‚µ‚Ä•Û‘¶
+        // ï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É–ß‚ï¿½ï¿½Ä•Û‘ï¿½
         writer.Write("turnCount", 0);
         writer.Write("haveMoney", 1000);
         writer.Write("crimeRate", 0.0);
@@ -214,13 +209,12 @@ public class SaveControl : MonoBehaviour
         writer.Write("haveStockJ", false);
         writer.Write("stockQuantity", 0);
 
-        //ƒNƒŠƒAƒXƒRƒA‚Í•Û‘¶
+        //ï¿½Nï¿½ï¿½ï¿½Aï¿½Xï¿½Rï¿½Aï¿½Í•Û‘ï¿½
         writer.Write("resultScore0", ParameterCalc.ResultScore[0]);
         writer.Write("resultScore1", ParameterCalc.ResultScore[1]);
         writer.Write("resultScore2", ParameterCalc.ResultScore[2]);
 
-        // •ÏX‚ğ”½‰f
+        // ï¿½ÏXï¿½ğ”½‰f
         writer.Commit();
-        Debug.Log("ƒNƒŠƒAŒã");
     }
 }

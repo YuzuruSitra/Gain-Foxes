@@ -1,0 +1,489 @@
+{ "cat":"", "pid":12345, "tid":0, "ts":0, "ph":"M", "name":"process_name", "args": { "name":"bee_backend" } }
+,{ "pid":12345, "tid":0, "ts":1665401435376756, "dur":805, "ph":"X", "name": "DriverInitData",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1665401435377568, "dur":67, "ph":"X", "name": "Tundra",  "args": { "detail":"RemoveStaleOutputs" }}
+,{ "pid":12345, "tid":0, "ts":1665401435377644, "dur":20, "ph":"X", "name": "Tundra",  "args": { "detail":"PrepareNodes" }}
+,{ "pid":12345, "tid":0, "ts":1665401435377666, "dur":481, "ph":"X", "name": "Tundra",  "args": { "detail":"BuildQueueInit" }}
+,{ "pid":12345, "tid":0, "ts":1665401435378172, "dur":430, "ph":"X", "name": "EnqueueRequestedNodes",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1665401435378602, "dur":1, "ph":"X", "name": "SortWorkingStack",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1665401436398883, "dur":205, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1665401436399088, "dur":25, "ph":"X", "name": "ThreadStateDestroy",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1665401436399113, "dur":3, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1665401436399116, "dur":23, "ph":"X", "name": "ThreadStateDestroy",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1665401436399139, "dur":4, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1665401436399143, "dur":19, "ph":"X", "name": "ThreadStateDestroy",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1665401436399162, "dur":4, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1665401436399166, "dur":7, "ph":"X", "name": "ThreadStateDestroy",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1665401436399173, "dur":2, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1665401436399175, "dur":6, "ph":"X", "name": "ThreadStateDestroy",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1665401436399181, "dur":2, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1665401436399183, "dur":6, "ph":"X", "name": "ThreadStateDestroy",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1665401436399189, "dur":1, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1665401436399191, "dur":5, "ph":"X", "name": "ThreadStateDestroy",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1665401436399196, "dur":2, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1665401436399198, "dur":4, "ph":"X", "name": "ThreadStateDestroy",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1665401436399202, "dur":2, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1665401436399204, "dur":6, "ph":"X", "name": "ThreadStateDestroy",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1665401436399210, "dur":2, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1665401436399212, "dur":5, "ph":"X", "name": "ThreadStateDestroy",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1665401436399217, "dur":2, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1665401436399219, "dur":5, "ph":"X", "name": "ThreadStateDestroy",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1665401436399224, "dur":2, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1665401436399226, "dur":6, "ph":"X", "name": "ThreadStateDestroy",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1665401436399232, "dur":0, "ph":"X", "name": "SharedResourceDestroy",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1665401436399238, "dur":2, "ph":"X", "name": "BuildQueueDestroyTail",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1665401436399276, "dur":1358, "ph":"X", "name": "Tundra",  "args": { "detail":"Write AllBuiltNodes" }}
+,{ "pid":12345, "tid":1, "ts":1665401435378829, "dur":1, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1665401435378830, "dur":1442, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1665401435380272, "dur":51, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/MonoBleedingEdge/etc/mono/4.0/Browsers/Compat.browser" }}
+,{ "pid":12345, "tid":1, "ts":1665401435380326, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1665401435381744, "dur":10894, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/MonoBleedingEdge/etc/mono/4.0/Browsers/Compat.browser" }}
+,{ "pid":12345, "tid":1, "ts":1665401435392657, "dur":31, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/MonoBleedingEdge/etc/mono/2.0/Browsers/Compat.browser" }}
+,{ "pid":12345, "tid":1, "ts":1665401435392691, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1665401435392945, "dur":1591, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/MonoBleedingEdge/etc/mono/2.0/Browsers/Compat.browser" }}
+,{ "pid":12345, "tid":1, "ts":1665401435394552, "dur":27, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/MonoBleedingEdge/etc/mono/browscap.ini" }}
+,{ "pid":12345, "tid":1, "ts":1665401435394581, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1665401435394587, "dur":97609, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/MonoBleedingEdge/etc/mono/browscap.ini" }}
+,{ "pid":12345, "tid":1, "ts":1665401435492219, "dur":24, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.VRModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1665401435492246, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1665401435492265, "dur":23652, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.VRModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1665401435515942, "dur":26, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.VFXModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1665401435515972, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1665401435515981, "dur":45965, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.VFXModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1665401435561968, "dur":13, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.UnityCurlModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1665401435561984, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1665401435561991, "dur":22948, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.UnityCurlModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1665401435584991, "dur":12, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.UIElementsModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1665401435585006, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1665401435585011, "dur":129185, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.UIElementsModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1665401435714213, "dur":14, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.JSONSerializeModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1665401435714229, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1665401435714237, "dur":28620, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.JSONSerializeModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1665401435742876, "dur":14, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.GridModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1665401435742893, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1665401435742899, "dur":34940, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.GridModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1665401435777855, "dur":14, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.CoreModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1665401435777872, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1665401435777879, "dur":182774, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.CoreModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1665401435960676, "dur":14, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/System.EnterpriseServices.dll" }}
+,{ "pid":12345, "tid":1, "ts":1665401435960693, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1665401435960700, "dur":61661, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/System.EnterpriseServices.dll" }}
+,{ "pid":12345, "tid":1, "ts":1665401436022380, "dur":14, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/System.Data.DataSetExtensions.dll" }}
+,{ "pid":12345, "tid":1, "ts":1665401436022396, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1665401436022403, "dur":42315, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/System.Data.DataSetExtensions.dll" }}
+,{ "pid":12345, "tid":1, "ts":1665401436064734, "dur":15, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/System.Core.dll" }}
+,{ "pid":12345, "tid":1, "ts":1665401436064752, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1665401436064758, "dur":155591, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/System.Core.dll" }}
+,{ "pid":12345, "tid":1, "ts":1665401436220367, "dur":178565, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1665401435378678, "dur":0, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1665401435378679, "dur":1560, "ph":"X", "name": "CheckDagSignatures",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1665401435380252, "dur":1, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"WriteText Library/Bee/artifacts/WinPlayerBuildProgram/Data/app.info" }}
+,{ "pid":12345, "tid":2, "ts":1665401435380253, "dur":1729, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1665401435381991, "dur":2, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/app.info" }}
+,{ "pid":12345, "tid":2, "ts":1665401435381995, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1665401435382106, "dur":11359, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/app.info" }}
+,{ "pid":12345, "tid":2, "ts":1665401435393466, "dur":28, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/MonoBleedingEdge/etc/mono/2.0/DefaultWsdlHelpGenerator.aspx" }}
+,{ "pid":12345, "tid":2, "ts":1665401435393497, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1665401435393505, "dur":202150, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/MonoBleedingEdge/etc/mono/2.0/DefaultWsdlHelpGenerator.aspx" }}
+,{ "pid":12345, "tid":2, "ts":1665401435595671, "dur":14, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.TextRenderingModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1665401435595687, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1665401435595693, "dur":60103, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.TextRenderingModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1665401435655812, "dur":15, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.SubstanceModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1665401435655830, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1665401435655837, "dur":47624, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.SubstanceModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1665401435703486, "dur":16, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.Physics2DModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1665401435703505, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1665401435703512, "dur":44850, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.Physics2DModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1665401435748380, "dur":17, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.GIModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1665401435748400, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1665401435748409, "dur":25553, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.GIModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1665401435773978, "dur":26, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.CrashReportingModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1665401435774007, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1665401435774015, "dur":88843, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.CrashReportingModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1665401435862878, "dur":332714, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/Unity.Postprocessing.Runtime.dll" }}
+,{ "pid":12345, "tid":2, "ts":1665401436195596, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1665401436195602, "dur":4452, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/Unity.Postprocessing.Runtime.dll" }}
+,{ "pid":12345, "tid":2, "ts":1665401436200083, "dur":127, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/ScriptingAssemblies.json" }}
+,{ "pid":12345, "tid":2, "ts":1665401436200215, "dur":2, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1665401436200226, "dur":1275, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/ScriptingAssemblies.json" }}
+,{ "pid":12345, "tid":2, "ts":1665401436201518, "dur":14, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/resources.assets.resS" }}
+,{ "pid":12345, "tid":2, "ts":1665401436201535, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1665401436201543, "dur":6563, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/resources.assets.resS" }}
+,{ "pid":12345, "tid":2, "ts":1665401436208120, "dur":15, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/level1" }}
+,{ "pid":12345, "tid":2, "ts":1665401436208139, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1665401436208145, "dur":5033, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/level1" }}
+,{ "pid":12345, "tid":2, "ts":1665401436213194, "dur":20, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/globalgamemanagers.assets" }}
+,{ "pid":12345, "tid":2, "ts":1665401436213216, "dur":2, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1665401436213223, "dur":869, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/globalgamemanagers.assets" }}
+,{ "pid":12345, "tid":2, "ts":1665401436214243, "dur":148, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/boot.config" }}
+,{ "pid":12345, "tid":2, "ts":1665401436214394, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1665401436214400, "dur":948, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/boot.config" }}
+,{ "pid":12345, "tid":2, "ts":1665401436215362, "dur":183517, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1665401435378791, "dur":0, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1665401435378791, "dur":1453, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1665401435380253, "dur":76, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/MonoBleedingEdge/etc/mono/mconfig/config.xml" }}
+,{ "pid":12345, "tid":3, "ts":1665401435380332, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1665401435381371, "dur":108283, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/MonoBleedingEdge/etc/mono/mconfig/config.xml" }}
+,{ "pid":12345, "tid":3, "ts":1665401435489909, "dur":65, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.XRModule.dll" }}
+,{ "pid":12345, "tid":3, "ts":1665401435489977, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1665401435490198, "dur":62922, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.XRModule.dll" }}
+,{ "pid":12345, "tid":3, "ts":1665401435553138, "dur":18, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.UnityWebRequestAssetBundleModule.dll" }}
+,{ "pid":12345, "tid":3, "ts":1665401435553158, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1665401435553167, "dur":25146, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.UnityWebRequestAssetBundleModule.dll" }}
+,{ "pid":12345, "tid":3, "ts":1665401435578337, "dur":19, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.UmbraModule.dll" }}
+,{ "pid":12345, "tid":3, "ts":1665401435578361, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1665401435578370, "dur":31430, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.UmbraModule.dll" }}
+,{ "pid":12345, "tid":3, "ts":1665401435609816, "dur":13, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.TextCoreTextEngineModule.dll" }}
+,{ "pid":12345, "tid":3, "ts":1665401435609832, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1665401435609839, "dur":237122, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.TextCoreTextEngineModule.dll" }}
+,{ "pid":12345, "tid":3, "ts":1665401435846977, "dur":94945, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/Unity.VisualScripting.Core.dll" }}
+,{ "pid":12345, "tid":3, "ts":1665401435941946, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1665401435941957, "dur":799, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/Unity.VisualScripting.Core.dll" }}
+,{ "pid":12345, "tid":3, "ts":1665401435942768, "dur":13, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/System.IO.Compression.FileSystem.dll" }}
+,{ "pid":12345, "tid":3, "ts":1665401435942783, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1665401435942788, "dur":29976, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/System.IO.Compression.FileSystem.dll" }}
+,{ "pid":12345, "tid":3, "ts":1665401435972781, "dur":14, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/System.dll" }}
+,{ "pid":12345, "tid":3, "ts":1665401435972818, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1665401435972825, "dur":263253, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/System.dll" }}
+,{ "pid":12345, "tid":3, "ts":1665401436236101, "dur":162821, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1665401435378939, "dur":0, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1665401435378939, "dur":1318, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1665401435380258, "dur":78, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/MonoBleedingEdge/etc/mono/4.5/settings.map" }}
+,{ "pid":12345, "tid":4, "ts":1665401435380340, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1665401435381198, "dur":12047, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/MonoBleedingEdge/etc/mono/4.5/settings.map" }}
+,{ "pid":12345, "tid":4, "ts":1665401435393259, "dur":28, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/MonoBleedingEdge/etc/mono/2.0/machine.config" }}
+,{ "pid":12345, "tid":4, "ts":1665401435393290, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1665401435393296, "dur":96674, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/MonoBleedingEdge/etc/mono/2.0/machine.config" }}
+,{ "pid":12345, "tid":4, "ts":1665401435489984, "dur":17, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.WindModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1665401435490003, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1665401435490202, "dur":20478, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.WindModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1665401435510706, "dur":17, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.VideoModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1665401435510727, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1665401435510735, "dur":45336, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.VideoModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1665401435556089, "dur":14, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.UnityTestProtocolModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1665401435556126, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1665401435556615, "dur":27570, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.UnityTestProtocolModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1665401435584202, "dur":16, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.UIModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1665401435584242, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1665401435584249, "dur":49875, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.UIModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1665401435634141, "dur":14, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.TerrainModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1665401435634157, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1665401435634164, "dur":76047, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.TerrainModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1665401435710227, "dur":15, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.NVIDIAModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1665401435710244, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1665401435710251, "dur":56936, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.NVIDIAModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1665401435767204, "dur":14, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.DirectorModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1665401435767220, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1665401435767228, "dur":58036, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.DirectorModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1665401435825277, "dur":16, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.AIModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1665401435825295, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1665401435825300, "dur":52536, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.AIModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1665401435877851, "dur":13, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/System.ServiceModel.Internals.dll" }}
+,{ "pid":12345, "tid":4, "ts":1665401435877866, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1665401435877873, "dur":128619, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/System.ServiceModel.Internals.dll" }}
+,{ "pid":12345, "tid":4, "ts":1665401436006507, "dur":15, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/System.Data.dll" }}
+,{ "pid":12345, "tid":4, "ts":1665401436006524, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1665401436006531, "dur":219621, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/System.Data.dll" }}
+,{ "pid":12345, "tid":4, "ts":1665401436226170, "dur":172746, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1665401435379064, "dur":0, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1665401435379064, "dur":1210, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1665401435380274, "dur":1385, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/MonoBleedingEdge/etc/mono/4.0/machine.config" }}
+,{ "pid":12345, "tid":5, "ts":1665401435381661, "dur":2, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1665401435381675, "dur":12874, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/MonoBleedingEdge/etc/mono/4.0/machine.config" }}
+,{ "pid":12345, "tid":5, "ts":1665401435394564, "dur":29, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/MonoBleedingEdge/EmbedRuntime/MonoPosixHelper.dll" }}
+,{ "pid":12345, "tid":5, "ts":1665401435394596, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1665401435394709, "dur":97616, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/MonoBleedingEdge/EmbedRuntime/MonoPosixHelper.dll" }}
+,{ "pid":12345, "tid":5, "ts":1665401435492342, "dur":14, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.VirtualTexturingModule.dll" }}
+,{ "pid":12345, "tid":5, "ts":1665401435492359, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1665401435492364, "dur":34617, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.VirtualTexturingModule.dll" }}
+,{ "pid":12345, "tid":5, "ts":1665401435526997, "dur":13, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.UnityWebRequestWWWModule.dll" }}
+,{ "pid":12345, "tid":5, "ts":1665401435527013, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1665401435527020, "dur":42675, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.UnityWebRequestWWWModule.dll" }}
+,{ "pid":12345, "tid":5, "ts":1665401435569716, "dur":18, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.UnityAnalyticsModule.dll" }}
+,{ "pid":12345, "tid":5, "ts":1665401435569738, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1665401435569748, "dur":86792, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.UnityAnalyticsModule.dll" }}
+,{ "pid":12345, "tid":5, "ts":1665401435656560, "dur":14, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.SpriteShapeModule.dll" }}
+,{ "pid":12345, "tid":5, "ts":1665401435656577, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1665401435656582, "dur":49928, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.SpriteShapeModule.dll" }}
+,{ "pid":12345, "tid":5, "ts":1665401435706522, "dur":48, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.ParticleSystemModule.dll" }}
+,{ "pid":12345, "tid":5, "ts":1665401435706573, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1665401435706578, "dur":118094, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.ParticleSystemModule.dll" }}
+,{ "pid":12345, "tid":5, "ts":1665401435824688, "dur":12, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.AndroidJNIModule.dll" }}
+,{ "pid":12345, "tid":5, "ts":1665401435824702, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1665401435824967, "dur":110434, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.AndroidJNIModule.dll" }}
+,{ "pid":12345, "tid":5, "ts":1665401435935419, "dur":15, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/System.Runtime.Serialization.dll" }}
+,{ "pid":12345, "tid":5, "ts":1665401435935436, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1665401435935445, "dur":135424, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/System.Runtime.Serialization.dll" }}
+,{ "pid":12345, "tid":5, "ts":1665401436070890, "dur":22, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/System.Configuration.dll" }}
+,{ "pid":12345, "tid":5, "ts":1665401436070914, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1665401436070922, "dur":103278, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/System.Configuration.dll" }}
+,{ "pid":12345, "tid":5, "ts":1665401436174216, "dur":14, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Resources/unity_builtin_extra" }}
+,{ "pid":12345, "tid":5, "ts":1665401436174233, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1665401436174249, "dur":977, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Resources/unity_builtin_extra" }}
+,{ "pid":12345, "tid":5, "ts":1665401436175242, "dur":14, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/sharedassets1.assets.resS" }}
+,{ "pid":12345, "tid":5, "ts":1665401436175258, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1665401436175263, "dur":25469, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/sharedassets1.assets.resS" }}
+,{ "pid":12345, "tid":5, "ts":1665401436200751, "dur":6499, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/RuntimeInitializeOnLoads.json" }}
+,{ "pid":12345, "tid":5, "ts":1665401436207261, "dur":4, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1665401436207276, "dur":681, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/RuntimeInitializeOnLoads.json" }}
+,{ "pid":12345, "tid":5, "ts":1665401436207973, "dur":20, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/resources.assets" }}
+,{ "pid":12345, "tid":5, "ts":1665401436207997, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1665401436208004, "dur":1021, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/resources.assets" }}
+,{ "pid":12345, "tid":5, "ts":1665401436209042, "dur":16, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/level0" }}
+,{ "pid":12345, "tid":5, "ts":1665401436209062, "dur":7, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1665401436209075, "dur":4442, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/level0" }}
+,{ "pid":12345, "tid":5, "ts":1665401436213537, "dur":19, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/globalgamemanagers" }}
+,{ "pid":12345, "tid":5, "ts":1665401436213560, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1665401436213566, "dur":1591, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/globalgamemanagers" }}
+,{ "pid":12345, "tid":5, "ts":1665401436215174, "dur":183706, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1665401435379182, "dur":0, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1665401435379182, "dur":1112, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1665401435380294, "dur":1268, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/MonoBleedingEdge/etc/mono/4.0/DefaultWsdlHelpGenerator.aspx" }}
+,{ "pid":12345, "tid":6, "ts":1665401435381568, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1665401435381657, "dur":207329, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/MonoBleedingEdge/etc/mono/4.0/DefaultWsdlHelpGenerator.aspx" }}
+,{ "pid":12345, "tid":6, "ts":1665401435589005, "dur":123388, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.UI.dll" }}
+,{ "pid":12345, "tid":6, "ts":1665401435712399, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1665401435712407, "dur":831, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.UI.dll" }}
+,{ "pid":12345, "tid":6, "ts":1665401435713256, "dur":14, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.LocalizationModule.dll" }}
+,{ "pid":12345, "tid":6, "ts":1665401435713273, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1665401435713279, "dur":23449, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.LocalizationModule.dll" }}
+,{ "pid":12345, "tid":6, "ts":1665401435736745, "dur":14, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.HotReloadModule.dll" }}
+,{ "pid":12345, "tid":6, "ts":1665401435736761, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1665401435736769, "dur":20954, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.HotReloadModule.dll" }}
+,{ "pid":12345, "tid":6, "ts":1665401435757761, "dur":15, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.GameCenterModule.dll" }}
+,{ "pid":12345, "tid":6, "ts":1665401435757780, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1665401435757787, "dur":59161, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.GameCenterModule.dll" }}
+,{ "pid":12345, "tid":6, "ts":1665401435816965, "dur":13, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.AssetBundleModule.dll" }}
+,{ "pid":12345, "tid":6, "ts":1665401435816981, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1665401435816988, "dur":36894, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.AssetBundleModule.dll" }}
+,{ "pid":12345, "tid":6, "ts":1665401435853900, "dur":16, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/Unity.VisualScripting.Antlr3.Runtime.dll" }}
+,{ "pid":12345, "tid":6, "ts":1665401435853919, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1665401435853927, "dur":59021, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/Unity.VisualScripting.Antlr3.Runtime.dll" }}
+,{ "pid":12345, "tid":6, "ts":1665401435912964, "dur":37, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/System.Security.dll" }}
+,{ "pid":12345, "tid":6, "ts":1665401435913004, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1665401435913011, "dur":237559, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/System.Security.dll" }}
+,{ "pid":12345, "tid":6, "ts":1665401436150588, "dur":132821, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/Assembly-CSharp.dll" }}
+,{ "pid":12345, "tid":6, "ts":1665401436283414, "dur":2, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1665401436283422, "dur":644, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/Assembly-CSharp.dll" }}
+,{ "pid":12345, "tid":6, "ts":1665401436284081, "dur":114808, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1665401435379272, "dur":0, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1665401435379272, "dur":990, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1665401435380262, "dur":69, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/MonoBleedingEdge/etc/mono/4.5/machine.config" }}
+,{ "pid":12345, "tid":7, "ts":1665401435380334, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1665401435381195, "dur":13529, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/MonoBleedingEdge/etc/mono/4.5/machine.config" }}
+,{ "pid":12345, "tid":7, "ts":1665401435394741, "dur":34, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/MonoBleedingEdge/EmbedRuntime/mono-2.0-bdwgc.dll" }}
+,{ "pid":12345, "tid":7, "ts":1665401435394777, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1665401435394793, "dur":142071, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/MonoBleedingEdge/EmbedRuntime/mono-2.0-bdwgc.dll" }}
+,{ "pid":12345, "tid":7, "ts":1665401435536881, "dur":18, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.UnityWebRequestTextureModule.dll" }}
+,{ "pid":12345, "tid":7, "ts":1665401435536902, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1665401435536909, "dur":27917, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.UnityWebRequestTextureModule.dll" }}
+,{ "pid":12345, "tid":7, "ts":1665401435564841, "dur":15, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.UnityConnectModule.dll" }}
+,{ "pid":12345, "tid":7, "ts":1665401435564859, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1665401435564866, "dur":29906, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.UnityConnectModule.dll" }}
+,{ "pid":12345, "tid":7, "ts":1665401435594787, "dur":19, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.TilemapModule.dll" }}
+,{ "pid":12345, "tid":7, "ts":1665401435594808, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1665401435594814, "dur":59933, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.TilemapModule.dll" }}
+,{ "pid":12345, "tid":7, "ts":1665401435654764, "dur":14, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.SubsystemsModule.dll" }}
+,{ "pid":12345, "tid":7, "ts":1665401435654782, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1665401435654790, "dur":51474, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.SubsystemsModule.dll" }}
+,{ "pid":12345, "tid":7, "ts":1665401435706282, "dur":16, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.PerformanceReportingModule.dll" }}
+,{ "pid":12345, "tid":7, "ts":1665401435706300, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1665401435706308, "dur":22432, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.PerformanceReportingModule.dll" }}
+,{ "pid":12345, "tid":7, "ts":1665401435728758, "dur":15, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.IMGUIModule.dll" }}
+,{ "pid":12345, "tid":7, "ts":1665401435728776, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1665401435728783, "dur":92975, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.IMGUIModule.dll" }}
+,{ "pid":12345, "tid":7, "ts":1665401435821773, "dur":13, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.AnimationModule.dll" }}
+,{ "pid":12345, "tid":7, "ts":1665401435821788, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1665401435821793, "dur":47276, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.AnimationModule.dll" }}
+,{ "pid":12345, "tid":7, "ts":1665401435869085, "dur":18, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/System.Xml.Linq.dll" }}
+,{ "pid":12345, "tid":7, "ts":1665401435869106, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1665401435869113, "dur":91643, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/System.Xml.Linq.dll" }}
+,{ "pid":12345, "tid":7, "ts":1665401435960770, "dur":13, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/System.Drawing.dll" }}
+,{ "pid":12345, "tid":7, "ts":1665401435960785, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1665401435960790, "dur":161366, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/System.Drawing.dll" }}
+,{ "pid":12345, "tid":7, "ts":1665401436122173, "dur":16, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/mscorlib.dll" }}
+,{ "pid":12345, "tid":7, "ts":1665401436122191, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1665401436122199, "dur":276634, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/mscorlib.dll" }}
+,{ "pid":12345, "tid":7, "ts":1665401436398850, "dur":1, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"Player" }}
+,{ "pid":12345, "tid":7, "ts":1665401436398851, "dur":1, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1665401435379396, "dur":1, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1665401435379397, "dur":857, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1665401435380265, "dur":76, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/MonoBleedingEdge/etc/mono/4.5/Browsers/Compat.browser" }}
+,{ "pid":12345, "tid":8, "ts":1665401435380346, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1665401435381783, "dur":10946, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/MonoBleedingEdge/etc/mono/4.5/Browsers/Compat.browser" }}
+,{ "pid":12345, "tid":8, "ts":1665401435392745, "dur":55, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/MonoBleedingEdge/etc/mono/2.0/web.config" }}
+,{ "pid":12345, "tid":8, "ts":1665401435392803, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1665401435392851, "dur":96655, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/MonoBleedingEdge/etc/mono/2.0/web.config" }}
+,{ "pid":12345, "tid":8, "ts":1665401435489523, "dur":39, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes.exe" }}
+,{ "pid":12345, "tid":8, "ts":1665401435489564, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1665401435489568, "dur":28460, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes.exe" }}
+,{ "pid":12345, "tid":8, "ts":1665401435518045, "dur":18, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.VehiclesModule.dll" }}
+,{ "pid":12345, "tid":8, "ts":1665401435518080, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1665401435518088, "dur":28706, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.VehiclesModule.dll" }}
+,{ "pid":12345, "tid":8, "ts":1665401435546809, "dur":17, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.UnityWebRequestAudioModule.dll" }}
+,{ "pid":12345, "tid":8, "ts":1665401435546829, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1665401435546836, "dur":29685, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.UnityWebRequestAudioModule.dll" }}
+,{ "pid":12345, "tid":8, "ts":1665401435576544, "dur":29, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.UNETModule.dll" }}
+,{ "pid":12345, "tid":8, "ts":1665401435576575, "dur":2, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1665401435576585, "dur":79950, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.UNETModule.dll" }}
+,{ "pid":12345, "tid":8, "ts":1665401435656551, "dur":13, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.StreamingModule.dll" }}
+,{ "pid":12345, "tid":8, "ts":1665401435656566, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1665401435656572, "dur":45109, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.StreamingModule.dll" }}
+,{ "pid":12345, "tid":8, "ts":1665401435701699, "dur":16, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule.dll" }}
+,{ "pid":12345, "tid":8, "ts":1665401435701718, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1665401435701725, "dur":27659, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule.dll" }}
+,{ "pid":12345, "tid":8, "ts":1665401435729400, "dur":14, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.ImageConversionModule.dll" }}
+,{ "pid":12345, "tid":8, "ts":1665401435729416, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1665401435729422, "dur":30955, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.ImageConversionModule.dll" }}
+,{ "pid":12345, "tid":8, "ts":1665401435760456, "dur":39, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.DSPGraphModule.dll" }}
+,{ "pid":12345, "tid":8, "ts":1665401435760497, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1665401435760504, "dur":40518, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.DSPGraphModule.dll" }}
+,{ "pid":12345, "tid":8, "ts":1665401435801051, "dur":31, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.ClothModule.dll" }}
+,{ "pid":12345, "tid":8, "ts":1665401435801087, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1665401435801096, "dur":33373, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.ClothModule.dll" }}
+,{ "pid":12345, "tid":8, "ts":1665401435834485, "dur":122526, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/Unity.VisualScripting.Flow.dll" }}
+,{ "pid":12345, "tid":8, "ts":1665401435957015, "dur":2, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1665401435957024, "dur":706, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/Unity.VisualScripting.Flow.dll" }}
+,{ "pid":12345, "tid":8, "ts":1665401435957743, "dur":13, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/System.IO.Compression.dll" }}
+,{ "pid":12345, "tid":8, "ts":1665401435957759, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1665401435957764, "dur":126718, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/System.IO.Compression.dll" }}
+,{ "pid":12345, "tid":8, "ts":1665401436084500, "dur":15, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/netstandard.dll" }}
+,{ "pid":12345, "tid":8, "ts":1665401436084517, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1665401436084524, "dur":50354, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/netstandard.dll" }}
+,{ "pid":12345, "tid":8, "ts":1665401436135052, "dur":24, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/Mono.Security.dll" }}
+,{ "pid":12345, "tid":8, "ts":1665401436135079, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1665401436135086, "dur":192473, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/Mono.Security.dll" }}
+,{ "pid":12345, "tid":8, "ts":1665401436327570, "dur":71313, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":9, "ts":1665401435379501, "dur":0, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":9, "ts":1665401435379501, "dur":771, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":9, "ts":1665401435380273, "dur":1699, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/MonoBleedingEdge/etc/mono/4.0/web.config" }}
+,{ "pid":12345, "tid":9, "ts":1665401435381975, "dur":44, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":9, "ts":1665401435382056, "dur":17776, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/MonoBleedingEdge/etc/mono/4.0/web.config" }}
+,{ "pid":12345, "tid":9, "ts":1665401435399852, "dur":41, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/UnityPlayer.dll" }}
+,{ "pid":12345, "tid":9, "ts":1665401435399896, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":9, "ts":1665401435399902, "dur":194149, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/UnityPlayer.dll" }}
+,{ "pid":12345, "tid":9, "ts":1665401435594070, "dur":18, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.TLSModule.dll" }}
+,{ "pid":12345, "tid":9, "ts":1665401435594090, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":9, "ts":1665401435594097, "dur":108223, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.TLSModule.dll" }}
+,{ "pid":12345, "tid":9, "ts":1665401435702340, "dur":15, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.PhysicsModule.dll" }}
+,{ "pid":12345, "tid":9, "ts":1665401435702360, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":9, "ts":1665401435702368, "dur":92979, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.PhysicsModule.dll" }}
+,{ "pid":12345, "tid":9, "ts":1665401435795366, "dur":14, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.ClusterRendererModule.dll" }}
+,{ "pid":12345, "tid":9, "ts":1665401435795383, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":9, "ts":1665401435795390, "dur":37391, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.ClusterRendererModule.dll" }}
+,{ "pid":12345, "tid":9, "ts":1665401435832797, "dur":38903, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/Unity.VisualScripting.State.dll" }}
+,{ "pid":12345, "tid":9, "ts":1665401435871705, "dur":2, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":9, "ts":1665401435871714, "dur":881, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/Unity.VisualScripting.State.dll" }}
+,{ "pid":12345, "tid":9, "ts":1665401435872610, "dur":13, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/System.Xml.dll" }}
+,{ "pid":12345, "tid":9, "ts":1665401435872626, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":9, "ts":1665401435872631, "dur":321914, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/System.Xml.dll" }}
+,{ "pid":12345, "tid":9, "ts":1665401436194568, "dur":17, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/sharedassets1.assets" }}
+,{ "pid":12345, "tid":9, "ts":1665401436194588, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":9, "ts":1665401436194595, "dur":683, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/sharedassets1.assets" }}
+,{ "pid":12345, "tid":9, "ts":1665401436195294, "dur":21, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/sharedassets0.assets.resS" }}
+,{ "pid":12345, "tid":9, "ts":1665401436195317, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":9, "ts":1665401436195323, "dur":71267, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/sharedassets0.assets.resS" }}
+,{ "pid":12345, "tid":9, "ts":1665401436266617, "dur":132280, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":10, "ts":1665401435379693, "dur":0, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":10, "ts":1665401435379693, "dur":564, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":10, "ts":1665401435380257, "dur":75, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/MonoBleedingEdge/etc/mono/4.5/web.config" }}
+,{ "pid":12345, "tid":10, "ts":1665401435380334, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":10, "ts":1665401435381188, "dur":11723, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/MonoBleedingEdge/etc/mono/4.5/web.config" }}
+,{ "pid":12345, "tid":10, "ts":1665401435392930, "dur":27, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/MonoBleedingEdge/etc/mono/2.0/settings.map" }}
+,{ "pid":12345, "tid":10, "ts":1665401435392961, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":10, "ts":1665401435392982, "dur":96516, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/MonoBleedingEdge/etc/mono/2.0/settings.map" }}
+,{ "pid":12345, "tid":10, "ts":1665401435489517, "dur":42, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/UnityCrashHandler64.exe" }}
+,{ "pid":12345, "tid":10, "ts":1665401435489562, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":10, "ts":1665401435489567, "dur":187105, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/UnityCrashHandler64.exe" }}
+,{ "pid":12345, "tid":10, "ts":1665401435676689, "dur":12, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.SharedInternalsModule.dll" }}
+,{ "pid":12345, "tid":10, "ts":1665401435676703, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":10, "ts":1665401435676708, "dur":46534, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.SharedInternalsModule.dll" }}
+,{ "pid":12345, "tid":10, "ts":1665401435723282, "dur":22, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.InputModule.dll" }}
+,{ "pid":12345, "tid":10, "ts":1665401435723307, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":10, "ts":1665401435723314, "dur":76707, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.InputModule.dll" }}
+,{ "pid":12345, "tid":10, "ts":1665401435800399, "dur":203, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.ClusterInputModule.dll" }}
+,{ "pid":12345, "tid":10, "ts":1665401435800607, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":10, "ts":1665401435800616, "dur":24934, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.ClusterInputModule.dll" }}
+,{ "pid":12345, "tid":10, "ts":1665401435825563, "dur":12, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.AccessibilityModule.dll" }}
+,{ "pid":12345, "tid":10, "ts":1665401435825578, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":10, "ts":1665401435825644, "dur":32855, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.AccessibilityModule.dll" }}
+,{ "pid":12345, "tid":10, "ts":1665401435858515, "dur":79298, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/Unity.Timeline.dll" }}
+,{ "pid":12345, "tid":10, "ts":1665401435937826, "dur":2, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":10, "ts":1665401435937834, "dur":795, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/Unity.Timeline.dll" }}
+,{ "pid":12345, "tid":10, "ts":1665401435938644, "dur":13, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/System.Numerics.dll" }}
+,{ "pid":12345, "tid":10, "ts":1665401435938659, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":10, "ts":1665401435938665, "dur":138000, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/System.Numerics.dll" }}
+,{ "pid":12345, "tid":10, "ts":1665401436076680, "dur":12, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/Newtonsoft.Json.dll" }}
+,{ "pid":12345, "tid":10, "ts":1665401436076694, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":10, "ts":1665401436076716, "dur":184776, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/Newtonsoft.Json.dll" }}
+,{ "pid":12345, "tid":10, "ts":1665401436261511, "dur":137391, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":11, "ts":1665401435379615, "dur":0, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":11, "ts":1665401435379615, "dur":658, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":11, "ts":1665401435380274, "dur":1324, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/MonoBleedingEdge/etc/mono/4.0/settings.map" }}
+,{ "pid":12345, "tid":11, "ts":1665401435381601, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":11, "ts":1665401435381664, "dur":12447, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/MonoBleedingEdge/etc/mono/4.0/settings.map" }}
+,{ "pid":12345, "tid":11, "ts":1665401435394125, "dur":27, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/MonoBleedingEdge/etc/mono/config" }}
+,{ "pid":12345, "tid":11, "ts":1665401435394154, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":11, "ts":1665401435394160, "dur":95398, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/MonoBleedingEdge/etc/mono/config" }}
+,{ "pid":12345, "tid":11, "ts":1665401435489573, "dur":27, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Resources/unity default resources" }}
+,{ "pid":12345, "tid":11, "ts":1665401435489603, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":11, "ts":1665401435489731, "dur":55679, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Resources/unity default resources" }}
+,{ "pid":12345, "tid":11, "ts":1665401435545428, "dur":22, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.UnityWebRequestModule.dll" }}
+,{ "pid":12345, "tid":11, "ts":1665401435545453, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":11, "ts":1665401435545461, "dur":87545, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.UnityWebRequestModule.dll" }}
+,{ "pid":12345, "tid":11, "ts":1665401435633022, "dur":13, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.TerrainPhysicsModule.dll" }}
+,{ "pid":12345, "tid":11, "ts":1665401435633037, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":11, "ts":1665401435633045, "dur":65992, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.TerrainPhysicsModule.dll" }}
+,{ "pid":12345, "tid":11, "ts":1665401435699057, "dur":15, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.ScreenCaptureModule.dll" }}
+,{ "pid":12345, "tid":11, "ts":1665401435699075, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":11, "ts":1665401435699082, "dur":66865, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.ScreenCaptureModule.dll" }}
+,{ "pid":12345, "tid":11, "ts":1665401435765965, "dur":16, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.dll" }}
+,{ "pid":12345, "tid":11, "ts":1665401435765983, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":11, "ts":1665401435765991, "dur":55693, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.dll" }}
+,{ "pid":12345, "tid":11, "ts":1665401435821701, "dur":15, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.ARModule.dll" }}
+,{ "pid":12345, "tid":11, "ts":1665401435821719, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":11, "ts":1665401435821726, "dur":54406, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.ARModule.dll" }}
+,{ "pid":12345, "tid":11, "ts":1665401435876148, "dur":14, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/System.Transactions.dll" }}
+,{ "pid":12345, "tid":11, "ts":1665401435876165, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":11, "ts":1665401435876172, "dur":65984, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/System.Transactions.dll" }}
+,{ "pid":12345, "tid":11, "ts":1665401435942172, "dur":20, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/System.Net.Http.dll" }}
+,{ "pid":12345, "tid":11, "ts":1665401435942195, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":11, "ts":1665401435942201, "dur":133971, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/System.Net.Http.dll" }}
+,{ "pid":12345, "tid":11, "ts":1665401436076192, "dur":16, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/System.ComponentModel.Composition.dll" }}
+,{ "pid":12345, "tid":11, "ts":1665401436076211, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":11, "ts":1665401436076218, "dur":119271, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/System.ComponentModel.Composition.dll" }}
+,{ "pid":12345, "tid":11, "ts":1665401436195503, "dur":14, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/sharedassets0.assets" }}
+,{ "pid":12345, "tid":11, "ts":1665401436195519, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":11, "ts":1665401436195523, "dur":17064, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/sharedassets0.assets" }}
+,{ "pid":12345, "tid":11, "ts":1665401436212610, "dur":19, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/globalgamemanagers.assets.resS" }}
+,{ "pid":12345, "tid":11, "ts":1665401436212632, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":11, "ts":1665401436212640, "dur":3401, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/globalgamemanagers.assets.resS" }}
+,{ "pid":12345, "tid":11, "ts":1665401436216057, "dur":182821, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":12, "ts":1665401435379793, "dur":0, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":12, "ts":1665401435379793, "dur":475, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":12, "ts":1665401435380268, "dur":45, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/MonoBleedingEdge/etc/mono/4.5/DefaultWsdlHelpGenerator.aspx" }}
+,{ "pid":12345, "tid":12, "ts":1665401435380318, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":12, "ts":1665401435381198, "dur":203543, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/MonoBleedingEdge/etc/mono/4.5/DefaultWsdlHelpGenerator.aspx" }}
+,{ "pid":12345, "tid":12, "ts":1665401435584758, "dur":20, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.UIElementsNativeModule.dll" }}
+,{ "pid":12345, "tid":12, "ts":1665401435584780, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":12, "ts":1665401435584787, "dur":45915, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.UIElementsNativeModule.dll" }}
+,{ "pid":12345, "tid":12, "ts":1665401435630719, "dur":15, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.TextCoreFontEngineModule.dll" }}
+,{ "pid":12345, "tid":12, "ts":1665401435630736, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":12, "ts":1665401435630744, "dur":45777, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.TextCoreFontEngineModule.dll" }}
+,{ "pid":12345, "tid":12, "ts":1665401435676539, "dur":14, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.SpriteMaskModule.dll" }}
+,{ "pid":12345, "tid":12, "ts":1665401435676556, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":12, "ts":1665401435676563, "dur":25258, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.SpriteMaskModule.dll" }}
+,{ "pid":12345, "tid":12, "ts":1665401435701837, "dur":14, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.ProfilerModule.dll" }}
+,{ "pid":12345, "tid":12, "ts":1665401435701853, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":12, "ts":1665401435701858, "dur":22695, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.ProfilerModule.dll" }}
+,{ "pid":12345, "tid":12, "ts":1665401435724574, "dur":93, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.InputLegacyModule.dll" }}
+,{ "pid":12345, "tid":12, "ts":1665401435724673, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":12, "ts":1665401435724681, "dur":83001, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.InputLegacyModule.dll" }}
+,{ "pid":12345, "tid":12, "ts":1665401435807702, "dur":16, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.AudioModule.dll" }}
+,{ "pid":12345, "tid":12, "ts":1665401435807743, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":12, "ts":1665401435807752, "dur":50949, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/UnityEngine.AudioModule.dll" }}
+,{ "pid":12345, "tid":12, "ts":1665401435858718, "dur":367352, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/Unity.TextMeshPro.dll" }}
+,{ "pid":12345, "tid":12, "ts":1665401436226080, "dur":2, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":12, "ts":1665401436226093, "dur":1055, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/Unity/GainFoxes_PVCuts/GainFoxes_PVSceneH/GainFoxes_Data/Managed/Unity.TextMeshPro.dll" }}
+,{ "pid":12345, "tid":12, "ts":1665401436227167, "dur":171743, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1665401436401810, "dur":1684, "ph":"X", "name": "ProfilerWriteOutput" }
+,

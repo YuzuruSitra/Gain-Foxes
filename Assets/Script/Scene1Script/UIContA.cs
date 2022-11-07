@@ -7,12 +7,19 @@ public class UIContA : MonoBehaviour
 {
 
     //メインUI
+
+    //チュートリアル用
+    public GameObject TutrialExp;
+    public GameObject HaveMoneyPanel;
+    public GameObject SlaveTurnPanel;
+
     public Text SlaveTx;
     public Text CrimeRateTx;
     public Text HavemoneyT;
     public Text TurnCountText;
 
     public static int PushN;
+    public static int PushNtutorial;
     public GameObject FoxDia1;
     public GameObject FoxDia2;
     public Text FoxDia1_Text;
@@ -52,6 +59,7 @@ public class UIContA : MonoBehaviour
 
     //入荷パネル
     public GameObject DealPanel;
+    public Button DealButton;
     public Text DealItem;
     private int SelectItem_D;
     private string[] D_ItemName = new string[5]; //名前
@@ -144,6 +152,7 @@ public class UIContA : MonoBehaviour
     void Start()
     {
         PushN = 0;
+        PushNtutorial = 0;
         FoxDia1.gameObject.SetActive(false);
         FoxDia2.gameObject.SetActive(false);
         FoxDia3.gameObject.SetActive(false);
@@ -182,6 +191,8 @@ public class UIContA : MonoBehaviour
         //アイテム選択のコンポーネント取得
         SpritePotion = Potionflame.GetComponent<Image>(); //薬
         SpriteStock = Stockflame.GetComponent<Image>(); //株
+
+        TutrialExp.gameObject.SetActive(false);
 
         //アイテム入荷用
         D_ItemName[0] = "どうのつるぎ";
@@ -243,13 +254,25 @@ public class UIContA : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && ClickJudge)
         {
+            if(ParameterCalc.initialPlay)
+            {
+                PushNtutorial += 1;
+                ClickJudge = false;
+            }
+            else
+            {
             PushN += 1;
             ClickJudge = false;
+            }
         }
 
+        //チュートリアル
+        if(ParameterCalc.initialPlay)
+        {
+            Tutorial();
+        }
 
-
-        if (ParameterCalc.GameClear && ParameterCalc.TurnCount == ParameterCalc.PopTurnEvent)  //クリア処理
+        else if (ParameterCalc.GameClear && ParameterCalc.TurnCount == ParameterCalc.PopTurnEvent)  //クリア処理
         {
             ClearIvent();
         }
@@ -267,7 +290,9 @@ public class UIContA : MonoBehaviour
 
         else//通常処理
         {
-
+            FoxDia1_Text.text = "おかしら！\n今日はどんな工作を？";
+            FoxDia2_Text.text = "おかしら！\n次はどんな工作を？";
+            FoxDia3_Text.text = "おかしら。\n今日は何を売る？";
             if (PushN == 1)
             {
                 FoxDia1.gameObject.SetActive(true);
@@ -622,8 +647,6 @@ public class UIContA : MonoBehaviour
 
     /*------------------------------*/
 
-
-
     //戻る
     public void Publi_STRback()
     {
@@ -744,7 +767,6 @@ public class UIContA : MonoBehaviour
         if (HavePotionN)
         {
             D_SpritePotion.sprite = HavePotion;
-            
         }
 
         if (HaveStockN)
@@ -763,12 +785,30 @@ public class UIContA : MonoBehaviour
                 D_NeedPrice.text = ParameterCalc.BrSwordUp + "z必要";
                 D_OfferPrice.text = "売値 : " + ParameterCalc.BrSwordSell + " → " + ParameterCalc.BrSwordSell * 2;
                 D_Button.text = "改良する";
+
+                if (ParameterCalc.HaveMoney >= ParameterCalc.BrSwordUp)
+                {
+                    DealButton.interactable = true;
+                }
+                else
+                {
+                    DealButton.interactable = false;
+                }
                 break;
             case 1: //薬強化
                 DealItem.text = D_ItemName[SelectItem_D] + " Lv." + ParameterCalc.PotionUpCount; //商品名
                 D_NeedPrice.text = ParameterCalc.PotionUp + "z必要";
                 D_OfferPrice.text = "売値 : " + ParameterCalc.PotionSell + " → " + ParameterCalc.PotionSell * 2;
                 D_Button.text = "改良する";
+                
+                if (ParameterCalc.HaveMoney >= ParameterCalc.PotionUp)
+                {
+                    DealButton.interactable = true;
+                }
+                else
+                {
+                    DealButton.interactable = false;
+                }
                 break;
             case 2: //株仕入れ
                 DealItem.text = D_ItemName[SelectItem_D]; //商品名
@@ -777,18 +817,44 @@ public class UIContA : MonoBehaviour
                 D_Button.text = "仕入れる";
                 StockCountPanel.SetActive(true); //株専用パネルオン
                 StockCountText.text = ""+ ParameterCalc.StockReceived;
+
+                if (ParameterCalc.HaveMoney >= ParameterCalc.StockGet * ParameterCalc.StockReceived)
+                {
+                    DealButton.interactable = true;
+                }
+                else
+                {
+                    DealButton.interactable = false;
+                }
                 break;
             case 3: //薬入手
                 DealItem.text = D_ItemName[SelectItem_D]; //商品名
                 D_NeedPrice.text = ParameterCalc.PotionGet + "z必要";
                 D_OfferPrice.text = " ";
                 D_Button.text = "解放する";
+
+                if (ParameterCalc.HaveMoney >= ParameterCalc.PotionGet)
+                {
+                    DealButton.interactable = true;
+                }
+                else
+                {
+                    DealButton.interactable = false;
+                }
                 break;
             case 4: //株解放
                 DealItem.text = D_ItemName[SelectItem_D]; //商品名
                 D_NeedPrice.text = ParameterCalc.StockOpen + "z必要";
                 D_OfferPrice.text = " ";
                 D_Button.text = "解放する";
+                if (ParameterCalc.HaveMoney >= ParameterCalc.StockOpen)
+                {
+                    DealButton.interactable = true;
+                }
+                else
+                {
+                    DealButton.interactable = false;
+                }
                 break;
         }
 
@@ -1055,6 +1121,62 @@ public class UIContA : MonoBehaviour
 
     /*------------------------------------------*/
 
+    /*----------チュートリアル----------*/
+    private void Tutorial()
+    {
+        if (PushNtutorial == 1)
+        {
+            FoxDia1.gameObject.SetActive(true);
+            FoxDia1_Text.text = "おかしら！\n今日もいい朝ですね！";
+            ClickJudge = true;
+        }
+        else if (PushNtutorial == 2)
+        {
+            FoxDia1_Text.text = "ジャンジャン稼ぎましょう！";
+            ClickJudge = true;
+        }
+        else if (PushNtutorial == 3)
+        {
+            FoxDia1_Text.text = "え！稼ぎかた\n忘れたんですか！";
+            ClickJudge = true;
+        }
+        else if (PushNtutorial == 4)
+        {
+            FoxDia1_Text.text = "困ったらこれを見てください！";
+            ClickJudge = true;
+        }
+        else if (PushNtutorial == 5)
+        {
+            TutrialExp.gameObject.SetActive(true);
+            mainUI.gameObject.SetActive(true);
+            FoxDia1.gameObject.SetActive(false);
+            HaveMoneyPanel.gameObject.SetActive(false);
+            SlaveTurnPanel.gameObject.SetActive(false);
+        }
+        else if (PushNtutorial == 6)
+        {
+            FoxDia1.gameObject.SetActive(true);
+            mainUI.gameObject.SetActive(false);
+            HaveMoneyPanel.gameObject.SetActive(true);
+            SlaveTurnPanel.gameObject.SetActive(true);
+            FoxDia1_Text.text = "早速稼ぎましょう！";
+            ClickJudge = true;
+        }
+        else if (PushNtutorial >= 7)
+        {
+            FoxDia1.gameObject.SetActive(false);
+            ParameterCalc.initialPlay = false;
+            PushN = 0;
+            ClickJudge = true;
+        }
+    }
+
+    public void CloseTutorial()
+    {
+        TutrialExp.gameObject.SetActive(false);
+        PushNtutorial += 1;
+    }
+
     /*----------クリアイベント----------*/
     private void ClearIvent()
     {
@@ -1105,6 +1227,7 @@ public class UIContA : MonoBehaviour
         {
             GameClearPanel.SetActive(true);
             ClearResult_Text.text = ParameterCalc.OutPutResult;
+            
         }
 
     }
