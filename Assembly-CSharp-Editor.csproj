@@ -299,25 +299,25 @@
         <HintPath>E:\UnityHub\2021.3.9f1\Editor\Data\PlaybackEngines\WindowsStandaloneSupport\UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.YamlDotNet">
-        <HintPath>E:\Unity\GainFoxes\GainFoxes\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll</HintPath>
+        <HintPath>E:\gitFork\GainFoxes\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.TextureAssets">
-        <HintPath>E:\Unity\GainFoxes\GainFoxes\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\EditorAssetResources\Unity.VisualScripting.TextureAssets.dll</HintPath>
+        <HintPath>E:\gitFork\GainFoxes\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\EditorAssetResources\Unity.VisualScripting.TextureAssets.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.IonicZip">
-        <HintPath>E:\Unity\GainFoxes\GainFoxes\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll</HintPath>
+        <HintPath>E:\gitFork\GainFoxes\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-        <HintPath>E:\Unity\GainFoxes\GainFoxes\Assets\QuickSave\Plugins\jillejr.newtonsoft.json-for-unity@12.0.301\Plugins\Newtonsoft.Json Editor\Newtonsoft.Json.dll</HintPath>
+        <HintPath>E:\gitFork\GainFoxes\Assets\QuickSave\Plugins\jillejr.newtonsoft.json-for-unity@12.0.301\Plugins\Newtonsoft.Json Editor\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
-        <HintPath>E:\Unity\GainFoxes\GainFoxes\Library\PackageCache\com.unity.visualscripting@1.7.8\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
+        <HintPath>E:\gitFork\GainFoxes\Library\PackageCache\com.unity.visualscripting@1.7.8\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="ReportGeneratorMerged">
-        <HintPath>E:\Unity\GainFoxes\GainFoxes\Library\PackageCache\com.unity.testtools.codecoverage@1.0.1\lib\ReportGenerator\ReportGeneratorMerged.dll</HintPath>
+        <HintPath>E:\gitFork\GainFoxes\Library\PackageCache\com.unity.testtools.codecoverage@1.0.1\lib\ReportGenerator\ReportGeneratorMerged.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
-        <HintPath>E:\Unity\GainFoxes\GainFoxes\Library\PackageCache\com.unity.ext.nunit@1.0.6\net35\unity-custom\nunit.framework.dll</HintPath>
+        <HintPath>E:\gitFork\GainFoxes\Library\PackageCache\com.unity.ext.nunit@1.0.6\net35\unity-custom\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
         <HintPath>E:\UnityHub\2021.3.9f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
@@ -701,85 +701,85 @@
         <HintPath>E:\UnityHub\2021.3.9f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Xml.XPath.XDocument.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TestRunner">
-        <HintPath>E:\Unity\GainFoxes\GainFoxes\Library\ScriptAssemblies\UnityEngine.TestRunner.dll</HintPath>
+        <HintPath>E:\gitFork\GainFoxes\Library\ScriptAssemblies\UnityEngine.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.TestRunner">
-        <HintPath>E:\Unity\GainFoxes\GainFoxes\Library\ScriptAssemblies\UnityEditor.TestRunner.dll</HintPath>
+        <HintPath>E:\gitFork\GainFoxes\Library\ScriptAssemblies\UnityEditor.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Flow.Editor">
-        <HintPath>E:\Unity\GainFoxes\GainFoxes\Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
+        <HintPath>E:\gitFork\GainFoxes\Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-        <HintPath>E:\Unity\GainFoxes\GainFoxes\Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
+        <HintPath>E:\gitFork\GainFoxes\Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Postprocessing.Runtime">
-        <HintPath>E:\Unity\GainFoxes\GainFoxes\Library\ScriptAssemblies\Unity.Postprocessing.Runtime.dll</HintPath>
+        <HintPath>E:\gitFork\GainFoxes\Library\ScriptAssemblies\Unity.Postprocessing.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Shared.Editor">
-        <HintPath>E:\Unity\GainFoxes\GainFoxes\Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll</HintPath>
+        <HintPath>E:\gitFork\GainFoxes\Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-        <HintPath>E:\Unity\GainFoxes\GainFoxes\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
+        <HintPath>E:\gitFork\GainFoxes\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
-        <HintPath>E:\Unity\GainFoxes\GainFoxes\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
+        <HintPath>E:\gitFork\GainFoxes\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Performance.Profile-Analyzer.Editor">
-        <HintPath>E:\Unity\GainFoxes\GainFoxes\Library\ScriptAssemblies\Unity.Performance.Profile-Analyzer.Editor.dll</HintPath>
+        <HintPath>E:\gitFork\GainFoxes\Library\ScriptAssemblies\Unity.Performance.Profile-Analyzer.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Model">
-        <HintPath>E:\Unity\GainFoxes\GainFoxes\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll</HintPath>
+        <HintPath>E:\gitFork\GainFoxes\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
-        <HintPath>E:\Unity\GainFoxes\GainFoxes\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
+        <HintPath>E:\gitFork\GainFoxes\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-        <HintPath>E:\Unity\GainFoxes\GainFoxes\Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
+        <HintPath>E:\gitFork\GainFoxes\Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Core.Editor">
-        <HintPath>E:\Unity\GainFoxes\GainFoxes\Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll</HintPath>
+        <HintPath>E:\gitFork\GainFoxes\Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-        <HintPath>E:\Unity\GainFoxes\GainFoxes\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
+        <HintPath>E:\gitFork\GainFoxes\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.State.Editor">
-        <HintPath>E:\Unity\GainFoxes\GainFoxes\Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
+        <HintPath>E:\gitFork\GainFoxes\Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
-        <HintPath>E:\Unity\GainFoxes\GainFoxes\Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
+        <HintPath>E:\gitFork\GainFoxes\Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Sprite.Editor">
-        <HintPath>E:\Unity\GainFoxes\GainFoxes\Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
+        <HintPath>E:\gitFork\GainFoxes\Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection">
-        <HintPath>E:\Unity\GainFoxes\GainFoxes\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll</HintPath>
+        <HintPath>E:\gitFork\GainFoxes\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Postprocessing.Editor">
-        <HintPath>E:\Unity\GainFoxes\GainFoxes\Library\ScriptAssemblies\Unity.Postprocessing.Editor.dll</HintPath>
+        <HintPath>E:\gitFork\GainFoxes\Library\ScriptAssemblies\Unity.Postprocessing.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-        <HintPath>E:\Unity\GainFoxes\GainFoxes\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
+        <HintPath>E:\gitFork\GainFoxes\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-        <HintPath>E:\Unity\GainFoxes\GainFoxes\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
+        <HintPath>E:\gitFork\GainFoxes\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TestTools.CodeCoverage.Editor">
-        <HintPath>E:\Unity\GainFoxes\GainFoxes\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
+        <HintPath>E:\gitFork\GainFoxes\Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-        <HintPath>E:\Unity\GainFoxes\GainFoxes\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
+        <HintPath>E:\gitFork\GainFoxes\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Flow">
-        <HintPath>E:\Unity\GainFoxes\GainFoxes\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
+        <HintPath>E:\gitFork\GainFoxes\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.State">
-        <HintPath>E:\Unity\GainFoxes\GainFoxes\Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
+        <HintPath>E:\gitFork\GainFoxes\Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Core">
-        <HintPath>E:\Unity\GainFoxes\GainFoxes\Library\ScriptAssemblies\Unity.VisualScripting.Core.dll</HintPath>
+        <HintPath>E:\gitFork\GainFoxes\Library\ScriptAssemblies\Unity.VisualScripting.Core.dll</HintPath>
     </Reference>
     <Reference Include="Unity.EditorCoroutines.Editor">
-        <HintPath>E:\Unity\GainFoxes\GainFoxes\Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll</HintPath>
+        <HintPath>E:\gitFork\GainFoxes\Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

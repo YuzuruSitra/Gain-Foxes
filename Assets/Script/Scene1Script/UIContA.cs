@@ -1157,12 +1157,17 @@ public class UIContA : MonoBehaviour
         {
             FoxDia1.gameObject.SetActive(true);
             mainUI.gameObject.SetActive(false);
+            FoxDia1_Text.text = "目標は・・・\n１００万Zです！";
+            ClickJudge = true;
+        }
+        else if (PushNtutorial == 7)
+        {
             HaveMoneyPanel.gameObject.SetActive(true);
             SlaveTurnPanel.gameObject.SetActive(true);
             FoxDia1_Text.text = "早速稼ぎましょう！";
             ClickJudge = true;
         }
-        else if (PushNtutorial >= 7)
+        else if (PushNtutorial >= 8)
         {
             FoxDia1.gameObject.SetActive(false);
             ParameterCalc.initialPlay = false;

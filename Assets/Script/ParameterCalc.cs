@@ -25,13 +25,14 @@ public class ParameterCalc : MonoBehaviour
 
     //民衆倍率
     private static double Poor = 0.7;
+    public static bool PoorDebt; //貧民破産判定
     private static double General = 1.0;
     private static double Millionaire = 1.3;
     private static double Noble = 1.6;
 
     //イベント管理
     public static double CrimeRate = 0.0;
-    public static double PoorMoney = 2000.0;
+    public static double PoorMoney = 100.0;
     public static int Slave = 0;
     public static int ToolType; //どの商品を選んだか
 
@@ -149,6 +150,7 @@ public class ParameterCalc : MonoBehaviour
         usePubli = false;
         publiWay = 1;
         usePray = 0;
+        PoorDebt = false;
 
         //天引き計算用
         Income = 0;
@@ -398,7 +400,9 @@ public class ParameterCalc : MonoBehaviour
                         if (PoorMoney < 0)
                         {
                             //お金をリセットし奴隷追加
-                            PoorMoney = 2000;
+                            PoorMoney = HaveMoney * 0.3f;
+                            PoorDebt = true;
+                            Debug.Log("ひんみん");
                             Slave++;
                         }
                         break;
@@ -432,7 +436,9 @@ public class ParameterCalc : MonoBehaviour
                         if (PoorMoney < 0)
                         {
                             //お金をリセットし奴隷追加
-                            PoorMoney = 2000;
+                            PoorMoney = HaveMoney * 0.3f;
+                            PoorDebt = true;
+                            Debug.Log("ひんみん");
                             Slave++;
                         }
                         break;
@@ -607,7 +613,7 @@ public class ParameterCalc : MonoBehaviour
             OutPutResult = ResultScoreStr[0] + "\n" + ResultScoreStr[1] + "\n" + ResultScoreStr[2];
         }
 
-        //SaveControl.instanceSave.ClearDateSave();
+
     }
 
     //スコア並べ替え用関数

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 478363310120076503}
   - component: {fileID: 478363310120076502}
-  - component: {fileID: 478363310120076501}
+  - component: {fileID: 7146189794601711795}
   - component: {fileID: 478363310120076500}
   - component: {fileID: 478363310120076498}
   - component: {fileID: 478363310120076497}
@@ -89,7 +89,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &478363310120076501
+--- !u!114 &7146189794601711795
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -98,11 +98,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 478363310120076496}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06f5e60f666cd4ce79a9b770f056a7bc, type: 3}
+  m_Script: {fileID: 11500000, guid: 709137f502cc7f94b9943e39e1ee213c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goala: {fileID: 4151795805634340367, guid: 1cb3ddd0703eb42ffab64d05e31a7ae9, type: 3}
-  goalb: {fileID: 3242524370267545125, guid: 0691a632b9b6648428fe5cfdbdd2a9bf, type: 3}
+  Hingoala: {fileID: 4151795805634340367, guid: 1cb3ddd0703eb42ffab64d05e31a7ae9, type: 3}
+  Hingoalb: {fileID: 3242524370267545125, guid: 0691a632b9b6648428fe5cfdbdd2a9bf, type: 3}
 --- !u!95 &478363310120076500
 Animator:
   serializedVersion: 4
@@ -147,7 +147,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 478363310120076496}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.293056, y: 0.603242, z: 0.2}
