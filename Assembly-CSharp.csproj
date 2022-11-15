@@ -43,6 +43,7 @@
      <Compile Include="Assets\QuickSave\Core\Converters\Vector2Converter.cs" />
      <Compile Include="Assets\2DAssets\Free HDR Skyboxes Pack\Example Scenes\Script\RotateCamera.cs" />
      <Compile Include="Assets\CreateScene\Standard Assets\Environment\Water\Water\Scripts\PlanarReflection.cs" />
+     <Compile Include="Assets\Script\Scene2Script\hinminAnim.cs" />
      <Compile Include="Assets\CreateScene\Standard Assets\Environment\Water (Basic)\Scripts\WaterBasic.cs" />
      <Compile Include="Assets\QuickSave\Core\Converters\Vector4Converter.cs" />
      <Compile Include="Assets\QuickSave\QuickSaveSettings.cs" />
@@ -77,6 +78,8 @@
      <Compile Include="Assets\QuickSave\QuickSaveException.cs" />
      <Compile Include="Assets\QuickSave\Core\Converters\QuaternionConverter.cs" />
      <Compile Include="Assets\Script\Scene1Script\Player_OverWalk.cs" />
+     <Compile Include="Assets\Script\GameSettings.cs" />
+     <Compile Include="Assets\Script\SoundCnt\soundCnt.cs" />
      <Compile Include="Assets\Script\Scene1Script\Scene1_NinA.cs" />
      <Compile Include="Assets\QuickSave\Core\Storage\FileAccess.cs" />
      <Compile Include="Assets\Script\Scene1Script\SceneCnt_A.cs" />
@@ -88,6 +91,7 @@
      <Compile Include="Assets\Script\Scene1Script\StrExpText.cs" />
      <Compile Include="Assets\Script\Scene2Script\Volume_B.cs" />
      <Compile Include="Assets\QuickSave\Example\ExampleSceneManagerController.cs" />
+     <Compile Include="Assets\Script\StateManagement.cs" />
      <Compile Include="Assets\CreateScene\Standard Assets\Environment\Water\Water\Scripts\WaterBase.cs" />
      <Compile Include="Assets\CreateScene\Standard Assets\Environment\Water\Water\Scripts\MeshContainer.cs" />
      <Compile Include="Assets\PV\PV_hinmin.cs" />
@@ -100,7 +104,6 @@
      <Compile Include="Assets\Script\Scene2Script\hinmin.cs" />
      <Compile Include="Assets\QuickSave\CompressionMode.cs" />
      <Compile Include="Assets\PV\PV_AnimFine.cs" />
-     <Compile Include="Assets\Script\Scene2Script\hinminAnim.cs" />
      <None Include="Assets\Cainos\Pixel Art Icon Pack - RPG\Shader\SH UI Icon Outline Color.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />

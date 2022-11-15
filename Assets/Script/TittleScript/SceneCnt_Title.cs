@@ -6,12 +6,18 @@ using UnityEngine.SceneManagement;
 
 public class SceneCnt_Title : MonoBehaviour
 {
-
 	public float fadeSpeed = 0.8f;        //透明度が変わるスピードを管理
 	public static float red, green, blue, alfa;   //パネルの色、不透明度を管理
 	public static bool isFadeOut_Ti = false;  //フェードアウト処理の開始、完了を管理するフラグ
 	private bool isFadeIn = false;   //フェードイン処理の開始、完了を管理するフラグ
 	public GameObject fadePanel;
+	public GameObject settingPanel;
+	public GameObject confirmationPanel;
+	public GameObject doneDeletePanel;
+
+	//サウンド用スクリプト取得
+	public soundCnt sound;
+	public AudioClip titleBGM;
 
 	private Image fadeImage;                //透明度を変更するパネルのイメージ
 
@@ -26,6 +32,14 @@ public class SceneCnt_Title : MonoBehaviour
 		green = fadeImage.color.g;
 		blue = fadeImage.color.b;
 		alfa = fadeImage.color.a;
+
+		//パネルを閉じる
+		settingPanel.gameObject.SetActive(false);
+		confirmationPanel.gameObject.SetActive(false);
+		doneDeletePanel.gameObject.SetActive(false);
+
+		//bgm再生
+		sound.PlayBgm(titleBGM);
 	}
 
 	void Update()
@@ -64,6 +78,43 @@ public class SceneCnt_Title : MonoBehaviour
 			//シーンのロードを挟む
 			SceneManager.LoadScene("Scene_A");
 		}
+	}
+
+	//設定パネルオープン
+	public void OpenSetPanel()
+	{
+		settingPanel.SetActive(true);		
+	}
+	//設定パネルクローズ
+	public void CloseSetPanel()
+	{
+		settingPanel.SetActive(false);		
+	}
+
+	//削除パネルオープン
+	public void OpenconfirmationPanel()
+	{
+		confirmationPanel.SetActive(true);
+	}
+
+	//削除パネルクローズ
+	public void CloseconfirmationPanel()
+	{
+		confirmationPanel.SetActive(false);
+	}
+
+	//削除完了パネル
+	public void OpenDeletePanel()
+	{
+		doneDeletePanel.SetActive(true);
+	}
+
+	//削除完了クローズ
+	public void CloseDeletePanel()
+	{
+		settingPanel.SetActive(false);	
+		confirmationPanel.SetActive(false);
+		doneDeletePanel.SetActive(false);
 	}
 
 	void SetAlpha()

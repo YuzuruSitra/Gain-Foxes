@@ -6,12 +6,11 @@ using CI.QuickSave;
 public class SaveControl : MonoBehaviour
 {
     public static bool NewGame;
-    //public static bool LoadJ;
-    private bool NewGame1;
 
-    //���̃X�N���v�g���烁�\�b�h���Ăׂ�悤��
+    //他スクリプトでも呼べるようにインスタンス化
     public static SaveControl instanceSave;
     private int i;
+    
 
     public void Awake()
     {
@@ -21,10 +20,10 @@ public class SaveControl : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
+
     void Start()
     {
-        // �f�[�^�̕ۑ����Application.dataPath�ɕύX
+        // データの保存先をApplication.dataPathに変更
         QuickSaveGlobalSettings.StorageLocation = Application.dataPath;
 
         DoEncryption();
@@ -32,46 +31,42 @@ public class SaveControl : MonoBehaviour
     }
 
 
-    void DoEncryption()//�Í����p
+    private void DoEncryption()//暗号化処理
     {
-        // QuickSaveSettings�̃C���X�^���X���쐬-�Í����p
+        // QuickSaveSettingsのインスタンスを作成
         QuickSaveSettings settings = new QuickSaveSettings();
-
-        // �Í����̕��@ 
+        // 暗号化の方法
         settings.SecurityMode = SecurityMode.None;
-        // Aes�̈Í����L�[
+        // 暗号化キー
         settings.Password = "Pass";
-        // ���k�̕��@
+        // 圧縮の方法
         settings.CompressionMode = CompressionMode.Gzip;
     }
 
     
-    //���N�����ۂ��̏���
+    //セーブデータチェック
     void CheckSave()
     {
-        // QuickSaveSettings�̃C���X�^���X���쐬-�Í����p
+        // QuickSaveSettingsのインスタンスを作成
         QuickSaveSettings settings = new QuickSaveSettings();
-        // QuickSaveReader�̃C���X�^���X���쐬-load�p
+        // QuickSaveReaderのインスタンスを作成
         QuickSaveReader reader = QuickSaveReader.Create("Player", settings);
 
-        // �f�[�^��ǂݍ���
-
-
+        // 新規ゲーム判定の読み込み
         NewGame = reader.Read<bool>("newGame");
     }
 
 
-    //�^�[���I���Ɏ��s
+    //基本セーブ処理
     public void Dosave()
     {
-        // QuickSaveSettings�̃C���X�^���X���쐬-�Í����p
+        // QuickSaveSettingsのインスタンスを作成
         QuickSaveSettings settings = new QuickSaveSettings();
-
-        // QuickSaveWriter�̃C���X�^���X���쐬-save�p
+        // QuickSaveWriterのインスタンスを作成
         QuickSaveWriter writer = QuickSaveWriter.Create("Player",settings);
 
 
-        // �f�[�^����������
+        // データを書き込む
         writer.Write("newGame", NewGame);
         writer.Write("turnCount", ParameterCalc.TurnCount);
         writer.Write("haveMoney", ParameterCalc.HaveMoney);
@@ -98,22 +93,22 @@ public class SaveControl : MonoBehaviour
         writer.Write("resultScore2", ParameterCalc.ResultScore[2]);
 
         i = 0;
-        //�����x��
+        //子分給料セーブ
         while (i <= ParameterCalc.TurnCount)
         {
             writer.Write("payCheck" + i, ParameterCalc.Paycheck[i]);
             i++;
         }
-        // �ύX�𔽉f
+        // 変更を反映
         writer.Commit();
     }
 
-    //�X�^�[�g��ʂŎ��s
+    // データを読み込む
     public void Doload()
-    {
-        // QuickSaveSettings�̃C���X�^���X���쐬-�Í����p
+    {        
+        // QuickSaveSettingsのインスタンスを作成
         QuickSaveSettings settings = new QuickSaveSettings();
-        // QuickSaveReader�̃C���X�^���X���쐬-load�p
+        // QuickSaveReaderのインスタンスを作成
         QuickSaveReader reader = QuickSaveReader.Create("Player", settings);
         
         ParameterCalc.TurnCount = reader.Read<int>("turnCount");
@@ -141,7 +136,7 @@ public class SaveControl : MonoBehaviour
         ParameterCalc.ResultScore[2] = reader.Read<int>("resultScore2");
 
         i = 0;
-        //�����x��
+        //子分給料読み込み
         while (i <= ParameterCalc.TurnCount)
         {
             ParameterCalc.Paycheck[i] = reader.Read<int>("payCheck" + i);
@@ -150,45 +145,43 @@ public class SaveControl : MonoBehaviour
         
     }
 
-    //�f�[�^�폜����
+    //データ削除
     public void DeleteDate()
     {
-        // QuickSaveSettings�̃C���X�^���X���쐬-�Í����p
+        // QuickSaveSettingsのインスタンスを作成
         QuickSaveSettings settings = new QuickSaveSettings();
-
-        // QuickSaveWriter�̃C���X�^���X���쐬-save�p
+        // QuickSaveWriterのインスタンスを作成
         QuickSaveWriter writer = QuickSaveWriter.Create("Player", settings);
 
 
         NewGame = true;
 
-        // �f�[�^����������
+        // ニューゲーム
         writer.Write("newGame", NewGame);
 
-        //�N���A�X�R�A�̓��Z�b�g
+        //リザルト削除処理
         writer.Write("resultScore0", 0);
         writer.Write("resultScore1", 0);
         writer.Write("resultScore2", 0);
 
-        // �ύX�𔽉f
+        // データを書き込む
         writer.Commit();
     }
     
-    //�N���A�f�[�^�ۑ�����
+    //クリア後のセーブ処理
     public void ClearDateSave()
     {
-        // QuickSaveSettings�̃C���X�^���X���쐬-�Í����p
+        // QuickSaveSettingsのインスタンスを作成
         QuickSaveSettings settings = new QuickSaveSettings();
-
-        // QuickSaveWriter�̃C���X�^���X���쐬-save�p
+        // QuickSaveWriterのインスタンスを作成
         QuickSaveWriter writer = QuickSaveWriter.Create("Player", settings);
 
 
-        //�j���[�Q�[���ł͂Ȃ�
+        //クリア済みなので新規データはfalse
         NewGame = false;
         writer.Write("newGame", NewGame);
 
-        // �f�[�^�������ɖ߂��ĕۑ�
+        //初期値をセット
         writer.Write("turnCount", 0);
         writer.Write("haveMoney", 1000);
         writer.Write("crimeRate", 0.0);
@@ -209,12 +202,12 @@ public class SaveControl : MonoBehaviour
         writer.Write("haveStockJ", false);
         writer.Write("stockQuantity", 0);
 
-        //�N���A�X�R�A�͕ۑ�
+        //スコアの書き込み
         writer.Write("resultScore0", ParameterCalc.ResultScore[0]);
         writer.Write("resultScore1", ParameterCalc.ResultScore[1]);
         writer.Write("resultScore2", ParameterCalc.ResultScore[2]);
 
-        // �ύX�𔽉f
+        // 変更を反映
         writer.Commit();
     }
 }

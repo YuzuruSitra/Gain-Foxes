@@ -12,6 +12,7 @@ TagManager:
   - S1Tb1
   - InsPeople
   - PlTA
+  - SoundManager
   layers:
   - Default
   - TransparentFX
