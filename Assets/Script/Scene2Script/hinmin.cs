@@ -12,9 +12,18 @@ public class hinmin : MonoBehaviour
 
     private NavMeshAgent agent;     //エージェントとなるオブジェクトのNavMeshAgent格納用 
  
+ 	//サウンド用スクリプト取得
+	[SerializeField] 
+    private soundCnt soundB;
+    [SerializeField] 
+    private AudioClip dropMoneySE;
+
 	// Use this for initialization
 	void Start () 
     {
+    /*---bgm設定---*/
+    soundB = GameObject.Find("SoundManager").GetComponent<soundCnt> ();
+
     animator = GetComponent<Animator>();
     //エージェントのNaveMeshAgentを取得する
     agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
@@ -36,27 +45,6 @@ public class hinmin : MonoBehaviour
         }
     }
 
-    /*
-    //人と当たった時の処理
-    void OnCollisionEnter(Collision other)
-    {
-        if (other.gameObject.CompareTag("InsPeople"))
-        {
-            GetComponent<NavMeshAgent>().isStopped = true;
-            Debug.Log("aaa");
-        }
-        Debug.Log("hit");
-    }
-
-    void OnCollisionExit(Collision other)
-    {
-        if (other.gameObject.CompareTag("InsPeople"))
-        {
-            //GetComponent<NavMeshAgent>().isStopped = false;
-        }
-    }
-    */
-
     IEnumerator AnimCont()
     {
         //PV用後で消して下の奴に替える
@@ -64,7 +52,9 @@ public class hinmin : MonoBehaviour
         Volume_B.ShuAnim++;
         GetComponent<NavMeshAgent>().isStopped = true;
         animator.SetBool("isFront", true);
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(0.5f);
+        soundB.PlaySe(dropMoneySE);
+        yield return new WaitForSeconds(1.5f);
         animator.SetBool("isFront",false);
         GetComponent<NavMeshAgent>().isStopped = false;
         agent.destination = goalb.position;

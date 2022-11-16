@@ -13,6 +13,7 @@ TagManager:
   - InsPeople
   - PlTA
   - SoundManager
+  - SettingsPanel
   layers:
   - Default
   - TransparentFX

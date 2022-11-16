@@ -10,10 +10,35 @@ public class LogSystem : MonoBehaviour
     private string[] PeopleKindText = new string[5]; //種類ごとに出力するテキストを変更
     private string[] words; //テキスト処理用
 
+	[SerializeField] 
+    private soundCnt soundCLog;
+	[SerializeField] 
+    private AudioClip LogFlowSE;
+    private bool readNowLog = false;
+    private bool delayTextSELog = true;
+
     void Start()
     {
+        /*---bgm設定---*/
+        soundCLog = GameObject.Find("SoundManager").GetComponent<soundCnt> ();
+
         LogText = "";
         GenerateLog();
+    }
+
+    void Update()
+    {
+        /*--------SE--------*/
+        if(readNowLog)
+        {
+            Debug.Log("aaaaaa");
+            if(delayTextSELog)//1.045秒毎に再生
+            {
+                TextFlowSELog();
+                delayTextSELog = false;
+                Invoke("DelayTextSE",1.045f);
+            }
+        }
     }
 
     void GenerateLog()
@@ -92,18 +117,46 @@ public class LogSystem : MonoBehaviour
     //テキスト処理
     IEnumerator WriteResult()
     {
+        Debug.Log("ccccccccc");
         ChangeLogTex.text = "";
+        readNowLog = true; //文字表示用SE開始
 
         // 半角スペースで文字を分割する。
         words = LogText.Split(' ');
 
+        /*--SE用--*/
+        int finSE = words.Length - 12; //文字の長さを取得用
+        int finTime = 0; //再生終了タイミング用
+        if(finSE < 0)
+        {
+            finSE = 1;
+        }
+        /*--------*/
+
         foreach (var word in words)
         {
-
+            finTime++;
             // 0.1秒刻みで１文字ずつ表示する。
             ChangeLogTex.text = ChangeLogTex.text + word;
             yield return new WaitForSeconds(0.04f);
-
+            if(finSE < finTime)
+            {
+                readNowLog = false; //文字表示用SE終了
+            }
         }
+
+        readNowLog = false; //文字表示用SE終了
     }
+
+    /*--------------SE----------------*/
+    private void TextFlowSELog()
+    {
+        soundCLog.PlaySe(LogFlowSE);
+    }
+    private void DelayTextSE()
+    {
+        delayTextSELog = true;
+    }
+
+    /*--------------------------------*/
 }

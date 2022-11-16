@@ -1004,6 +1004,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2123329071}
+        m_TargetAssemblyTypeName: SceneCnt_Title, Assembly-CSharp
+        m_MethodName: PushButtonSE
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &315093383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1221,11 +1233,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundManager: {fileID: 1833681138}
+  Settings: {fileID: 404267594}
   sliderBGM: {fileID: 808116031}
   sliderSE: {fileID: 230036196}
   BGMtext: {fileID: 1087082262}
   SEtext: {fileID: 1097623435}
-  Settings: {fileID: 404267594}
 --- !u!1001 &398241469
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1413,13 +1425,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 404267593}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.3971697, y: -2.5171404, z: -10.463085}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_Father: {fileID: 1833681139}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &415087731
 GameObject:
@@ -1905,6 +1917,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2123329071}
+        m_TargetAssemblyTypeName: SceneCnt_Title, Assembly-CSharp
+        m_MethodName: PushButtonSE
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &546029913
 GameObject:
   m_ObjectHideFlags: 0
@@ -2180,6 +2204,18 @@ MonoBehaviour:
       - m_Target: {fileID: 393415727}
         m_TargetAssemblyTypeName: GameSettings, Assembly-CSharp
         m_MethodName: CommitSettings
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2123329071}
+        m_TargetAssemblyTypeName: SceneCnt_Title, Assembly-CSharp
+        m_MethodName: PushButtonSE
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3118,6 +3154,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2123329071}
+        m_TargetAssemblyTypeName: SceneCnt_Title, Assembly-CSharp
+        m_MethodName: PushButtonSE
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &909142916
 GameObject:
   m_ObjectHideFlags: 0
@@ -3837,6 +3885,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2123329071}
         m_TargetAssemblyTypeName: SceneCnt_Title, Assembly-CSharp
         m_MethodName: CloseconfirmationPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2123329071}
+        m_TargetAssemblyTypeName: SceneCnt_Title, Assembly-CSharp
+        m_MethodName: PushButtonSE
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5212,6 +5272,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2123329071}
+        m_TargetAssemblyTypeName: SceneCnt_Title, Assembly-CSharp
+        m_MethodName: PushButtonSE
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1313896690
 GameObject:
   m_ObjectHideFlags: 0
@@ -5378,6 +5450,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2123329071}
         m_TargetAssemblyTypeName: SceneCnt_Title, Assembly-CSharp
         m_MethodName: CloseDeletePanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2123329071}
+        m_TargetAssemblyTypeName: SceneCnt_Title, Assembly-CSharp
+        m_MethodName: PushButtonSE
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11283,6 +11367,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2123329071}
+        m_TargetAssemblyTypeName: SceneCnt_Title, Assembly-CSharp
+        m_MethodName: PushButtonSE
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1539843045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11516,6 +11612,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2123329071}
         m_TargetAssemblyTypeName: SceneCnt_Title, Assembly-CSharp
         m_MethodName: NextScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2123329071}
+        m_TargetAssemblyTypeName: SceneCnt_Title, Assembly-CSharp
+        m_MethodName: PushButtonSE
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12508,7 +12616,7 @@ GameObject:
   - component: {fileID: 1813903437}
   m_Layer: 5
   m_Name: SettingBackPanel
-  m_TagString: Untagged
+  m_TagString: SettingsPanel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12940,6 +13048,7 @@ Transform:
   m_Children:
   - {fileID: 831162841}
   - {fileID: 378969142}
+  - {fileID: 404267595}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -14234,6 +14343,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2123329071}
+        m_TargetAssemblyTypeName: SceneCnt_Title, Assembly-CSharp
+        m_MethodName: PushButtonSE
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &2021638191
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14568,6 +14689,18 @@ MonoBehaviour:
       - m_Target: {fileID: 909142917}
         m_TargetAssemblyTypeName: SaveControl, Assembly-CSharp
         m_MethodName: DeleteDate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2123329071}
+        m_TargetAssemblyTypeName: SceneCnt_Title, Assembly-CSharp
+        m_MethodName: PushButtonSE
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15001,4 +15134,5 @@ MonoBehaviour:
   confirmationPanel: {fileID: 1383504891}
   doneDeletePanel: {fileID: 2014747604}
   sound: {fileID: 1833681138}
-  titleBGM: {fileID: 8300000, guid: db9336a0d3959c04192c9f5e6e262262, type: 3}
+  titleBGM: {fileID: 8300000, guid: f8df52bb3b11d304a90a09b0fa59eb69, type: 3}
+  pushButtonSE: {fileID: 8300000, guid: 46690ea2113b5564f9fb2c8e3c8bfd57, type: 3}

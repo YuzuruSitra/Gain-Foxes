@@ -103,6 +103,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Hingoala: {fileID: 4151795805634340367, guid: 1cb3ddd0703eb42ffab64d05e31a7ae9, type: 3}
   Hingoalb: {fileID: 3242524370267545125, guid: 0691a632b9b6648428fe5cfdbdd2a9bf, type: 3}
+  soundB: {fileID: 0}
+  dropMoneySE: {fileID: 8300000, guid: 0b18b1621e27ec34a82313cc57d95a2c, type: 3}
 --- !u!95 &478363310120076500
 Animator:
   serializedVersion: 4

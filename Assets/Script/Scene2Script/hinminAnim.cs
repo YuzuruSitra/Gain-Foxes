@@ -10,10 +10,19 @@ public class hinminAnim : MonoBehaviour
     public Transform Hingoalb; 
 
     private NavMeshAgent Hinagent;     //エージェントとなるオブジェクトのNavMeshAgent格納用 
- 
+  	//サウンド用スクリプト取得
+	[SerializeField] 
+    private soundCnt soundBhin;
+    [SerializeField] 
+    private AudioClip dropMoneySE;
+
+
 	// Use this for initialization
 	void Start () 
     {
+    /*---bgm設定---*/
+    soundBhin = GameObject.Find("SoundManager").GetComponent<soundCnt> ();
+
     animator = GetComponent<Animator>();
     //エージェントのNaveMeshAgentを取得する
     Hinagent = GetComponent<UnityEngine.AI.NavMeshAgent>();
@@ -40,7 +49,9 @@ public class hinminAnim : MonoBehaviour
         Volume_B.ShuAnim++;
         GetComponent<NavMeshAgent>().isStopped = true;
         animator.SetBool("isFront", true);
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(0.5f);
+        soundBhin.PlaySe(dropMoneySE);
+        yield return new WaitForSeconds(1.5f);
         animator.SetBool("isFront",false);
         GetComponent<NavMeshAgent>().isStopped = false;
         yield return new WaitForSeconds(1.0f);

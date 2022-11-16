@@ -24,10 +24,23 @@ public class Volume_B : MonoBehaviour
     //画面遷移
     private bool trnOne;
 
+    //サウンド用スクリプト取得
+	[SerializeField] 
+    private soundCnt soundB;
+	public AudioClip sceneB_BGM;
+    
+    [SerializeField] 
+    private AudioClip pushButtonSE;
+    //[SerializeField] 
+    //private AudioClip buyNewItemsSE;
 
     // Start is called before the first frame update
     void Start()
     {
+        /*---bgm設定---*/
+        soundB = GameObject.Find("SoundManager").GetComponent<soundCnt> ();
+        soundB.PlayBgm(sceneB_BGM);
+
         trnOne = true;
         
 
@@ -122,4 +135,14 @@ public class Volume_B : MonoBehaviour
     {
         SceneCnt_B.isFadeOut_B = true;
     }
+
+    /*--------------SE----------------*/
+
+    //ボタン押したときの音
+	public void PushButtonSE_B()
+	{
+		soundB.PlaySe(pushButtonSE);
+	}
+
+    /*--------------------------------*/
 }

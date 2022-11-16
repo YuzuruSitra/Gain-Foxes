@@ -5,16 +5,16 @@ using UnityEngine.UI;
 
 public class GameSettings : MonoBehaviour
 {
+    [SerializeField] 
+    private soundCnt soundManager; 
+    //設定管理用と紐づけ
     [SerializeField]
-    soundCnt soundManager; 
-    [SerializeField]
+    private StateManagement Settings; 
     public Slider sliderBGM;
     public Slider sliderSE;
     public Text BGMtext;
     public Text SEtext;
 
-    //設定管理用と紐づけ
-    public StateManagement Settings;
 
     void Awake()
     {
@@ -23,6 +23,8 @@ public class GameSettings : MonoBehaviour
 
     void Start()
     {
+        soundManager = GameObject.Find("SoundManager").GetComponent<soundCnt> ();
+        Settings = GameObject.Find("StateManagement").GetComponent<StateManagement> ();;
         //起動時に前回設定のセット
         launchScreenMode();
         launchVolume();

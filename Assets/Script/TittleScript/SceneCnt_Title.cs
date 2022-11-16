@@ -18,8 +18,10 @@ public class SceneCnt_Title : MonoBehaviour
 	//サウンド用スクリプト取得
 	public soundCnt sound;
 	public AudioClip titleBGM;
+    [SerializeField] 
+    private AudioClip pushButtonSE;
 
-	private Image fadeImage;                //透明度を変更するパネルのイメージ
+	private Image fadeImage;	//透明度を変更するパネルのイメージ
 
 	void Start()
 	{
@@ -54,6 +56,12 @@ public class SceneCnt_Title : MonoBehaviour
 		{
 			StartFadeOut();
 		}
+	}
+
+	//ボタン押したときの音
+	public void PushButtonSE()
+	{
+		sound.PlaySe(pushButtonSE);
 	}
 
 	void StartFadeIn()

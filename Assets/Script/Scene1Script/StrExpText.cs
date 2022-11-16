@@ -20,7 +20,7 @@ public class StrExpText : MonoBehaviour
         //戦略説明をセット
 
         //デフォ
-        talks[0] = "     今 日 の 戦 略 を 子 分 た ち に 伝 え よ う 。 ";
+        talks[0] = "今日の戦略を子分たちに伝えよう。";
         //噂
         talks[1] = "     　　噂 を 流 す　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 民 衆 に 噂 を 流 し 、 貧 民 を 出 現 さ せ や す く す る 。";
         //祈り
@@ -33,8 +33,7 @@ public class StrExpText : MonoBehaviour
         talks[5] = "     　　仕 入 れ る　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 新 た な 商 品 を 仕 入 れ る 。 ";
 
         // 会話フィールドをリセットする。
-        textLabel.text = "";
-        StartCoroutine(Dialogue());
+        textLabel.text = talks[0];
     }
 
     // ボタンを押すと会話スタート
@@ -52,18 +51,33 @@ public class StrExpText : MonoBehaviour
     IEnumerator Dialogue()
     {
         RunDispo = false;//処理中に他のパネルの選択を出来なくする
+        UIContA.readNow = true;
 
         // 半角スペースで文字を分割する。
         words = talks[UIContA.SelectStr].Split(' ');
+        
+        /*--SE用--*/
+        int finSE = words.Length - 50; //文字の長さを取得用
+        int finTime = 0; //再生終了タイミング用
+        if(finSE < 0)
+        {
+            finSE = 1;
+        }
+        /*--------*/
 
         foreach (var word in words)
         {
- 
+            finTime++;
             // 0.1秒刻みで１文字ずつ表示する。
             textLabel.text = textLabel.text + word;
             yield return new WaitForSeconds(0.02f);
-
+            if(finSE < finTime)
+            {
+                UIContA.readNow = false; //文字表示用SE終了
+            }
+            UIContA.readNow = false; //文字表示用SE終了
         }
         RunDispo = true; //他のパネルの選択を可能にする
+        Debug.Log("a");
     }
 }

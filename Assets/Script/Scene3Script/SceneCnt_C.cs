@@ -13,10 +13,20 @@ public class SceneCnt_C : MonoBehaviour
 	public GameObject fadePanel_C;
 
 	private Image fadeImage_C;                //透明度を変更するパネルのイメージ
-
+    
+	//サウンド用スクリプト取得
+	[SerializeField] 
+    private soundCnt soundC;
+	public AudioClip sceneC_BGM;
+	[SerializeField] 
+    private AudioClip pushButtonSE;
 
 	void Start()
 	{
+        /*---bgm設定---*/
+        soundC = GameObject.Find("SoundManager").GetComponent<soundCnt> ();
+        soundC.PlayBgm(sceneC_BGM);
+
 		fadePanel_C.gameObject.SetActive(true);
 		isFadeIn = true;
 		//コンポーネント取得・利用
@@ -86,4 +96,14 @@ public class SceneCnt_C : MonoBehaviour
 	{
 		isFadeOut_C = true;
 	}
+
+	/*--------------SE----------------*/
+
+    //ボタン押したときの音
+	public void PushButtonSE_C()
+	{
+		soundC.PlaySe(pushButtonSE);
+	}
+
+    /*--------------------------------*/
 }

@@ -56,7 +56,6 @@
      <Compile Include="Assets\QuickSave\Core\Converters\Vector3Converter.cs" />
      <Compile Include="Assets\CreateScene\Standard Assets\Environment\Water\Water\Scripts\GerstnerDisplace.cs" />
      <Compile Include="Assets\Script\Scene3Script\SceneCnt_C.cs" />
-     <Compile Include="Assets\Script\Scene3Script\Volume_C.cs" />
      <Compile Include="Assets\Script\Scene1Script\UIContA.cs" />
      <Compile Include="Assets\QuickSave\Core\Settings\Compression.cs" />
      <Compile Include="Assets\PV\GenePeople_eveni.cs" />

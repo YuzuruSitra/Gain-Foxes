@@ -115,6 +115,23 @@ public class UIContA : MonoBehaviour
     public static bool GameOverFade = false;
     public GameObject GameOverPanel;
 
+    //サウンド用スクリプト取得
+	[SerializeField] 
+    private soundCnt soundA;
+	public AudioClip sceneA_BGM;
+    public AudioClip gameClearBGM;
+    public AudioClip gameOverBGM;
+
+    [SerializeField] 
+    private AudioClip pushButtonSE;
+    [SerializeField] 
+    private AudioClip buyNewItemsSE;
+    [SerializeField] 
+    private AudioClip textFlowSE;
+    public static bool readNow = false;
+    private bool delayTextSE = true;
+    
+
     /*---------商品選択用----------*/
 
     //入手後の素材
@@ -209,6 +226,23 @@ public class UIContA : MonoBehaviour
         ItemExp[2] = " 市 場 価 格 が 安 定 し な い 株 。 　　　　　　　大 き く 稼 げ そ う だ が そ の 裏 で は 多 く の リ ス ク を は ら ん で い る 。 ";
         ItemExp[3] = "     ";
         ItemExp[4] = "     ";
+
+        /*---bgm設定---*/
+        soundA = GameObject.Find("SoundManager").GetComponent<soundCnt> ();
+
+        if (ParameterCalc.GameClear && ParameterCalc.TurnCount == ParameterCalc.PopTurnEvent)  //クリア処理
+        {
+           soundA.PlayBgm(gameClearBGM);
+        }
+        else if(ParameterCalc.GameOver && ParameterCalc.TurnCount == ParameterCalc.PopTurnEvent) //ゲームオーバー処理
+        {
+            soundA.PlayBgm(gameOverBGM);
+        }
+        else    //通常BGM
+        {
+            soundA.PlayBgm(sceneA_BGM);
+        }
+
 
     }
 
@@ -383,6 +417,23 @@ public class UIContA : MonoBehaviour
                 SceneCnt_A.isFadeOut_A = true;
             }
         }
+
+        /*--------SE--------*/
+
+        if(readNow)
+        {
+            if(delayTextSE)//1.045秒毎に再生
+            {
+                TextFlowSE();
+                delayTextSE = false;
+                Invoke("DelayTextSE",1.045f);
+            }
+        }
+    }
+
+    private void DelayTextSE()
+    {
+        delayTextSE = true;
     }
 
     //戦略選択
@@ -613,36 +664,49 @@ public class UIContA : MonoBehaviour
             publiDoneBt.interactable = false;
         }
         StartCoroutine(publiSay());
-        Debug.Log(ParameterCalc.usePubli);
+        
     }
 
     //交渉パネル二人の会話処理
     IEnumerator publiSay()
     {
         RunDispo = false;
+        readNow = true; //文字表示用SE開始
+
         publiPlayerText.text = "";
         publiOtherText.text = "";
-
 
         words = publiPlayerSay.Split(' ');
         foreach (var word in words)
         {
-
-
             publiPlayerText.text = publiPlayerText.text + word;
             yield return new WaitForSeconds(0.05f);
 
         }
-
         words = publiOtherSay.Split(' ');
+        
+        /*--SE用--*/
+        int finSE = words.Length - 20; //文字の長さを取得用
+        int finTime = 0; //再生終了タイミング用
+        if(finSE < 0)
+        {
+            finSE = 1;
+        }
+        /*--------*/
+        
         foreach (var word in words)
         {
+            finTime ++;
             publiOtherText.text = publiOtherText.text + word;
             yield return new WaitForSeconds(0.05f);
-
+            if(finSE == finTime)
+            {
+                readNow = false; //文字表示用SE終了
+            }
         }
-
+        readNow = false; //文字表示用SE終了
         RunDispo = true; 
+        
     }
 
     /*------------------------------*/
@@ -919,6 +983,7 @@ public class UIContA : MonoBehaviour
     IEnumerator D_ExpLog()
     {
         RunDispo = false; //処理中に他のパネルの選択を出来なくする
+        readNow = true; //文字表示用SE開始
 
         // 半角スペースで文字を分割する。
         words = ItemExp[SelectItem_D].Split(' ');
@@ -934,18 +999,30 @@ public class UIContA : MonoBehaviour
 
         //主人公のセリフ
         words = FoxySay.Split(' ');
+
+        /*--SE用--*/
+        int finSE = words.Length - 13; //文字の長さを取得用
+        int finTime = 0; //再生終了タイミング用
+        if(finSE < 0)
+        {
+            finSE = 1;
+        }
+        /*--------*/
+
         foreach (var word in words)
         {
-
+            finTime ++;
             // 0.1秒刻みで１文字ずつ表示する。
             FoxyText.text = FoxyText.text + word;
             yield return new WaitForSeconds(0.08f);
-
+            if(finSE == finTime)
+            {
+                readNow = false; //文字表示用SE終了
+            }
         }
-
-
-
+        readNow = false; //文字表示用SE終了
         RunDispo = true; //他のパネルの選択を可能にする
+       
     }
 
         //戻る
@@ -967,19 +1044,34 @@ public class UIContA : MonoBehaviour
 
     IEnumerator Publi_Log()
     {
+        readNow = true; //文字表示用SE開始
+
         RunDispo = false;
         FoxyText.text = "";
 
         words = FoxySay.Split(' ');
+
+        /*--SE用--*/
+        int finSE = words.Length - 13; //文字の長さを取得用
+        int finTime = 0; //再生終了タイミング用
+        if(finSE < 0)
+        {
+            finSE = 1;
+        }
+        /*--------*/
         foreach (var word in words)
         {
-
+            finTime++;
             FoxyText.text = FoxyText.text + word;
             yield return new WaitForSeconds(0.08f);
-
+            if(finSE == finTime)
+            {
+                readNow = false; //文字表示用SE終了
+            }
         }
-
+        readNow = false; //文字表示用SE終了
         RunDispo = true; 
+        
     }
 
     /*------------------------------*/
@@ -1104,19 +1196,34 @@ public class UIContA : MonoBehaviour
     {
         GetExpText.text = "";
         RunDispo = false;//処理中に他のパネルの選択を出来なくする
+        readNow = true; //文字表示用SE開始
 
         // 半角スペースで文字を分割する。
         words = GetPorS.Split(' ');
 
+        /*--SE用--*/
+        int finSE = words.Length - 10; //文字の長さを取得用
+        int finTime = 0; //再生終了タイミング用
+        if(finSE < 0)
+        {
+            finSE = 1;
+        }
+        /*--------*/
+
         foreach (var word in words)
         {
-
+            finTime++;
             // 0.1秒刻みで１文字ずつ表示する
             GetExpText.text = GetExpText.text + word;
             yield return new WaitForSeconds(0.1f);
-
+            if(finSE == finTime)
+            {
+                readNow = false; //文字表示用SE終了
+            }
         }
         RunDispo = true; //他のパネルの選択を可能にする
+        readNow = false; //文字表示用SE終了
+        
     }
 
     /*------------------------------------------*/
@@ -1283,7 +1390,26 @@ public class UIContA : MonoBehaviour
         }
     }
 
-    /*----------------------------------*/
+    /*--------------SE----------------*/
+
+    //ボタン押したときの音
+	public void PushButtonSE_A()
+	{
+		soundA.PlaySe(pushButtonSE);
+	}
+    //アイテムの購入改良
+	public void BuyItemsSE()
+	{
+		soundA.PlaySe(buyNewItemsSE);
+	}
+
+    //テキストを表示している間再生
+	public void TextFlowSE()
+	{
+		soundA.PlaySe(textFlowSE);
+	}
+
+    /*--------------------------------*/
 }
 
 

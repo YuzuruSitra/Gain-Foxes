@@ -1534,6 +1534,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 665684621}
+        m_TargetAssemblyTypeName: UIContA, Assembly-CSharp
+        m_MethodName: PushButtonSE_A
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &228289744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3059,6 +3071,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 665684621}
+        m_TargetAssemblyTypeName: UIContA, Assembly-CSharp
+        m_MethodName: PushButtonSE_A
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &380314557
 GameObject:
   m_ObjectHideFlags: 0
@@ -3183,6 +3207,18 @@ MonoBehaviour:
       - m_Target: {fileID: 665684621}
         m_TargetAssemblyTypeName: UIContA, Assembly-CSharp
         m_MethodName: KillSTRback
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 665684621}
+        m_TargetAssemblyTypeName: UIContA, Assembly-CSharp
+        m_MethodName: PushButtonSE_A
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3432,6 +3468,18 @@ MonoBehaviour:
       - m_Target: {fileID: 665684621}
         m_TargetAssemblyTypeName: UIContA, Assembly-CSharp
         m_MethodName: publiWayUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 665684621}
+        m_TargetAssemblyTypeName: UIContA, Assembly-CSharp
+        m_MethodName: PushButtonSE_A
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3905,6 +3953,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 665684621}
+        m_TargetAssemblyTypeName: UIContA, Assembly-CSharp
+        m_MethodName: PushButtonSE_A
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &443618466
 GameObject:
   m_ObjectHideFlags: 0
@@ -4352,6 +4412,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 665684621}
+        m_TargetAssemblyTypeName: UIContA, Assembly-CSharp
+        m_MethodName: PushButtonSE_A
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &462023955
 GameObject:
   m_ObjectHideFlags: 0
@@ -4682,6 +4754,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 665684621}
+        m_TargetAssemblyTypeName: UIContA, Assembly-CSharp
+        m_MethodName: PushButtonSE_A
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &546600386
 GameObject:
   m_ObjectHideFlags: 0
@@ -4769,6 +4853,18 @@ MonoBehaviour:
       - m_Target: {fileID: 665684621}
         m_TargetAssemblyTypeName: UIContA, Assembly-CSharp
         m_MethodName: StrDone
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 665684621}
+        m_TargetAssemblyTypeName: UIContA, Assembly-CSharp
+        m_MethodName: PushButtonSE_A
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5888,6 +5984,13 @@ MonoBehaviour:
   GameClearPanel: {fileID: 1830586215}
   ClearResult_Text: {fileID: 1622388400}
   GameOverPanel: {fileID: 2069017630}
+  soundA: {fileID: 0}
+  sceneA_BGM: {fileID: 8300000, guid: 2f029498724ef25478e329168f7f34a5, type: 3}
+  gameClearBGM: {fileID: 8300000, guid: 86c237892e072b645a37c79ee52918b8, type: 3}
+  gameOverBGM: {fileID: 8300000, guid: d2010bb19e6844f4e91b65bf845a6322, type: 3}
+  pushButtonSE: {fileID: 8300000, guid: 46690ea2113b5564f9fb2c8e3c8bfd57, type: 3}
+  buyNewItemsSE: {fileID: 8300000, guid: c603d583060a0254c8632c8caf4efa46, type: 3}
+  textFlowSE: {fileID: 8300000, guid: 1cfe9688ce9217b47bb8c6aad4d3bb85, type: 3}
   HavePotion: {fileID: 21300000, guid: 8423ac1d5b2194957a7da4c75b47b419, type: 3}
   HaveStock: {fileID: 21300000, guid: 81c851745fe2d4aa6bbd17149c8cd15e, type: 3}
   Potionflame: {fileID: 1012520217}
@@ -6272,6 +6375,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 665684621}
+        m_TargetAssemblyTypeName: UIContA, Assembly-CSharp
+        m_MethodName: PushButtonSE_A
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &704796226
 GameObject:
   m_ObjectHideFlags: 0
@@ -6486,6 +6601,18 @@ MonoBehaviour:
       - m_Target: {fileID: 665684621}
         m_TargetAssemblyTypeName: UIContA, Assembly-CSharp
         m_MethodName: KillDone
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 665684621}
+        m_TargetAssemblyTypeName: UIContA, Assembly-CSharp
+        m_MethodName: PushButtonSE_A
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6837,6 +6964,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 665684621}
+        m_TargetAssemblyTypeName: UIContA, Assembly-CSharp
+        m_MethodName: PushButtonSE_A
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &747383152
 GameObject:
   m_ObjectHideFlags: 0
@@ -7095,6 +7234,18 @@ MonoBehaviour:
       - m_Target: {fileID: 665684621}
         m_TargetAssemblyTypeName: UIContA, Assembly-CSharp
         m_MethodName: StockCountUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 665684621}
+        m_TargetAssemblyTypeName: UIContA, Assembly-CSharp
+        m_MethodName: PushButtonSE_A
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9539,6 +9690,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 665684621}
+        m_TargetAssemblyTypeName: UIContA, Assembly-CSharp
+        m_MethodName: PushButtonSE_A
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1139227224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9821,6 +9984,18 @@ MonoBehaviour:
       - m_Target: {fileID: 665684621}
         m_TargetAssemblyTypeName: UIContA, Assembly-CSharp
         m_MethodName: BrSword
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 665684621}
+        m_TargetAssemblyTypeName: UIContA, Assembly-CSharp
+        m_MethodName: PushButtonSE_A
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10753,6 +10928,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 665684621}
+        m_TargetAssemblyTypeName: UIContA, Assembly-CSharp
+        m_MethodName: PushButtonSE_A
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1239128667
 GameObject:
   m_ObjectHideFlags: 0
@@ -11067,6 +11254,18 @@ MonoBehaviour:
       - m_Target: {fileID: 665684621}
         m_TargetAssemblyTypeName: UIContA, Assembly-CSharp
         m_MethodName: Publi_STRback
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 665684621}
+        m_TargetAssemblyTypeName: UIContA, Assembly-CSharp
+        m_MethodName: PushButtonSE_A
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11611,6 +11810,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 665684621}
+        m_TargetAssemblyTypeName: UIContA, Assembly-CSharp
+        m_MethodName: PushButtonSE_A
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1336196085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11947,6 +12158,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 665684621}
+        m_TargetAssemblyTypeName: UIContA, Assembly-CSharp
+        m_MethodName: PushButtonSE_A
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1420399372
 GameObject:
   m_ObjectHideFlags: 0
@@ -12110,6 +12333,18 @@ MonoBehaviour:
       - m_Target: {fileID: 665684621}
         m_TargetAssemblyTypeName: UIContA, Assembly-CSharp
         m_MethodName: SelectDone
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 665684621}
+        m_TargetAssemblyTypeName: UIContA, Assembly-CSharp
+        m_MethodName: PushButtonSE_A
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -17243,6 +17478,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 665684621}
+        m_TargetAssemblyTypeName: UIContA, Assembly-CSharp
+        m_MethodName: PushButtonSE_A
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1455727320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17782,6 +18029,18 @@ MonoBehaviour:
       - m_Target: {fileID: 665684621}
         m_TargetAssemblyTypeName: UIContA, Assembly-CSharp
         m_MethodName: DealDone
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 665684621}
+        m_TargetAssemblyTypeName: UIContA, Assembly-CSharp
+        m_MethodName: BuyItemsSE
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -18408,6 +18667,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 665684621}
+        m_TargetAssemblyTypeName: UIContA, Assembly-CSharp
+        m_MethodName: PushButtonSE_A
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1600937383
 GameObject:
   m_ObjectHideFlags: 0
@@ -18877,6 +19148,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 665684621}
+        m_TargetAssemblyTypeName: UIContA, Assembly-CSharp
+        m_MethodName: PushButtonSE_A
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1638034385
 GameObject:
   m_ObjectHideFlags: 0
@@ -18963,6 +19246,18 @@ MonoBehaviour:
       - m_Target: {fileID: 665684621}
         m_TargetAssemblyTypeName: UIContA, Assembly-CSharp
         m_MethodName: D_GetItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 665684621}
+        m_TargetAssemblyTypeName: UIContA, Assembly-CSharp
+        m_MethodName: PushButtonSE_A
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -19654,6 +19949,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1711329406}
   m_CullTransparentMesh: 1
+--- !u!1 &1721452686
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1721452687}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1721452687
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721452686}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.3971697, y: -2.5171404, z: -10.463085}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1722501728
 GameObject:
   m_ObjectHideFlags: 0
@@ -20381,6 +20707,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 665684621}
+        m_TargetAssemblyTypeName: UIContA, Assembly-CSharp
+        m_MethodName: PushButtonSE_A
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1782482879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20668,6 +21006,18 @@ MonoBehaviour:
       - m_Target: {fileID: 665684621}
         m_TargetAssemblyTypeName: UIContA, Assembly-CSharp
         m_MethodName: D_DelectPotion
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 665684621}
+        m_TargetAssemblyTypeName: UIContA, Assembly-CSharp
+        m_MethodName: PushButtonSE_A
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -22478,6 +22828,134 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2003200223}
   m_CullTransparentMesh: 1
+--- !u!1 &2003965340
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2003965342}
+  - component: {fileID: 2003965341}
+  m_Layer: 0
+  m_Name: Sparrow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &2003965341
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2003965340}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 8ade15f05f4a36d44bc5767e6f134c5a, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &2003965342
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2003965340}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.3971697, y: -2.5171404, z: -10.463085}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2009886070
 GameObject:
   m_ObjectHideFlags: 0
@@ -22565,6 +23043,18 @@ MonoBehaviour:
       - m_Target: {fileID: 665684621}
         m_TargetAssemblyTypeName: UIContA, Assembly-CSharp
         m_MethodName: publiWayDown
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 665684621}
+        m_TargetAssemblyTypeName: UIContA, Assembly-CSharp
+        m_MethodName: PushButtonSE_A
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -23668,6 +24158,18 @@ MonoBehaviour:
       - m_Target: {fileID: 665684621}
         m_TargetAssemblyTypeName: UIContA, Assembly-CSharp
         m_MethodName: publiDone
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 665684621}
+        m_TargetAssemblyTypeName: UIContA, Assembly-CSharp
+        m_MethodName: BuyItemsSE
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

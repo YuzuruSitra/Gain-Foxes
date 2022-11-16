@@ -415,7 +415,6 @@
 "Assets/Script/Scene3Script/LogSystem.cs"
 "Assets/Script/Scene3Script/SaveAnim.cs"
 "Assets/Script/Scene3Script/SceneCnt_C.cs"
-"Assets/Script/Scene3Script/Volume_C.cs"
 "Assets/Script/SoundCnt/soundCnt.cs"
 "Assets/Script/StateManagement.cs"
 "Assets/Script/TittleScript/SceneCnt_Title.cs"
