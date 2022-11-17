@@ -16,7 +16,8 @@ public class SceneCnt_Title : MonoBehaviour
 	public GameObject doneDeletePanel;
 
 	//サウンド用スクリプト取得
-	public soundCnt sound;
+	[SerializeField] 
+    private soundCnt sound;
 	public AudioClip titleBGM;
     [SerializeField] 
     private AudioClip pushButtonSE;
@@ -39,6 +40,9 @@ public class SceneCnt_Title : MonoBehaviour
 		settingPanel.gameObject.SetActive(false);
 		confirmationPanel.gameObject.SetActive(false);
 		doneDeletePanel.gameObject.SetActive(false);
+
+     	/*---bgm設定---*/
+        sound = GameObject.Find("SoundManager").GetComponent<soundCnt> ();
 
 		//bgm再生
 		sound.PlayBgm(titleBGM);

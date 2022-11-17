@@ -496,6 +496,7 @@ public class UIContA : MonoBehaviour
                 }
 
                 StartCoroutine(Publi_Log());
+                Debug.Log("strDone");
 
                 break;
 
@@ -641,6 +642,7 @@ public class UIContA : MonoBehaviour
         OpenPanel = false;
         FoxyPanel.SetActive(false);
         PushN++;
+        Debug.Log("こしょう");
     }
 
     //交渉パネルセリフ更新
@@ -709,20 +711,6 @@ public class UIContA : MonoBehaviour
         
     }
 
-    /*------------------------------*/
-
-    //戻る
-    public void Publi_STRback()
-    {
-        SelectStr = 2;
-        STRDoneButton.gameObject.SetActive(true);
-        STRpanel.gameObject.SetActive(true);
-        publicityPanel.SetActive(false);
-        OpenPanel = false;
-        FoxyPanel.SetActive(false);
-    }
-
-
     /*----------取引パネル----------*/
 
     //実行処理
@@ -753,6 +741,17 @@ public class UIContA : MonoBehaviour
             StockRepleIvent = true;
             PushReple = true; //１ターンに入荷は一度まで
         }
+    }
+
+    //戻る
+    public void Publi_STRback()
+    {
+        SelectStr = 3;
+        STRDoneButton.gameObject.SetActive(true);
+        STRpanel.gameObject.SetActive(true);
+        publicityPanel.SetActive(false);
+        OpenPanel = false;
+        FoxyPanel.SetActive(false);
     }
 
     //アイテム選択

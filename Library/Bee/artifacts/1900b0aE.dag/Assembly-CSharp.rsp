@@ -400,6 +400,7 @@
 "Assets/Script/GameSettings.cs"
 "Assets/Script/ParameterCalc.cs"
 "Assets/Script/Save/SaveControl.cs"
+"Assets/Script/Scene1Script/menuCnt.cs"
 "Assets/Script/Scene1Script/Player_ClearWalk.cs"
 "Assets/Script/Scene1Script/Player_OverWalk.cs"
 "Assets/Script/Scene1Script/Scene1_NinA.cs"
