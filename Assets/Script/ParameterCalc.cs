@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class ParameterCalc : MonoBehaviour
 {
     //他のスクリプトからメソッドを呼べるように
@@ -17,7 +16,7 @@ public class ParameterCalc : MonoBehaviour
     public static int TurnCount = 0;
 
     //お金周り
-    private int TargetAmount = 1000000;
+    public static int TargetAmount = 100000;
     public static bool GameClear = false;
     public static bool GameOver = false;
     public static int HaveMoney = 1000;
@@ -32,7 +31,9 @@ public class ParameterCalc : MonoBehaviour
 
     //イベント管理
     public static double CrimeRate = 0.0;
-    public static double PoorMoney = 100.0;
+    //今日の犯罪率
+    public static float toDayCrime;
+    public static double PoorMoney = 1000.0;
     public static int Slave = 0;
     public static int ToolType; //どの商品を選んだか
 
@@ -45,6 +46,7 @@ public class ParameterCalc : MonoBehaviour
     public static int PotionGet = 3000;
     public static double PotionSell = 1000;
     public static double PotionUp = 2000;
+    private float potionCrime = 7.0f;
     public static int PotionUpCount = 0; //強化回数
     public static bool HavePotionJ = false; //所持チェック用
 
@@ -59,6 +61,7 @@ public class ParameterCalc : MonoBehaviour
     public static int StockReceived; //入荷用
     private bool UseStock;
 
+
     //戦略用変数
     private int UseGossip = 0;
     public static bool ExeKill;
@@ -66,11 +69,12 @@ public class ParameterCalc : MonoBehaviour
     public static int SelectKillPanel;  //キル画面のUI操作用
     public static int SelectRepleItem;  //アイテム強化対象選択
     private int usePray; 
-    //����
+    //交渉
     public static int publiWay;
     public static int publiWayPay;
     public static double[] publiRisk = new double[] { 0.2, 0.5, 0.8 };
     public static bool usePubli;
+    public static bool publiSuccess = false;        //交渉が成功したか否か
 
     //民衆選定用
     //public static int[] PeopleType = new int[4];
@@ -88,14 +92,15 @@ public class ParameterCalc : MonoBehaviour
     public static int[] Paycheck = new int[100];
     public static int Income;
     private double Convert;
-    private double RandTax = 0.1; //土地代
     public static int RandTaxPay; //天引き金額
-    private double HaveTax = 0.05; //所得税
+    private double HaveTax = 0.1; //行商税
     public static int HaveTaxPay; //天引き金額
     public static int StealPeoplePay;
     public static bool StealTaxjuge;
     private int TurnEndHaveMoney;
     public static int TotalPayment;
+    public static bool fineMoney;
+    public static int fineMoneyInt;
 
     //Scoreテキスト
     public static int[] ResultScore = new int[] {0,0,0};
@@ -158,6 +163,7 @@ public class ParameterCalc : MonoBehaviour
         Paycheck[1] = 100;
         StealTaxjuge = false;
         TotalPayment = 0;
+        fineMoney = false;
 
         //商品選択
         ToolType = 0;
@@ -196,6 +202,7 @@ public class ParameterCalc : MonoBehaviour
     //交渉
     public void publiCalc()
     {
+        Slave -= 1;
         HaveMoney -= publiWayPay;
         usePubli = true;
     }
@@ -206,55 +213,35 @@ public class ParameterCalc : MonoBehaviour
         switch (SelectRepleItem)
         {
             case 0: //銅の剣
-                //if (HaveMoney >= BrSwordUp)
-                {
-                    HaveMoney -= (int)BrSwordUp;
-                    BrSwordUp *= 1.5;
-                    BrSwordSell *= 1.5;
-                    BrSwordUpCount += 1;
-                }
-
+                HaveMoney -= (int)BrSwordUp;
+                BrSwordUp *= 1.5;
+                BrSwordSell *= 1.5;
+                BrSwordUpCount += 1;
                 break;
 
             case 1: //ハイポーション
-
-                //if (HaveMoney >= PotionUp)
-                {
-                    HaveMoney -= (int)PotionUp;
-                    PotionUp *= 1.5;
-                    PotionSell *= 1.5;
-                    PotionUpCount += 1;
-                }
-
+                HaveMoney -= (int)PotionUp;
+                PotionUp *= 1.5;
+                PotionSell *= 1.5;
+                PotionUpCount += 1;
                 break;
 
             case 2: //株
-                //if (HaveMoney >= StockGet * StockReceived)
-                {
-                    HaveMoney -= StockGet * StockReceived;
-                    StockQuantity += StockReceived;
-                }
-
+                HaveMoney -= StockGet * StockReceived;
+                StockQuantity += StockReceived;
                 break;
 
             case 3: //薬入荷
-                //if (HaveMoney >= PotionGet)
-                {
-                    HaveMoney -= PotionGet;
-                    HavePotionJ = true;
-                }
+                HaveMoney -= PotionGet;
+                HavePotionJ = true;
                 break;
 
             case 4: //株入荷
-                //if (HaveMoney >= StockOpen)
-                {
-                    HaveMoney -= StockOpen;
-                    HaveStockJ = true;
-                }
+                HaveMoney -= StockOpen;
+                HaveStockJ = true;
                 break;
         }
     }
-
 
     //祈る
     public void StrPray()
@@ -262,12 +249,13 @@ public class ParameterCalc : MonoBehaviour
         usePray += 1;
     }
 
-
     /*------------------------------------------------------------*/
 
     //実際の収入計算処理
     public void GeneCalc()
     {
+        toDayCrime = 0.0f;
+        TotalReceiveMoney = 0;
         //商品をセット
         switch (ToolType)
         {
@@ -284,14 +272,14 @@ public class ParameterCalc : MonoBehaviour
                 StockQuantity = 0;
                 UseStock = true;
                 break;
-
         }
 
-
-        TotalReceiveMoney = 0;
-
+        //交渉
         if (usePubli)
         {
+            //犯罪度上昇
+            toDayCrime += 10.0f; 
+
             int publiI = Random.Range(1, 101);
             //交渉
             switch (publiWay)
@@ -299,30 +287,48 @@ public class ParameterCalc : MonoBehaviour
                 case 0:
                     if (publiI < 21)
                     {
+                        publiSuccess = true;    //交渉成功
                         GenePeopleCount = 4;
                     }
                     break;
                 case 1:
                     if (publiI < 51)
                     {
+                        publiSuccess = true;    //交渉成功
                         GenePeopleCount = 4;
                     }
                     break;
                 case 2:
                     if (publiI < 81)
                     {
+                        publiSuccess = true;    //交渉成功
                         GenePeopleCount = 4;
                     }
+                    break;
+                default:
+                //交渉失敗
+                    publiSuccess = false;
                     break;
             }
         }
         else
         {
-             //1以上6未満
+            //1以上6未満
             GenePeopleCount = Random.Range(0, 5);   //何人生成するか
-            //PV用
-            GenePeopleCount = 3;
         }
+
+        //暗殺の犯罪率
+        if(ExeKill)
+        {
+            toDayCrime += 50;
+        }
+
+        //麻薬の犯罪率処理
+        if(ToolType == 1)
+        {
+            toDayCrime += potionCrime * GenePeopleCount + 1; 
+        }
+
         for (int i = 0; i <= GenePeopleCount; ++i)
         {
             //民衆の生成数設定
@@ -347,13 +353,6 @@ public class ParameterCalc : MonoBehaviour
 
             //民衆の種類を0-3に変換して格納
             GenePeopleType[i] = Cushion;
-
-            //PV用
-            GenePeopleType[0] = 0;
-            GenePeopleType[1] = 1;
-            GenePeopleType[2] = 2;
-            GenePeopleType[3] = 3;
-
 
             //噂話
             if (i < UseGossip)
@@ -400,9 +399,8 @@ public class ParameterCalc : MonoBehaviour
                         if (PoorMoney < 0)
                         {
                             //お金をリセットし奴隷追加
-                            PoorMoney = HaveMoney * 0.3f;
+                            PoorMoney = 400 * TurnCount;
                             PoorDebt = true;
-                            Debug.Log("ひんみん");
                             Slave++;
                         }
                         break;
@@ -436,9 +434,8 @@ public class ParameterCalc : MonoBehaviour
                         if (PoorMoney < 0)
                         {
                             //お金をリセットし奴隷追加
-                            PoorMoney = HaveMoney * 0.3f;
+                            PoorMoney = 400 * TurnCount;
                             PoorDebt = true;
-                            Debug.Log("ひんみん");
                             Slave++;
                         }
                         break;
@@ -475,10 +472,8 @@ public class ParameterCalc : MonoBehaviour
             }
         }
 
-        if(ExeKill)
-        {
-            CrimeRate += 50.0;
-        }
+        //犯罪率を加算
+        CrimeRate += toDayCrime;
 
         //金額を所持金に追加
         HaveMoney += (int)TotalReceiveMoney;
@@ -496,8 +491,14 @@ public class ParameterCalc : MonoBehaviour
         //得たお金を天引き計算用代入
         TurnEndHaveMoney = HaveMoney;
 
-        Convert = HaveMoney * RandTax;
-        RandTaxPay = (int)Convert;
+        //罰金
+        if(CrimeRate >= 100)
+        {
+            CrimeRate -= 100;
+            fineMoneyInt = HaveMoney / 2;
+            TotalPayment += fineMoneyInt;
+            fineMoney = true;
+        }
 
         Convert = HaveMoney * HaveTax;
         HaveTaxPay = (int)Convert;
@@ -513,8 +514,7 @@ public class ParameterCalc : MonoBehaviour
         }
         //セーブ且つ
 
-        //土地代、所得税
-        TotalPayment += RandTaxPay;
+        //行商税
         TotalPayment += HaveTaxPay;
 
          //盗賊判定
@@ -550,10 +550,8 @@ public class ParameterCalc : MonoBehaviour
         if (HaveMoney < 0)
         {
             GameOver = true;
-            //SaveControl.instanceSave.ClearDateSave();
             PopTurnEvent = TurnCount + 1;
         }
-   
     }
 
 
@@ -609,11 +607,8 @@ public class ParameterCalc : MonoBehaviour
             {
                 ResultScoreStr[i] = i+1 + " - Clear: " + ResultScore[i] + " days.";
             }
-
             OutPutResult = ResultScoreStr[0] + "\n" + ResultScoreStr[1] + "\n" + ResultScoreStr[2];
         }
-
-
     }
 
     //スコア並べ替え用関数

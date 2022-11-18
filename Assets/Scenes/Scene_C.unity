@@ -503,18 +503,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 89f57f74c3d2941118c11f0fad532946, type: 3}
-    m_FontSize: 34
+    m_FontSize: 31
     m_FontStyle: 0
     m_BestFit: 1
-    m_MinSize: 24
-    m_MaxSize: 38
+    m_MinSize: 31
+    m_MaxSize: 36
     m_Alignment: 0
     m_AlignByGeometry: 1
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1.4
-  m_Text: "\u9285\u306E\u5263\u3092\u624B\u306B\u5165\u308C\u305F"
+    m_LineSpacing: 1.2
+  m_Text: "\u9285\u306E\u5263\u3092\u624B\u306B\u5165\u308C\u305F\n\uFF11\n\uFF12\n\uFF13\n\uFF14\n\uFF15\n\uFF16\n\uFF17\n\uFF18\n\uFF19\n\uFF11\uFF10\n\uFF11\uFF11\n\uFF11\uFF12\n\uFF11\uFF13\n\uFF11\uFF14\n\uFF11\uFF15\n\uFF11\uFF16"
 --- !u!222 &172774289
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3586,7 +3586,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1389283134
 RectTransform:
   m_ObjectHideFlags: 0

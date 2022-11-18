@@ -57,7 +57,22 @@ public class LogSystem : MonoBehaviour
             case 2: //株
                 LogText += " 今 日 は ま ぼ ろ し の か ぶ を 売 っ た 。 \n";
                 break;
+        }
+        if (ParameterCalc.PoorDebt)
+        {
+            LogText += " 貧 民 は 支 払 え ず 、 負 債 者 と な っ た 。 \n";
+        }
 
+        if (ParameterCalc.usePubli)
+        {
+            if(ParameterCalc.publiSuccess)
+            {
+                LogText += " 業 者 は 成 功 し た よ う だ 。 \n";
+            }
+            else
+            {
+                LogText += " 業 者 は 失 敗 し た よ う だ 。 \n";
+            }
         }
 
         //来店
@@ -66,19 +81,19 @@ public class LogSystem : MonoBehaviour
             switch (ParameterCalc.GenePeopleType[i])
             {
                 case 0://貧民
-                    PeopleKindText[i] = " 貧 民 は " + ParameterCalc.ReceiveMoney[i] + "z 支 払 っ た 。 \n";
+                    PeopleKindText[i] = " 貧 民 か ら " + ParameterCalc.ReceiveMoney[i] + " z 得 た 。 \n";
                     break;
 
                 case 1://市民
-                    PeopleKindText[i] = " 市 民 は " + ParameterCalc.ReceiveMoney[i] + " z 支 払 っ た 。 \n";
+                    PeopleKindText[i] = " 市 民 か ら " + ParameterCalc.ReceiveMoney[i] + " z 得 た 。 \n";
                     break;
 
                 case 2://富豪
-                    PeopleKindText[i] = " 富 豪 は " + ParameterCalc.ReceiveMoney[i] + " z 支 払 っ た 。 \n";
+                    PeopleKindText[i] = " 富 豪 か ら " + ParameterCalc.ReceiveMoney[i] + " z 得 た 。 \n";
                     break;
 
                 case 3://貴族
-                    PeopleKindText[i] = " 貴 族 は " + ParameterCalc.ReceiveMoney[i] + " z 支 払 っ た 。 \n";
+                    PeopleKindText[i] = " 貴 族 か ら " + ParameterCalc.ReceiveMoney[i] + " z 得 た 。 \n";
                     break;
             }
 
@@ -92,32 +107,52 @@ public class LogSystem : MonoBehaviour
          * 
          */
 
-        LogText += " 土 地 代 と し て " + ParameterCalc.RandTaxPay + " z 差 し 引 か れ た 。 \n";
-        LogText += " 所 得 税 と し て " + ParameterCalc.HaveTaxPay + " z 差 し 引 か れ た 。 \n";
+        //犯罪率と罰金
+        if(ParameterCalc.toDayCrime > 0 )
+        {
+            LogText += " 犯 罪 度 が " + ParameterCalc.toDayCrime + " 増 加 し た 。 \n";
+        
+            if(ParameterCalc.fineMoney)
+            {
+                LogText += " 犯 罪 度 が 1 0 0 を 超 え た た め \n 罰 金 と し て " + ParameterCalc.fineMoneyInt + " z 差 し 引 か れ た 。 \n";
+            }
+        }
+
+        LogText += " 行 商 税 と し て " + ParameterCalc.HaveTaxPay + " z 差 し 引 か れ た 。 \n";
         if (ParameterCalc.StealTaxjuge)
         {
             LogText +=  " 盗 賊 に " + ParameterCalc.StealPeoplePay + " z 奪 わ れ て し ま っ た 。 \n";
         }
-        LogText += " 子 分 た ち に " + ParameterCalc.Paycheck[ParameterCalc.TurnCount] + " z 支 払 っ た \n";
-        LogText += " 収 入 ： " + ParameterCalc.TotalReceiveMoney + " z 　　　支 出 ：" + ParameterCalc.TotalPayment + " z \n";
+        LogText += " 子 分 た ち に " + ParameterCalc.Paycheck[ParameterCalc.TurnCount] + " z 支 払 っ た 。\n";
         int earnings = ParameterCalc.TotalReceiveMoney - ParameterCalc.TotalPayment;
         if (earnings > 0) //収支
         {
-            LogText += " 収支 : +" + earnings + "z \n";
+            LogText += " 収 支 ： +" + earnings + "z 　　　所 持 金 ：" + ParameterCalc.HaveMoney + " z \n";
         }
         else
         {
-            LogText += " 収支 : " + earnings + "z \n";
+            LogText += " 収 支 ： " + earnings + "z 　　　所 持 金 ：" + ParameterCalc.HaveMoney + " z \n";
         }
-
-        //ChangeLogTex.text = LogText;
+        int target = ParameterCalc.TargetAmount - ParameterCalc.HaveMoney;
+        if(target > 0)
+        {
+            LogText += " 目 標 ま で あ と ：" + target + " z ";
+        }
+        else if(target >= ParameterCalc.TargetAmount)
+        {
+            LogText += " 所 持 金 が 無 く な っ て し ま っ た . . . ";
+        }
+        else
+        {
+            LogText += " 目 標 金 額 達 成 ! !";
+        }
+        
         StartCoroutine(WriteResult());
     }
 
     //テキスト処理
     IEnumerator WriteResult()
     {
-        Debug.Log("ccccccccc");
         ChangeLogTex.text = "";
         readNowLog = true; //文字表示用SE開始
 

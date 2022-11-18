@@ -11,7 +11,6 @@ public class SceneCnt_C : MonoBehaviour
 	public static bool isFadeOut_C = false;  //フェードアウト処理の開始、完了を管理するフラグ
 	private bool isFadeIn = false;   //フェードイン処理の開始、完了を管理するフラグ
 	public GameObject fadePanel_C;
-
 	private Image fadeImage_C;                //透明度を変更するパネルのイメージ
     
 	//サウンド用スクリプト取得

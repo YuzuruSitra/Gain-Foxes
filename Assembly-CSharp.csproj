@@ -71,6 +71,7 @@
      <Compile Include="Assets\QuickSave\Core\Converters\SpriteConverter.cs" />
      <Compile Include="Assets\Script\Scene1Script\Scene1_NinC.cs" />
      <Compile Include="Assets\QuickSave\SecurityMode.cs" />
+     <Compile Include="Assets\Script\Scene1Script\menuCnt.cs" />
      <Compile Include="Assets\Script\Scene3Script\SaveAnim.cs" />
      <Compile Include="Assets\QuickSave\QuickSaveRaw.cs" />
      <Compile Include="Assets\QuickSave\QuickSaveGlobalSettings.cs" />
@@ -103,7 +104,6 @@
      <Compile Include="Assets\Script\Scene2Script\hinmin.cs" />
      <Compile Include="Assets\QuickSave\CompressionMode.cs" />
      <Compile Include="Assets\PV\PV_AnimFine.cs" />
-     <Compile Include="Assets\Script\Scene1Script\menuCnt.cs" />
      <None Include="Assets\Cainos\Pixel Art Icon Pack - RPG\Shader\SH UI Icon Outline Color.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />

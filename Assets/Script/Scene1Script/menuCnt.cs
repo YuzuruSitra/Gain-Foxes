@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class menuCnt : MonoBehaviour
 {
+    //ゲーム中断用
+    public static bool ESCnow = false;
+
     //ゲームプレイ中のUIを格納
     [SerializeField] 
     private GameObject inGamePanel;
@@ -42,13 +45,11 @@ public class menuCnt : MonoBehaviour
                 MenuPanel.SetActive(true);
                 SelectPanel.SetActive(true);
                 menuSwitch = false;
+                ESCnow = true;
             }
             else
             {
-                inGamePanel.SetActive(true);
-                MenuPanel.SetActive(false);
-                SelectPanel.SetActive(false);
-                menuSwitch = true;
+                closeMenu();
             }
         }
     }
@@ -69,9 +70,20 @@ public class menuCnt : MonoBehaviour
     public void pushHome()
     {
         SceneManager.LoadScene("Title");
+        ESCnow = false;
     }
 
     /*------パネルを閉じる------*/
+
+    //メニューパネル
+    public void closeMenu()
+    {
+        inGamePanel.SetActive(true);
+        MenuPanel.SetActive(false);
+        SelectPanel.SetActive(false);
+        menuSwitch = true;
+        ESCnow = false;
+    }
 
     //設定パネル
     public void closeSetting()

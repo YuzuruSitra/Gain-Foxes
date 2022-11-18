@@ -26,6 +26,7 @@ ScriptsOnlyBuild:
     - Volume_B
     - hinmin
     - hinminAnim
+    - menuCnt
     - soundCnt
     Unity.Postprocessing.Runtime.dll:
     - UnityEngine.Rendering.PostProcessing.AmbientOcclusion
@@ -139,11 +140,20 @@ ScriptsOnlyBuild:
     fullTypeName: SceneCnt_Title
     methodName: OpenSetPanel
   - assembly: Assembly-CSharp
+    fullTypeName: SceneCnt_Title
+    methodName: PushButtonSE
+  - assembly: Assembly-CSharp
     fullTypeName: GameSettings
     methodName: windowsScreenMode
   - assembly: Assembly-CSharp
+    fullTypeName: SceneCnt_Title
+    methodName: PushButtonSE
+  - assembly: Assembly-CSharp
     fullTypeName: GameSettings
     methodName: CommitSettings
+  - assembly: Assembly-CSharp
+    fullTypeName: SceneCnt_Title
+    methodName: PushButtonSE
   - assembly: Assembly-CSharp
     fullTypeName: GameSettings
     methodName: SoundSliderOnValueChangeBGM
@@ -152,7 +162,13 @@ ScriptsOnlyBuild:
     methodName: FullScreenMode
   - assembly: Assembly-CSharp
     fullTypeName: SceneCnt_Title
+    methodName: PushButtonSE
+  - assembly: Assembly-CSharp
+    fullTypeName: SceneCnt_Title
     methodName: CloseconfirmationPanel
+  - assembly: Assembly-CSharp
+    fullTypeName: SceneCnt_Title
+    methodName: PushButtonSE
   - assembly: Assembly-CSharp
     fullTypeName: StateManagement
     methodName: resetSettings
@@ -161,13 +177,25 @@ ScriptsOnlyBuild:
     methodName: launchVolume
   - assembly: Assembly-CSharp
     fullTypeName: SceneCnt_Title
+    methodName: PushButtonSE
+  - assembly: Assembly-CSharp
+    fullTypeName: SceneCnt_Title
     methodName: CloseDeletePanel
+  - assembly: Assembly-CSharp
+    fullTypeName: SceneCnt_Title
+    methodName: PushButtonSE
   - assembly: Assembly-CSharp
     fullTypeName: SceneCnt_Title
     methodName: OpenconfirmationPanel
   - assembly: Assembly-CSharp
     fullTypeName: SceneCnt_Title
+    methodName: PushButtonSE
+  - assembly: Assembly-CSharp
+    fullTypeName: SceneCnt_Title
     methodName: NextScene
+  - assembly: Assembly-CSharp
+    fullTypeName: SceneCnt_Title
+    methodName: PushButtonSE
   - assembly: Assembly-CSharp
     fullTypeName: SceneCnt_Title
     methodName: OpenDeletePanel
@@ -179,22 +207,52 @@ ScriptsOnlyBuild:
     methodName: CloseSetPanel
   - assembly: Assembly-CSharp
     fullTypeName: SceneCnt_Title
+    methodName: PushButtonSE
+  - assembly: Assembly-CSharp
+    fullTypeName: SceneCnt_Title
     methodName: OpenDeletePanel
   - assembly: Assembly-CSharp
     fullTypeName: SaveControl
     methodName: DeleteDate
   - assembly: Assembly-CSharp
+    fullTypeName: SceneCnt_Title
+    methodName: PushButtonSE
+  - assembly: Assembly-CSharp
+    fullTypeName: GameSettings
+    methodName: FullScreenMode
+  - assembly: Assembly-CSharp
+    fullTypeName: UIContA
+    methodName: PushButtonSE_A
+  - assembly: Assembly-CSharp
+    fullTypeName: menuCnt
+    methodName: pushHome
+  - assembly: Assembly-CSharp
+    fullTypeName: UIContA
+    methodName: PushButtonSE_A
+  - assembly: Assembly-CSharp
     fullTypeName: SceneCnt_A
     methodName: ClearReturnTitle
+  - assembly: Assembly-CSharp
+    fullTypeName: UIContA
+    methodName: PushButtonSE_A
   - assembly: Assembly-CSharp
     fullTypeName: UIContA
     methodName: StockCountDown
   - assembly: Assembly-CSharp
     fullTypeName: UIContA
+    methodName: PushButtonSE_A
+  - assembly: Assembly-CSharp
+    fullTypeName: UIContA
     methodName: KillSTRback
   - assembly: Assembly-CSharp
     fullTypeName: UIContA
+    methodName: PushButtonSE_A
+  - assembly: Assembly-CSharp
+    fullTypeName: UIContA
     methodName: publiWayUp
+  - assembly: Assembly-CSharp
+    fullTypeName: UIContA
+    methodName: PushButtonSE_A
   - assembly: Assembly-CSharp
     fullTypeName: UIContA
     methodName: SetKill
@@ -203,19 +261,61 @@ ScriptsOnlyBuild:
     methodName: OnButtonClicked
   - assembly: Assembly-CSharp
     fullTypeName: UIContA
+    methodName: PushButtonSE_A
+  - assembly: Assembly-CSharp
+    fullTypeName: GameSettings
+    methodName: windowsScreenMode
+  - assembly: Assembly-CSharp
+    fullTypeName: UIContA
+    methodName: PushButtonSE_A
+  - assembly: Assembly-CSharp
+    fullTypeName: UIContA
     methodName: D_DelectSwords
+  - assembly: Assembly-CSharp
+    fullTypeName: UIContA
+    methodName: PushButtonSE_A
   - assembly: Assembly-CSharp
     fullTypeName: UIContA
     methodName: KillChoseDown
   - assembly: Assembly-CSharp
     fullTypeName: UIContA
+    methodName: PushButtonSE_A
+  - assembly: Assembly-CSharp
+    fullTypeName: UIContA
     methodName: StrDone
+  - assembly: Assembly-CSharp
+    fullTypeName: UIContA
+    methodName: PushButtonSE_A
+  - assembly: Assembly-CSharp
+    fullTypeName: menuCnt
+    methodName: closeSetting
+  - assembly: Assembly-CSharp
+    fullTypeName: UIContA
+    methodName: PushButtonSE_A
+  - assembly: Assembly-CSharp
+    fullTypeName: GameSettings
+    methodName: CommitSettings
+  - assembly: Assembly-CSharp
+    fullTypeName: UIContA
+    methodName: PushButtonSE_A
+  - assembly: Assembly-CSharp
+    fullTypeName: menuCnt
+    methodName: closeMenu
+  - assembly: Assembly-CSharp
+    fullTypeName: UIContA
+    methodName: PushButtonSE_A
   - assembly: Assembly-CSharp
     fullTypeName: UIContA
     methodName: KillChoseUp
   - assembly: Assembly-CSharp
     fullTypeName: UIContA
+    methodName: PushButtonSE_A
+  - assembly: Assembly-CSharp
+    fullTypeName: UIContA
     methodName: KillDone
+  - assembly: Assembly-CSharp
+    fullTypeName: UIContA
+    methodName: PushButtonSE_A
   - assembly: Assembly-CSharp
     fullTypeName: UIContA
     methodName: SetPray
@@ -224,13 +324,37 @@ ScriptsOnlyBuild:
     methodName: OnButtonClicked
   - assembly: Assembly-CSharp
     fullTypeName: UIContA
+    methodName: PushButtonSE_A
+  - assembly: Assembly-CSharp
+    fullTypeName: GameSettings
+    methodName: launchVolume
+  - assembly: Assembly-CSharp
+    fullTypeName: UIContA
+    methodName: PushButtonSE_A
+  - assembly: Assembly-CSharp
+    fullTypeName: UIContA
     methodName: StockCountUp
+  - assembly: Assembly-CSharp
+    fullTypeName: UIContA
+    methodName: PushButtonSE_A
   - assembly: Assembly-CSharp
     fullTypeName: UIContA
     methodName: LuckyTurnip
   - assembly: Assembly-CSharp
     fullTypeName: UIContA
+    methodName: PushButtonSE_A
+  - assembly: Assembly-CSharp
+    fullTypeName: UIContA
     methodName: BrSword
+  - assembly: Assembly-CSharp
+    fullTypeName: UIContA
+    methodName: PushButtonSE_A
+  - assembly: Assembly-CSharp
+    fullTypeName: menuCnt
+    methodName: closeTutrial
+  - assembly: Assembly-CSharp
+    fullTypeName: UIContA
+    methodName: PushButtonSE_A
   - assembly: Assembly-CSharp
     fullTypeName: UIContA
     methodName: SetGossip
@@ -239,22 +363,46 @@ ScriptsOnlyBuild:
     methodName: OnButtonClicked
   - assembly: Assembly-CSharp
     fullTypeName: UIContA
+    methodName: PushButtonSE_A
+  - assembly: Assembly-CSharp
+    fullTypeName: UIContA
     methodName: Publi_STRback
+  - assembly: Assembly-CSharp
+    fullTypeName: UIContA
+    methodName: PushButtonSE_A
+  - assembly: Assembly-CSharp
+    fullTypeName: GameSettings
+    methodName: SoundSliderOnValueChangeSE
   - assembly: Assembly-CSharp
     fullTypeName: SceneCnt_A
     methodName: ClearReturnTitle
   - assembly: Assembly-CSharp
     fullTypeName: UIContA
+    methodName: PushButtonSE_A
+  - assembly: Assembly-CSharp
+    fullTypeName: UIContA
     methodName: D_DelectStock
+  - assembly: Assembly-CSharp
+    fullTypeName: UIContA
+    methodName: PushButtonSE_A
   - assembly: Assembly-CSharp
     fullTypeName: UIContA
     methodName: SelectDone
   - assembly: Assembly-CSharp
     fullTypeName: UIContA
+    methodName: PushButtonSE_A
+  - assembly: Assembly-CSharp
+    fullTypeName: UIContA
     methodName: HiPotion
   - assembly: Assembly-CSharp
     fullTypeName: UIContA
+    methodName: PushButtonSE_A
+  - assembly: Assembly-CSharp
+    fullTypeName: UIContA
     methodName: DealDone
+  - assembly: Assembly-CSharp
+    fullTypeName: UIContA
+    methodName: BuyItemsSE
   - assembly: Assembly-CSharp
     fullTypeName: UIContA
     methodName: SetDeal
@@ -263,34 +411,79 @@ ScriptsOnlyBuild:
     methodName: OnButtonClicked
   - assembly: Assembly-CSharp
     fullTypeName: UIContA
+    methodName: PushButtonSE_A
+  - assembly: Assembly-CSharp
+    fullTypeName: UIContA
     methodName: SetSteal
   - assembly: Assembly-CSharp
     fullTypeName: StrExpText
     methodName: OnButtonClicked
   - assembly: Assembly-CSharp
     fullTypeName: UIContA
+    methodName: PushButtonSE_A
+  - assembly: Assembly-CSharp
+    fullTypeName: UIContA
     methodName: D_GetItem
+  - assembly: Assembly-CSharp
+    fullTypeName: UIContA
+    methodName: PushButtonSE_A
   - assembly: Assembly-CSharp
     fullTypeName: UIContA
     methodName: D_STRback
   - assembly: Assembly-CSharp
     fullTypeName: UIContA
+    methodName: PushButtonSE_A
+  - assembly: Assembly-CSharp
+    fullTypeName: UIContA
     methodName: D_DelectPotion
+  - assembly: Assembly-CSharp
+    fullTypeName: UIContA
+    methodName: PushButtonSE_A
   - assembly: Assembly-CSharp
     fullTypeName: UIContA
     methodName: CloseTutorial
   - assembly: Assembly-CSharp
     fullTypeName: UIContA
+    methodName: PushButtonSE_A
+  - assembly: Assembly-CSharp
+    fullTypeName: menuCnt
+    methodName: pushTutrial
+  - assembly: Assembly-CSharp
+    fullTypeName: UIContA
+    methodName: PushButtonSE_A
+  - assembly: Assembly-CSharp
+    fullTypeName: menuCnt
+    methodName: pushSetting
+  - assembly: Assembly-CSharp
+    fullTypeName: UIContA
+    methodName: PushButtonSE_A
+  - assembly: Assembly-CSharp
+    fullTypeName: GameSettings
+    methodName: SoundSliderOnValueChangeBGM
+  - assembly: Assembly-CSharp
+    fullTypeName: UIContA
     methodName: publiWayDown
+  - assembly: Assembly-CSharp
+    fullTypeName: UIContA
+    methodName: PushButtonSE_A
   - assembly: Assembly-CSharp
     fullTypeName: UIContA
     methodName: publiDone
   - assembly: Assembly-CSharp
+    fullTypeName: UIContA
+    methodName: BuyItemsSE
+  - assembly: Assembly-CSharp
     fullTypeName: SceneCnt_B
     methodName: NextScene
   - assembly: Assembly-CSharp
+    fullTypeName: Volume_B
+    methodName: PushButtonSE_B
+  - assembly: Assembly-CSharp
     fullTypeName: SceneCnt_C
     methodName: NextScene
+  - assembly: Assembly-CSharp
+    fullTypeName: SceneCnt_C
+    methodName: PushButtonSE_C
   sceneClasses:
     Assets/Scenes/Scene_A.unity:
     - Class: 1
@@ -329,6 +522,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
     - Class: 89
       Script: {instanceID: 0}
     - Class: 91
@@ -342,6 +539,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1640}
     - Class: 114
+      Script: {instanceID: 2306}
+    - Class: 114
       Script: {instanceID: 2370}
     - Class: 114
       Script: {instanceID: 2576}
@@ -354,27 +553,33 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3448}
     - Class: 114
-      Script: {instanceID: 3996}
+      Script: {instanceID: 3994}
     - Class: 114
-      Script: {instanceID: 4432}
+      Script: {instanceID: 4430}
     - Class: 114
-      Script: {instanceID: 4442}
+      Script: {instanceID: 4440}
     - Class: 114
-      Script: {instanceID: 4574}
+      Script: {instanceID: 4572}
     - Class: 114
-      Script: {instanceID: 4862}
+      Script: {instanceID: 4776}
     - Class: 114
-      Script: {instanceID: 4886}
+      Script: {instanceID: 4860}
     - Class: 114
-      Script: {instanceID: 4972}
+      Script: {instanceID: 4884}
     - Class: 114
-      Script: {instanceID: 5072}
+      Script: {instanceID: 4970}
     - Class: 114
-      Script: {instanceID: 5078}
+      Script: {instanceID: 5070}
+    - Class: 114
+      Script: {instanceID: 5076}
+    - Class: 114
+      Script: {instanceID: 5150}
     - Class: 114
       Script: {instanceID: 5364}
     - Class: 114
       Script: {instanceID: 5368}
+    - Class: 114
+      Script: {instanceID: 5522}
     - Class: 114
       Script: {instanceID: 5646}
     - Class: 114
@@ -458,6 +663,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
     - Class: 89
       Script: {instanceID: 0}
     - Class: 91
@@ -483,17 +692,17 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3448}
     - Class: 114
-      Script: {instanceID: 4442}
+      Script: {instanceID: 4440}
     - Class: 114
-      Script: {instanceID: 4574}
+      Script: {instanceID: 4572}
     - Class: 114
-      Script: {instanceID: 4862}
+      Script: {instanceID: 4860}
     - Class: 114
-      Script: {instanceID: 4886}
+      Script: {instanceID: 4884}
     - Class: 114
-      Script: {instanceID: 4972}
+      Script: {instanceID: 4970}
     - Class: 114
-      Script: {instanceID: 5078}
+      Script: {instanceID: 5076}
     - Class: 114
       Script: {instanceID: 5368}
     - Class: 114
@@ -573,6 +782,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
     - Class: 91
       Script: {instanceID: 0}
     - Class: 95
@@ -596,19 +809,19 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3810}
     - Class: 114
-      Script: {instanceID: 4442}
+      Script: {instanceID: 4440}
     - Class: 114
-      Script: {instanceID: 4574}
+      Script: {instanceID: 4572}
     - Class: 114
-      Script: {instanceID: 4612}
+      Script: {instanceID: 4610}
     - Class: 114
-      Script: {instanceID: 4862}
+      Script: {instanceID: 4860}
     - Class: 114
-      Script: {instanceID: 4886}
+      Script: {instanceID: 4884}
     - Class: 114
-      Script: {instanceID: 4972}
+      Script: {instanceID: 4970}
     - Class: 114
-      Script: {instanceID: 5078}
+      Script: {instanceID: 5076}
     - Class: 114
       Script: {instanceID: 5198}
     - Class: 114
@@ -721,27 +934,27 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3448}
     - Class: 114
-      Script: {instanceID: 3954}
+      Script: {instanceID: 3952}
     - Class: 114
-      Script: {instanceID: 4186}
+      Script: {instanceID: 4184}
     - Class: 114
-      Script: {instanceID: 4442}
+      Script: {instanceID: 4440}
     - Class: 114
-      Script: {instanceID: 4574}
+      Script: {instanceID: 4572}
     - Class: 114
-      Script: {instanceID: 4778}
+      Script: {instanceID: 4776}
     - Class: 114
-      Script: {instanceID: 4846}
+      Script: {instanceID: 4844}
     - Class: 114
-      Script: {instanceID: 4862}
+      Script: {instanceID: 4860}
     - Class: 114
-      Script: {instanceID: 4886}
+      Script: {instanceID: 4884}
     - Class: 114
-      Script: {instanceID: 4920}
+      Script: {instanceID: 4918}
     - Class: 114
-      Script: {instanceID: 4972}
+      Script: {instanceID: 4970}
     - Class: 114
-      Script: {instanceID: 5078}
+      Script: {instanceID: 5076}
     - Class: 114
       Script: {instanceID: 5368}
     - Class: 114
@@ -943,7 +1156,7 @@ ScriptsOnlyBuild:
     className: EventSystem
   - hash:
       serializedVersion: 2
-      Hash: c83e43f150127382f7b0c955f5c74ccd
+      Hash: 14d94c7d660cd9f81a53627a5d8a5991
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: hinminAnim
@@ -1207,7 +1420,7 @@ ScriptsOnlyBuild:
     className: PostProcessEffectSettings
   - hash:
       serializedVersion: 2
-      Hash: a0640c42f11bff9f4830203c0ca93cdc
+      Hash: b69ee4a57cdded60a8a6d29447867193
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SceneCnt_C
@@ -1235,12 +1448,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: VariablesSaver
-  - hash:
-      serializedVersion: 2
-      Hash: bbba976e971b6923ac20c926a55e8af9
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Volume_C
   - hash:
       serializedVersion: 2
       Hash: 18c222bef9ae745ce69ddde9b74337ca
@@ -1273,7 +1480,7 @@ ScriptsOnlyBuild:
     className: UnityOnJointBreak2DMessageListener
   - hash:
       serializedVersion: 2
-      Hash: f9eed1adfe995a6ae07d24cf7c3ff6d6
+      Hash: 4d3a4b7eff9bd8c50ca4d0d65f7af4f2
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UIContA
@@ -1381,7 +1588,7 @@ ScriptsOnlyBuild:
     className: AmbientOcclusion
   - hash:
       serializedVersion: 2
-      Hash: da5e117428a5f11c5409f96b5bc1b3ed
+      Hash: 3d3d2e2941d881d22cf743b99d8c9d4b
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: LogSystem
@@ -1465,7 +1672,7 @@ ScriptsOnlyBuild:
     className: DepthOfField
   - hash:
       serializedVersion: 2
-      Hash: 478df1d33abd9914b747809cca438633
+      Hash: 9cc0c1c96b26c7693c6ce3fd32441459
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SceneCnt_Title
@@ -1513,6 +1720,12 @@ ScriptsOnlyBuild:
     className: Text
   - hash:
       serializedVersion: 2
+      Hash: 81d09f0ee44547a2c00e041e710b3fee
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: menuCnt
+  - hash:
+      serializedVersion: 2
       Hash: 6cddc70219fd74b484a848bac16e0b17
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -1555,7 +1768,7 @@ ScriptsOnlyBuild:
     className: TextMeshProUGUI
   - hash:
       serializedVersion: 2
-      Hash: d7c53cb216fab627cdbf3b1d33514969
+      Hash: 35a3862fec269e35c566f7626665d23e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameSettings
@@ -1657,7 +1870,7 @@ ScriptsOnlyBuild:
     className: StrExpText
   - hash:
       serializedVersion: 2
-      Hash: 5ad491a5cf604aec0143e2ea9206948c
+      Hash: deed123a542e9fed1dfad4f62132d88f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Volume_B
@@ -1903,7 +2116,7 @@ ScriptsOnlyBuild:
     className: SignalEmitter
   - hash:
       serializedVersion: 2
-      Hash: 935cabf64797eb1371a7563b118cead7
+      Hash: e61690bc9082e22906ba2f4ec0a38ee3
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: hinmin
@@ -1943,4 +2156,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Scene_A.unity
   - Assets/Scenes/Scene_B.unity
   - Assets/Scenes/Scene_C.unity
-  playerPath: C:/Users/S1r4n/Downloads/GainFoxes.exe
+  playerPath: "E:/GainFoxes \u30D3\u30EB\u30C9\u7248/GainFoxes.exe"

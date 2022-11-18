@@ -186,19 +186,19 @@ public class SaveControl : MonoBehaviour
         writer.Write("haveMoney", 1000);
         writer.Write("crimeRate", 0.0);
         writer.Write("slave", 0);
-        writer.Write("poorMoney", 2000.0);
+        writer.Write("poorMoney", 1000.0);
 
         writer.Write("brSwordSell", 400);
-        writer.Write("brSwordUp", 800);
+        writer.Write("brSwordUp", 2000);
         writer.Write("brSwordUpCount", 1);
 
-        writer.Write("potionGet", 500);
+        writer.Write("potionGet", 3000);
         writer.Write("potionSell", 1000);
-        writer.Write("potionUp", 1500);
+        writer.Write("potionUp", 2000);
         writer.Write("potionUpCount", 0);
         writer.Write("havePotionJ", false);
 
-        writer.Write("stockOpen", 10000);
+        writer.Write("stockOpen", 30000);
         writer.Write("haveStockJ", false);
         writer.Write("stockQuantity", 0);
 

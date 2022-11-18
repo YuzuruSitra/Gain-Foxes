@@ -12,11 +12,17 @@ public class UIContA : MonoBehaviour
     public GameObject TutrialExp;
     public GameObject HaveMoneyPanel;
     public GameObject SlaveTurnPanel;
+    private bool firstESC;
+
 
     public Text SlaveTx;
     public Text CrimeRateTx;
     public Text HavemoneyT;
     public Text TurnCountText;
+
+    //子分テキスト用
+    private bool textChange;
+    private int textChangeInt;
 
     public static int PushN;
     public static int PushNtutorial;
@@ -188,7 +194,8 @@ public class UIContA : MonoBehaviour
         publicityPanel.SetActive(false);
         FoxyPanel.SetActive(false);
 
-
+        textChange = true;
+        textChangeInt = 0;
         ClickJudge = true;
         OpenPanel = false;
         PushReple = false;
@@ -230,13 +237,15 @@ public class UIContA : MonoBehaviour
         /*---bgm設定---*/
         soundA = GameObject.Find("SoundManager").GetComponent<soundCnt> ();
 
-        if (ParameterCalc.GameClear && ParameterCalc.TurnCount == ParameterCalc.PopTurnEvent)  //クリア処理
+        if (ParameterCalc.GameClear)  //クリア処理
         {
            soundA.PlayBgm(gameClearBGM);
+           Debug.Log("gameclear");
         }
-        else if(ParameterCalc.GameOver && ParameterCalc.TurnCount == ParameterCalc.PopTurnEvent) //ゲームオーバー処理
+        else if(ParameterCalc.GameOver) //ゲームオーバー処理
         {
             soundA.PlayBgm(gameOverBGM);
+            Debug.Log("gameover");
         }
         else    //通常BGM
         {
@@ -286,17 +295,30 @@ public class UIContA : MonoBehaviour
 
         //狐の会話
 
-        if (Input.GetMouseButtonDown(0) && ClickJudge)
+        if (Input.GetMouseButtonDown(0) && ClickJudge && !menuCnt.ESCnow)
         {
             if(ParameterCalc.initialPlay)
             {
-                PushNtutorial += 1;
+                //チュートリアル用ESC説明
+                if(firstESC && PushNtutorial != 6)
+                {
+                    PushNtutorial += 1;
+                }
                 ClickJudge = false;
             }
             else
             {
-            PushN += 1;
-            ClickJudge = false;
+                //狐の会話用荒療治
+                if(textChange)
+                {
+                PushN += 1;
+                ClickJudge = false;
+                }
+                else
+                {
+                    textChangeInt ++;
+                    ClickJudge = false;
+                }
             }
         }
 
@@ -324,13 +346,26 @@ public class UIContA : MonoBehaviour
 
         else//通常処理
         {
-            FoxDia1_Text.text = "おかしら！\n今日はどんな工作を？";
             FoxDia2_Text.text = "おかしら！\n次はどんな工作を？";
             FoxDia3_Text.text = "おかしら。\n今日は何を売る？";
             if (PushN == 1)
             {
-                FoxDia1.gameObject.SetActive(true);
-                ClickJudge = true;
+                switch(textChangeInt)
+                {
+                    
+                    case 0:
+                        textChange = false; //PushNオフ
+                        FoxDia1_Text.text = "おかしら！\n" + ParameterCalc.TurnCount + "日目ですね！";
+                        FoxDia1.gameObject.SetActive(true);
+                        ClickJudge = true;
+                        break;
+                    case 1:
+                        FoxDia1_Text.text = "今日はどんな工作を？";
+                        textChange = true; //PushNオン
+                        ClickJudge = true;
+                        break;
+                }
+                
             }
             else if (PushN == 2)
             {
@@ -649,6 +684,7 @@ public class UIContA : MonoBehaviour
 
     private void drowPubli()
     {
+        RunDispo = false;
         publiDoneBt = publiDoneButton.GetComponent<Button>();
         //計算処理
         double Conv = ParameterCalc.HaveMoney * ParameterCalc.publiRisk[ParameterCalc.publiWay];
@@ -672,7 +708,6 @@ public class UIContA : MonoBehaviour
     //交渉パネル二人の会話処理
     IEnumerator publiSay()
     {
-        RunDispo = false;
         readNow = true; //文字表示用SE開始
 
         publiPlayerText.text = "";
@@ -1230,6 +1265,7 @@ public class UIContA : MonoBehaviour
     /*----------チュートリアル----------*/
     private void Tutorial()
     {
+        firstESC = true;
         if (PushNtutorial == 1)
         {
             FoxDia1.gameObject.SetActive(true);
@@ -1263,17 +1299,33 @@ public class UIContA : MonoBehaviour
         {
             FoxDia1.gameObject.SetActive(true);
             mainUI.gameObject.SetActive(false);
-            FoxDia1_Text.text = "目標は・・・\n１００万Zです！";
+            FoxDia1_Text.text = "あとESC？ってキーを\n押してみてください！";
             ClickJudge = true;
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                firstESC = false;
+                PushNtutorial ++;
+                Debug.Log("esc");
+            }
         }
         else if (PushNtutorial == 7)
+        {
+            FoxDia1_Text.text = "これでバッチリですね！";
+            ClickJudge = true;
+        }
+        else if (PushNtutorial == 8)
+        {
+            FoxDia1_Text.text = "目標は・・・\n１０万Zです！";
+            ClickJudge = true;
+        }
+        else if (PushNtutorial == 9)
         {
             HaveMoneyPanel.gameObject.SetActive(true);
             SlaveTurnPanel.gameObject.SetActive(true);
             FoxDia1_Text.text = "早速稼ぎましょう！";
             ClickJudge = true;
         }
-        else if (PushNtutorial >= 8)
+        else if (PushNtutorial >= 10)
         {
             FoxDia1.gameObject.SetActive(false);
             ParameterCalc.initialPlay = false;
