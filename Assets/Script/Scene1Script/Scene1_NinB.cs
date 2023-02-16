@@ -3,47 +3,46 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+//忍者Bの演出管理
 public class Scene1_NinB : MonoBehaviour
 {
     private bool onetime2;
     private Animator animator;
-    public Transform S1Tb1;//目的地となるオブジェクトのトランスフォーム格納用
-    public Transform S1Tb2;
-    private NavMeshAgent agent;     //エージェントとなるオブジェクトのNavMeshAgent格納用 
+    [SerializeField]
+    private Transform S1Tb1;     //目的地格納用
+    [SerializeField]
+    private Transform S1Tb2;
+    private NavMeshAgent agent;  
  
-    // Start is called before the first frame update
     void Start()
     {
-    onetime2 = true;
-    animator = GetComponent<Animator>();
-    //エージェントのNaveMeshAgentを取得する
-    agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        onetime2 = true;
+        animator = GetComponent<Animator>();
+        //エージェントのNaveMeshAgentを取得する
+        agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (ParameterCalc.GameClear)
+        if (ParameterCalc.instanceCalc.GameClear)
         {
-            if (UIContA.ClearAnim && onetime2)
+            if (UICont1.instanceUI1.ClearAnim && onetime2)
             {
-                //UIContA.ClearAnim = false;
                 AwayStr2();
                 onetime2 = false;
             }
         }
-        else if (ParameterCalc.GameOver)
+        else if (ParameterCalc.instanceCalc.GameOver)
         {
-            if (UIContA.ClearAnim && onetime2)
+            if (UICont1.instanceUI1.ClearAnim && onetime2)
             {
-                //UIContA.ClearAnim = false;
                 AwayStr2();
                 onetime2 = false;
             }
         }
         else
         {
-            if (UIContA.PushN == 7 && onetime2)
+            if (UICont1.instanceUI1.PushN == 7 && onetime2)
             {
                 AwayStr2();
                 onetime2 = false;

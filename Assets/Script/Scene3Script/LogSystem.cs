@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//シーン3ログシステム管理
 public class LogSystem : MonoBehaviour
 {
-    public Text ChangeLogTex; //テキストを替えるオブジェクト
+	[SerializeField] 
+    private Text ChangeLogTex; //テキストを替えるオブジェクト
     private string LogText; //代入するテキストの中身
     private string[] PeopleKindText = new string[5]; //種類ごとに出力するテキストを変更
     private string[] words; //テキスト処理用
@@ -31,7 +33,6 @@ public class LogSystem : MonoBehaviour
         /*--------SE--------*/
         if(readNowLog)
         {
-            Debug.Log("aaaaaa");
             if(delayTextSELog)//1.045秒毎に再生
             {
                 TextFlowSELog();
@@ -44,7 +45,7 @@ public class LogSystem : MonoBehaviour
     void GenerateLog()
     {
         //何を売ったか
-        switch (ParameterCalc.ToolType)
+        switch (ParameterCalc.instanceCalc.ToolType)
         {
             case 0: //剣
                 LogText += " 今 日 は ど う の つ る ぎ を 売 っ た 。\n";
@@ -58,14 +59,15 @@ public class LogSystem : MonoBehaviour
                 LogText += " 今 日 は ま ぼ ろ し の か ぶ を 売 っ た 。 \n";
                 break;
         }
-        if (ParameterCalc.PoorDebt)
+
+        if (ParameterCalc.instanceCalc.PoorDebt)
         {
             LogText += " 貧 民 は 支 払 え ず 、 負 債 者 と な っ た 。 \n";
         }
 
-        if (ParameterCalc.usePubli)
+        if (ParameterCalc.instanceCalc.usePubli)
         {
-            if(ParameterCalc.publiSuccess)
+            if(ParameterCalc.instanceCalc.publiSuccess)
             {
                 LogText += " 業 者 は 成 功 し た よ う だ 。 \n";
             }
@@ -76,29 +78,27 @@ public class LogSystem : MonoBehaviour
         }
 
         //来店
-        for (int i = 0; i <= ParameterCalc.GenePeopleCount; i++ )
+        for (int i = 0; i <= ParameterCalc.instanceCalc.GenePeopleCount; i++ )
         {
-            switch (ParameterCalc.GenePeopleType[i])
+            switch (ParameterCalc.instanceCalc.GenePeopleType[i])
             {
                 case 0://貧民
-                    PeopleKindText[i] = " 貧 民 か ら " + ParameterCalc.ReceiveMoney[i] + " z 得 た 。 \n";
+                    PeopleKindText[i] = " 貧 民 か ら " + ParameterCalc.instanceCalc.ReceiveMoney[i] + " z 得 た 。 \n";
                     break;
 
                 case 1://市民
-                    PeopleKindText[i] = " 市 民 か ら " + ParameterCalc.ReceiveMoney[i] + " z 得 た 。 \n";
+                    PeopleKindText[i] = " 市 民 か ら " + ParameterCalc.instanceCalc.ReceiveMoney[i] + " z 得 た 。 \n";
                     break;
 
                 case 2://富豪
-                    PeopleKindText[i] = " 富 豪 か ら " + ParameterCalc.ReceiveMoney[i] + " z 得 た 。 \n";
+                    PeopleKindText[i] = " 富 豪 か ら " + ParameterCalc.instanceCalc.ReceiveMoney[i] + " z 得 た 。 \n";
                     break;
 
                 case 3://貴族
-                    PeopleKindText[i] = " 貴 族 か ら " + ParameterCalc.ReceiveMoney[i] + " z 得 た 。 \n";
+                    PeopleKindText[i] = " 貴 族 か ら " + ParameterCalc.instanceCalc.ReceiveMoney[i] + " z 得 た 。 \n";
                     break;
             }
-
             LogText += PeopleKindText[i];
-
         }
 
         /*
@@ -108,43 +108,48 @@ public class LogSystem : MonoBehaviour
          */
 
         //犯罪率と罰金
-        if(ParameterCalc.toDayCrime > 0 )
+        if(ParameterCalc.instanceCalc.toDayCrime > 0 )
         {
-            LogText += " 犯 罪 度 が " + ParameterCalc.toDayCrime + " 増 加 し た 。 \n";
+            LogText += " 犯 罪 度 が " + ParameterCalc.instanceCalc.toDayCrime + " 増 加 し た 。 \n";
         
-            if(ParameterCalc.fineMoney)
+            if(ParameterCalc.instanceCalc.fineMoney)
             {
-                LogText += " 犯 罪 度 が 1 0 0 を 超 え た た め \n 罰 金 と し て " + ParameterCalc.fineMoneyInt + " z 差 し 引 か れ た 。 \n";
+                LogText += " 犯 罪 度 が 1 0 0 を 超 え た た め \n 罰 金 と し て " + ParameterCalc.instanceCalc.fineMoneyInt + " z 差 し 引 か れ た 。 \n";
             }
         }
 
-        LogText += " 行 商 税 と し て " + ParameterCalc.HaveTaxPay + " z 差 し 引 か れ た 。 \n";
-        if (ParameterCalc.StealTaxjuge)
+        LogText += " 行 商 税 と し て " + ParameterCalc.instanceCalc.HaveTaxPay + " z 差 し 引 か れ た 。 \n";
+
+        if (ParameterCalc.instanceCalc.StealTaxjuge)
         {
-            LogText +=  " 盗 賊 に " + ParameterCalc.StealPeoplePay + " z 奪 わ れ て し ま っ た 。 \n";
+            LogText +=  " 盗 賊 に " + ParameterCalc.instanceCalc.StealPeoplePay + " z 奪 わ れ て し ま っ た 。 \n";
         }
-        LogText += " 子 分 た ち に " + ParameterCalc.Paycheck[ParameterCalc.TurnCount] + " z 支 払 っ た 。\n";
-        int earnings = ParameterCalc.TotalReceiveMoney - ParameterCalc.TotalPayment;
+
+        LogText += " 子 分 た ち に " + ParameterCalc.instanceCalc.Paycheck[ParameterCalc.instanceCalc.TurnCount] + " z 支 払 っ た 。\n";
+        int earnings = ParameterCalc.instanceCalc.TotalReceiveMoney - ParameterCalc.instanceCalc.TotalPayment;
+        
         if (earnings > 0) //収支
         {
-            LogText += " 収 支 ： +" + earnings + "z 　　　所 持 金 ：" + ParameterCalc.HaveMoney + " z \n";
+            LogText += " 収 支 ： +" + earnings + "z 　　　所 持 金 ：" + ParameterCalc.instanceCalc.HaveMoney + " z \n";
         }
         else
         {
-            LogText += " 収 支 ： " + earnings + "z 　　　所 持 金 ：" + ParameterCalc.HaveMoney + " z \n";
+            LogText += " 収 支 ： " + earnings + "z 　　　所 持 金 ：" + ParameterCalc.instanceCalc.HaveMoney + " z \n";
         }
-        int target = ParameterCalc.TargetAmount - ParameterCalc.HaveMoney;
-        if(target > 0)
+
+        int target = ParameterCalc.instanceCalc.TargetAmount - ParameterCalc.instanceCalc.HaveMoney;
+
+        if(target <= 0)     //ゲームクリア
         {
-            LogText += " 目 標 ま で あ と ：" + target + " z ";
+            LogText += " 目 標 金 額 達 成 ! !";
         }
-        else if(target >= ParameterCalc.TargetAmount)
+        else if(target >= ParameterCalc.instanceCalc.TargetAmount)   //ゲームオーバー
         {
             LogText += " 所 持 金 が 無 く な っ て し ま っ た . . . ";
         }
-        else
+        else    //通常処理
         {
-            LogText += " 目 標 金 額 達 成 ! !";
+            LogText += " 目 標 ま で あ と ：" + target + " z ";
         }
         
         StartCoroutine(WriteResult());

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//戦略パネルのテキスト管理
 public class StrExpText : MonoBehaviour
 {
     public string[] talks = new string[6];
-
     private string[] words;
     public Text textLabel;
     //テキストが流れているか判定
@@ -51,10 +51,10 @@ public class StrExpText : MonoBehaviour
     IEnumerator Dialogue()
     {
         RunDispo = false;//処理中に他のパネルの選択を出来なくする
-        UIContA.readNow = true;
+        UICont1.instanceUI1.readNow = true;
 
         // 半角スペースで文字を分割する。
-        words = talks[UIContA.SelectStr].Split(' ');
+        words = talks[UICont1.instanceUI1.SelectStr].Split(' ');
         
         /*--SE用--*/
         int finSE = words.Length - 50; //文字の長さを取得用
@@ -73,11 +73,10 @@ public class StrExpText : MonoBehaviour
             yield return new WaitForSeconds(0.02f);
             if(finSE < finTime)
             {
-                UIContA.readNow = false; //文字表示用SE終了
+                UICont1.instanceUI1.readNow = false; //文字表示用SE終了
             }
-            UIContA.readNow = false; //文字表示用SE終了
+            UICont1.instanceUI1.readNow = false; //文字表示用SE終了
         }
         RunDispo = true; //他のパネルの選択を可能にする
-        Debug.Log("a");
     }
 }

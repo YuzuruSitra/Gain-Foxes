@@ -4,21 +4,27 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+//タイトル画面遷移管理
 public class SceneCnt_Title : MonoBehaviour
 {
-	public float fadeSpeed = 0.8f;        //透明度が変わるスピードを管理
-	public static float red, green, blue, alfa;   //パネルの色、不透明度を管理
-	public static bool isFadeOut_Ti = false;  //フェードアウト処理の開始、完了を管理するフラグ
+	private float fadeSpeed = 0.8f;        //透明度が変わるスピードを管理
+	private float red, green, blue, alfa;   //パネルの色、不透明度を管理
+	private bool isFadeOut_Ti = false;  //フェードアウト処理の開始、完了を管理するフラグ
 	private bool isFadeIn = false;   //フェードイン処理の開始、完了を管理するフラグ
-	public GameObject fadePanel;
-	public GameObject settingPanel;
-	public GameObject confirmationPanel;
-	public GameObject doneDeletePanel;
+	[SerializeField]
+	private GameObject fadePanel;
+	[SerializeField]
+	private GameObject settingPanel;
+	[SerializeField]
+	private GameObject confirmationPanel;
+	[SerializeField]
+	private GameObject doneDeletePanel;
 
 	//サウンド用スクリプト取得
 	[SerializeField] 
     private soundCnt sound;
-	public AudioClip titleBGM;
+	[SerializeField]
+	private AudioClip titleBGM;
     [SerializeField] 
     private AudioClip pushButtonSE;
 
@@ -70,22 +76,22 @@ public class SceneCnt_Title : MonoBehaviour
 
 	void StartFadeIn()
 	{
-		alfa -= fadeSpeed * Time.deltaTime;                //a)不透明度を徐々に下げる
-		SetAlpha();                      //b)変更した不透明度パネルに反映する
+		alfa -= fadeSpeed * Time.deltaTime; 
+		SetAlpha();                
 		if (alfa <= 0)
-		{                    //c)完全に透明になったら処理を抜ける
+		{                 
 			isFadeIn = false;
-			fadeImage.enabled = false;    //d)パネルの表示をオフにする
+			fadeImage.enabled = false;  
 		}
 	}
 
 	public void StartFadeOut()
 	{
-		fadeImage.enabled = true;  // a)パネルの表示をオンにする
-		alfa += fadeSpeed * Time.deltaTime;         // b)不透明度を徐々にあげる
-		SetAlpha();               // c)変更した透明度をパネルに反映する
+		fadeImage.enabled = true;  
+		alfa += fadeSpeed * Time.deltaTime; 
+		SetAlpha();  
 		if (alfa >= 1)
-		{             // d)完全に不透明になったら処理を抜ける
+		{       
 			isFadeOut_Ti = false;
 			//シーンのロードを挟む
 			SceneManager.LoadScene("Scene_A");

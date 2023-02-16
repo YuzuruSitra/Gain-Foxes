@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using CI.QuickSave;
 
+//ゲームデータのセーブ管理
 public class SaveControl : MonoBehaviour
 {
-    public static bool NewGame;
-
-    //他スクリプトでも呼べるようにインスタンス化
+    //インスタンス化
     public static SaveControl instanceSave;
+    public bool NewGame;
     private int i;
-    
 
     public void Awake()
     {
@@ -20,7 +19,6 @@ public class SaveControl : MonoBehaviour
         }
     }
 
-
     void Start()
     {
         // データの保存先をApplication.dataPathに変更
@@ -29,7 +27,6 @@ public class SaveControl : MonoBehaviour
         DoEncryption();
         CheckSave();
     }
-
 
     private void DoEncryption()//暗号化処理
     {
@@ -42,7 +39,6 @@ public class SaveControl : MonoBehaviour
         // 圧縮の方法
         settings.CompressionMode = CompressionMode.Gzip;
     }
-
     
     //セーブデータチェック
     void CheckSave()
@@ -56,7 +52,6 @@ public class SaveControl : MonoBehaviour
         NewGame = reader.Read<bool>("newGame");
     }
 
-
     //基本セーブ処理
     public void Dosave()
     {
@@ -65,40 +60,38 @@ public class SaveControl : MonoBehaviour
         // QuickSaveWriterのインスタンスを作成
         QuickSaveWriter writer = QuickSaveWriter.Create("Player",settings);
 
-
         // データを書き込む
         writer.Write("newGame", NewGame);
-        writer.Write("turnCount", ParameterCalc.TurnCount);
-        writer.Write("haveMoney", ParameterCalc.HaveMoney);
-        writer.Write("crimeRate", ParameterCalc.CrimeRate);
-        writer.Write("slave", ParameterCalc.Slave);
-        writer.Write("poorMoney", ParameterCalc.PoorMoney);
+        writer.Write("turnCount", ParameterCalc.instanceCalc.TurnCount);
+        writer.Write("targetAmount", ParameterCalc.instanceCalc.TargetAmount);
+        writer.Write("haveMoney", ParameterCalc.instanceCalc.HaveMoney);
+        writer.Write("poor", ParameterCalc.instanceCalc.Poor);
+        writer.Write("general", ParameterCalc.instanceCalc.General);
+        writer.Write("millionaire", ParameterCalc.instanceCalc.Millionaire);
+        writer.Write("noble", ParameterCalc.instanceCalc.Noble);
 
-        writer.Write("brSwordSell", ParameterCalc.BrSwordSell);
-        writer.Write("brSwordUp", ParameterCalc.BrSwordUp);
-        writer.Write("brSwordUpCount", ParameterCalc.BrSwordUpCount);
+        writer.Write("crimeRate", ParameterCalc.instanceCalc.CrimeRate);
+        writer.Write("slave", ParameterCalc.instanceCalc.Slave);
+        writer.Write("poorMoney", ParameterCalc.instanceCalc.PoorMoney);
 
-        writer.Write("potionGet", ParameterCalc.PotionGet);
-        writer.Write("potionSell", ParameterCalc.PotionSell);
-        writer.Write("potionUp", ParameterCalc.PotionUp);
-        writer.Write("potionUpCount", ParameterCalc.PotionUpCount);
-        writer.Write("havePotionJ", ParameterCalc.HavePotionJ);
+        writer.Write("brSwordUpCount", ParameterCalc.instanceCalc.BrSwordUpCount);
 
-        writer.Write("stockOpen", ParameterCalc.StockOpen);
-        writer.Write("haveStockJ", ParameterCalc.HaveStockJ);
-        writer.Write("stockQuantity", ParameterCalc.StockQuantity);
+        writer.Write("potionGet", ParameterCalc.instanceCalc.PotionGet);
+        writer.Write("potionUpCount", ParameterCalc.instanceCalc.PotionUpCount);
+        writer.Write("havePotionJ", ParameterCalc.instanceCalc.HavePotionJ);
 
-        writer.Write("resultScore0", ParameterCalc.ResultScore[0]);
-        writer.Write("resultScore1", ParameterCalc.ResultScore[1]);
-        writer.Write("resultScore2", ParameterCalc.ResultScore[2]);
+        writer.Write("stockGet", ParameterCalc.instanceCalc.StockGet);
+        writer.Write("stockSell", ParameterCalc.instanceCalc.StockSell);
+        writer.Write("stockOpen", ParameterCalc.instanceCalc.StockOpen);
+        writer.Write("haveStockJ", ParameterCalc.instanceCalc.HaveStockJ);
+        writer.Write("stockQuantity", ParameterCalc.instanceCalc.StockQuantity);
 
-        i = 0;
-        //子分給料セーブ
-        while (i <= ParameterCalc.TurnCount)
-        {
-            writer.Write("payCheck" + i, ParameterCalc.Paycheck[i]);
-            i++;
-        }
+        writer.Write("resultScore0", ParameterCalc.instanceCalc.ResultScore[0]);
+        writer.Write("resultScore1", ParameterCalc.instanceCalc.ResultScore[1]);
+        writer.Write("resultScore2", ParameterCalc.instanceCalc.ResultScore[2]);
+
+        writer.Write("taxCount",ParameterCalc.instanceCalc.TaxCount);
+
         // 変更を反映
         writer.Commit();
     }
@@ -111,38 +104,83 @@ public class SaveControl : MonoBehaviour
         // QuickSaveReaderのインスタンスを作成
         QuickSaveReader reader = QuickSaveReader.Create("Player", settings);
         
-        ParameterCalc.TurnCount = reader.Read<int>("turnCount");
-        ParameterCalc.HaveMoney = reader.Read<int>("haveMoney");
-        ParameterCalc.CrimeRate = reader.Read<double>("crimeRate");
-        ParameterCalc.Slave = reader.Read<int>("slave");
-        ParameterCalc.PoorMoney = reader.Read<double>("poorMoney");
+        ParameterCalc.instanceCalc.TurnCount = reader.Read<int>("turnCount");
+        ParameterCalc.instanceCalc.TargetAmount = reader.Read<int>("targetAmount");
+        ParameterCalc.instanceCalc.HaveMoney = reader.Read<int>("haveMoney");
+        ParameterCalc.instanceCalc.Poor = reader.Read<float>("poor");
+        ParameterCalc.instanceCalc.General = reader.Read<float>("general");
+        ParameterCalc.instanceCalc.Millionaire = reader.Read<float>("millionaire");
+        ParameterCalc.instanceCalc.Noble = reader.Read<float>("noble");
+        ParameterCalc.instanceCalc.CrimeRate = reader.Read<float>("crimeRate");
+        ParameterCalc.instanceCalc.Slave = reader.Read<int>("slave");
+        ParameterCalc.instanceCalc.PoorMoney = reader.Read<float>("poorMoney");
 
-        ParameterCalc.BrSwordSell = reader.Read<int>("brSwordSell");
-        ParameterCalc.BrSwordUp = reader.Read<int>("brSwordUp");
-        ParameterCalc.BrSwordUpCount = reader.Read<int>("brSwordUpCount");
+        ParameterCalc.instanceCalc.BrSwordUpCount = reader.Read<int>("brSwordUpCount");
 
-        ParameterCalc.PotionGet = reader.Read<int>("potionGet");
-        ParameterCalc.PotionSell = reader.Read<int>("potionSell");
-        ParameterCalc.PotionUp = reader.Read<int>("potionUp");
-        ParameterCalc.PotionUpCount = reader.Read<int>("potionUpCount");
-        ParameterCalc.HavePotionJ = reader.Read<bool>("havePotionJ");
+        ParameterCalc.instanceCalc.PotionGet = reader.Read<int>("potionGet");
+        ParameterCalc.instanceCalc.PotionUpCount = reader.Read<int>("potionUpCount");
+        ParameterCalc.instanceCalc.HavePotionJ = reader.Read<bool>("havePotionJ");
 
-        ParameterCalc.StockOpen = reader.Read<int>("stockOpen");
-        ParameterCalc.HaveStockJ = reader.Read<bool>("haveStockJ");
-        ParameterCalc.StockQuantity = reader.Read<int>("stockQuantity");
+        ParameterCalc.instanceCalc.StockGet = reader.Read<int>("stockGet");
+        ParameterCalc.instanceCalc.StockSell = reader.Read<int>("stockSell");
+        ParameterCalc.instanceCalc.StockOpen = reader.Read<int>("stockOpen");
+        ParameterCalc.instanceCalc.HaveStockJ = reader.Read<bool>("haveStockJ");
+        ParameterCalc.instanceCalc.StockQuantity = reader.Read<int>("stockQuantity");
 
-        ParameterCalc.ResultScore[0] = reader.Read<int>("resultScore0");
-        ParameterCalc.ResultScore[1] = reader.Read<int>("resultScore1");
-        ParameterCalc.ResultScore[2] = reader.Read<int>("resultScore2");
+        ParameterCalc.instanceCalc.ResultScore[0] = reader.Read<int>("resultScore0");
+        ParameterCalc.instanceCalc.ResultScore[1] = reader.Read<int>("resultScore1");
+        ParameterCalc.instanceCalc.ResultScore[2] = reader.Read<int>("resultScore2");
 
+        ParameterCalc.instanceCalc.TaxCount = reader.Read<int>("taxCount");
+
+        //商品の価格を初期値から計算しセット
         i = 0;
-        //子分給料読み込み
-        while (i <= ParameterCalc.TurnCount)
+        int[] brSwordSell = new int[100];
+        int[] brSwordUp = new int[100];
+        int[] potionSell = new int[100];
+        int[] potionUp = new int[100];
+
+        while (i < 100)
         {
-            ParameterCalc.Paycheck[i] = reader.Read<int>("payCheck" + i);
+            if(i < 2)
+            {
+                brSwordSell[i] = reader.Read<int>("brSwordSell");
+                brSwordUp[i] = reader.Read<int>("brSwordUp");
+                potionSell[i] = reader.Read<int>("potionSell");
+                potionUp[i] = reader.Read<int>("potionUp");
+            }
+            else
+            {
+                brSwordSell[i] = brSwordSell[i-1] + brSwordSell[i-2];
+                brSwordUp[i] = brSwordUp[i-1] + brSwordUp[i-2];
+                potionSell[i] = potionSell[i-1] + potionSell[i-2];
+                potionUp[i] = potionUp[i-1] + potionUp[i-2];
+            }
+            //計算結果の格納
+            ParameterCalc.instanceCalc.BrSwordSell[i] = brSwordSell[i];
+            ParameterCalc.instanceCalc.BrSwordUp[i] = brSwordUp[i];
+            ParameterCalc.instanceCalc.PotionSell[i] = potionSell[i];
+            ParameterCalc.instanceCalc.PotionUp[i] = potionUp[i];
             i++;
         }
-        
+
+        //子分の給料を初期値から計算しセット
+        i = 0;
+        int[] payCheck = new int[100];
+        while (i < 100)
+        {
+            if(i < 1)
+            {
+                payCheck[i] = reader.Read<int>("payCheck");
+            }
+            else
+            {
+                float tmpCalc = (float)payCheck[i - 1] * 1.2f + 50.0f * i;
+                payCheck[i] = (int)tmpCalc;
+            }
+            ParameterCalc.instanceCalc.Paycheck[i] = payCheck[i];
+            i++;
+        }
     }
 
     //データ削除
@@ -153,10 +191,8 @@ public class SaveControl : MonoBehaviour
         // QuickSaveWriterのインスタンスを作成
         QuickSaveWriter writer = QuickSaveWriter.Create("Player", settings);
 
-
-        NewGame = true;
-
         // ニューゲーム
+        NewGame = true;
         writer.Write("newGame", NewGame);
 
         //リザルト削除処理
@@ -167,8 +203,16 @@ public class SaveControl : MonoBehaviour
         // データを書き込む
         writer.Commit();
     }
+
+    //初立ち上げ初期値セット
+    public void firstLunch()
+    {
+        NewGame = true;
+        ClearDateSave();
+        Doload();
+    }
     
-    //クリア後のセーブ処理
+    //クリア後のセーブ処理<初期値セット>
     public void ClearDateSave()
     {
         // QuickSaveSettingsのインスタンスを作成
@@ -176,38 +220,49 @@ public class SaveControl : MonoBehaviour
         // QuickSaveWriterのインスタンスを作成
         QuickSaveWriter writer = QuickSaveWriter.Create("Player", settings);
 
-
         //クリア済みなので新規データはfalse
-        NewGame = false;
         writer.Write("newGame", NewGame);
 
         //初期値をセット
         writer.Write("turnCount", 0);
+        writer.Write("targetAmount",100000);
         writer.Write("haveMoney", 1000);
+
+        writer.Write("poor", 0.7);
+        writer.Write("general", 1.0);
+        writer.Write("millionaire", 1.3);
+        writer.Write("noble", 1.6);
+
         writer.Write("crimeRate", 0.0);
         writer.Write("slave", 0);
         writer.Write("poorMoney", 1000.0);
 
         writer.Write("brSwordSell", 400);
-        writer.Write("brSwordUp", 2000);
+        writer.Write("brSwordUp", 800);
         writer.Write("brSwordUpCount", 1);
 
         writer.Write("potionGet", 3000);
-        writer.Write("potionSell", 1000);
-        writer.Write("potionUp", 2000);
+        writer.Write("potionSell", 800);
+        writer.Write("potionUp", 1000);
         writer.Write("potionUpCount", 0);
         writer.Write("havePotionJ", false);
 
-        writer.Write("stockOpen", 30000);
+        writer.Write("stockGet", 100);
+        writer.Write("stockSell", 300);
+        writer.Write("stockOpen", 5000);
         writer.Write("haveStockJ", false);
         writer.Write("stockQuantity", 0);
+        writer.Write("payCheck",100);
+
+        writer.Write("taxCount",0.0);
 
         //スコアの書き込み
-        writer.Write("resultScore0", ParameterCalc.ResultScore[0]);
-        writer.Write("resultScore1", ParameterCalc.ResultScore[1]);
-        writer.Write("resultScore2", ParameterCalc.ResultScore[2]);
+        writer.Write("resultScore0", ParameterCalc.instanceCalc.ResultScore[0]);
+        writer.Write("resultScore1", ParameterCalc.instanceCalc.ResultScore[1]);
+        writer.Write("resultScore2", ParameterCalc.instanceCalc.ResultScore[2]);
 
         // 変更を反映
         writer.Commit();
     }
+
 }

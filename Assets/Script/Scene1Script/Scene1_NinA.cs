@@ -3,41 +3,39 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+//忍者Aの演出管理
 public class Scene1_NinA : MonoBehaviour
 {
     private bool onetime1;
     private Animator animator;
-    public Transform S1Ta;//目的地となるオブジェクトのトランスフォーム格納用
+    [SerializeField]
+    private Transform S1Ta;//目的地となるオブジェクトのトランスフォーム格納用
     private NavMeshAgent agent;     //エージェントとなるオブジェクトのNavMeshAgent格納用 
- 
-    // Start is called before the first frame update
+
     void Start()
     {
-    onetime1 = true;
-    animator = GetComponent<Animator>();
-    //エージェントのNaveMeshAgentを取得する
-    agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-    animator.SetBool("isLeft",false);
-    animator.SetBool("isRight",false);
+        onetime1 = true;
+        animator = GetComponent<Animator>();
+        //エージェントのNaveMeshAgentを取得する
+        agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        animator.SetBool("isLeft",false);
+        animator.SetBool("isRight",false);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (ParameterCalc.GameClear)
+        if (ParameterCalc.instanceCalc.GameClear)
         {
-            if(UIContA.ClearAnim && onetime1)
+            if(UICont1.instanceUI1.ClearAnim && onetime1)
             {
-                //UIContA.ClearAnim = false;
                 AwayStr();
                 animator.SetBool("isRight", true);
             }
         }
-        else if (ParameterCalc.GameOver)
+        else if (ParameterCalc.instanceCalc.GameOver)
         {
-            if (UIContA.ClearAnim && onetime1)
+            if (UICont1.instanceUI1.ClearAnim && onetime1)
             {
-                //UIContA.ClearAnim = false;
                 AwayStr();
                 animator.SetBool("isRight", true);
                 onetime1 = false;
@@ -45,7 +43,7 @@ public class Scene1_NinA : MonoBehaviour
         }
         else
         {
-            if (UIContA.PushN == 4 && onetime1)
+            if (UICont1.instanceUI1.PushN == 4 && onetime1)
             {
                 AwayStr();
                 onetime1 = false;

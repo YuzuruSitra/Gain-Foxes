@@ -2,55 +2,49 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//忍者Aの演出管理
 public class Scene1_NinC : MonoBehaviour
 {
     private Animator animator;
     private bool onetime3;
-    // Start is called before the first frame update
+    
     void Start()
     {
         onetime3 = true;
         animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (ParameterCalc.GameClear && ParameterCalc.TurnCount == ParameterCalc.PopTurnEvent)
+        if (ParameterCalc.instanceCalc.GameClear && ParameterCalc.instanceCalc.TurnCount == ParameterCalc.instanceCalc.PopTurnEvent)
         {
             animator.SetBool("Appear", true);
             animator.SetBool("disApear", false);
-            
-
-            if (UIContA.ClearAnim)
+            if (UICont1.instanceUI1.ClearAnim)
             {
                 animator.SetBool("Appear", false);
-                animator.SetBool("disApear", true);
-                
+                animator.SetBool("disApear", true);   
             }
         }
-        else if (ParameterCalc.GameOver && ParameterCalc.TurnCount == ParameterCalc.PopTurnEvent)
+        else if (ParameterCalc.instanceCalc.GameOver && ParameterCalc.instanceCalc.TurnCount == ParameterCalc.instanceCalc.PopTurnEvent)
         {
             animator.SetBool("Appear", true);
             animator.SetBool("disApear", false);
-            
-
-            if (UIContA.ClearAnim )
+            if (UICont1.instanceUI1.ClearAnim )
             {
                 animator.SetBool("Appear", false);
-                animator.SetBool("disApear", true);
-               
+                animator.SetBool("disApear", true);       
             }
         }
         else
         {
-            if (UIContA.PushN == 7 && onetime3)
+            if (UICont1.instanceUI1.PushN == 7 && onetime3)
             {
                 animator.SetBool("Appear", true);
                 animator.SetBool("disApear", false);
                 onetime3 = false;
             }
-            else if (UIContA.PushN == 10 && !onetime3)
+            else if (UICont1.instanceUI1.PushN == 10 && !onetime3)
             {
                 animator.SetBool("Appear", false);
                 animator.SetBool("disApear", true);

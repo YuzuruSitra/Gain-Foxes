@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//タイトル忍者B演出管理
 public class Title_NinjaB : MonoBehaviour
 {
     private Animator animator;
-    public Transform NinjaB;//目的地となるオブジェクトのトランスフォーム格納用
-    private UnityEngine.AI.NavMeshAgent agent;     //エージェントとなるオブジェクトのNavMeshAgent格納用 
-    // Start is called before the first frame update
+    [SerializeField]
+    private Transform NinjaB;    //目的地となるオブジェクトのトランスフォーム格納用
+    private UnityEngine.AI.NavMeshAgent agent;     //エージェントとなるオブジェクトのNavMeshAgent格納用
+    
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -19,19 +21,13 @@ public class Title_NinjaB : MonoBehaviour
         animator.SetBool("FallDown",false);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void OnTriggerEnter(Collider other)
     {
-       if(other.CompareTag("NinjaCGoal"))
-       {
-        animator.SetBool("Go",false);
-        animator.SetBool("FallDown",true);
-       }
+        if(other.CompareTag("NinjaCGoal"))
+        {
+            animator.SetBool("Go",false);
+            animator.SetBool("FallDown",true);
+        }
     }
 
 }

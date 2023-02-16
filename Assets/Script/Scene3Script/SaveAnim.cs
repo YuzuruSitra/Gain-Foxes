@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//セーブ演出用
 public class SaveAnim : MonoBehaviour
 {
     private string Saving;
-    public Text Savetext;
-    public GameObject SaveText;
+	[SerializeField] 
+    private Text Savetext;
+	[SerializeField] 
+    private GameObject SaveText;
     private int iSave;
     private int goBreak = 0;
-    // Start is called before the first frame update
+
     void Start()
     {
         SaveText.gameObject.SetActive(true);
@@ -19,11 +22,11 @@ public class SaveAnim : MonoBehaviour
         iSave = 0;
     }
 
-    // Update is called once per frame
     void Update()
     {
         Savetext.text = Saving;
     }
+
     void ChangeText()
     {
         switch (iSave)
@@ -51,8 +54,7 @@ public class SaveAnim : MonoBehaviour
                 {
                     SaveText.gameObject.SetActive(false);
                 }
-                break;
-            
+                break;    
         }
     }
 }

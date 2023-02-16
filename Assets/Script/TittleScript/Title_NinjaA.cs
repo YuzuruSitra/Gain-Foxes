@@ -3,30 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+//タイトル忍者A演出管理
 public class Title_NinjaA : MonoBehaviour
 {
     private Animator animator;
-    public Transform Ta;//目的地となるオブジェクトのトランスフォーム格納用
-    public Transform Tb; 
-
+    [SerializeField]
+    private Transform Ta;//目的地となるオブジェクトのトランスフォーム格納用
+    [SerializeField]
+    private Transform Tb; 
     private NavMeshAgent agent;     //エージェントとなるオブジェクトのNavMeshAgent格納用 
  
-	// Use this for initialization
 	void Start () 
     {
-    animator = GetComponent<Animator>();
-    //エージェントのNaveMeshAgentを取得する
-    agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-    //目的地となる座標を設定する
-    agent.destination = Ta.position;
-    animator.SetBool("isLeft",false);
-    animator.SetBool("isRight",true);
+        animator = GetComponent<Animator>();
+        //エージェントのNaveMeshAgentを取得する
+        agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        //目的地となる座標を設定する
+        agent.destination = Ta.position;
+        animator.SetBool("isLeft",false);
+        animator.SetBool("isRight",true);
 	}
-
-    void update()
-    {
-
-    }
 
     void OnTriggerEnter(Collider other)
     {
@@ -43,7 +39,5 @@ public class Title_NinjaA : MonoBehaviour
         animator.SetBool("isRight",true);
         agent.destination = Ta.position;
        }
-
     }
-
 }

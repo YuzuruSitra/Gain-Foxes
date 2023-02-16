@@ -4,10 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+//プレイ中の設定パネル管理
 public class menuCnt : MonoBehaviour
 {
     //ゲーム中断用
     public static bool ESCnow = false;
+    //チュートリアルパネルを展開しているか
+    private bool openTutorialPanel;
 
     //ゲームプレイ中のUIを格納
     [SerializeField] 
@@ -17,16 +20,16 @@ public class menuCnt : MonoBehaviour
     [SerializeField] 
     private GameObject SelectPanel;
     //メニュー用bool
-    private bool menuSwitch = true;
+    private bool cloaseEscMenu = true;
 
     [SerializeField] 
     private GameObject TutorialExp;
     [SerializeField] 
     private GameObject SettingsPanel;
 
-    // Start is called before the first frame update
     void Start()
     {
+        openTutorialPanel = false;
         //パネルは全て非アクティブ
         inGamePanel.SetActive(true);
         MenuPanel.SetActive(false);
@@ -37,19 +40,26 @@ public class menuCnt : MonoBehaviour
     void Update()
     {
         //ESCでメニューを開き、もう一度押すと閉じる
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !UICont1.instanceUI1.nowClear)
         {
-            if(menuSwitch)
+            if(cloaseEscMenu)
             {
                 inGamePanel.SetActive(false);
                 MenuPanel.SetActive(true);
                 SelectPanel.SetActive(true);
-                menuSwitch = false;
+                cloaseEscMenu = false;
                 ESCnow = true;
             }
             else
             {
-                closeMenu();
+                //ESCパネルを閉じる
+                inGamePanel.SetActive(true);
+                MenuPanel.SetActive(false);
+                SelectPanel.SetActive(false);
+                TutorialExp.SetActive(false);
+                SettingsPanel.SetActive(false);
+                cloaseEscMenu = true;
+                ESCnow = false;
             }
         }
     }
@@ -65,6 +75,7 @@ public class menuCnt : MonoBehaviour
     {
         SelectPanel.SetActive(false);
         TutorialExp.SetActive(true);
+        openTutorialPanel = true;
     }
     //ホームに戻る
     public void pushHome()
@@ -78,10 +89,20 @@ public class menuCnt : MonoBehaviour
     //メニューパネル
     public void closeMenu()
     {
+        //チュートリアルパネルが開いている場合はそちらを閉じ処理を終える
+        if(openTutorialPanel)
+        {
+            SelectPanel.SetActive(true);
+            TutorialExp.SetActive(false);
+            openTutorialPanel = false;
+            return;
+        }
+
+        //ESCパネルを閉じる
         inGamePanel.SetActive(true);
         MenuPanel.SetActive(false);
         SelectPanel.SetActive(false);
-        menuSwitch = true;
+        cloaseEscMenu = true;
         ESCnow = false;
     }
 
@@ -91,11 +112,4 @@ public class menuCnt : MonoBehaviour
         SelectPanel.SetActive(true);
         SettingsPanel.SetActive(false);
     }
-    //チュートリアル    
-    public void closeTutrial()
-    {
-        SelectPanel.SetActive(true);
-        TutorialExp.SetActive(false);
-    }
-
 }
