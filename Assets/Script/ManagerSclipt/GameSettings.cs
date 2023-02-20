@@ -12,10 +12,14 @@ public class GameSettings : MonoBehaviour
     //シーン管理用
     [SerializeField]
     private StateManagement Settings; 
-    public Slider sliderBGM;
-    public Slider sliderSE;
-    public Text BGMtext;
-    public Text SEtext;
+    [SerializeField]
+    private Slider sliderBGM;
+    [SerializeField]
+    private Slider sliderSE;
+    [SerializeField]
+    private Text BGMtext;
+    [SerializeField]
+    private Text SEtext;
 
     void Start()
     {

@@ -10,10 +10,10 @@ public class SceneCnt1 : MonoBehaviour
     //他スクリプトでも呼べるようにインスタンス化
     public static SceneCnt1 instanceCnt1;
 
-	public float fadeSpeed = 0.8f;        //透明度が変わるスピードを管理
+	private float fadeSpeed = 0.8f;        //透明度が変わるスピードを管理
 	private float red, green, blue, alfa;   //パネルの色、不透明度を管理
 	public bool isFadeOut_A = false;  //フェードアウト処理の開始、完了を管理するフラグ
-	public bool isFadeIn = false;   //フェードイン処理の開始、完了を管理するフラグ
+	private bool isFadeIn = false;   //フェードイン処理の開始、完了を管理するフラグ
     [SerializeField]
     private GameObject fadePanel_A;
     [SerializeField]
