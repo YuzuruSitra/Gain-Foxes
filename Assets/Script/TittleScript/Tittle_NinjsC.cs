@@ -5,7 +5,7 @@ using UnityEngine;
 //タイトル忍者C演出管理
 public class Tittle_NinjsC : MonoBehaviour
 {
-    private bool C;
+    private bool change;
     private Animator animator;
     private SpriteRenderer mesh;
 
@@ -19,17 +19,17 @@ public class Tittle_NinjsC : MonoBehaviour
 
     void ChangeAnim()
     {
-        if(C)
+        if(change)
         {
             animator.SetBool("Appear",false);
             animator.SetBool("disApear",true);
-            C = false;
+            change = false;
         }
         else
         {
             animator.SetBool("Appear",true);
             animator.SetBool("disApear",false);
-            C = true;
+            change = true;
         }
     }
 

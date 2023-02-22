@@ -6,14 +6,20 @@ using UnityEngine.AI;
 //忍者Aの演出管理
 public class Scene1_NinA : MonoBehaviour
 {
+    //UI管理スクリプトの取得
+    [SerializeField]
+    private UICont1 uiCont1;
     private bool onetime1;
     private Animator animator;
     [SerializeField]
-    private Transform S1Ta;//目的地となるオブジェクトのトランスフォーム格納用
-    private NavMeshAgent agent;     //エージェントとなるオブジェクトのNavMeshAgent格納用 
+    private Transform s1Ta; //目的地となるオブジェクトのトランスフォーム格納用
+    private NavMeshAgent agent; //エージェントとなるオブジェクトのNavMeshAgent格納用 
 
     void Start()
     {
+        //コンポーネント取得
+        uiCont1 = GameObject.Find("UICont").GetComponent<UICont1> ();
+
         onetime1 = true;
         animator = GetComponent<Animator>();
         //エージェントのNaveMeshAgentを取得する
@@ -26,7 +32,7 @@ public class Scene1_NinA : MonoBehaviour
     {
         if (ParameterCalc.instanceCalc.GameClear)
         {
-            if(UICont1.instanceUI1.ClearAnim && onetime1)
+            if(uiCont1.ClearAnim && onetime1)
             {
                 AwayStr();
                 animator.SetBool("isRight", true);
@@ -34,7 +40,7 @@ public class Scene1_NinA : MonoBehaviour
         }
         else if (ParameterCalc.instanceCalc.GameOver)
         {
-            if (UICont1.instanceUI1.ClearAnim && onetime1)
+            if (uiCont1.ClearAnim && onetime1)
             {
                 AwayStr();
                 animator.SetBool("isRight", true);
@@ -43,7 +49,7 @@ public class Scene1_NinA : MonoBehaviour
         }
         else
         {
-            if (UICont1.instanceUI1.PushN == 4 && onetime1)
+            if (uiCont1.PushN == 5 && onetime1)
             {
                 AwayStr();
                 onetime1 = false;
@@ -54,7 +60,7 @@ public class Scene1_NinA : MonoBehaviour
 
     void AwayStr()
     {
-        agent.destination = S1Ta.position;
+        agent.destination = s1Ta.position;
     }
 
 

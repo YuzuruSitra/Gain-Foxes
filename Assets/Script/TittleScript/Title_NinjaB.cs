@@ -7,7 +7,7 @@ public class Title_NinjaB : MonoBehaviour
 {
     private Animator animator;
     [SerializeField]
-    private Transform NinjaB;    //目的地となるオブジェクトのトランスフォーム格納用
+    private Transform ninjaB;    //目的地となるオブジェクトのトランスフォーム格納用
     private UnityEngine.AI.NavMeshAgent agent;     //エージェントとなるオブジェクトのNavMeshAgent格納用
     
     void Start()
@@ -16,7 +16,7 @@ public class Title_NinjaB : MonoBehaviour
         //エージェントのNaveMeshAgentを取得する
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         //目的地となる座標を設定する
-        agent.destination = NinjaB.position;
+        agent.destination = ninjaB.position;
         animator.SetBool("Go",true);
         animator.SetBool("FallDown",false);
     }

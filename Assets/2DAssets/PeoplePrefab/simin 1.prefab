@@ -101,8 +101,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06f5e60f666cd4ce79a9b770f056a7bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goala: {fileID: 4151795805634340367, guid: 1cb3ddd0703eb42ffab64d05e31a7ae9, type: 3}
-  goalb: {fileID: 3242524370267545125, guid: 0691a632b9b6648428fe5cfdbdd2a9bf, type: 3}
+  goalA: {fileID: 4151795805634340367, guid: 1cb3ddd0703eb42ffab64d05e31a7ae9, type: 3}
+  goalB: {fileID: 3242524370267545125, guid: 0691a632b9b6648428fe5cfdbdd2a9bf, type: 3}
   soundB: {fileID: 0}
   dropMoneySE: {fileID: 8300000, guid: 0b18b1621e27ec34a82313cc57d95a2c, type: 3}
 --- !u!95 &4580465490415135279

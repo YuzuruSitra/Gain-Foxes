@@ -8489,7 +8489,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 874fe3ba8b3f2924bb397d0540c965e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadePanel_B: {fileID: 595471938}
+  fadePanelB: {fileID: 595471938}
 --- !u!114 &1732137429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8505,19 +8505,19 @@ MonoBehaviour:
   BrSword: {fileID: 21300000, guid: 177234c84d13a4297a5e2f07884bad86, type: 3}
   Potion: {fileID: 21300000, guid: 8423ac1d5b2194957a7da4c75b47b419, type: 3}
   Stock: {fileID: 21300000, guid: 81c851745fe2d4aa6bbd17149c8cd15e, type: 3}
-  Toolflame: {fileID: 485901141}
-  PeopleIns:
+  toolFlame: {fileID: 485901141}
+  peopleIns:
   - {fileID: 478363310120076496, guid: 08a211d09ddae461dac09f698ea915cb, type: 3}
   - {fileID: 4580465490415135275, guid: 04f37b23b60d44194b569af4e97653a0, type: 3}
   - {fileID: 1870771061877229914, guid: c8efd6ac93e9a47f8bc662db4c4b9f4c, type: 3}
   - {fileID: 3678396596116305185, guid: 284fa5f1a46db4ca79faa9e52cd27eab, type: 3}
   ShuAnim: 0
-  TalkPanel1: {fileID: 359620875}
-  TalkPanel2: {fileID: 1692701114}
+  talkPanel1: {fileID: 359620875}
+  talkPanel2: {fileID: 1692701114}
   soundB: {fileID: 0}
   sceneB_BGM: {fileID: 8300000, guid: 393afe5a88a73ab4ca821eed55f2d6a9, type: 3}
   pushButtonSE: {fileID: 8300000, guid: 46690ea2113b5564f9fb2c8e3c8bfd57, type: 3}
-  isNextScene: 0
+  IsNextScene: 0
 --- !u!1001 &1739653356
 PrefabInstance:
   m_ObjectHideFlags: 0

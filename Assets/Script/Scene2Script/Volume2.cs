@@ -6,8 +6,6 @@ using UnityEngine.UI;
 //シーン2演出管理
 public class Volume2 : MonoBehaviour
 {
-    //インスタンス化
-    public static Volume2 instanceVolume2;
     //額縁の中身変更用
     [SerializeField]
     private Sprite BrSword;
@@ -17,26 +15,24 @@ public class Volume2 : MonoBehaviour
     private Sprite Stock;
     //フレーム
     [SerializeField]
-    private GameObject Toolflame;
-    private SpriteRenderer ToolFlame;
+    private GameObject toolFlame;
 
     //民衆生成
     [SerializeField]
-    private GameObject[] PeopleIns = new GameObject[4];
-    private int Cp;
+    private GameObject[] peopleIns = new GameObject[4];
 
     //フィネアニメーション用
     public int ShuAnim;
     [SerializeField]
-    private GameObject TalkPanel1;
+    private GameObject talkPanel1;
     [SerializeField]
-    private GameObject TalkPanel2;
+    private GameObject talkPanel2;
     //画面遷移
     private bool trnOne;
 
     //サウンド用スクリプト取得
 	[SerializeField] 
-    private soundCnt soundB;
+    private SoundCnt soundB;
     [SerializeField]
     private AudioClip sceneB_BGM;
     
@@ -44,48 +40,38 @@ public class Volume2 : MonoBehaviour
     private AudioClip pushButtonSE;
 
     //シーン遷移
-    public bool isNextScene = false;
-
-	void Awake()
-	{
-		if (instanceVolume2 == null)
-        {
-            instanceVolume2 = this;
-        }
-	}
+    public bool IsNextScene = false;
 
     void Start()
     {
         /*---bgm設定---*/
-        soundB = GameObject.Find("SoundManager").GetComponent<soundCnt> ();
+        soundB = GameObject.Find("SoundManager").GetComponent<SoundCnt> ();
         soundB.PlayBgm(sceneB_BGM);
 
         trnOne = true;
-
-        ToolFlame = Toolflame.GetComponent<SpriteRenderer>();
+        SpriteRenderer spriteToolFlame = toolFlame.GetComponent<SpriteRenderer>();
 
         //販売商品に合わせる
         switch (ParameterCalc.instanceCalc.ToolType)
         {
             case 0: //銅剣
-                ToolFlame.sprite = BrSword;
+                spriteToolFlame.sprite = BrSword;
                 break;
 
             case 1: //薬
-                ToolFlame.sprite = Potion;
+                spriteToolFlame.sprite = Potion;
                 break;
 
             case 2: //株
-                ToolFlame.sprite = Stock;
+                spriteToolFlame.sprite = Stock;
                 break;
             
         }
-        Cp = 0;
         StartCoroutine("GenePeople");
 
         //フィネアニメーション用
-        TalkPanel1.gameObject.SetActive(false);
-        TalkPanel2.gameObject.SetActive(false);
+        talkPanel1.gameObject.SetActive(false);
+        talkPanel2.gameObject.SetActive(false);
         ShuAnim = 0;
     }
 
@@ -94,8 +80,8 @@ public class Volume2 : MonoBehaviour
         //フィネアニメーション用
         if (ShuAnim > ParameterCalc.instanceCalc.GenePeopleCount)
         {
-            TalkPanel1.gameObject.SetActive(false);
-            TalkPanel2.gameObject.SetActive(false);
+            talkPanel1.gameObject.SetActive(false);
+            talkPanel2.gameObject.SetActive(false);
 
             //画面遷移
             if (trnOne)
@@ -108,30 +94,32 @@ public class Volume2 : MonoBehaviour
         {
             if (ShuAnim == 2)
             {
-                TalkPanel2.gameObject.SetActive(true);
-                TalkPanel1.gameObject.SetActive(true);
+                talkPanel2.gameObject.SetActive(true);
+                talkPanel1.gameObject.SetActive(true);
             }
             else if (ShuAnim % 2 == 1)
             {
-                TalkPanel2.gameObject.SetActive(false);
-                TalkPanel1.gameObject.SetActive(true);
+                talkPanel2.gameObject.SetActive(false);
+                talkPanel1.gameObject.SetActive(true);
             }
             else
             {
-                TalkPanel1.gameObject.SetActive(false);
-                TalkPanel2.gameObject.SetActive(true);
+                talkPanel1.gameObject.SetActive(false);
+                talkPanel2.gameObject.SetActive(true);
             }
         }
     }
 
     private IEnumerator GenePeople()
     {
-        while (Cp <= ParameterCalc.instanceCalc.GenePeopleCount)
+        int cp = 0;
+
+        while (cp <= ParameterCalc.instanceCalc.GenePeopleCount)
         {
             
-            Instantiate(PeopleIns[ParameterCalc.instanceCalc.GenePeopleType[Cp]], this.transform.position, Quaternion.identity);
-            Cp++;
+            Instantiate(peopleIns[ParameterCalc.instanceCalc.GenePeopleType[cp]], this.transform.position, Quaternion.identity);
             yield return new WaitForSeconds(2.5f);
+            cp++;
         }
         
     }
@@ -139,7 +127,7 @@ public class Volume2 : MonoBehaviour
     //フェード
     void GoFade()
     {
-        isNextScene = true;
+        IsNextScene = true;
     }
 
     /*--------------SE----------------*/

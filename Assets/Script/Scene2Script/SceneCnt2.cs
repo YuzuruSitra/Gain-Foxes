@@ -7,25 +7,29 @@ using UnityEngine.SceneManagement;
 //シーン2の遷移管理
 public class SceneCnt2: MonoBehaviour
 {
+    //シーン２演出管理用
+    [SerializeField] 
+    private Volume2 volume2; 
 	private float fadeSpeed = 0.4f;        //透明度が変わるスピードを管理
 	private float red, green, blue, alfa;   //パネルの色、不透明度を管理
 	private bool isFadeIn = false;   //フェードイン処理の開始、完了を管理するフラグ
 	[SerializeField]
-	private GameObject fadePanel_B;
-	private Image fadeImage_B;                //透明度を変更するパネルのイメージ
+	private GameObject fadePanelB;
+	private Image fadeImageB;                //透明度を変更するパネルのイメージ
 
 
 	void Start()
 	{
-		fadePanel_B.gameObject.SetActive(true);
+		fadePanelB.gameObject.SetActive(true);
 		isFadeIn = true;
 		//コンポーネント取得・利用
-		fadeImage_B = fadePanel_B.GetComponent<Image>();
+		volume2 = GameObject.Find("SceneManager_B").GetComponent<Volume2> ();
+		fadeImageB = fadePanelB.GetComponent<Image>();
 
-		red = fadeImage_B.color.r;
-		green = fadeImage_B.color.g;
-		blue = fadeImage_B.color.b;
-		alfa = fadeImage_B.color.a;
+		red = fadeImageB.color.r;
+		green = fadeImageB.color.g;
+		blue = fadeImageB.color.b;
+		alfa = fadeImageB.color.a;
 	}
 
 	void Update()
@@ -34,7 +38,7 @@ public class SceneCnt2: MonoBehaviour
 		{
 			StartFadeIn();
 		}
-		if (Volume2.instanceVolume2.isNextScene)
+		if (volume2.IsNextScene)
 		{
 			StartFadeOut();
 		}
@@ -47,31 +51,31 @@ public class SceneCnt2: MonoBehaviour
 		if (alfa <= 0)
 		{                  
 			isFadeIn = false;
-			fadeImage_B.enabled = false;  
+			fadeImageB.enabled = false;  
 		}
 	}
 
 	public void StartFadeOut()
 	{
-		fadeImage_B.enabled = true;
+		fadeImageB.enabled = true;
 		alfa += fadeSpeed * Time.deltaTime; 
 		SetAlpha();   
 		if (alfa >= 1)
 		{           
-			Volume2.instanceVolume2.isNextScene = false;
+			volume2.IsNextScene = false;
 			//シーンのロードを挟む
-			SceneManager.LoadScene("Scene_C");
+			SceneManager.LoadScene("Scene3");
 		}
 	}
 
 	void SetAlpha()
 	{
-		fadeImage_B.color = new Color(red, green, blue, alfa);
+		fadeImageB.color = new Color(red, green, blue, alfa);
 	}
 
 	//シーン遷移管理
 	public void NextScene()
 	{
-		Volume2.instanceVolume2.isNextScene = true;
+		volume2.IsNextScene = true;
 	}
 }

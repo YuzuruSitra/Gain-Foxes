@@ -5,11 +5,16 @@ using UnityEngine;
 //忍者Aの演出管理
 public class Scene1_NinC : MonoBehaviour
 {
+    //UI管理スクリプトの取得
+    [SerializeField]
+    private UICont1 uiCont1;
     private Animator animator;
     private bool onetime3;
-    
+
     void Start()
     {
+        //コンポーネント取得
+        uiCont1 = GameObject.Find("UICont").GetComponent<UICont1> ();
         onetime3 = true;
         animator = GetComponent<Animator>();
     }
@@ -20,7 +25,7 @@ public class Scene1_NinC : MonoBehaviour
         {
             animator.SetBool("Appear", true);
             animator.SetBool("disApear", false);
-            if (UICont1.instanceUI1.ClearAnim)
+            if (uiCont1.ClearAnim)
             {
                 animator.SetBool("Appear", false);
                 animator.SetBool("disApear", true);   
@@ -30,7 +35,7 @@ public class Scene1_NinC : MonoBehaviour
         {
             animator.SetBool("Appear", true);
             animator.SetBool("disApear", false);
-            if (UICont1.instanceUI1.ClearAnim )
+            if (uiCont1.ClearAnim )
             {
                 animator.SetBool("Appear", false);
                 animator.SetBool("disApear", true);       
@@ -38,13 +43,13 @@ public class Scene1_NinC : MonoBehaviour
         }
         else
         {
-            if (UICont1.instanceUI1.PushN == 7 && onetime3)
+            if (uiCont1.PushN == 8 && onetime3)
             {
                 animator.SetBool("Appear", true);
                 animator.SetBool("disApear", false);
                 onetime3 = false;
             }
-            else if (UICont1.instanceUI1.PushN == 10 && !onetime3)
+            else if (uiCont1.PushN == 11 && !onetime3)
             {
                 animator.SetBool("Appear", false);
                 animator.SetBool("disApear", true);

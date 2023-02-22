@@ -5,13 +5,18 @@ using UnityEngine;
 //クリア時の主人公演出管理
 public class Player_ClearWalk : MonoBehaviour
 {
+    //UI管理スクリプトの取得
+    [SerializeField]
+    private UICont1 uiCont1;
     private Animator animator;
     [SerializeField]
-    private Transform PlayerTa;//目的地となるオブジェクトのトランスフォーム格納用
+    private Transform playerTa;//目的地となるオブジェクトのトランスフォーム格納用
     private UnityEngine.AI.NavMeshAgent agent;  //エージェントとなるオブジェクトのNavMeshAgent格納用 
 
     void Start()
     {
+        //コンポーネント取得
+        uiCont1 = GameObject.Find("UICont").GetComponent<UICont1> ();
         animator = GetComponent<Animator>();
         //エージェントのNaveMeshAgentを取得する
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
@@ -20,16 +25,16 @@ public class Player_ClearWalk : MonoBehaviour
 
     void Update()
     {
-        if(UICont1.instanceUI1.PlClearDoAnim)
+        if(uiCont1.PlClearDoAnim)
         {
             AwayPlayer();
-            UICont1.instanceUI1.PlClearDoAnim = false;
+            uiCont1.PlClearDoAnim = false;
         }
     }
 
     void AwayPlayer()
     {
-        agent.destination = PlayerTa.position;
+        agent.destination = playerTa.position;
         animator.SetBool("IsIdole", false);
     }
 
@@ -37,7 +42,7 @@ public class Player_ClearWalk : MonoBehaviour
     {
         if (other.CompareTag("PlTA"))
         {
-            UICont1.instanceUI1.FinClearAnim = true;
+            uiCont1.FinClearAnim = true;
             Destroy(this.gameObject);
         }
     }
