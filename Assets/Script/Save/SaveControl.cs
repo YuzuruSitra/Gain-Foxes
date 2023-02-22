@@ -227,7 +227,7 @@ public class SaveControl : MonoBehaviour
         writer.Write("turnCount", 0);
         writer.Write("popTurnEvent",0);
         writer.Write("targetAmount",100000);
-        writer.Write("haveMoney", 4000);
+        writer.Write("haveMoney", 1000);
 
         writer.Write("poor", 0.7);
         writer.Write("general", 1.0);
