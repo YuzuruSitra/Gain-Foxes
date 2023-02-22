@@ -6,18 +6,7 @@ using CI.QuickSave;
 //ゲームデータのセーブ管理
 public class SaveControl : MonoBehaviour
 {
-    //インスタンス化
-    public static SaveControl instanceSave;
     public bool NewGame;
-    private int i;
-
-    public void Awake()
-    {
-        if (instanceSave == null)
-        {
-            instanceSave = this;
-        }
-    }
 
     void Start()
     {
@@ -63,6 +52,7 @@ public class SaveControl : MonoBehaviour
         // データを書き込む
         writer.Write("newGame", NewGame);
         writer.Write("turnCount", ParameterCalc.instanceCalc.TurnCount);
+        writer.Write("popTurnEvent", ParameterCalc.instanceCalc.PopTurnEvent);
         writer.Write("targetAmount", ParameterCalc.instanceCalc.TargetAmount);
         writer.Write("haveMoney", ParameterCalc.instanceCalc.HaveMoney);
         writer.Write("poor", ParameterCalc.instanceCalc.Poor);
@@ -105,6 +95,7 @@ public class SaveControl : MonoBehaviour
         QuickSaveReader reader = QuickSaveReader.Create("Player", settings);
         
         ParameterCalc.instanceCalc.TurnCount = reader.Read<int>("turnCount");
+        ParameterCalc.instanceCalc.PopTurnEvent = reader.Read<int>("popTurnEvent");
         ParameterCalc.instanceCalc.TargetAmount = reader.Read<int>("targetAmount");
         ParameterCalc.instanceCalc.HaveMoney = reader.Read<int>("haveMoney");
         ParameterCalc.instanceCalc.Poor = reader.Read<float>("poor");
@@ -134,7 +125,7 @@ public class SaveControl : MonoBehaviour
         ParameterCalc.instanceCalc.TaxCount = reader.Read<int>("taxCount");
 
         //商品の価格を初期値から計算しセット
-        i = 0;
+        int i = 0;
         int[] brSwordSell = new int[100];
         int[] brSwordUp = new int[100];
         int[] potionSell = new int[100];
@@ -194,7 +185,6 @@ public class SaveControl : MonoBehaviour
         // ニューゲーム
         NewGame = true;
         writer.Write("newGame", NewGame);
-
         //リザルト削除処理
         writer.Write("resultScore0", 0);
         writer.Write("resultScore1", 0);
@@ -203,9 +193,19 @@ public class SaveControl : MonoBehaviour
         // データを書き込む
         writer.Commit();
     }
+    
+    //初期化確認読み込み処理
+    public void LoadNewGame()
+    {
+        // QuickSaveSettingsのインスタンスを作成
+        QuickSaveSettings settings = new QuickSaveSettings();
+        // QuickSaveReaderのインスタンスを作成
+        QuickSaveReader reader = QuickSaveReader.Create("Player", settings);
+        NewGame = reader.Read<bool>("newGame");
+    }
 
     //初立ち上げ初期値セット
-    public void firstLunch()
+    public void FirstLunch()
     {
         NewGame = true;
         ClearDateSave();
@@ -225,8 +225,9 @@ public class SaveControl : MonoBehaviour
 
         //初期値をセット
         writer.Write("turnCount", 0);
+        writer.Write("popTurnEvent",0);
         writer.Write("targetAmount",100000);
-        writer.Write("haveMoney", 1000);
+        writer.Write("haveMoney", 4000);
 
         writer.Write("poor", 0.7);
         writer.Write("general", 1.0);

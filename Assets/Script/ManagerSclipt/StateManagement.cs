@@ -10,7 +10,7 @@ public class StateManagement : MonoBehaviour
     private bool firstSettings;
 
     //画面サイズの設定
-    public string windowMode = "FullScreen";
+    public string WindowMode = "FullScreen";
     //音量の設定
     public float SetvolumeBGM;
     public float SetvolumeSE;
@@ -24,7 +24,7 @@ public class StateManagement : MonoBehaviour
         DoEncryption();
 
         //設定の読み込み
-        readSettings();
+        ReadSettings();
     }
 
     private void DoEncryption()//暗号化処理
@@ -40,7 +40,7 @@ public class StateManagement : MonoBehaviour
     }
 
     //設定読み込み
-    public void readSettings()
+    public void ReadSettings()
     {
         // QuickSaveSettingsのインスタンスを作成
         QuickSaveSettings gameSettings = new QuickSaveSettings();
@@ -52,14 +52,14 @@ public class StateManagement : MonoBehaviour
 
         if(!firstSettings)   //設定済みの場合
         {
-            windowMode = setReader.Read<string>("WindowMode");
+            WindowMode = setReader.Read<string>("WindowMode");
             SetvolumeBGM = setReader.Read<float>("VolumeBGM");
             SetvolumeSE = setReader.Read<float>("VolumeSE");
             
         }
         else    //未設定の場合
         {
-            windowMode = "FullScreen";
+            WindowMode = "FullScreen";
             SetvolumeBGM = 0.5f;
             SetvolumeSE = 0.5f;
             
@@ -67,7 +67,7 @@ public class StateManagement : MonoBehaviour
     }
 
     //設定書き込み
-    public void writeSettings()
+    public void WriteSettings()
     {
         // QuickSaveSettingsのインスタンスを作成
         QuickSaveSettings gameSettings = new QuickSaveSettings();    
@@ -78,7 +78,7 @@ public class StateManagement : MonoBehaviour
         setWriter.Write("firstSettings", false);
 
         //ウィンドウモード設定
-        setWriter.Write("WindowMode",windowMode);
+        setWriter.Write("WindowMode",WindowMode);
         //音量設定
         setWriter.Write("VolumeBGM",SetvolumeBGM);
         setWriter.Write("VolumeSE",SetvolumeSE);
@@ -87,21 +87,21 @@ public class StateManagement : MonoBehaviour
     }
 
     //設定の初期化
-    public void resetSettings()
+    public void ResetSettings()
     {
         // QuickSaveSettingsのインスタンスを作成
         QuickSaveSettings gameSettings = new QuickSaveSettings();    
         // QuickSaveWriterのインスタンスを作成
         QuickSaveWriter setWriter = QuickSaveWriter.Create("Player",gameSettings);
         
-        windowMode = "FullScreen";
+        WindowMode = "FullScreen";
         SetvolumeBGM = 0.5f;
         SetvolumeSE = 0.5f;
         //データの書き込み判定
         setWriter.Write("firstSettings", true);
 
         //ウィンドウモード設定
-        setWriter.Write("FullScreen",windowMode);
+        setWriter.Write("FullScreen",WindowMode);
         //音量設定
         setWriter.Write("VolumeBGM",SetvolumeBGM);
         setWriter.Write("VolumeSE",SetvolumeSE);

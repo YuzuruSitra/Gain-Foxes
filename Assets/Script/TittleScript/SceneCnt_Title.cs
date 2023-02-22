@@ -22,7 +22,7 @@ public class SceneCnt_Title : MonoBehaviour
 
 	//サウンド用スクリプト取得
 	[SerializeField] 
-    private soundCnt sound;
+    private SoundCnt sound;
 	[SerializeField]
 	private AudioClip titleBGM;
     [SerializeField] 
@@ -48,7 +48,7 @@ public class SceneCnt_Title : MonoBehaviour
 		doneDeletePanel.gameObject.SetActive(false);
 
      	/*---bgm設定---*/
-        sound = GameObject.Find("SoundManager").GetComponent<soundCnt> ();
+        sound = GameObject.Find("SoundManager").GetComponent<SoundCnt> ();
 
 		//bgm再生
 		sound.PlayBgm(titleBGM);
@@ -94,7 +94,7 @@ public class SceneCnt_Title : MonoBehaviour
 		{       
 			isFadeOut_Ti = false;
 			//シーンのロードを挟む
-			SceneManager.LoadScene("Scene_A");
+			SceneManager.LoadScene("Scene1");
 		}
 	}
 

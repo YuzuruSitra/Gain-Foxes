@@ -8,26 +8,26 @@ public class GameSettings : MonoBehaviour
 {
     //サウンド管理用
     [SerializeField] 
-    private soundCnt soundManager; 
+    private SoundCnt soundManager; 
     //シーン管理用
     [SerializeField]
-    private StateManagement Settings; 
+    private StateManagement settings; 
     [SerializeField]
     private Slider sliderBGM;
     [SerializeField]
     private Slider sliderSE;
     [SerializeField]
-    private Text BGMtext;
+    private Text textBGM;
     [SerializeField]
-    private Text SEtext;
+    private Text textSE;
 
     void Start()
     {
-        soundManager = GameObject.Find("SoundManager").GetComponent<soundCnt> ();
-        Settings = GameObject.Find("StateManagement").GetComponent<StateManagement> ();
+        soundManager = GameObject.Find("SoundManager").GetComponent<SoundCnt> ();
+        settings = GameObject.Find("StateManagement").GetComponent<StateManagement> ();
         //起動時に前回設定のセット
         launchScreenMode();
-        launchVolume();
+        LaunchVolume();
     }
 
     /*--画面モード切り替え--*/
@@ -35,7 +35,7 @@ public class GameSettings : MonoBehaviour
     //起動時のセット
     void launchScreenMode()
     {
-        switch (Settings.windowMode)
+        switch (settings.WindowMode)
         {
             case "Window":
                 Screen.fullScreen = false;
@@ -52,55 +52,55 @@ public class GameSettings : MonoBehaviour
     }
 
     //ウィンドウモード
-    public void windowsScreenMode()
+    public void WindowsScreenMode()
     {
         Screen.fullScreen = false;
-        Settings.windowMode = "Window";
+        settings.WindowMode = "Window";
     }
 
     //フルスクリーンモード
     public void FullScreenMode()
     {
         Screen.fullScreen = true;
-        Settings.windowMode = "FullScreen";
+        settings.WindowMode = "FullScreen";
     }
 
     /*-----サウンド設定-----*/
 
     //起動時のセット
-    public void launchVolume()
+    public void LaunchVolume()
     {
-        soundManager.setnewValueBGM(Settings.SetvolumeBGM);
-        soundManager.setnewValueSE(Settings.SetvolumeSE);
+        soundManager.SetnewValueBGM(settings.SetvolumeBGM);
+        soundManager.SetnewValueSE(settings.SetvolumeSE);
 
-        sliderBGM.value = Settings.SetvolumeBGM;
-        sliderSE.value = Settings.SetvolumeSE;
+        sliderBGM.value = settings.SetvolumeBGM;
+        sliderSE.value = settings.SetvolumeSE;
         float BGM = sliderBGM.value * 100;
-        BGMtext.text = "" + (int)BGM;
+        textBGM.text = "" + (int)BGM;
         float SE = sliderSE.value * 100;
-        SEtext.text = "" + (int)SE;
+        textSE.text = "" + (int)SE;
     }
 
     //bgm用 
     public void SoundSliderOnValueChangeBGM()
     {
         float BGM = sliderBGM.value * 100;
-        BGMtext.text = "" + (int)BGM;
+        textBGM.text = "" + (int)BGM;
     }
     //効果音用
     public void SoundSliderOnValueChangeSE()
     {
         float SE = sliderSE.value * 100;
-        SEtext.text = "" + (int)SE;
+        textSE.text = "" + (int)SE;
     }
     
     /*-----適応ボタン-----*/
 
     //設定反映
-    public void CommitSettings()
+    public void Commitsettings()
     {
         //スクリーンモード反映
-        switch(Settings.windowMode)
+        switch(settings.WindowMode)
         {
             case "Window":
             Screen.fullScreen = false;
@@ -111,16 +111,14 @@ public class GameSettings : MonoBehaviour
                 break;
         }
         
-        Settings.SetvolumeBGM = sliderBGM.value;
-        Settings.SetvolumeSE = sliderSE.value;
-
-        Debug.Log(Settings.SetvolumeBGM);
+        settings.SetvolumeBGM = sliderBGM.value;
+        settings.SetvolumeSE = sliderSE.value;
 
         //音量設定反映
-        soundManager.setnewValueBGM(Settings.SetvolumeBGM);
-        soundManager.setnewValueSE(Settings.SetvolumeSE);
+        soundManager.SetnewValueBGM(settings.SetvolumeBGM);
+        soundManager.SetnewValueSE(settings.SetvolumeSE);
 
         //設定の保存
-        Settings.writeSettings();
+        settings.WriteSettings();
     }
 }

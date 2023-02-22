@@ -6,16 +6,22 @@ using UnityEngine.UI;
 //戦略パネルのテキスト管理
 public class StrExpText : MonoBehaviour
 {
-    public string[] talks = new string[6];
+    //UI管理スクリプトの取得
+    [SerializeField]
+    private UICont1 uiCont1;
+    private string[] talks = new string[6];
     private string[] words;
-    public Text textLabel;
+    [SerializeField]
+    private Text textLabel;
     //テキストが流れているか判定
-    private bool RunDispo;
+    private bool runDispo;
 
     void Start()
     {
+        //コンポーネント取得
+        uiCont1 = GameObject.Find("UICont").GetComponent<UICont1> ();
         //ボタンを押せるように
-        RunDispo = true;
+        runDispo = true;
 
         //戦略説明をセット
 
@@ -40,7 +46,7 @@ public class StrExpText : MonoBehaviour
     public void OnButtonClicked()
     {
         // 会話フィールドをリセットする。
-        if (RunDispo)
+        if (runDispo)
         {
             textLabel.text = "";
             StartCoroutine(Dialogue());
@@ -50,33 +56,19 @@ public class StrExpText : MonoBehaviour
     // コルーチンを使って、１文字ごと表示する。
     IEnumerator Dialogue()
     {
-        RunDispo = false;//処理中に他のパネルの選択を出来なくする
-        UICont1.instanceUI1.readNow = true;
+        runDispo = false;//処理中に他のパネルの選択を出来なくする
+        uiCont1.ReadNow = true;
 
         // 半角スペースで文字を分割する。
-        words = talks[UICont1.instanceUI1.SelectStr].Split(' ');
-        
-        /*--SE用--*/
-        int finSE = words.Length - 50; //文字の長さを取得用
-        int finTime = 0; //再生終了タイミング用
-        if(finSE < 0)
-        {
-            finSE = 1;
-        }
-        /*--------*/
+        words = talks[uiCont1.SelectStr].Split(' ');
 
         foreach (var word in words)
         {
-            finTime++;
             // 0.1秒刻みで１文字ずつ表示する。
             textLabel.text = textLabel.text + word;
             yield return new WaitForSeconds(0.02f);
-            if(finSE < finTime)
-            {
-                UICont1.instanceUI1.readNow = false; //文字表示用SE終了
-            }
-            UICont1.instanceUI1.readNow = false; //文字表示用SE終了
         }
-        RunDispo = true; //他のパネルの選択を可能にする
+        uiCont1.ReadNow = false; //文字表示用SE終了
+        runDispo = true; //他のパネルの選択を可能にする
     }
 }

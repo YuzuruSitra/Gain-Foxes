@@ -4,31 +4,35 @@ using UnityEngine;
 using UnityEngine.AI;
 
 //貧民演出管理
-public class hinminAnim : MonoBehaviour
+public class HinminAnim : MonoBehaviour
 {
+    //シーン２演出管理用
+    [SerializeField] 
+    private Volume2 volume2; 
     private Animator animator;
     [SerializeField]
-    private Transform Hingoala;  //目的地格納用
+    private Transform hinminGoalA;  //目的地格納用
     [SerializeField]
-    private Transform Hingoalb; 
+    private Transform hinminGoalB; 
 
-    private NavMeshAgent Hinagent;     //エージェントとなるオブジェクトのNavMeshAgent格納用 
+    private NavMeshAgent hinminAgent;     //エージェントとなるオブジェクトのNavMeshAgent格納用 
   	//サウンド用スクリプト取得
 	[SerializeField] 
-    private soundCnt soundBhin;
+    private SoundCnt soundBhin;
     [SerializeField] 
     private AudioClip dropMoneySE;
 
 	void Start () 
     {
         /*---bgm設定---*/
-        soundBhin = GameObject.Find("SoundManager").GetComponent<soundCnt> ();
-
+        soundBhin = GameObject.Find("SoundManager").GetComponent<SoundCnt> ();
+		//コンポーネント取得・利用
+		volume2 = GameObject.Find("SceneManager_B").GetComponent<Volume2> ();
         animator = GetComponent<Animator>();
         //エージェントのNaveMeshAgentを取得する
-        Hinagent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        hinminAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         //目的地となる座標を設定する
-        Hinagent.destination = Hingoala.position;
+        hinminAgent.destination = hinminGoalA.position;
 	}
 
     void OnTriggerEnter(Collider other)
@@ -46,7 +50,7 @@ public class hinminAnim : MonoBehaviour
 
     IEnumerator HinAnimCont()
     {
-        Volume2.instanceVolume2.ShuAnim++;
+        volume2.ShuAnim++;
         GetComponent<NavMeshAgent>().isStopped = true;
         animator.SetBool("isFront", true);
         yield return new WaitForSeconds(0.5f);
@@ -62,6 +66,6 @@ public class hinminAnim : MonoBehaviour
             animator.SetBool("isFall",false);
         }
         GetComponent<NavMeshAgent>().isStopped = false;
-        Hinagent.destination = Hingoalb.position;
+        hinminAgent.destination = hinminGoalB.position;
     }
 }

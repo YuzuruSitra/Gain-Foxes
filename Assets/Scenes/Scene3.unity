@@ -723,7 +723,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &204713508
 PrefabInstance:
@@ -1708,7 +1708,7 @@ GameObject:
   - component: {fileID: 682497928}
   - component: {fileID: 682497930}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: LogSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1726,9 +1726,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a4c272b7e267cb498e06a914fa7cf5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChangeLogTex: {fileID: 172774288}
+  changeLogTex: {fileID: 172774288}
   soundCLog: {fileID: 0}
-  LogFlowSE: {fileID: 8300000, guid: 1cfe9688ce9217b47bb8c6aad4d3bb85, type: 3}
+  logFlowSE: {fileID: 8300000, guid: 1cfe9688ce9217b47bb8c6aad4d3bb85, type: 3}
 --- !u!4 &682497929
 Transform:
   m_ObjectHideFlags: 0
@@ -1756,8 +1756,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f7f0d1b87293f248b0664457a97cad6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Savetext: {fileID: 112418072}
-  SaveText: {fileID: 896629120}
+  saveText: {fileID: 112418072}
+  saveTextPanel: {fileID: 896629120}
 --- !u!4 &698384412 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5260572382779035084, guid: c5f8f079905bce04f945cd8ff4ba545a, type: 3}
@@ -2486,6 +2486,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 946451108}
   m_CullTransparentMesh: 1
+--- !u!1 &947550021
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 947550023}
+  - component: {fileID: 947550022}
+  m_Layer: 0
+  m_Name: SaveManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &947550022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 947550021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4efb2081216cfd948a807c17e582f85a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NewGame: 0
+--- !u!4 &947550023
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 947550021}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1546.4348, y: 605.9256, z: 12.694042}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &948196995
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3060,7 +3105,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d2a28fbfed1551488ef84c5596f15d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeSpeed: 0.8
+  saveControl: {fileID: 0}
+  isFadeOut3: 0
   fadePanel_C: {fileID: 1389283133}
   soundC: {fileID: 0}
   sceneC_BGM: {fileID: 8300000, guid: 7614f47aa3973c24e9f5dff81f55022e, type: 3}

@@ -5,8 +5,11 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 //プレイ中の設定パネル管理
-public class menuCnt : MonoBehaviour
+public class MenuCnt : MonoBehaviour
 {
+    //UI管理スクリプトの取得
+    [SerializeField]
+    private UICont1 uiCont1;
     //ゲーム中断用
     public static bool ESCnow = false;
     //チュートリアルパネルを展開しているか
@@ -16,37 +19,41 @@ public class menuCnt : MonoBehaviour
     [SerializeField] 
     private GameObject inGamePanel;
     [SerializeField] 
-    private GameObject MenuPanel;
+    private GameObject menuPanel;
     [SerializeField] 
-    private GameObject SelectPanel;
+    private GameObject selectPanel;
     //メニュー用bool
     private bool cloaseEscMenu = true;
 
     [SerializeField] 
-    private GameObject TutorialExp;
+    private GameObject tutorialExp;
     [SerializeField] 
-    private GameObject SettingsPanel;
+    private GameObject settingsPanel;
 
     void Start()
     {
+        //コンポーネント取得
+        uiCont1 = GameObject.Find("UICont").GetComponent<UICont1> ();
+        
         openTutorialPanel = false;
         //パネルは全て非アクティブ
         inGamePanel.SetActive(true);
-        MenuPanel.SetActive(false);
-        SelectPanel.SetActive(false);
-        TutorialExp.SetActive(false);
-        SettingsPanel.SetActive(false);
+        menuPanel.SetActive(false);
+        selectPanel.SetActive(false);
+        tutorialExp.SetActive(false);
+        settingsPanel.SetActive(false);
     }
     void Update()
     {
         //ESCでメニューを開き、もう一度押すと閉じる
-        if (Input.GetKeyDown(KeyCode.Escape) && !UICont1.instanceUI1.nowClear)
+        if (Input.GetKeyDown(KeyCode.Escape) && !uiCont1.NowClear)
         {
             if(cloaseEscMenu)
             {
                 inGamePanel.SetActive(false);
-                MenuPanel.SetActive(true);
-                SelectPanel.SetActive(true);
+                menuPanel.SetActive(true);
+                selectPanel.SetActive(true);
+                tutorialExp.SetActive(false);
                 cloaseEscMenu = false;
                 ESCnow = true;
             }
@@ -54,10 +61,10 @@ public class menuCnt : MonoBehaviour
             {
                 //ESCパネルを閉じる
                 inGamePanel.SetActive(true);
-                MenuPanel.SetActive(false);
-                SelectPanel.SetActive(false);
-                TutorialExp.SetActive(false);
-                SettingsPanel.SetActive(false);
+                menuPanel.SetActive(false);
+                selectPanel.SetActive(false);
+                tutorialExp.SetActive(false);
+                settingsPanel.SetActive(false);
                 cloaseEscMenu = true;
                 ESCnow = false;
             }
@@ -65,20 +72,20 @@ public class menuCnt : MonoBehaviour
     }
     
     //設定パネルを開く
-    public void pushSetting()
+    public void PushSetting()
     {
-        SelectPanel.SetActive(false);
-        SettingsPanel.SetActive(true);
+        selectPanel.SetActive(false);
+        settingsPanel.SetActive(true);
     }
     //チュートリアル
-    public void pushTutrial()
+    public void PushTutrial()
     {
-        SelectPanel.SetActive(false);
-        TutorialExp.SetActive(true);
+        selectPanel.SetActive(false);
+        tutorialExp.SetActive(true);
         openTutorialPanel = true;
     }
     //ホームに戻る
-    public void pushHome()
+    public void PushHome()
     {
         SceneManager.LoadScene("Title");
         ESCnow = false;
@@ -87,29 +94,29 @@ public class menuCnt : MonoBehaviour
     /*------パネルを閉じる------*/
 
     //メニューパネル
-    public void closeMenu()
+    public void CloseMenu()
     {
         //チュートリアルパネルが開いている場合はそちらを閉じ処理を終える
         if(openTutorialPanel)
         {
-            SelectPanel.SetActive(true);
-            TutorialExp.SetActive(false);
+            selectPanel.SetActive(true);
+            tutorialExp.SetActive(false);
             openTutorialPanel = false;
             return;
         }
 
         //ESCパネルを閉じる
         inGamePanel.SetActive(true);
-        MenuPanel.SetActive(false);
-        SelectPanel.SetActive(false);
+        menuPanel.SetActive(false);
+        selectPanel.SetActive(false);
         cloaseEscMenu = true;
         ESCnow = false;
     }
 
     //設定パネル
-    public void closeSetting()
+    public void CloseSetting()
     {
-        SelectPanel.SetActive(true);
-        SettingsPanel.SetActive(false);
+        selectPanel.SetActive(true);
+        settingsPanel.SetActive(false);
     }
 }

@@ -6,25 +6,25 @@ using UnityEngine.UI;
 //セーブ演出用
 public class SaveAnim : MonoBehaviour
 {
-    private string Saving;
+    private string saving;
 	[SerializeField] 
-    private Text Savetext;
+    private Text saveText;
 	[SerializeField] 
-    private GameObject SaveText;
+    private GameObject saveTextPanel;
     private int iSave;
     private int goBreak = 0;
 
     void Start()
     {
-        SaveText.gameObject.SetActive(true);
+        saveTextPanel.gameObject.SetActive(true);
         InvokeRepeating("ChangeText", 0.1f, 0.6f);
-        Saving = "Saving";
+        saving = "Saving";
         iSave = 0;
     }
 
     void Update()
     {
-        Savetext.text = Saving;
+        saveText.text = saving;
     }
 
     void ChangeText()
@@ -32,27 +32,27 @@ public class SaveAnim : MonoBehaviour
         switch (iSave)
         {
             case 0:
-                Saving = "Saving";
+                saving = "Saving";
                 iSave++;
                 break;
 
             case 1:
-                Saving = "Saving .";
+                saving = "Saving .";
                 iSave++;
                 break;
 
             case 2:
-                Saving = "Saving ..";
+                saving = "Saving ..";
                 iSave++;
                 break;
 
             case 3:
-                Saving = "Saving ...";
+                saving = "Saving ...";
                 iSave = 0;
                 goBreak++;
                 if(goBreak == 2)
                 {
-                    SaveText.gameObject.SetActive(false);
+                    saveTextPanel.gameObject.SetActive(false);
                 }
                 break;    
         }

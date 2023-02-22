@@ -7,37 +7,35 @@ using UnityEngine.SceneManagement;
 //シーン1画面遷移管理
 public class SceneCnt1 : MonoBehaviour
 {
-    //他スクリプトでも呼べるようにインスタンス化
-    public static SceneCnt1 instanceCnt1;
+	//UI管理スクリプトの取得
+    [SerializeField]
+    private UICont1 uiCont1;
+    //セーブ管理用
+    [SerializeField] 
+    private SaveControl saveControl; 
 
 	private float fadeSpeed = 0.8f;        //透明度が変わるスピードを管理
 	private float red, green, blue, alfa;   //パネルの色、不透明度を管理
-	public bool isFadeOut_A = false;  //フェードアウト処理の開始、完了を管理するフラグ
+	public bool IsFadeOut_A = false;  //フェードアウト処理の開始、完了を管理するフラグ
 	private bool isFadeIn = false;   //フェードイン処理の開始、完了を管理するフラグ
     [SerializeField]
     private GameObject fadePanel_A;
     [SerializeField]
-    private GameObject NowLoadUI_A;
+    private GameObject nowLoadUI_A;
 
 	private Image fadeImage_A;                 //透明度を変更するパネルのイメージ
-
-	void Awake()
-	{
-		if (instanceCnt1 == null)
-        {
-            instanceCnt1 = this;
-        }
-	}
 
 	void Start()
 	{
 		fadePanel_A.gameObject.SetActive(true);
 		isFadeIn = true;
 		//コンポーネント取得・利用
+	    saveControl = GameObject.Find("SaveManager").GetComponent<SaveControl> ();
+        uiCont1 = GameObject.Find("UICont").GetComponent<UICont1> ();
 		fadeImage_A = fadePanel_A.GetComponent<Image>();
 
 		//シーン1のロードパネル用
-		NowLoadUI_A.gameObject.SetActive(false);
+		nowLoadUI_A.gameObject.SetActive(false);
 
 		red = fadeImage_A.color.r;
 		green = fadeImage_A.color.g;
@@ -53,9 +51,9 @@ public class SceneCnt1 : MonoBehaviour
 			StartFadeIn();
 		}
 
-		if (isFadeOut_A)
+		if (IsFadeOut_A)
 		{
-			if (UICont1.instanceUI1.GameOverFade)
+			if (uiCont1.GameOverFade)
 			{
 				GameOverFin();
 			}
@@ -84,7 +82,7 @@ public class SceneCnt1 : MonoBehaviour
 		SetAlpha();            
 		if (alfa >= 1)
 		{            
-			isFadeOut_A = false;
+			IsFadeOut_A = false;
 			//戦略シーンの画面遷移のみロードを挟む
 			StartCoroutine("NowLoad");
 		}
@@ -99,7 +97,7 @@ public class SceneCnt1 : MonoBehaviour
 	private IEnumerator NowLoad()
 	{
 		yield return new WaitForSeconds(0.2f);
-		NowLoadUI_A.gameObject.SetActive(true);
+		nowLoadUI_A.gameObject.SetActive(true);
 		yield return new WaitForSeconds(3.0f);
 		NextScene();
 	}
@@ -107,7 +105,7 @@ public class SceneCnt1 : MonoBehaviour
 	//シーン遷移管理
 	public void NextScene()
 	{
-		SceneManager.LoadScene("Scene_B");
+		SceneManager.LoadScene("Scene2");
 	}
 
 	//ゲームクリア時のタイトル移動
@@ -117,10 +115,10 @@ public class SceneCnt1 : MonoBehaviour
 		ParameterCalc.instanceCalc.GameClear = false;
 		ParameterCalc.instanceCalc.GameOver = false;
 
-		SaveControl.instanceSave.ClearDateSave();
+		saveControl.ClearDateSave();
 		//クリアアニメ用
-		UICont1.instanceUI1.PlClearDoAnim = false;
-		UICont1.instanceUI1.ClearAnim = false;
+		uiCont1.PlClearDoAnim = false;
+		uiCont1.ClearAnim = false;
 	}
 
 	//ゲームオーバーの処理
@@ -131,9 +129,9 @@ public class SceneCnt1 : MonoBehaviour
 		SetAlpha();            
 		if (alfa >= 1)
 		{             
-			isFadeOut_A = false;
+			IsFadeOut_A = false;
 			//戦略シーンの画面遷移のみロードを挟む
-			UICont1.instanceUI1.doOverAnim = true;
+			uiCont1.DoOverAnim = true;
 		}
 	}
 

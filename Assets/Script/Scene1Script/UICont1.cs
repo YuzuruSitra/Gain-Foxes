@@ -6,78 +6,70 @@ using UnityEngine.UI;
 //シーンAのUI、演出管理
 public class UICont1 : MonoBehaviour
 {
-    //インスタンス化
-    public static UICont1 instanceUI1;
+
+    //シーン管理クラスの取得
+    [SerializeField]
+    private SceneCnt1 sceneCnt1;
 
     //チュートリアル用
     [SerializeField]
-    private GameObject TutrialExp;
+    private GameObject tutrialExp;
     [SerializeField]
-    private GameObject HaveMoneyPanel;
+    private GameObject haveMoneyPanel;
     [SerializeField]
-    private GameObject SlaveTurnPanel;
+    private GameObject slaveTurnPanel;
     private bool firstESC;
 
     [SerializeField]
-    private Text SlaveTx;
+    private Text slaveTx;
     [SerializeField]
-    private Text CrimeRateTx;
+    private Text crimeRateTx;
     [SerializeField]
-    private Text HavemoneyT;
+    private Text havemoneyT;
     [SerializeField]
-    private Text TurnCountText;
+    private Text turnCountText;
 
-    //子分テキスト用
-    private bool textChange;
-    private int textChangeInt;
-
-    public int PushN;
-    public int PushNtutorial;
+    public int PushN;   //ステート管理
+    private int pushNtutorial;
     [SerializeField]
-    private GameObject FoxDia1;
+    private GameObject foxDia1;
     [SerializeField]
-    private GameObject FoxDia2;
+    private Text foxDia1_Text;
     [SerializeField]
-    private Text FoxDia1_Text;
+    private GameObject foxDia2;
     [SerializeField]
-    private GameObject FoxDia3;
+    private Text foxDia2_Text;
     [SerializeField]
-    private GameObject FoxDia4;
+    private GameObject foxDia3;
     [SerializeField]
-    private Text FoxDia2_Text;
-    [SerializeField]
-    private GameObject FoxDia5;
-    [SerializeField]
-    private GameObject FoxDia6;
-    [SerializeField]
-    private Text FoxDia3_Text;
+    private Text foxDia3_Text;
     [SerializeField]
     private GameObject mainUI;
     [SerializeField]
-    private GameObject StrUI;
+    private GameObject strUI;
     [SerializeField]
-    private GameObject ItemSelectUI;
+    private GameObject itemSelectUI;
     [SerializeField]
     private Text itemName;
     //戦略Doneボタン
     [SerializeField]
-    private GameObject DoneButton;
+    private GameObject doneButton;
 
     //暗殺パネル
     [SerializeField]
-    private GameObject KillPanel;
+    private GameObject killPanel;
     [SerializeField]
-    private GameObject STRpanel;
+    private GameObject strPanel;
     [SerializeField]
-    private GameObject STRDoneButton;
-    private bool OpenPanel; //ケア
-    private int SelectKill; //暗殺対象
-    public string[] PeoName = { "貧民", "市民", "富豪", "貴族" }; //名前
+    private GameObject strDoneButton;
+    private bool openPanel; //パネル展開
+    private int selectKill; //暗殺対象
+    private string[] peopleName = { "貧民", "市民", "富豪", "貴族" }; //名前
     [SerializeField]
-    private Text PeoNameText; //名前を入れる箱
+    private Text peopleNameText; //名前を入れる箱
     private Animator animator; //アニメーター
     [SerializeField]
-    private GameObject PeopleAnim; //アニメーションさせるオブジェクト
+    private GameObject peopleAnim; //アニメーションさせるオブジェクト
 
     //交渉パネル
     [SerializeField]
@@ -89,7 +81,7 @@ public class UICont1 : MonoBehaviour
     [SerializeField]
     private Text publiOtherText;
     [SerializeField]
-    private GameObject publiDoneButton;
+    private GameObject publidoneButton;
     [SerializeField]
     private Button publiDoneBt;
     private string publiPlayerSay;
@@ -97,91 +89,88 @@ public class UICont1 : MonoBehaviour
 
     //入荷パネル
     [SerializeField]
-    private GameObject DealPanel;
+    private GameObject dealPanel;
     [SerializeField]
-    private Button DealButton;
+    private Button dealButton;
     [SerializeField]
-    private Text DealItem;
-    private int SelectItem_D;
-    private string[] D_ItemName = new string[5]; //名前
+    private Text dealItem;
+    private int selectItem_D;
+    private string[] dItemName = new string[5]; //名前
     [SerializeField]
-    private Text D_NeedPrice; //必要価格
+    private Text dNeedPrice; //必要価格
     [SerializeField]
-    private Text D_OfferPrice; //販売価格
+    private Text dOfferPrice; //販売価格
     [SerializeField]
-    private Text D_Button; //ボタン
+    private Text dButton; //ボタン
     [SerializeField]
-    private Text D_ExpText; //説明文入れ替え↓
-    public string[] ItemExp = new string[5];
+    private Text dExpText; //説明文入れ替え↓
+    private string[] itemExp = new string[5];
     private string[] words;
-    private bool RunDispo;
+    private bool runDispo;
     [SerializeField]
-    private GameObject FoxyPanel;
+    private GameObject foxyPanel;
     [SerializeField]
-    private Text FoxyText; //主人公一言
-    private string FoxySay; //主人公セリフ格納
-    private bool PushReple = false;
+    private Text foxyText; //主人公一言
+    private string foxySay; //主人公セリフ格納
+    private bool pushReple = false;
 
     [SerializeField]
-    private GameObject D_DoneButton; //入荷待ちに非アクティブ化
+    private GameObject dDoneButton; //入荷待ちに非アクティブ化
 
     //入荷後の画像入れ替え用
     [SerializeField]
-    private GameObject D_Potionflame;
+    private GameObject dPotionFlame;
     [SerializeField]
-    private GameObject D_Stockflame;
+    private GameObject dStockflame;
 
-    private Image D_SpritePotion;
-    private Image D_SpriteStock;
     //株専用パネル
     [SerializeField]
-    private GameObject StockCountPanel;
+    private GameObject stockCountPanel;
     [SerializeField]
-    private Text StockCountText;
+    private Text stockCountText;
 
     //アイテムゲットUI
     [SerializeField]
-    private GameObject Get_ItemPanel;
+    private GameObject getItemPanel;
     [SerializeField]
-    private GameObject Get_ItemFlame;
-    private Image Get_SpriteItem;
+    private GameObject getItemFlame;
     [SerializeField]
-    private Text GetExpText; //一言
-    private string GetPorS; //ぽーしょんorかぶ格納
+    private Text getExpText; //一言
+    private string getPorS; //ポーションorカブ格納
 
 
     //アイテム選択
     [SerializeField]
-    private Button ButtonSelectItem;
+    private Button buttonSelectItem;
     [SerializeField]
-    private Button ButtonKill;
+    private Button buttonKill;
     [SerializeField]
-    private Button ButtonPubliUp;
+    private Button buttonPubliUp;
     [SerializeField]
-    private Button ButtonPubliDown;
+    private Button buttonPubliDown;
 
     //イベント発生フラグ
-    private bool PotionRepleIvent = false;
-    private bool StockRepleIvent = false;
-    private bool GeneRepleEvent = false; //次のターンにイベント発生フラグ
+    private bool potionRepleIvent = true;
+    private bool stockRepleIvent = true;
+    private bool geneRepleEvent = true; //次のターンにイベント発生フラグ
     public bool ClearAnim;
     public bool PlClearDoAnim = false;
     public bool FinClearAnim = false;
     [SerializeField]
-    private GameObject GameClearPanel;
+    private GameObject gameClearPanel;
     [SerializeField]
-    private Text ClearResult_Text;
+    private Text clearResultText;
     //クリア時のescキー無効判定
-    public bool nowClear;
+    public bool NowClear;
     //ゲームオーバー
-    public bool doOverAnim = false;
+    public bool DoOverAnim = false;
     public bool GameOverFade = false;
     [SerializeField]
-    private GameObject GameOverPanel;
+    private GameObject gameOverPanel;
 
     //サウンド用スクリプト取得
 	[SerializeField] 
-    private soundCnt soundA;
+    private SoundCnt soundA;
     [SerializeField]
     private AudioClip sceneA_BGM;
     [SerializeField]
@@ -195,115 +184,87 @@ public class UICont1 : MonoBehaviour
     private AudioClip buyNewItemsSE;
     [SerializeField] 
     private AudioClip textFlowSE;
-    public bool readNow = false;
-    private bool delayTextSE = true;
+    public bool ReadNow = false;
 
     /*---------商品選択用----------*/
 
     //入手後の素材
     [SerializeField]
-    private Sprite HavePotion;
+    private Sprite havePotion;
     [SerializeField]
-    private Sprite HaveStock;
+    private Sprite haveStock;
     //コンポーネント取得先
     [SerializeField]
-    private GameObject Potionflame;
+    private GameObject potionFlame;
     [SerializeField]
-    private GameObject Stockflame;
+    private GameObject stockFlame;
 
-    private Image SpritePotion;
-    private Image SpriteStock;
-
-    //持っているか否か
-    private static bool HavePotionN = false;
-    private static bool HaveStockN = false;
+    //表示制御用所持チェック
+    private bool havePotionN = false;
+    private bool haveStockN = false;
 
     //テキスト入れ替え
     [SerializeField]
-    private Text PotionName;
+    private Text potionName;
     [SerializeField]
-    private Text StockName;
+    private Text stockName;
 
     //購入パネル初期テキスト
     private bool drawSelectItem;
 
     //クリック重複ケア
-    private bool ClickJudge;
+    private bool clickJudge;
 
     //戦略選択チェック
     public int SelectStr;
 
-	void Awake()
-	{
-		if (instanceUI1 == null)
-        {
-            instanceUI1 = this;
-        }
-	}
-
     void Start()
     {
         PushN = 0;
-        PushNtutorial = 0;
-        FoxDia1.gameObject.SetActive(false);
-        FoxDia2.gameObject.SetActive(false);
-        FoxDia3.gameObject.SetActive(false);
-        FoxDia4.gameObject.SetActive(false);
-        FoxDia5.gameObject.SetActive(false);
-        FoxDia6.gameObject.SetActive(false);
+        pushNtutorial = 0;
+        foxDia1.gameObject.SetActive(false);
+        foxDia2.gameObject.SetActive(false);
+        foxDia3.gameObject.SetActive(false);
         mainUI.gameObject.SetActive(false);
-        ItemSelectUI.gameObject.SetActive(false);
-        StrUI.gameObject.SetActive(false);
-        KillPanel.gameObject.SetActive(false);
-        DealPanel.gameObject.SetActive(false);
-        STRDoneButton.gameObject.SetActive(false);
-        Get_ItemPanel.gameObject.SetActive(false);
-        GameClearPanel.SetActive(false);
-        GameOverPanel.gameObject.SetActive(false);
+        itemSelectUI.gameObject.SetActive(false);
+        strUI.gameObject.SetActive(false);
+        killPanel.gameObject.SetActive(false);
+        dealPanel.gameObject.SetActive(false);
+        strDoneButton.gameObject.SetActive(false);
+        getItemPanel.gameObject.SetActive(false);
+        gameClearPanel.SetActive(false);
+        gameOverPanel.gameObject.SetActive(false);
         publicityPanel.SetActive(false);
-        FoxyPanel.SetActive(false);
+        foxyPanel.SetActive(false);
 
         ClearAnim = false;
-        textChange = true;
-        textChangeInt = 0;
-        ClickJudge = true;
-        OpenPanel = false;
-        PushReple = false;
-        nowClear = false;
+        clickJudge = true;
+        openPanel = false;
+        pushReple = false;
+        NowClear = false;
         drawSelectItem = true;
         SelectStr = 0;
-        SelectKill = 0; //暗殺対象リセット
-        SelectItem_D = 0; //取引のアイテム選択リセット
+        selectKill = 0; //暗殺対象リセット
+        selectItem_D = 0; //取引のアイテム選択リセット
 
-        //アイテム入荷のコンポーネント取得
-        D_SpritePotion = D_Potionflame.GetComponent<Image>(); //薬
-        D_SpriteStock = D_Stockflame.GetComponent<Image>(); //株
-
-        //アイテム獲得パネルのコンポーネント取得
-        Get_SpriteItem = Get_ItemFlame.GetComponent<Image>(); //スプライト入れ替え用
-
-        //アイテム選択のコンポーネント取得
-        SpritePotion = Potionflame.GetComponent<Image>(); //薬
-        SpriteStock = Stockflame.GetComponent<Image>(); //株
-
-        TutrialExp.gameObject.SetActive(false);
+        tutrialExp.gameObject.SetActive(false);
 
         //アイテム入荷用
-        D_ItemName[0] = "どうのつるぎ";
-        D_ItemName[1] = "こうかなくすり";
-        D_ItemName[2] = "まぼろしのかぶ";
-        D_ItemName[3] = "？？？";
-        D_ItemName[4] = "？？？";
+        dItemName[0] = "どうのつるぎ";
+        dItemName[1] = "こうかなくすり";
+        dItemName[2] = "まぼろしのかぶ";
+        dItemName[3] = "？？？";
+        dItemName[4] = "？？？";
 
-        RunDispo = true;
-        ItemExp[0] = " い た っ て ふ つ う の ど う の つ る ぎ 。 　　　　お 客 さ ん の 心 を つ か も う . ";
-        ItemExp[1] = " 危 険 な に お い が す る や く ひ ん 。 　　　　　す こ し う し ろ め た い が 、 高 く 売 れ そ う だ 。 ";
-        ItemExp[2] = " 市 場 価 格 が 安 定 し な い 株 。 　　　　　　　大 き く 稼 げ そ う だ が そ の 裏 で は 多 く の リ ス ク を は ら ん で い る 。 ";
-        ItemExp[3] = "     ";
-        ItemExp[4] = "     ";
+        runDispo = true;
+        itemExp[0] = " い た っ て ふ つ う の ど う の つ る ぎ 。 　　　　お 客 さ ん の 心 を つ か も う . ";
+        itemExp[1] = " 危 険 な に お い が す る や く ひ ん 。 　　　　　す こ し う し ろ め た い が 、 高 く 売 れ そ う だ 。 ";
+        itemExp[2] = " 市 場 価 格 が 安 定 し な い 株 。 　　　　　　　大 き く 稼 げ そ う だ が そ の 裏 で は 多 く の リ ス ク を は ら ん で い る 。 ";
+        itemExp[3] = "     ";
+        itemExp[4] = "     ";
 
         /*---bgm設定---*/
-        soundA = GameObject.Find("SoundManager").GetComponent<soundCnt> ();
+        soundA = GameObject.Find("SoundManager").GetComponent<SoundCnt> ();
 
         if (ParameterCalc.instanceCalc.GameClear)  //クリア処理
         {
@@ -317,24 +278,31 @@ public class UICont1 : MonoBehaviour
         {
             soundA.PlayBgm(sceneA_BGM);
         }
+
+        //UI制御用商品の解放管理
+        if(ParameterCalc.instanceCalc.TurnCount >= ParameterCalc.instanceCalc.PopTurnEvent)
+        {
+            if(ParameterCalc.instanceCalc.HavePotionJ)havePotionN = true;
+            if(ParameterCalc.instanceCalc.HaveStockJ)haveStockN = true;
+        }
     }
 
     void Update()
     {
         //UI更新
-        SlaveTx.text = ParameterCalc.instanceCalc.Slave + "";
-        CrimeRateTx.text = ParameterCalc.instanceCalc.CrimeRate + "/100";
-        HavemoneyT.text = ParameterCalc.instanceCalc.HaveMoney + "";
-        TurnCountText.text = ParameterCalc.instanceCalc.TurnCount + " 日目";
+        slaveTx.text = ParameterCalc.instanceCalc.Slave + "";
+        crimeRateTx.text = ParameterCalc.instanceCalc.CrimeRate + "/100";
+        havemoneyT.text = ParameterCalc.instanceCalc.HaveMoney + "";
+        turnCountText.text = ParameterCalc.instanceCalc.TurnCount + " 日目";
 
         //Doneボタン管理
         if (SelectStr == 0)
         {
-            DoneButton.gameObject.SetActive(false);
+            doneButton.gameObject.SetActive(false);
         }
         else
         {
-            DoneButton.gameObject.SetActive(true);
+            doneButton.gameObject.SetActive(true);
         }
 
         //戦略ボタンDoneを押せなくする
@@ -342,184 +310,166 @@ public class UICont1 : MonoBehaviour
         {
             if (ParameterCalc.instanceCalc.Slave > 0)
             {
-                DoneButton.GetComponent<Button>().interactable = true;
+                doneButton.GetComponent<Button>().interactable = true;
             }
             else
             {
-                DoneButton.GetComponent<Button>().interactable = false;
+                doneButton.GetComponent<Button>().interactable = false;
             }
         }
         else
         {
-            DoneButton.GetComponent<Button>().interactable = true;
+            doneButton.GetComponent<Button>().interactable = true;
         }
 
         //狐の会話
-        if (Input.GetMouseButtonDown(0) && ClickJudge && !menuCnt.ESCnow)
+        if (Input.GetMouseButtonDown(0) && clickJudge && !MenuCnt.ESCnow)
         {
-            if(ParameterCalc.instanceCalc.initialPlay)
+            if(ParameterCalc.instanceCalc.InitialPlay)
             {
                 //チュートリアル用ESC説明
-                if(firstESC && PushNtutorial != 6)
+                if(firstESC && pushNtutorial != 6)
                 {
-                    PushNtutorial += 1;
+                    pushNtutorial += 1;
                 }
-                ClickJudge = false;
+                clickJudge = false;
             }
             else
             {
-                //狐の会話用荒療治
-                if(textChange)
-                {
-                    PushN += 1;
-                    ClickJudge = false;
-                }
-                else
-                {
-                    textChangeInt ++;
-                    ClickJudge = false;
-                }
+                PushN += 1;
+                clickJudge = false;
             }
         }
 
         //チュートリアル
-        if(ParameterCalc.instanceCalc.initialPlay)
+        if(ParameterCalc.instanceCalc.InitialPlay)
         {
             Tutorial();
         }
-
         else if (ParameterCalc.instanceCalc.GameClear && ParameterCalc.instanceCalc.TurnCount == ParameterCalc.instanceCalc.PopTurnEvent)  //クリア処理
         {
             ClearIvent();
         }
-
         else if(ParameterCalc.instanceCalc.GameOver && ParameterCalc.instanceCalc.TurnCount == ParameterCalc.instanceCalc.PopTurnEvent) //ゲームオーバー処理
         {
             GameOverEvent();
         }
-
-        else if(GeneRepleEvent && ParameterCalc.instanceCalc.TurnCount == ParameterCalc.instanceCalc.PopTurnEvent) //前ターンの入荷イベント発生
+        else if(geneRepleEvent && ParameterCalc.instanceCalc.TurnCount == ParameterCalc.instanceCalc.PopTurnEvent) //前ターンの入荷イベント発生
         {
             GetFirst();
-            GeneRepleEvent = false;
+            geneRepleEvent = false;
         }
-
         else    //通常処理
         {
-            FoxDia2_Text.text = "おかしら！\n次はどんな工作を？";
-            FoxDia3_Text.text = "おかしら。\n今日は何を売る？";
-            if (PushN == 1)
+            switch (PushN)
             {
-                switch(textChangeInt)
-                {
-                    
-                    case 0:
-                        textChange = false; //PushNオフ
-                        FoxDia1_Text.text = "おかしら！\n" + ParameterCalc.instanceCalc.TurnCount + "日目ですね！";
-                        FoxDia1.gameObject.SetActive(true);
-                        ClickJudge = true;
-                        break;
-                    case 1:
-                        FoxDia1_Text.text = "今日はどんな工作を？";
-                        textChange = true; //PushNオン
-                        ClickJudge = true;
-                        break;
-                }
-                
-            }
-            else if (PushN == 2)
-            {
-                FoxDia1.gameObject.SetActive(false);
-                mainUI.gameObject.SetActive(true);
-                StrUI.gameObject.SetActive(true);
-                if (!OpenPanel)
-                {
-                    STRDoneButton.gameObject.SetActive(true);
-                }
-            }
-            else if (PushN == 3)
-            {
-                mainUI.gameObject.SetActive(false);
-                FoxDia2.gameObject.SetActive(true);
-                ClickJudge = true;
-            }
-            else if (PushN == 4)
-            {
-                FoxDia2.gameObject.SetActive(false);
-                FoxDia3.gameObject.SetActive(true);
-                ClickJudge = true;
-            }
-            else if (PushN == 5)
-            {
-                FoxDia3.gameObject.SetActive(false);
-                mainUI.gameObject.SetActive(true);
-                StrUI.gameObject.SetActive(true);
-                if (!OpenPanel)
-                {
-                    STRDoneButton.gameObject.SetActive(true);
-                }
-            }
-            else if (PushN == 6)
-            {
-                mainUI.gameObject.SetActive(false);
-                StrUI.gameObject.SetActive(false);
-                FoxDia4.gameObject.SetActive(true);
-                ClickJudge = true;
-            }
-            else if (PushN == 7)
-            {
-                FoxDia4.gameObject.SetActive(false);
-                FoxDia5.gameObject.SetActive(true);
-                ClickJudge = true;
-            }
-            else if (PushN == 8)
-            {
-                FoxDia5.gameObject.SetActive(false);
-                mainUI.gameObject.SetActive(true);
-                ItemSelectUI.gameObject.SetActive(true);
-                if (drawSelectItem)
-                {
-                    BrSword();
-                    drawSelectItem = false;
-                }
-                //アイテム選択画面UI更新
-                ForDrawPanel();
-            }
-            else if (PushN == 9)
-            {
-                FoxDia6.gameObject.SetActive(true);
-                mainUI.gameObject.SetActive(false);
-                ItemSelectUI.gameObject.SetActive(false);
-                ClickJudge = true;
-            }
-            else if (PushN == 10)
-            {
-                FoxDia6.gameObject.SetActive(false);
-                ClickJudge = true;
-            }
-            else if (PushN == 11)
-            {
-                //シーンコントロールにお任せ
-                SceneCnt1.instanceCnt1.isFadeOut_A = true;
+                case 1:
+                    foxDia1.gameObject.SetActive(true);
+                    foxDia1_Text.text = "おかしら！\n" + ParameterCalc.instanceCalc.TurnCount + "日目ですね！";
+                    clickJudge = true;
+                    break;
+
+                case 2:
+                    foxDia1_Text.text = "今日はどんな工作を？";
+                    clickJudge = true;
+                    break;
+
+                case 3:
+                    foxDia1.gameObject.SetActive(false);
+                    mainUI.gameObject.SetActive(true);
+                    strUI.gameObject.SetActive(true);
+                    if (!openPanel)
+                    {
+                        strDoneButton.gameObject.SetActive(true);
+                    }
+                    break;
+
+                case 4:
+                    mainUI.gameObject.SetActive(false);
+                    foxDia1.gameObject.SetActive(true);
+                    foxDia1_Text.text = "かしこまり！";
+                    clickJudge = true;
+                    break;
+
+                case 5:
+                    foxDia1.gameObject.SetActive(false);
+                    foxDia2.gameObject.SetActive(true);
+                    foxDia2_Text.text = "おかしら！\n次はどんな工作を？";
+                    clickJudge = true;
+                    break;
+
+                case 6:
+                    foxDia2.gameObject.SetActive(false);
+                    mainUI.gameObject.SetActive(true);
+                    strUI.gameObject.SetActive(true);
+                    if (!openPanel)
+                    {
+                        strDoneButton.gameObject.SetActive(true);
+                    }
+                    break;
+
+                case 7:
+                    mainUI.gameObject.SetActive(false);
+                    strUI.gameObject.SetActive(false);
+                    foxDia2.gameObject.SetActive(true);
+                    foxDia2_Text.text = "はい！";
+                    clickJudge = true;
+                    break;
+
+                case 8:
+                    foxDia2.gameObject.SetActive(false);
+                    foxDia3.gameObject.SetActive(true);
+                    foxDia3_Text.text = "おかしら。\n今日は何を売る？";
+                    clickJudge = true;
+                    break;
+
+                case 9:
+                    foxDia3.gameObject.SetActive(false);
+                    mainUI.gameObject.SetActive(true);
+                    itemSelectUI.gameObject.SetActive(true);
+                    if (drawSelectItem)
+                    {
+                        BrSword();
+                        drawSelectItem = false;
+                    }
+                    //アイテム選択画面UI更新
+                    ForDrawPanel();
+                    break;
+
+                case 10:
+                    foxDia3.gameObject.SetActive(true);
+                    foxDia3_Text.text ="御意。";
+                    mainUI.gameObject.SetActive(false);
+                    itemSelectUI.gameObject.SetActive(false);
+                    clickJudge = true;
+                    break;
+
+                case 11:
+                    foxDia3.gameObject.SetActive(false);
+                    clickJudge = true;
+                    break;
+
+                case 12:
+                    //シーンコントロールへ
+                    sceneCnt1.IsFadeOut_A = true;
+                    break;
             }
         }
 
         /*--------SE--------*/
 
-        if(readNow)
+        if(ReadNow)
         {
-            if(delayTextSE) //1.045秒毎に再生
+            if(!soundA.CheckReadSE())
             {
-                TextFlowSE();
-                delayTextSE = false;
-                Invoke("DelayTextSE",1.045f);
+                //テキストを表示している間再生
+                soundA.PlayReadSe(textFlowSE);
             }
         }
-    }
-
-    private void DelayTextSE()
-    {
-        delayTextSE = true;
+        else
+        {
+            soundA.StopSE();
+        }
     }
 
     //戦略選択
@@ -564,58 +514,54 @@ public class UICont1 : MonoBehaviour
                 break;
 
             case 3:
-                drowPubli();  //戦略パネル更新
-                STRDoneButton.gameObject.SetActive(false);
-                STRpanel.gameObject.SetActive(false);
+                DrowPubli();  //戦略パネル更新
+                strDoneButton.gameObject.SetActive(false);
+                strPanel.gameObject.SetActive(false);
                 publicityPanel.SetActive(true);
-                OpenPanel = true;
-                FoxyPanel.SetActive(true);//画面下部フィネ
+                openPanel = true;
+                foxyPanel.SetActive(true);//画面下部フィネ
 
                 //交渉済みかどうか
                 if (!ParameterCalc.instanceCalc.usePubli)
                 {
-                    FoxySay = " 少 し う さ ん く さ い な . . . ";
+                    foxySay = " 少 し う さ ん く さ い な . . . ";
                 }
                 else
                 {
-                    FoxySay = " 忙 し そ う だ . . . ";
+                    foxySay = " 忙 し そ う だ . . . ";
                 }
-
                 StartCoroutine(Publi_Log());
-
                 break;
 
             case 4:
-                STRDoneButton.gameObject.SetActive(false);
-                STRpanel.gameObject.SetActive(false);
-                KillPanel.gameObject.SetActive(true);
-                OpenPanel = true;
-                FoxyPanel.SetActive(true);//画面下部フィネ
+                strDoneButton.gameObject.SetActive(false);
+                strPanel.gameObject.SetActive(false);
+                killPanel.gameObject.SetActive(true);
+                openPanel = true;
+                foxyPanel.SetActive(true);//画面下部フィネ
 
                 //暗殺パネル
                 if (!ParameterCalc.instanceCalc.ExeKill)
                 {
-                    FoxySay = " 裏 工 作 . . . あ ま り 気 が 乗 ら な い 。 ";
-                    ButtonKill.interactable = true;
+                    foxySay = " 裏 工 作 . . . あ ま り 気 が 乗 ら な い 。 ";
+                    buttonKill.interactable = true;
                 }
                 else
                 {
-                    FoxySay = " こ れ 以 上 騒 ぎ は 起 こ せ な い . . . ";
-                    ButtonKill.interactable = false;
+                    foxySay = " こ れ 以 上 騒 ぎ は 起 こ せ な い . . . ";
+                    buttonKill.interactable = false;
                 }
                 StartCoroutine(Publi_Log());
-
                 break;
                 
             case 5:
-                SelectItem_D = 0;
+                selectItem_D = 0;
                 D_Apparent(); //戦略パネル更新
-                STRDoneButton.gameObject.SetActive(false);
-                STRpanel.gameObject.SetActive(false);
-                DealPanel.gameObject.SetActive(true);
-                OpenPanel = true;
-                FoxyPanel.SetActive(true);
-
+                strDoneButton.gameObject.SetActive(false);
+                strPanel.gameObject.SetActive(false);
+                dealPanel.gameObject.SetActive(true);
+                openPanel = true;
+                foxyPanel.SetActive(true);
                 break;
         }
         SelectStr = 0;
@@ -626,25 +572,25 @@ public class UICont1 : MonoBehaviour
     //実行処理
     public void KillDone()
     {
-        ParameterCalc.instanceCalc.SelectKillPanel = SelectKill;
+        ParameterCalc.instanceCalc.SelectKillPanel = selectKill;
         PushN++;
         ParameterCalc.instanceCalc.StrKill();
 
         SelectStr = 4;
-        STRDoneButton.gameObject.SetActive(true);
-        STRpanel.gameObject.SetActive(true);
-        KillPanel.gameObject.SetActive(false);
-        FoxyPanel.SetActive(false);
-        OpenPanel = false;
+        strDoneButton.gameObject.SetActive(true);
+        strPanel.gameObject.SetActive(true);
+        killPanel.gameObject.SetActive(false);
+        foxyPanel.SetActive(false);
+        openPanel = false;
     }
 
     public void KillChoseDown() //民衆選択↓
     {
         //0-3を循環
-        SelectKill -= 1;
-        if(SelectKill < 0)
+        selectKill -= 1;
+        if(selectKill < 0)
         {
-            SelectKill = 3;
+            selectKill = 3;
         }
         KillPanelAnim();
     }
@@ -652,10 +598,10 @@ public class UICont1 : MonoBehaviour
     public void KillChoseUp() //民衆選択↑
     {
         //0-3を循環
-        SelectKill += 1;
-        if (SelectKill > 3)
+        selectKill += 1;
+        if (selectKill > 3)
         {
-            SelectKill = 0;
+            selectKill = 0;
         }
         KillPanelAnim();
     }
@@ -663,10 +609,10 @@ public class UICont1 : MonoBehaviour
     //演出処理
     public void KillPanelAnim()
     {
-        animator = PeopleAnim.GetComponent<Animator>();
+        animator = peopleAnim.GetComponent<Animator>();
 
-        PeoNameText.text = PeoName [SelectKill];
-        animator.SetInteger("SelectPeo", SelectKill);
+        peopleNameText.text = peopleName [selectKill];
+        animator.SetInteger("SelectPeo", selectKill);
 
     }
 
@@ -674,69 +620,68 @@ public class UICont1 : MonoBehaviour
     public void KillSTRback()
     {
         SelectStr = 4;
-        STRDoneButton.gameObject.SetActive(true);
-        STRpanel.gameObject.SetActive(true);
-        KillPanel.gameObject.SetActive(false);
-        FoxyPanel.SetActive(false);
-        OpenPanel = false;
+        strDoneButton.gameObject.SetActive(true);
+        strPanel.gameObject.SetActive(true);
+        killPanel.gameObject.SetActive(false);
+        foxyPanel.SetActive(false);
+        openPanel = false;
     }
 
     /*----------取引パネル----------*/
 
     //交渉金額
-    public void publiWayUp()
+    public void PubliWayUp()
     {
-        if(RunDispo)
+        if(runDispo)
         {
-            ParameterCalc.instanceCalc.publiWay += 1;
-            ButtonPubliDown.interactable = true;
-            if (ParameterCalc.instanceCalc.publiWay > 1)
+            ParameterCalc.instanceCalc.PubliWay += 1;
+            buttonPubliDown.interactable = true;
+            if (ParameterCalc.instanceCalc.PubliWay > 1)
             {
-                ButtonPubliUp.interactable = false;
+                buttonPubliUp.interactable = false;
             }
-            drowPubli();
+            DrowPubli();
         }
     }
 
-    public void publiWayDown()
+    public void PubliWayDown()
     {
-        if(RunDispo){
-            ParameterCalc.instanceCalc.publiWay -= 1;
-            ButtonPubliUp.interactable = true;
-            if (ParameterCalc.instanceCalc.publiWay < 1)
+        if(runDispo){
+            ParameterCalc.instanceCalc.PubliWay -= 1;
+            buttonPubliUp.interactable = true;
+            if (ParameterCalc.instanceCalc.PubliWay < 1)
             {
-                ButtonPubliDown.interactable = false;
+                buttonPubliDown.interactable = false;
             }
-            drowPubli();
+            DrowPubli();
         }
     }
 
-    public void publiDone()
+    public void PubliDone()
     {
-        ParameterCalc.instanceCalc.publiCalc();
+        ParameterCalc.instanceCalc.PubliCalc();
         SelectStr = 2;
-        STRDoneButton.gameObject.SetActive(true);
-        STRpanel.gameObject.SetActive(true);
+        strDoneButton.gameObject.SetActive(true);
+        strPanel.gameObject.SetActive(true);
         publicityPanel.SetActive(false);
-        OpenPanel = false;
-        FoxyPanel.SetActive(false);
+        openPanel = false;
+        foxyPanel.SetActive(false);
         PushN++;
-        Debug.Log("こしょう");
     }
 
     //交渉パネルセリフ更新
-    private void drowPubli()
+    private void DrowPubli()
     {
-        RunDispo = false;
-        publiDoneBt = publiDoneButton.GetComponent<Button>();
+        runDispo = false;
+        publiDoneBt = publidoneButton.GetComponent<Button>();
         //計算処理
-        double Conv = ParameterCalc.instanceCalc.HaveMoney * ParameterCalc.instanceCalc.publiRisk[ParameterCalc.instanceCalc.publiWay];
-        ParameterCalc.instanceCalc.publiWayPay = (int)Conv;
-        publiMoneyText.text = ParameterCalc.instanceCalc.publiWayPay + "";
+        double Conv = ParameterCalc.instanceCalc.HaveMoney * ParameterCalc.instanceCalc.PubliRisk[ParameterCalc.instanceCalc.PubliWay];
+        ParameterCalc.instanceCalc.PubliWayPay = (int)Conv;
+        publiMoneyText.text = ParameterCalc.instanceCalc.PubliWayPay + "";
         if (!ParameterCalc.instanceCalc.usePubli)
         {
-            publiPlayerSay = " . . . " + ParameterCalc.instanceCalc.publiWayPay + " z で ど う だ ？ ";
-            publiOtherSay = " そ の 報 酬 だ と 成 功 率 は "+ ParameterCalc.instanceCalc.publiRisk[ParameterCalc.instanceCalc.publiWay] * 100 +" % っ て と こ だ 。 ";
+            publiPlayerSay = " . . . " + ParameterCalc.instanceCalc.PubliWayPay + " z で ど う だ ？ ";
+            publiOtherSay = " そ の 報 酬 だ と 成 功 率 は "+ ParameterCalc.instanceCalc.PubliRisk[ParameterCalc.instanceCalc.PubliWay] * 100 +" % っ て と こ だ 。 ";
         }
         else
         {
@@ -744,13 +689,13 @@ public class UICont1 : MonoBehaviour
             publiOtherSay = " 大 人 し く 結 果 を 待 つ ん だ な 。 ";
             publiDoneBt.interactable = false;
         }
-        StartCoroutine(publiSay());
+        StartCoroutine(PubliSay());
     }
 
     //交渉パネル二人の会話処理
-    IEnumerator publiSay()
+    IEnumerator PubliSay()
     {
-        readNow = true; //文字表示用SE開始
+        ReadNow = true; //文字表示用SE開始
 
         publiPlayerText.text = "";
         publiOtherText.text = "";
@@ -764,27 +709,13 @@ public class UICont1 : MonoBehaviour
         }
         words = publiOtherSay.Split(' ');
         
-        /*--SE用--*/
-        int finSE = words.Length - 20; //文字の長さを取得用
-        int finTime = 0; //再生終了タイミング用
-        if(finSE < 0)
-        {
-            finSE = 1;
-        }
-        /*--------*/
-        
         foreach (var word in words)
         {
-            finTime ++;
             publiOtherText.text = publiOtherText.text + word;
             yield return new WaitForSeconds(0.05f);
-            if(finSE == finTime)
-            {
-                readNow = false; //文字表示用SE終了
-            }
         }
-        readNow = false; //文字表示用SE終了
-        RunDispo = true; 
+        ReadNow = false; //文字表示用SE終了
+        runDispo = true; 
         
     }
 
@@ -794,64 +725,61 @@ public class UICont1 : MonoBehaviour
     public void DealDone()
     {
         //商品強化処理
-        ParameterCalc.instanceCalc.SelectRepleItem = SelectItem_D;
+        ParameterCalc.instanceCalc.SelectRepleItem = selectItem_D;
         ParameterCalc.instanceCalc.StrReple();
         SelectStr = 5;
-        STRDoneButton.gameObject.SetActive(true);
-        STRpanel.gameObject.SetActive(true);
-        DealPanel.gameObject.SetActive(false);
-        FoxyPanel.SetActive(false);
-        OpenPanel = false;
+        strDoneButton.gameObject.SetActive(true);
+        strPanel.gameObject.SetActive(true);
+        dealPanel.gameObject.SetActive(false);
+        foxyPanel.SetActive(false);
+        openPanel = false;
         PushN++;
 
-        if (SelectItem_D == 3) //ポーション初契約
+        if (selectItem_D == 3) //ポーション初契約
         {
-            GeneRepleEvent = true; //次のターンイベント発生
             ParameterCalc.instanceCalc.PopTurnEvent = ParameterCalc.instanceCalc.TurnCount + 1; //次ターン制限
-            PotionRepleIvent = true;
-            PushReple = true; //１ターンに入荷は一度まで
+            pushReple = true; //１ターンに入荷は一度まで
         }
-        else if (SelectItem_D == 4) //株初契約
+        else if (selectItem_D == 4) //株初契約
         {
-            GeneRepleEvent = true; //次のターンイベント発生
             ParameterCalc.instanceCalc.PopTurnEvent = ParameterCalc.instanceCalc.TurnCount + 1; //次ターン制限
-            StockRepleIvent = true;
-            PushReple = true; //１ターンに入荷は一度まで
+            pushReple = true; //１ターンに入荷は一度まで
         }
+        Debug.Log(ParameterCalc.instanceCalc.PopTurnEvent);
     }
 
     //戻る
     public void Publi_STRback()
     {
         SelectStr = 3;
-        STRDoneButton.gameObject.SetActive(true);
-        STRpanel.gameObject.SetActive(true);
+        strDoneButton.gameObject.SetActive(true);
+        strPanel.gameObject.SetActive(true);
         publicityPanel.SetActive(false);
-        OpenPanel = false;
-        FoxyPanel.SetActive(false);
+        openPanel = false;
+        foxyPanel.SetActive(false);
     }
 
     //アイテム選択
     public void D_DelectSwords() //剣
     {
-        if (RunDispo)
+        if (runDispo)
         {
-            SelectItem_D = 0;
+            selectItem_D = 0;
             D_Apparent();
         }
     }
 
     public void D_DelectPotion() //薬
     {
-        if (RunDispo)
+        if (runDispo)
         {
-            if (HavePotionN)
+            if (havePotionN)
             {
-                SelectItem_D = 1;
+                selectItem_D = 1;
             }
             else
             {
-                SelectItem_D = 3;
+                selectItem_D = 3;
             }
 
             D_Apparent();
@@ -860,15 +788,15 @@ public class UICont1 : MonoBehaviour
     
     public void D_DelectStock() //株
     {
-        if (RunDispo)
+        if (runDispo)
         {
-            if (HaveStockN)
+            if (haveStockN)
             {
-                SelectItem_D = 2;
+                selectItem_D = 2;
             }
             else
             {
-                SelectItem_D = 4;
+                selectItem_D = 4;
             }
 
             D_Apparent();
@@ -883,17 +811,17 @@ public class UICont1 : MonoBehaviour
         {
             ParameterCalc.instanceCalc.StockReceived = 500;
         }
-        StockCountText.text = "" + ParameterCalc.instanceCalc.StockReceived;
-        D_NeedPrice.text = ParameterCalc.instanceCalc.StockGet * ParameterCalc.instanceCalc.StockReceived + "z必要";
+        stockCountText.text = "" + ParameterCalc.instanceCalc.StockReceived;
+        dNeedPrice.text = ParameterCalc.instanceCalc.StockGet * ParameterCalc.instanceCalc.StockReceived + "z必要";
 
         //0個以上かつ買える時はインタラクティブ
         if (ParameterCalc.instanceCalc.HaveMoney >= ParameterCalc.instanceCalc.StockGet * ParameterCalc.instanceCalc.StockReceived && 0 < ParameterCalc.instanceCalc.StockReceived)
         {
-            DealButton.interactable = true;
+            dealButton.interactable = true;
         }
         else
         {
-            DealButton.interactable = false;
+            dealButton.interactable = false;
         }
     }
 
@@ -904,209 +832,199 @@ public class UICont1 : MonoBehaviour
         {
             ParameterCalc.instanceCalc.StockReceived = 0;
         }
-        StockCountText.text = "" + ParameterCalc.instanceCalc.StockReceived;
-        D_NeedPrice.text = ParameterCalc.instanceCalc.StockGet * ParameterCalc.instanceCalc.StockReceived + "z必要";
+        stockCountText.text = "" + ParameterCalc.instanceCalc.StockReceived;
+        dNeedPrice.text = ParameterCalc.instanceCalc.StockGet * ParameterCalc.instanceCalc.StockReceived + "z必要";
 
         //0個以上かつ買える時はインタラクティブ
         if (ParameterCalc.instanceCalc.HaveMoney >= ParameterCalc.instanceCalc.StockGet * ParameterCalc.instanceCalc.StockReceived && 0 < ParameterCalc.instanceCalc.StockReceived)
         {
-            DealButton.interactable = true;
+            dealButton.interactable = true;
         }
         else
         {
-            DealButton.interactable = false;
+            dealButton.interactable = false;
         }
     }
 
     //表示の処理
     public void D_Apparent()
     {
-
-        D_DoneButton.SetActive(true);
+        dDoneButton.SetActive(true);
+        //アイテム入荷画像の取得
+        Image dSpritePotion = dPotionFlame.GetComponent<Image>(); //薬
+        Image dSpriteStock = dStockflame.GetComponent<Image>(); //株
 
         //画像制御
-        if (HavePotionN)
+        if (havePotionN)
         {
-            D_SpritePotion.sprite = HavePotion;
+            dSpritePotion.sprite = havePotion;
         }
 
-        if (HaveStockN)
+        if (haveStockN)
         {
-            D_SpriteStock.sprite = HaveStock;
-            
+            dSpriteStock.sprite = haveStock; 
         }
         //株専用パネルオフ
-        StockCountPanel.SetActive(false);
+        stockCountPanel.SetActive(false);
 
         //必要価格と商品名と販売価格の入れ替え
-        switch (SelectItem_D)
+        switch (selectItem_D)
         {
-            case 0://剣強化
-                DealItem.text = D_ItemName[SelectItem_D] + " Lv." + ParameterCalc.instanceCalc.BrSwordUpCount; //商品名
-                D_NeedPrice.text = ParameterCalc.instanceCalc.BrSwordUp[ParameterCalc.instanceCalc.BrSwordUpCount] + "z必要";
-                D_OfferPrice.text = "売値 : " + ParameterCalc.instanceCalc.BrSwordSell[ParameterCalc.instanceCalc.BrSwordUpCount] + " → " + ParameterCalc.instanceCalc.BrSwordSell[ParameterCalc.instanceCalc.BrSwordUpCount + 1];
-                D_Button.text = "改良する";
+            case 0: //剣強化
+                dealItem.text = dItemName[selectItem_D] + " Lv." + ParameterCalc.instanceCalc.BrSwordUpCount; //商品名
+                dNeedPrice.text = ParameterCalc.instanceCalc.BrSwordUp[ParameterCalc.instanceCalc.BrSwordUpCount] + "z必要";
+                dOfferPrice.text = "売値 : " + ParameterCalc.instanceCalc.BrSwordSell[ParameterCalc.instanceCalc.BrSwordUpCount] + " → " + ParameterCalc.instanceCalc.BrSwordSell[ParameterCalc.instanceCalc.BrSwordUpCount + 1];
+                dButton.text = "改良する";
 
                 if (ParameterCalc.instanceCalc.HaveMoney >= ParameterCalc.instanceCalc.BrSwordUp[ParameterCalc.instanceCalc.BrSwordUpCount])
                 {
-                    DealButton.interactable = true;
+                    dealButton.interactable = true;
                 }
                 else
                 {
-                    DealButton.interactable = false;
+                    dealButton.interactable = false;
                 }
                 break;
+
             case 1: //薬強化
-                DealItem.text = D_ItemName[SelectItem_D] + " Lv." + ParameterCalc.instanceCalc.PotionUpCount; //商品名
-                D_NeedPrice.text = ParameterCalc.instanceCalc.PotionUp[ParameterCalc.instanceCalc.PotionUpCount] + "z必要";
-                D_OfferPrice.text = "売値 : " + ParameterCalc.instanceCalc.PotionSell[ParameterCalc.instanceCalc.PotionUpCount] + " → " + ParameterCalc.instanceCalc.PotionSell[ParameterCalc.instanceCalc.PotionUpCount + 1];
-                D_Button.text = "改良する";
+                dealItem.text = dItemName[selectItem_D] + " Lv." + ParameterCalc.instanceCalc.PotionUpCount; //商品名
+                dNeedPrice.text = ParameterCalc.instanceCalc.PotionUp[ParameterCalc.instanceCalc.PotionUpCount] + "z必要";
+                dOfferPrice.text = "売値 : " + ParameterCalc.instanceCalc.PotionSell[ParameterCalc.instanceCalc.PotionUpCount] + " → " + ParameterCalc.instanceCalc.PotionSell[ParameterCalc.instanceCalc.PotionUpCount + 1];
+                dButton.text = "改良する";
                 
                 if (ParameterCalc.instanceCalc.HaveMoney >= ParameterCalc.instanceCalc.PotionUp[ParameterCalc.instanceCalc.PotionUpCount])
                 {
-                    DealButton.interactable = true;
+                    dealButton.interactable = true;
                 }
                 else
                 {
-                    DealButton.interactable = false;
+                    dealButton.interactable = false;
                 }
                 break;
+
             case 2: //株仕入れ
-                DealItem.text = D_ItemName[SelectItem_D]; //商品名
-                D_NeedPrice.text = ParameterCalc.instanceCalc.StockGet * ParameterCalc.instanceCalc.StockReceived + "z必要";
-                D_OfferPrice.text = "売値 : " + ParameterCalc.instanceCalc.StockSell + "z / かぶ";
-                D_Button.text = "仕入れる";
-                StockCountPanel.SetActive(true); //株専用パネルオン
-                StockCountText.text = ""+ ParameterCalc.instanceCalc.StockReceived;
+                dealItem.text = dItemName[selectItem_D]; //商品名
+                dNeedPrice.text = ParameterCalc.instanceCalc.StockGet * ParameterCalc.instanceCalc.StockReceived + "z必要";
+                dOfferPrice.text = "売値 : " + ParameterCalc.instanceCalc.StockSell + "z / かぶ";
+                dButton.text = "仕入れる";
+                stockCountPanel.SetActive(true); //株専用パネルオン
+                stockCountText.text = ""+ ParameterCalc.instanceCalc.StockReceived;
                 break;
+
             case 3: //薬入手
-                DealItem.text = D_ItemName[SelectItem_D]; //商品名
-                D_NeedPrice.text = ParameterCalc.instanceCalc.PotionGet + "z必要";
-                D_OfferPrice.text = " ";
-                D_Button.text = "解放する";
+                dealItem.text = dItemName[selectItem_D]; //商品名
+                dNeedPrice.text = ParameterCalc.instanceCalc.PotionGet + "z必要";
+                dOfferPrice.text = " ";
+                dButton.text = "解放する";
 
                 if (ParameterCalc.instanceCalc.HaveMoney >= ParameterCalc.instanceCalc.PotionGet)
                 {
-                    DealButton.interactable = true;
+                    dealButton.interactable = true;
                 }
                 else
                 {
-                    DealButton.interactable = false;
+                    dealButton.interactable = false;
                 }
                 break;
+
             case 4: //株解放
-                DealItem.text = D_ItemName[SelectItem_D]; //商品名
-                D_NeedPrice.text = ParameterCalc.instanceCalc.StockOpen + "z必要";
-                D_OfferPrice.text = " ";
-                D_Button.text = "解放する";
+                dealItem.text = dItemName[selectItem_D]; //商品名
+                dNeedPrice.text = ParameterCalc.instanceCalc.StockOpen + "z必要";
+                dOfferPrice.text = " ";
+                dButton.text = "解放する";
                 if (ParameterCalc.instanceCalc.HaveMoney >= ParameterCalc.instanceCalc.StockOpen)
                 {
-                    DealButton.interactable = true;
+                    dealButton.interactable = true;
                 }
                 else
                 {
-                    DealButton.interactable = false;
+                    dealButton.interactable = false;
                 }
                 break;
         }
 
         //右下セリフのテキスト
-        switch (SelectItem_D)
+        switch (selectItem_D)
         {
             case 0:
-                FoxySay = " こ の 地 域 で は よ く 売 れ る . . . ";
+                foxySay = " こ の 地 域 で は よ く 売 れ る . . . ";
                 break;
 
             case 1:
-                FoxySay = " 自 分 に 使 う の は や め て お こ う . . . ";
+                foxySay = " 自 分 に 使 う の は や め て お こ う . . . ";
                 break;
 
             case 2:
                 //株を所有していないとき
                 if (ParameterCalc.instanceCalc.StockQuantity == 0)
                 {
-                    FoxySay = " 在 庫 . . . . . . な い や . . . ";
+                    foxySay = " 在 庫 . . . . . . な い や . . . ";
                 }
                 else
                 {
-                    FoxySay = " 在 庫 . . . . . . " + ParameterCalc.instanceCalc.StockQuantity + " か ぶ . . . ";
+                    foxySay = " 在 庫 . . . . . . " + ParameterCalc.instanceCalc.StockQuantity + " か ぶ . . . ";
                 }
 
                 break;
 
             case 3:
-                if(PushReple)
+                if(pushReple)
                 {
-                    FoxySay = " 部 下 の 交 渉 を 待 と う . . . . . . ";
-                    D_DoneButton.SetActive(false);
+                    foxySay = " 部 下 の 交 渉 を 待 と う . . . . . . ";
+                    dDoneButton.SetActive(false);
                 }
                 else
                 {
-                    FoxySay = " キ ケ ン な に お い . . . . . . ";
+                    foxySay = " キ ケ ン な に お い . . . . . . ";
                 }
                 break;
 
             case 4:
-                if (PushReple)
+                if (pushReple)
                 {
-                    FoxySay = " 部 下 の 交 渉 を 待 と う . . . . . . ";
-                    D_DoneButton.SetActive(false);
+                    foxySay = " 部 下 の 交 渉 を 待 と う . . . . . . ";
+                    dDoneButton.SetActive(false);
                 }
                 else
                 {
-                    FoxySay = " 仕 入 れ よ う か な . . . . . . ";
+                    foxySay = " 仕 入 れ よ う か な . . . . . . ";
                 }
                 break;
         }
         //説明文入れ替え
-        D_ExpText.text = "";
-        FoxyText.text = "";
+        dExpText.text = "";
+        foxyText.text = "";
         StartCoroutine(D_ExpLog());
     }
 
     //コルーチンを使って、１文字ごと表示する。
     IEnumerator D_ExpLog()
     {
-        RunDispo = false; //処理中に他のパネルの選択を出来なくする
-        readNow = true; //文字表示用SE開始
+        runDispo = false; //処理中に他のパネルの選択を出来なくする
+        ReadNow = true; //文字表示用SE開始
 
         // 半角スペースで文字を分割する。
-        words = ItemExp[SelectItem_D].Split(' ');
+        words = itemExp[selectItem_D].Split(' ');
 
         foreach (var word in words)
         {
             // 0.1秒刻みで１文字ずつ表示する。
-            D_ExpText.text = D_ExpText.text + word;
+            dExpText.text = dExpText.text + word;
             yield return new WaitForSeconds(0.02f);
 
         }
 
         //主人公のセリフ
-        words = FoxySay.Split(' ');
-
-        /*--SE用--*/
-        int finSE = words.Length - 13; //文字の長さを取得用
-        int finTime = 0; //再生終了タイミング用
-        if(finSE < 0)
-        {
-            finSE = 1;
-        }
-
-        /*--------*/
+        words = foxySay.Split(' ');
 
         foreach (var word in words)
         {
-            finTime ++;
             // 0.1秒刻みで１文字ずつ表示する。
-            FoxyText.text = FoxyText.text + word;
+            foxyText.text = foxyText.text + word;
             yield return new WaitForSeconds(0.08f);
-            if(finSE == finTime)
-            {
-                readNow = false; //文字表示用SE終了
-            }
         }
-        readNow = false; //文字表示用SE終了
-        RunDispo = true; //他のパネルの選択を可能にする
+        ReadNow = false; //文字表示用SE終了
+        runDispo = true; //他のパネルの選択を可能にする
        
     }
 
@@ -1114,45 +1032,32 @@ public class UICont1 : MonoBehaviour
     public void D_STRback()
     {
         SelectStr = 5;
-        STRDoneButton.gameObject.SetActive(true);
-        STRpanel.gameObject.SetActive(true);
-        DealPanel.gameObject.SetActive(false);
-        OpenPanel = false;
+        strDoneButton.gameObject.SetActive(true);
+        strPanel.gameObject.SetActive(true);
+        dealPanel.gameObject.SetActive(false);
+        openPanel = false;
         ParameterCalc.instanceCalc.StockReceived = 30;
-        FoxyPanel.SetActive(false);
+        foxyPanel.SetActive(false);
     }
 
     /*-----交渉パネルのテキスト処理-----*/
 
     IEnumerator Publi_Log()
     {
-        readNow = true; //文字表示用SE開始
+        ReadNow = true; //文字表示用SE開始
 
-        RunDispo = false;
-        FoxyText.text = "";
+        runDispo = false;
+        foxyText.text = "";
 
-        words = FoxySay.Split(' ');
+        words = foxySay.Split(' ');
 
-        /*--SE用--*/
-        int finSE = words.Length - 13; //文字の長さを取得用
-        int finTime = 0; //再生終了タイミング用
-        if(finSE < 0)
-        {
-            finSE = 1;
-        }
-        /*--------*/
         foreach (var word in words)
         {
-            finTime++;
-            FoxyText.text = FoxyText.text + word;
+            foxyText.text = foxyText.text + word;
             yield return new WaitForSeconds(0.08f);
-            if(finSE == finTime)
-            {
-                readNow = false; //文字表示用SE終了
-            }
         }
-        readNow = false; //文字表示用SE終了
-        RunDispo = true; 
+        ReadNow = false; //文字表示用SE終了
+        runDispo = true; 
     }
 
     /*-----商品選択UI-----*/
@@ -1160,18 +1065,21 @@ public class UICont1 : MonoBehaviour
     //表示制御
     public void ForDrawPanel()
     {
+        //アイテム選択のコンポーネント取得
+        Image spritePotion = potionFlame.GetComponent<Image>(); //薬
+        Image spriteStock = stockFlame.GetComponent<Image>(); //株
+
         //アイテム選択画面制御
-        if (HavePotionN)         
+        if (havePotionN)         
         {
-            SpritePotion.sprite = HavePotion;
-            PotionName.text = "こうかなくすり";
+            spritePotion.sprite = havePotion;
+            potionName.text = "こうかなくすり";
         }
 
-        if (HaveStockN)          
+        if (haveStockN)          
         {
-            SpriteStock.sprite = HaveStock;
-            StockName.text = "まぼろしのかぶ";
-            
+            spriteStock.sprite = haveStock;
+            stockName.text = "まぼろしのかぶ";
         }
     }
     
@@ -1179,22 +1087,22 @@ public class UICont1 : MonoBehaviour
     {
         ParameterCalc.instanceCalc.ToolType = 0;
         itemName.text = "どうのつるぎ     売値:" + ParameterCalc.instanceCalc.BrSwordSell[ParameterCalc.instanceCalc.BrSwordUpCount] +"z";
-        ButtonSelectItem.interactable = true;
+        buttonSelectItem.interactable = true;
     }
 
     public void HiPotion()
     {
         ParameterCalc.instanceCalc.ToolType = 1;
 
-        if (HavePotionN)    //解放しているか否か
+        if (havePotionN)    //解放しているか否か
         {
             itemName.text = "こうかなくすり     売値:" + ParameterCalc.instanceCalc.PotionSell[ParameterCalc.instanceCalc.PotionUpCount] + "z";
-            ButtonSelectItem.interactable = true;
+            buttonSelectItem.interactable = true;
         }
         else
         {
             itemName.text = "-----";
-            ButtonSelectItem.interactable = false;
+            buttonSelectItem.interactable = false;
         }
     }
 
@@ -1202,24 +1110,24 @@ public class UICont1 : MonoBehaviour
     {
         ParameterCalc.instanceCalc.ToolType = 2;
 
-        if (HaveStockN)
+        if (haveStockN)
         {
             itemName.text = "まぼろしのかぶ × "+ ParameterCalc.instanceCalc.StockQuantity + "  設定価格:" + ParameterCalc.instanceCalc.StockSell +" / かぶ";
-            ButtonSelectItem.interactable = true;
+            buttonSelectItem.interactable = true;
         }
         else 
         {
             itemName.text = "-----";
-            ButtonSelectItem.interactable = false;
+            buttonSelectItem.interactable = false;
         }
         //株を保有していないときは非インタラクティブ化
         if(ParameterCalc.instanceCalc.StockQuantity > 0)
         {
-            ButtonSelectItem.interactable = true;
+            buttonSelectItem.interactable = true;
         }
         else
         {
-            ButtonSelectItem.interactable = false;
+            buttonSelectItem.interactable = false;
         }
     }
 
@@ -1228,39 +1136,43 @@ public class UICont1 : MonoBehaviour
         PushN += 1;
         ParameterCalc.instanceCalc.GeneCalc(); //計算開始
         mainUI.gameObject.SetActive(false);
-        ItemSelectUI.gameObject.SetActive(false);
+        itemSelectUI.gameObject.SetActive(false);
     }
 
     /*----------アイテム初回獲得パネル----------*/
 
     public void GetFirst()
     {
-        mainUI.gameObject.SetActive(true);
-        StrUI.gameObject.SetActive(true);
-        Get_ItemPanel.gameObject.SetActive(true);
-        STRpanel.gameObject.SetActive(false);
-        //狐の会話をオフ、処理の終わりにオン
-        ClickJudge = false;
 
-        if (PotionRepleIvent)
+        //アイテム獲得パネルのコンポーネント取得
+        Image getSpriteItem = getItemFlame.GetComponent<Image>(); //スプライト入れ替え用
+        mainUI.gameObject.SetActive(true);
+        strUI.gameObject.SetActive(true);
+        getItemPanel.gameObject.SetActive(true);
+        strPanel.gameObject.SetActive(false);
+        //狐の会話をオフ、処理の終わりにオン
+        clickJudge = false;
+
+        if (potionRepleIvent && havePotionN)
         {
-            Get_ItemPanel.gameObject.SetActive(true);
-            Get_SpriteItem.sprite = HavePotion; //画像入れ替え
-            GetPorS = " こ う か な く す り の 　　　　　　交 易 ル ー ト が 確 立 し た よ ! ! ";
+            getItemPanel.gameObject.SetActive(true);
+            getSpriteItem.sprite = havePotion; //画像入れ替え
+            getPorS = " こ う か な く す り の 　　　　　　交 易 ル ー ト が 確 立 し た よ ! ! ";
             StartCoroutine(Get_Goods());
-            PotionRepleIvent = false;
+            potionRepleIvent = false;
             //アイテム選択画面用
-            HavePotionN = true;
+            havePotionN = true;
         }
-        if (StockRepleIvent)
+
+        if (stockRepleIvent && haveStockN)
         {
-            Get_ItemPanel.gameObject.SetActive(true); //株だけ
-            Get_SpriteItem.sprite = HaveStock; //画像入れ替え
-            GetPorS = " ま ぼ ろ し の か ぶ の 　　　　　　交 易 ル ー ト が 確 立 し た よ ! ! ";
+            getItemPanel.gameObject.SetActive(true); //株だけ
+            getSpriteItem.sprite = haveStock; //画像入れ替え
+            getPorS = " ま ぼ ろ し の か ぶ の 　　　　　　交 易 ル ー ト が 確 立 し た よ ! ! ";
             StartCoroutine(Get_Goods());
-            StockRepleIvent = false;
+            stockRepleIvent = false;
             //アイテム選択画面用
-            HaveStockN = true;
+            haveStockN = true;
         }
     }
 
@@ -1268,223 +1180,215 @@ public class UICont1 : MonoBehaviour
     public void D_GetItem()
     {
         mainUI.gameObject.SetActive(false);
-        StrUI.gameObject.SetActive(false);
-        Get_ItemPanel.gameObject.SetActive(false);
-        STRpanel.gameObject.SetActive(true);
-        ClickJudge = true;
+        strUI.gameObject.SetActive(false);
+        getItemPanel.gameObject.SetActive(false);
+        strPanel.gameObject.SetActive(true);
+        clickJudge = true;
     }
 
     //アイテム解放のテキスト処理
     IEnumerator Get_Goods()
     {
-        GetExpText.text = "";
-        RunDispo = false;//処理中に他のパネルの選択を出来なくする
-        readNow = true; //文字表示用SE開始
+        getExpText.text = "";
+        runDispo = false;//処理中に他のパネルの選択を出来なくする
+        ReadNow = true; //文字表示用SE開始
 
         // 半角スペースで文字を分割する。
-        words = GetPorS.Split(' ');
-
-        /*--SE用--*/
-        int finSE = words.Length - 10; //文字の長さを取得用
-        int finTime = 0; //再生終了タイミング用
-        if(finSE < 0)
-        {
-            finSE = 1;
-        }
-        /*--------*/
+        words = getPorS.Split(' ');
 
         foreach (var word in words)
         {
-            finTime++;
             // 0.1秒刻みで１文字ずつ表示する
-            GetExpText.text = GetExpText.text + word;
+            getExpText.text = getExpText.text + word;
             yield return new WaitForSeconds(0.1f);
-            if(finSE == finTime)
-            {
-                readNow = false; //文字表示用SE終了
-            }
         }
-        RunDispo = true; //他のパネルの選択を可能にする
-        readNow = false; //文字表示用SE終了  
+        runDispo = true; //他のパネルの選択を可能にする
+        ReadNow = false; //文字表示用SE終了  
     }
 
     /*----------チュートリアル----------*/
     private void Tutorial()
     {
         firstESC = true;
-        if (PushNtutorial == 1)
+        switch(pushNtutorial)
         {
-            FoxDia1.gameObject.SetActive(true);
-            FoxDia1_Text.text = "おかしら！\n今日もいい朝ですね！";
-            ClickJudge = true;
-        }
-        else if (PushNtutorial == 2)
-        {
-            FoxDia1_Text.text = "ジャンジャン稼ぎましょう！";
-            ClickJudge = true;
-        }
-        else if (PushNtutorial == 3)
-        {
-            FoxDia1_Text.text = "え！稼ぎかた\n忘れたんですか！";
-            ClickJudge = true;
-        }
-        else if (PushNtutorial == 4)
-        {
-            FoxDia1_Text.text = "困ったらこれを見てください！";
-            ClickJudge = true;
-        }
-        else if (PushNtutorial == 5)
-        {
-            TutrialExp.gameObject.SetActive(true);
-            mainUI.gameObject.SetActive(true);
-            FoxDia1.gameObject.SetActive(false);
-            HaveMoneyPanel.gameObject.SetActive(false);
-            SlaveTurnPanel.gameObject.SetActive(false);
-        }
-        else if (PushNtutorial == 6)
-        {
-            FoxDia1.gameObject.SetActive(true);
-            mainUI.gameObject.SetActive(false);
-            FoxDia1_Text.text = "あとESC？ってキーを\n押してみてください！";
-            ClickJudge = true;
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                firstESC = false;
-                PushNtutorial ++;
-            }
-        }
-        else if (PushNtutorial == 7)
-        {
-            FoxDia1_Text.text = "これでバッチリですね！";
-            ClickJudge = true;
-        }
-        else if (PushNtutorial == 8)
-        {
-            FoxDia1_Text.text = "目標は・・・\n１０万Zです！";
-            ClickJudge = true;
-        }
-        else if (PushNtutorial == 9)
-        {
-            HaveMoneyPanel.gameObject.SetActive(true);
-            SlaveTurnPanel.gameObject.SetActive(true);
-            FoxDia1_Text.text = "早速稼ぎましょう！";
-            ClickJudge = true;
-        }
-        else if (PushNtutorial >= 10)
-        {
-            FoxDia1.gameObject.SetActive(false);
-            ParameterCalc.instanceCalc.initialPlay = false;
-            PushN = 0;
-            ClickJudge = true;
+            case 1:
+                foxDia1.gameObject.SetActive(true);
+                foxDia1_Text.text = "おかしら！\n今日もいい朝ですね！";
+                clickJudge = true;
+                break;
+
+            case 2:
+                foxDia1_Text.text = "ジャンジャン稼ぎましょう！";
+                clickJudge = true;
+                break;
+
+            case 3:
+                foxDia1_Text.text = "え！稼ぎかた\n忘れたんですか！";
+                clickJudge = true;
+                break;
+
+            case 4:
+                foxDia1_Text.text = "困ったらこれを見てください！";
+                clickJudge = true;
+                break;
+
+            case 5:
+                tutrialExp.gameObject.SetActive(true);
+                mainUI.gameObject.SetActive(true);
+                foxDia1.gameObject.SetActive(false);
+                haveMoneyPanel.gameObject.SetActive(false);
+                slaveTurnPanel.gameObject.SetActive(false);
+                break;
+
+            case 6:
+                foxDia1.gameObject.SetActive(true);
+                mainUI.gameObject.SetActive(false);
+                foxDia1_Text.text = "あとESC？ってキーを\n押してみてください！";
+                clickJudge = true;
+                if (Input.GetKeyDown(KeyCode.Escape))
+                {
+                    firstESC = false;
+                    pushNtutorial ++;
+                }
+                break;
+
+            case 7:
+                foxDia1_Text.text = "これでバッチリですね！";
+                clickJudge = true;
+                break;
+
+            case 8:
+                foxDia1_Text.text = "目標は・・・\n１０万Zです！";
+                clickJudge = true;
+                break;
+
+            case 9:
+                haveMoneyPanel.gameObject.SetActive(true);
+                slaveTurnPanel.gameObject.SetActive(true);
+                foxDia1_Text.text = "早速稼ぎましょう！";
+                clickJudge = true;
+                break;
+            
+            case 10:
+                foxDia1.gameObject.SetActive(false);
+                ParameterCalc.instanceCalc.InitialPlay = false;
+                PushN = 0;
+                clickJudge = true;
+                break;
         }
     }
 
     public void CloseTutorial()
     {
-        TutrialExp.gameObject.SetActive(false);
-        PushNtutorial += 1;
+        tutrialExp.gameObject.SetActive(false);
+        pushNtutorial += 1;
     }
 
     /*----------クリアイベント----------*/
 
     private void ClearIvent()
     {
-        //menuCntにてescキー無効
-        nowClear = true;
+        //MenuCntにてescキー無効
+        NowClear = true;
 
-        if (PushN == 1)
+        switch(PushN)
         {
-            FoxDia1.gameObject.SetActive(true);
-            FoxDia1_Text.text = "やったー！！";
-            ClickJudge = true;
+            case 1:
+                foxDia1.gameObject.SetActive(true);
+                foxDia1_Text.text = "やったー！！";
+                clickJudge = true;
+                break;
+        
+            case 2:
+                foxDia1_Text.text = "おかしら！\n目標達成だ！";
+                clickJudge = true;
+                break;
+
+            case 3:
+                foxDia1.gameObject.SetActive(false);
+                foxDia2.gameObject.SetActive(true);
+                foxDia2_Text.text = "おかしら！\nおつかれさま！";
+                clickJudge = true;
+                break;
+
+            case 4:
+                foxDia2.gameObject.SetActive(false);
+                foxDia3.gameObject.SetActive(true);
+                foxDia3_Text.text = "おかしら\n次の町にいこう。";
+                clickJudge = true;
+                break;
+        
+            case 5:
+                foxDia3.gameObject.SetActive(false);
+                foxDia2.gameObject.SetActive(true);
+                foxDia2_Text.text = "おかしら！\nいこう！";
+                clickJudge = true;
+                break;
+
+            case 6:
+                foxDia2.gameObject.SetActive(false);
+                ClearAnim = true;
+                clickJudge = true;
+                break;
+
+            case 7:
+                PlClearDoAnim = true;
+                break;
         }
-        else if (PushN == 2)
-        {
-            FoxDia1_Text.text = "おかしら！\n目標達成だ！";
-            ClickJudge = true;
-        }
-        else if (PushN == 3)
-        {
-            FoxDia1.gameObject.SetActive(false);
-            FoxDia3.gameObject.SetActive(true);
-            FoxDia2_Text.text = "おかしら！\nおつかれさま！";
-            ClickJudge = true;
-        }
-        else if (PushN == 4)
-        {
-            FoxDia3.gameObject.SetActive(false);
-            FoxDia5.gameObject.SetActive(true);
-            FoxDia3_Text.text = "おかしら\n次の町にいこう。";
-            ClickJudge = true;
-        }
-        else if (PushN == 5)
-        {
-            FoxDia5.gameObject.SetActive(false);
-            FoxDia3.gameObject.SetActive(true);
-            FoxDia2_Text.text = "おかしら！\nいこう！";
-            ClickJudge = true;
-        }
-        else if (PushN == 6)
-        {
-            FoxDia3.gameObject.SetActive(false);
-            ClearAnim = true;
-            ClickJudge = true;
-        }
-        else if (PushN >= 7)
-        {
-            PlClearDoAnim = true;
-        }
+
         //主人公のアニメが終わったらパネルを開く
         if(FinClearAnim)
         {
-            GameClearPanel.SetActive(true);
-            ClearResult_Text.text = ParameterCalc.instanceCalc.OutPutResult;
-            
+            gameClearPanel.SetActive(true);
+            clearResultText.text = ParameterCalc.instanceCalc.OutPutResult;   
         }
     }
 
     private void GameOverEvent()
     {
-        if (PushN == 1)
+        switch(PushN)
         {
-            FoxDia1.gameObject.SetActive(true);
-            FoxDia1_Text.text = "おかしら...";
-            ClickJudge = true;
-        }
-        else if (PushN == 2)
-        {
-            FoxDia1_Text.text = "お金...\nなくなったんですか";
-            ClickJudge = true;
-        }
-        else if (PushN == 3)
-        {
-            FoxDia1.gameObject.SetActive(false);
-            FoxDia3.gameObject.SetActive(true);
-            FoxDia2_Text.text = "おかしら！\n報酬ないの...";
-            ClickJudge = true;
-        }
-        else if (PushN == 4)
-        {
-            FoxDia3.gameObject.SetActive(false);
-            FoxDia5.gameObject.SetActive(true);
-            FoxDia3_Text.text = "おかしら\n解散しよう";
-            ClickJudge = true;
-        }
-        else if (PushN == 5)
-        {
-            FoxDia5.gameObject.SetActive(false);
-            ClearAnim = true;
-            ClickJudge = true;
-        }
-        else if (PushN >= 6)
-        {
-            SceneCnt1.instanceCnt1.isFadeOut_A = true;
-            GameOverFade = true;
-            //フェードアウトの後にゲームオーバーパネルオン
-            if (doOverAnim)
-            {
-                GameOverPanel.gameObject.SetActive(true);
-            }
+            case 1:
+                foxDia1.gameObject.SetActive(true);
+                foxDia1_Text.text = "おかしら...";
+                clickJudge = true;
+                break;
+
+            case 2:
+                foxDia1_Text.text = "お金...\nなくなったんですか";
+                clickJudge = true;
+                break;
+        
+            case 3:
+                foxDia1.gameObject.SetActive(false);
+                foxDia2.gameObject.SetActive(true);
+                foxDia2_Text.text = "おかしら！\n報酬ないの...";
+                clickJudge = true;
+                break;
+        
+            case 4:
+                foxDia2.gameObject.SetActive(false);
+                foxDia3.gameObject.SetActive(true);
+                foxDia3_Text.text = "おかしら\n解散しよう";
+                clickJudge = true;
+                break;
+            
+            case 5:
+                foxDia3.gameObject.SetActive(false);
+                ClearAnim = true;
+                clickJudge = true;
+                break;
+        
+            case 6:
+                sceneCnt1.IsFadeOut_A = true;
+                GameOverFade = true;
+                //フェードアウトの後にゲームオーバーパネルオン
+                if (DoOverAnim)
+                {
+                    gameOverPanel.gameObject.SetActive(true);
+                }
+                break;
         }
     }
 
@@ -1499,12 +1403,6 @@ public class UICont1 : MonoBehaviour
 	public void BuyItemsSE()
 	{
 		soundA.PlaySe(buyNewItemsSE);
-	}
-
-    //テキストを表示している間再生
-	public void TextFlowSE()
-	{
-		soundA.PlaySe(textFlowSE);
 	}
 }
 

@@ -7,6 +7,9 @@ using UnityEngine.SceneManagement;
 //シーン3の遷移管理
 public class SceneCnt3 : MonoBehaviour
 {
+    //セーブ管理用
+    [SerializeField] 
+    private SaveControl saveControl; 
 	private float fadeSpeed = 0.8f;        //透明度が変わるスピードを管理
 	private float red, green, blue, alfa;   //パネルの色、不透明度を管理
 	public bool isFadeOut3 = false;  //フェードアウト処理の開始、完了を管理するフラグ
@@ -17,7 +20,7 @@ public class SceneCnt3 : MonoBehaviour
     
 	//サウンド用スクリプト取得
 	[SerializeField] 
-    private soundCnt soundC;
+    private SoundCnt soundC;
 	public AudioClip sceneC_BGM;
 	[SerializeField] 
     private AudioClip pushButtonSE;
@@ -25,12 +28,13 @@ public class SceneCnt3 : MonoBehaviour
 	void Start()
 	{
         /*---bgm設定---*/
-        soundC = GameObject.Find("SoundManager").GetComponent<soundCnt> ();
+        soundC = GameObject.Find("SoundManager").GetComponent<SoundCnt> ();
         soundC.PlayBgm(sceneC_BGM);
 
 		fadePanel_C.gameObject.SetActive(true);
 		isFadeIn = true;
 		//コンポーネント取得・利用
+        saveControl = GameObject.Find("SaveManager").GetComponent<SaveControl> ();
 		fadeImage_C = fadePanel_C.GetComponent<Image>();
 
 		red = fadeImage_C.color.r;
@@ -73,9 +77,9 @@ public class SceneCnt3 : MonoBehaviour
 			isFadeOut3 = false;
 
 			//セーブ処理
-			SaveControl.instanceSave.NewGame = false;
-			SaveControl.instanceSave.Dosave();
-			SceneManager.LoadScene("Scene_A");
+			saveControl.NewGame = false;
+			saveControl.Dosave();
+			SceneManager.LoadScene("Scene1");
 		}
 	}
 

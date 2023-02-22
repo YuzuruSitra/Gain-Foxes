@@ -5,12 +5,21 @@ using UnityEngine;
 //ゲームオーバー時のアニメーション管理
 public class Player_OverWalk : MonoBehaviour
 {
+    //UI管理スクリプトの取得
+    [SerializeField]
+    private UICont1 uiCont1;
     private Animator animator;
     private float speed = 0.9f;
 
+    void Start()
+    {
+        //コンポーネント取得
+        uiCont1 = GameObject.Find("UICont").GetComponent<UICont1> ();
+    }
+
     void Update()
     {
-        if(UICont1.instanceUI1.doOverAnim)
+        if(uiCont1.DoOverAnim)
         {
             StartFinAnim();
         }         
