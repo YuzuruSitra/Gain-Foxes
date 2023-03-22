@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 //設定項目管理
 public class GameSettings : MonoBehaviour
@@ -65,6 +66,16 @@ public class GameSettings : MonoBehaviour
         settings.WindowMode = "FullScreen";
     }
 
+    //言語の設定
+    public void SetJapanese()
+    {
+        settings.UseLanguage = "Japanese";
+    }
+    public void SetEnglish()
+    {
+        settings.UseLanguage = "English";
+    }
+
     /*-----サウンド設定-----*/
 
     //起動時のセット
@@ -93,6 +104,7 @@ public class GameSettings : MonoBehaviour
         float SE = sliderSE.value * 100;
         textSE.text = "" + (int)SE;
     }
+
     
     /*-----適応ボタン-----*/
 

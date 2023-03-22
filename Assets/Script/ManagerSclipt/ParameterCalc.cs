@@ -39,6 +39,9 @@ public class ParameterCalc : MonoBehaviour
     public float CrimeRate; //犯罪率
     public float TodayCrime; //今日の犯罪率
     public float PoorMoney; //貧民所持金
+    public int RebellionGeneralCount; //反乱する市民のカウント
+    public bool DoRebellionGeneral;
+    public int RebellionEarnedMoney; //反乱時の獲得金額
     public int Slave; //奴隷数
     public int ToolType; //どの商品を選んだか
 
@@ -66,7 +69,7 @@ public class ParameterCalc : MonoBehaviour
     //戦略用変数
     private int useGossip;
     public bool ExeKill;
-    private int killNumber;
+    public int killNumber;
     public int SelectKillPanel;  //キル画面のUI操作用
     public int SelectRepleItem;  //アイテム強化対象選択
     private int usePray; 
@@ -98,6 +101,14 @@ public class ParameterCalc : MonoBehaviour
     public int[] ResultScore = new int[] {0,0,0};
     public string[] ResultScoreStr = new string[3];
     public string OutPutResult;
+
+    public enum SellItem {
+        BronzeSword,
+        HighPotion,
+        RareTurnips,
+        StockHighPotion,
+        StockRareTurnips
+    }
 
     public void Awake()
     {
@@ -134,7 +145,7 @@ public class ParameterCalc : MonoBehaviour
 
     void Start()
     {
-
+        Debug.Log(RebellionGeneralCount);
         //戦略用変数リセット
         useGossip = 0;
         ExeKill = false;
@@ -146,6 +157,7 @@ public class ParameterCalc : MonoBehaviour
         PubliWay = 1;
         usePray = 0;
         PoorDebt = false;
+        DoRebellionGeneral = false;
 
         //天引き計算用
         StealTaxjuge = false;
@@ -194,30 +206,32 @@ public class ParameterCalc : MonoBehaviour
     //商品強化
     public void StrReple()
     {
-        switch (SelectRepleItem)
+        SellItem _sellItem = (SellItem)SelectRepleItem;
+
+        switch (_sellItem)
         {
-            case 0: //銅の剣
+            case SellItem.BronzeSword : //銅の剣
                 HaveMoney -= (int)BrSwordUp[BrSwordUpCount];
                 BrSwordUpCount += 1;
                 break;
 
-            case 1: //ハイポーション
+            case SellItem.HighPotion: //ハイポーション
                 HaveMoney -= (int)PotionUp[PotionUpCount];
                 PotionUpCount += 1;
                 break;
 
-            case 2: //株
+            case SellItem.RareTurnips: //株
                 HaveMoney -= StockGet * StockReceived;
                 StockQuantity += StockReceived;
                 break;
 
-            case 3: //薬入荷
+            case SellItem.StockHighPotion: //薬入荷
                 HaveMoney -= PotionGet;
                 PotionUpCount += 1;
                 HavePotionJ = true;
                 break;
 
-            case 4: //株入荷
+            case SellItem.StockRareTurnips: //株入荷
                 HaveMoney -= StockOpen;
                 HaveStockJ = true;
                 break;
@@ -239,12 +253,14 @@ public class ParameterCalc : MonoBehaviour
         TotalReceiveMoney = 0;
         float stockEnlarge = 1.0f; //株の倍率管理
         int stockCrash = 0; //価格暴落
+        bool sellBrswords = false;
 
         //商品をセット
         switch (ToolType)
         {
             case 0: //剣
                 SelectItem = BrSwordSell[BrSwordUpCount];
+                sellBrswords = true;
                 break;
 
             case 1: //薬
@@ -367,7 +383,7 @@ public class ParameterCalc : MonoBehaviour
                         if (PoorMoney < 0)
                         {
                             //お金をリセットし奴隷追加
-                            PoorMoney = 400 * TurnCount;
+                            PoorMoneyCalc();
                             PoorDebt = true;
                             Slave++;
                         }
@@ -375,6 +391,11 @@ public class ParameterCalc : MonoBehaviour
                     //市民
                     case 1:
                         ReceiveMoney[i] = SelectItem * General;
+                        //銅の剣を売っていた場合反乱ポイントを加算
+                        if(sellBrswords)
+                        {
+                            RebellionGeneralCount++;
+                        }
                         break;
                     //富豪
                     case 2:
@@ -401,7 +422,7 @@ public class ParameterCalc : MonoBehaviour
                         if (PoorMoney < 0)
                         {
                             //お金をリセットし奴隷追加
-                            PoorMoney = 400 * TurnCount;
+                            PoorMoneyCalc();
                             PoorDebt = true;
                             Slave++;
                         }
@@ -439,10 +460,23 @@ public class ParameterCalc : MonoBehaviour
 
             }
         }
+
+        // 市民の反乱処理
+        const int consumptionCount = 10;
+        if(RebellionGeneralCount >= consumptionCount)
+        {
+            RebellionGeneralCount -= consumptionCount;
+            const float earnedEnf = 0.5f;
+            float earnedMoney = HaveMoney * earnedEnf;
+            RebellionEarnedMoney = (int)earnedMoney;
+            TotalReceiveMoney += RebellionEarnedMoney;
+            DoRebellionGeneral = true;
+        }
+
         //犯罪率を加算
         CrimeRate += TodayCrime;
         //金額を所持金に追加
-        HaveMoney += (int)TotalReceiveMoney;
+        HaveMoney += TotalReceiveMoney;
         //支出計算を実行
         ExpenseCalc();
     }
@@ -572,6 +606,14 @@ public class ParameterCalc : MonoBehaviour
         }
         OutPutResult = ResultScoreStr[0] + "\n" + ResultScoreStr[1] + "\n" + ResultScoreStr[2];
     }
+    //貧民の所持金処理
+    void PoorMoneyCalc()
+    {
+        const int enf = 200;
+        const float defEnf = 0.2f;
+        var money = enf * TurnCount;
+        PoorMoney = HaveMoney * defEnf + money;
+    } 
 
     //スコア並べ替え用関数
     void swap(int a, int b)

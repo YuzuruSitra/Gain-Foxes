@@ -646,7 +646,8 @@ public class UICont1 : MonoBehaviour
 
     public void PubliWayDown()
     {
-        if(runDispo){
+        if(runDispo)
+        {
             ParameterCalc.instanceCalc.PubliWay -= 1;
             buttonPubliUp.interactable = true;
             if (ParameterCalc.instanceCalc.PubliWay < 1)
@@ -1046,7 +1047,7 @@ public class UICont1 : MonoBehaviour
     {
         ReadNow = true; //文字表示用SE開始
 
-        runDispo = false;
+        //runDispo = false;
         foxyText.text = "";
 
         words = foxySay.Split(' ');
@@ -1057,7 +1058,7 @@ public class UICont1 : MonoBehaviour
             yield return new WaitForSeconds(0.08f);
         }
         ReadNow = false; //文字表示用SE終了
-        runDispo = true; 
+        //runDispo = true; 
     }
 
     /*-----商品選択UI-----*/

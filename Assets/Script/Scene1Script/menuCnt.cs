@@ -11,7 +11,7 @@ public class MenuCnt : MonoBehaviour
     [SerializeField]
     private UICont1 uiCont1;
     //ゲーム中断用
-    public static bool ESCnow = false;
+    public static bool ESCnow;
     //チュートリアルパネルを展開しているか
     private bool openTutorialPanel;
 
@@ -34,7 +34,7 @@ public class MenuCnt : MonoBehaviour
     {
         //コンポーネント取得
         uiCont1 = GameObject.Find("UICont").GetComponent<UICont1> ();
-        
+        ESCnow = false;
         openTutorialPanel = false;
         //パネルは全て非アクティブ
         inGamePanel.SetActive(true);

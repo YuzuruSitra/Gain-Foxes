@@ -59,11 +59,33 @@ public class LogSystem : MonoBehaviour
         {
             if(ParameterCalc.instanceCalc.PubliSuccess)
             {
-                logText += " 業 者 は 成 功 し た よ う だ 。 \n";
+                logText += " 業 者 は 成 功 し た よ う だ 。 お 客 さ ん が 普 段 よ り 多 く 来 店 し た 。 \n";
             }
             else
             {
-                logText += " 業 者 は 失 敗 し た よ う だ 。 \n";
+                logText += " 業 者 は 失 敗 し た よ う だ 。 お 客 さ ん が 普 段 よ り 多 く 来 店 し た 。  \n";
+            }
+        }
+
+        if (ParameterCalc.instanceCalc.ExeKill)
+        {
+            int killPeople = ParameterCalc.instanceCalc.killNumber;
+            switch(killPeople)
+            {
+                case 0:
+                    logText += " 貧 民 の 暗 殺 に 成 功 し た 。 \n";
+                    logText += " 普 段 よ り 貴 族 が 少 し 多 く 来 店 し た よ う だ 。 \n";
+                    break;
+                case 1:
+                    logText += " 市 民 の 暗 殺 に 成 功 し た 。 \n";
+                    break;
+                case 2:
+                    logText += " 富 豪 の 暗 殺 に 成 功 し た 。 \n";
+                    break;
+                case 3:
+                    logText += " 貴 族 の 暗 殺 に 成 功 し た 。 \n";
+                    logText += " 行 商 税 の 倍 率 が 下 が っ た 。 \n";
+                    break;
             }
         }
 
@@ -91,6 +113,13 @@ public class LogSystem : MonoBehaviour
             logText += peopleKindText[i];
         }
 
+        //市民の反乱
+        if(ParameterCalc.instanceCalc.DoRebellionGeneral)
+        {
+            logText += " 市 民 は 銅 の 剣 を 手 に 取 り 立 ち 上 が っ た 。 \n";
+            logText += " お 礼 と し て "+ ParameterCalc.instanceCalc.RebellionEarnedMoney + " z 得 た 。 \n";
+        }
+
         /*
          * 
          * イベント発生内容
@@ -108,7 +137,7 @@ public class LogSystem : MonoBehaviour
             }
         }
 
-        logText += " 行 商 税 と し て " + ParameterCalc.instanceCalc.HaveTaxPay + " z 差 し 引 か れ た 。 \n";
+        logText += " 行 商 税 と し て " + ParameterCalc.instanceCalc.HaveTaxPay + " z 支 払 っ た 。\n";
 
         if (ParameterCalc.instanceCalc.StealTaxjuge)
         {

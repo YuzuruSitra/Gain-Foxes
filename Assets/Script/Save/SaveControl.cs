@@ -60,6 +60,7 @@ public class SaveControl : MonoBehaviour
         writer.Write("millionaire", ParameterCalc.instanceCalc.Millionaire);
         writer.Write("noble", ParameterCalc.instanceCalc.Noble);
 
+        writer.Write("rebellionGeneralCount", ParameterCalc.instanceCalc.RebellionGeneralCount);
         writer.Write("crimeRate", ParameterCalc.instanceCalc.CrimeRate);
         writer.Write("slave", ParameterCalc.instanceCalc.Slave);
         writer.Write("poorMoney", ParameterCalc.instanceCalc.PoorMoney);
@@ -102,6 +103,7 @@ public class SaveControl : MonoBehaviour
         ParameterCalc.instanceCalc.General = reader.Read<float>("general");
         ParameterCalc.instanceCalc.Millionaire = reader.Read<float>("millionaire");
         ParameterCalc.instanceCalc.Noble = reader.Read<float>("noble");
+        ParameterCalc.instanceCalc.RebellionGeneralCount = reader.Read<int>("rebellionGeneralCount");
         ParameterCalc.instanceCalc.CrimeRate = reader.Read<float>("crimeRate");
         ParameterCalc.instanceCalc.Slave = reader.Read<int>("slave");
         ParameterCalc.instanceCalc.PoorMoney = reader.Read<float>("poorMoney");
@@ -234,6 +236,7 @@ public class SaveControl : MonoBehaviour
         writer.Write("millionaire", 1.3);
         writer.Write("noble", 1.6);
 
+        writer.Write("rebellionGeneralCount",0);
         writer.Write("crimeRate", 0.0);
         writer.Write("slave", 0);
         writer.Write("poorMoney", 1000.0);

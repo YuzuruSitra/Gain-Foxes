@@ -8,12 +8,13 @@ public class StateManagement : MonoBehaviour
 {
     //設定済みか否か
     private bool firstSettings;
-
     //画面サイズの設定
     public string WindowMode = "FullScreen";
     //音量の設定
     public float SetvolumeBGM;
     public float SetvolumeSE;
+    //言語の設定
+    public string UseLanguage = "Japanese";
     
     void Awake()
     {
@@ -55,14 +56,14 @@ public class StateManagement : MonoBehaviour
             WindowMode = setReader.Read<string>("WindowMode");
             SetvolumeBGM = setReader.Read<float>("VolumeBGM");
             SetvolumeSE = setReader.Read<float>("VolumeSE");
-            
+            UseLanguage = setReader.Read<string>("LanguageMode");
         }
         else    //未設定の場合
         {
             WindowMode = "FullScreen";
-            SetvolumeBGM = 0.5f;
-            SetvolumeSE = 0.5f;
-            
+            SetvolumeBGM = 0.25f;
+            SetvolumeSE = 0.25f;
+            UseLanguage = "Japanese";
         }
     }
 
@@ -82,6 +83,8 @@ public class StateManagement : MonoBehaviour
         //音量設定
         setWriter.Write("VolumeBGM",SetvolumeBGM);
         setWriter.Write("VolumeSE",SetvolumeSE);
+        //言語の設定
+        setWriter.Write("LanguageMode",UseLanguage);
         // 変更を反映
         setWriter.Commit();
     }
@@ -95,8 +98,9 @@ public class StateManagement : MonoBehaviour
         QuickSaveWriter setWriter = QuickSaveWriter.Create("Player",gameSettings);
         
         WindowMode = "FullScreen";
-        SetvolumeBGM = 0.5f;
-        SetvolumeSE = 0.5f;
+        SetvolumeBGM = 0.25f;
+        SetvolumeSE = 0.25f;
+        UseLanguage = "Japanese";
         //データの書き込み判定
         setWriter.Write("firstSettings", true);
 
@@ -105,6 +109,8 @@ public class StateManagement : MonoBehaviour
         //音量設定
         setWriter.Write("VolumeBGM",SetvolumeBGM);
         setWriter.Write("VolumeSE",SetvolumeSE);
+        //言語設定
+        setWriter.Write("LanguageMode",UseLanguage);
         // 変更を反映
         setWriter.Commit();
     }
