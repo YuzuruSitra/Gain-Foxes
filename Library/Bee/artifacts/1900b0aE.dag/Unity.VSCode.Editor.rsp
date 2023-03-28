@@ -119,6 +119,11 @@
 -define:ROSLYN_ANALYZER_FIX
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
+-r:"Assets/Terasurware/Editor/npoi/ICSharpCode.SharpZipLib.dll"
+-r:"Assets/Terasurware/Editor/npoi/NPOI.dll"
+-r:"Assets/Terasurware/Editor/npoi/NPOI.OOXML.dll"
+-r:"Assets/Terasurware/Editor/npoi/NPOI.OpenXml4Net.dll"
+-r:"Assets/Terasurware/Editor/npoi/NPOI.OpenXmlFormats.dll"
 -r:"E:/gitFork/GainFoxes/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll"
 -r:"E:/gitFork/GainFoxes/Library/PackageCache/com.unity.nuget.newtonsoft-json@3.1.0/Runtime/Newtonsoft.Json.dll"
 -r:"E:/gitFork/GainFoxes/Library/PackageCache/com.unity.testtools.codecoverage@1.0.1/lib/ReportGenerator/ReportGeneratorMerged.dll"

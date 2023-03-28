@@ -37,6 +37,11 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\importAssets\CreateScene\LightRays2D\Editor\LightRays2DEditor.cs" />
+     <Compile Include="Assets\Terasurware\Editor\ExcelImporterMaker.cs" />
+     <None Include="Assets\Terasurware\Editor\EntityTemplate2.txt" />
+     <None Include="Assets\Terasurware\Editor\EntityTemplate.txt" />
+     <None Include="Assets\Terasurware\Editor\ExportTemplate2.txt" />
+     <None Include="Assets\Terasurware\Editor\ExportTemplate.txt" />
     <Reference Include="UnityEngine">
         <HintPath>E:\UnityHub\2021.3.11f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
@@ -298,6 +303,12 @@
     <Reference Include="UnityEditor.WindowsStandalone.Extensions">
         <HintPath>E:\UnityHub\2021.3.11f1\Editor\Data\PlaybackEngines\WindowsStandaloneSupport\UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+        <HintPath>E:\gitFork\GainFoxes\Assets\Terasurware\Editor\npoi\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML">
+        <HintPath>E:\gitFork\GainFoxes\Assets\Terasurware\Editor\npoi\NPOI.OOXML.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.VisualScripting.YamlDotNet">
         <HintPath>E:\gitFork\GainFoxes\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll</HintPath>
     </Reference>
@@ -310,11 +321,20 @@
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
         <HintPath>E:\gitFork\GainFoxes\Library\PackageCache\com.unity.visualscripting@1.7.8\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="NPOI.OpenXml4Net">
+        <HintPath>E:\gitFork\GainFoxes\Assets\Terasurware\Editor\npoi\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
     <Reference Include="ReportGeneratorMerged">
         <HintPath>E:\gitFork\GainFoxes\Library\PackageCache\com.unity.testtools.codecoverage@1.0.1\lib\ReportGenerator\ReportGeneratorMerged.dll</HintPath>
     </Reference>
+    <Reference Include="NPOI.OpenXmlFormats">
+        <HintPath>E:\gitFork\GainFoxes\Assets\Terasurware\Editor\npoi\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
         <HintPath>E:\gitFork\GainFoxes\Library\PackageCache\com.unity.nuget.newtonsoft-json@3.1.0\Runtime\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI">
+        <HintPath>E:\gitFork\GainFoxes\Assets\Terasurware\Editor\npoi\NPOI.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
         <HintPath>E:\gitFork\GainFoxes\Library\PackageCache\com.unity.ext.nunit@1.0.6\net35\unity-custom\nunit.framework.dll</HintPath>

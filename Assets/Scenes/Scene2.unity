@@ -8489,6 +8489,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 874fe3ba8b3f2924bb397d0540c965e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  volume2: {fileID: 0}
   fadePanelB: {fileID: 595471938}
 --- !u!114 &1732137429
 MonoBehaviour:

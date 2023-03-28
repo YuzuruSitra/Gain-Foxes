@@ -156,6 +156,12 @@ ScriptsOnlyBuild:
     fullTypeName: SceneCnt_Title
     methodName: PushButtonSE
   - assembly: Assembly-CSharp
+    fullTypeName: GameSettings
+    methodName: SetJapanese
+  - assembly: Assembly-CSharp
+    fullTypeName: SceneCnt_Title
+    methodName: PushButtonSE
+  - assembly: Assembly-CSharp
     fullTypeName: SceneCnt_Title
     methodName: OpenconfirmationPanel
   - assembly: Assembly-CSharp
@@ -167,6 +173,12 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: SaveControl
     methodName: DeleteDate
+  - assembly: Assembly-CSharp
+    fullTypeName: SceneCnt_Title
+    methodName: PushButtonSE
+  - assembly: Assembly-CSharp
+    fullTypeName: GameSettings
+    methodName: SetEnglish
   - assembly: Assembly-CSharp
     fullTypeName: SceneCnt_Title
     methodName: PushButtonSE
@@ -1299,7 +1311,7 @@ ScriptsOnlyBuild:
     className: Button
   - hash:
       serializedVersion: 2
-      Hash: 7b72a9d5d62f7710cb086e3802b90e3e
+      Hash: ecd9f049b6c9d33580d28b6756b83fa4
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ParameterCalc
@@ -1905,7 +1917,7 @@ ScriptsOnlyBuild:
     className: Outline
   - hash:
       serializedVersion: 2
-      Hash: a69323ecbbe63206862693b3e60d37a4
+      Hash: d8544c45158c5ad135e8a5b235f6cfab
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: StateManagement
@@ -2143,4 +2155,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Scene1.unity
   - Assets/Scenes/Scene2.unity
   - Assets/Scenes/Scene3.unity
-  playerPath: C:/Users/S1r4n/Downloads/GainFoxes.exe
+  playerPath: D:/GainFoxes.exe

@@ -38,14 +38,11 @@ public class StrExpText : MonoBehaviour
         //入荷
         talks[5] = "     　　仕 入 れ る　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 新 た な 商 品 を 仕 入 れ る 。 ";
 
-        // 会話フィールドをリセットする。
         textLabel.text = talks[0];
     }
 
-    // ボタンを押すと会話スタート
     public void OnButtonClicked()
     {
-        // 会話フィールドをリセットする。
         if (runDispo)
         {
             textLabel.text = "";
