@@ -32,8 +32,6 @@ public class MenuCnt : MonoBehaviour
 
     void Start()
     {
-        //コンポーネント取得
-        uiCont1 = GameObject.Find("UICont").GetComponent<UICont1> ();
         ESCnow = false;
         openTutorialPanel = false;
         //パネルは全て非アクティブ

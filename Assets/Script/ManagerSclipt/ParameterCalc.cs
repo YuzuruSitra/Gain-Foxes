@@ -145,7 +145,6 @@ public class ParameterCalc : MonoBehaviour
 
     void Start()
     {
-        Debug.Log(RebellionGeneralCount);
         //戦略用変数リセット
         useGossip = 0;
         ExeKill = false;

@@ -10,7 +10,12 @@ public class UICont1 : MonoBehaviour
     //シーン管理クラスの取得
     [SerializeField]
     private SceneCnt1 sceneCnt1;
-
+    //言語用のクラス
+    [SerializeField]
+    private ChangeLanguageScene1 _languageCnt;
+    //戦略パネル用
+    [SerializeField]
+    private StrExpText _strExpText;
     //チュートリアル用
     [SerializeField]
     private GameObject tutrialExp;
@@ -64,7 +69,6 @@ public class UICont1 : MonoBehaviour
     private GameObject strDoneButton;
     private bool openPanel; //パネル展開
     private int selectKill; //暗殺対象
-    private string[] peopleName = { "貧民", "市民", "富豪", "貴族" }; //名前
     [SerializeField]
     private Text peopleNameText; //名前を入れる箱
     private Animator animator; //アニメーター
@@ -84,8 +88,6 @@ public class UICont1 : MonoBehaviour
     private GameObject publidoneButton;
     [SerializeField]
     private Button publiDoneBt;
-    private string publiPlayerSay;
-    private string publiOtherSay;
 
     //入荷パネル
     [SerializeField]
@@ -95,7 +97,6 @@ public class UICont1 : MonoBehaviour
     [SerializeField]
     private Text dealItem;
     private int selectItem_D;
-    private string[] dItemName = new string[5]; //名前
     [SerializeField]
     private Text dNeedPrice; //必要価格
     [SerializeField]
@@ -104,7 +105,6 @@ public class UICont1 : MonoBehaviour
     private Text dButton; //ボタン
     [SerializeField]
     private Text dExpText; //説明文入れ替え↓
-    private string[] itemExp = new string[5];
     private string[] words;
     private bool runDispo;
     [SerializeField]
@@ -205,6 +205,8 @@ public class UICont1 : MonoBehaviour
 
     //テキスト入れ替え
     [SerializeField]
+    private Text BrSwordName;
+    [SerializeField]
     private Text potionName;
     [SerializeField]
     private Text stockName;
@@ -214,7 +216,8 @@ public class UICont1 : MonoBehaviour
 
     //クリック重複ケア
     private bool clickJudge;
-
+    //戦略パネルケア
+    private bool _strStaste = true;
     //戦略選択チェック
     public int SelectStr;
 
@@ -249,22 +252,14 @@ public class UICont1 : MonoBehaviour
 
         tutrialExp.gameObject.SetActive(false);
 
-        //アイテム入荷用
-        dItemName[0] = "どうのつるぎ";
-        dItemName[1] = "こうかなくすり";
-        dItemName[2] = "まぼろしのかぶ";
-        dItemName[3] = "？？？";
-        dItemName[4] = "？？？";
-
         runDispo = true;
-        itemExp[0] = " い た っ て ふ つ う の ど う の つ る ぎ 。 　　　　お 客 さ ん の 心 を つ か も う . ";
-        itemExp[1] = " 危 険 な に お い が す る や く ひ ん 。 　　　　　す こ し う し ろ め た い が 、 高 く 売 れ そ う だ 。 ";
-        itemExp[2] = " 市 場 価 格 が 安 定 し な い 株 。 　　　　　　　大 き く 稼 げ そ う だ が そ の 裏 で は 多 く の リ ス ク を は ら ん で い る 。 ";
-        itemExp[3] = "     ";
-        itemExp[4] = "     ";
 
         /*---bgm設定---*/
         soundA = GameObject.Find("SoundManager").GetComponent<SoundCnt> ();
+
+        // 言語設定用
+        _languageCnt = GameObject.Find("LanguageUI_Scene1").GetComponent<ChangeLanguageScene1> ();
+        _strExpText = GameObject.Find("UICont").GetComponent<StrExpText> (); 
 
         if (ParameterCalc.instanceCalc.GameClear)  //クリア処理
         {
@@ -279,12 +274,13 @@ public class UICont1 : MonoBehaviour
             soundA.PlayBgm(sceneA_BGM);
         }
 
-        //UI制御用商品の解放管理
+        // UI制御用商品の解放管理
         if(ParameterCalc.instanceCalc.TurnCount >= ParameterCalc.instanceCalc.PopTurnEvent)
         {
             if(ParameterCalc.instanceCalc.HavePotionJ)havePotionN = true;
             if(ParameterCalc.instanceCalc.HaveStockJ)haveStockN = true;
         }
+
     }
 
     void Update()
@@ -293,7 +289,16 @@ public class UICont1 : MonoBehaviour
         slaveTx.text = ParameterCalc.instanceCalc.Slave + "";
         crimeRateTx.text = ParameterCalc.instanceCalc.CrimeRate + "/100";
         havemoneyT.text = ParameterCalc.instanceCalc.HaveMoney + "";
-        turnCountText.text = ParameterCalc.instanceCalc.TurnCount + " 日目";
+        // 日付UI
+        switch(_languageCnt.LanguageState_Scene1)
+        {
+            case "Japanese":
+                turnCountText.text = ParameterCalc.instanceCalc.TurnCount + _languageCnt.Scene1LanguaeData[38];
+                break;
+            case "English":
+                turnCountText.text = _languageCnt.Scene1LanguaeData[38] + " " + ParameterCalc.instanceCalc.TurnCount;
+                break;                        
+        }
 
         //Doneボタン管理
         if (SelectStr == 0)
@@ -361,16 +366,29 @@ public class UICont1 : MonoBehaviour
         }
         else    //通常処理
         {
+            var serifTmp = "";
             switch (PushN)
             {
                 case 1:
                     foxDia1.gameObject.SetActive(true);
-                    foxDia1_Text.text = "おかしら！\n" + ParameterCalc.instanceCalc.TurnCount + "日目ですね！";
+                    //foxDia1_Text.text = "おかしら！\n" + ParameterCalc.instanceCalc.TurnCount + "日目ですね！";
+                    switch(_languageCnt.LanguageState_Scene1)
+                    {
+                        case "Japanese":
+                            serifTmp = _languageCnt.Scene1LanguaeData[3] + "! " + ParameterCalc.instanceCalc.TurnCount + _languageCnt.Scene1LanguaeData[4];
+                            break;
+                        case "English":
+                            serifTmp = _languageCnt.Scene1LanguaeData[3] + "! " + _languageCnt.Scene1LanguaeData[4] + ParameterCalc.instanceCalc.TurnCount + "!";
+                            break;                        
+                    }
+                    foxDia1_Text.text = serifTmp;
                     clickJudge = true;
                     break;
 
                 case 2:
-                    foxDia1_Text.text = "今日はどんな工作を？";
+                    //foxDia1_Text.text = "今日はどんな工作を？";
+                    serifTmp = _languageCnt.Scene1LanguaeData[5];
+                    foxDia1_Text.text = serifTmp;
                     clickJudge = true;
                     break;
 
@@ -378,6 +396,10 @@ public class UICont1 : MonoBehaviour
                     foxDia1.gameObject.SetActive(false);
                     mainUI.gameObject.SetActive(true);
                     strUI.gameObject.SetActive(true);
+                    if(!_strStaste)return;
+                    _strExpText._DoSetFirst = true;
+                    _strExpText.SetFirstExp();
+                    _strStaste = false;
                     if (!openPanel)
                     {
                         strDoneButton.gameObject.SetActive(true);
@@ -387,14 +409,26 @@ public class UICont1 : MonoBehaviour
                 case 4:
                     mainUI.gameObject.SetActive(false);
                     foxDia1.gameObject.SetActive(true);
-                    foxDia1_Text.text = "かしこまり！";
+                    //foxDia1_Text.text = "かしこまり！";
+                    serifTmp = _languageCnt.Scene1LanguaeData[6];
+                    foxDia1_Text.text = serifTmp;
                     clickJudge = true;
                     break;
 
                 case 5:
                     foxDia1.gameObject.SetActive(false);
                     foxDia2.gameObject.SetActive(true);
-                    foxDia2_Text.text = "おかしら！\n次はどんな工作を？";
+                    //foxDia2_Text.text = "おかしら！\n次はどんな工作を？";
+                    switch(_languageCnt.LanguageState_Scene1)
+                    {
+                        case "Japanese":
+                            serifTmp = _languageCnt.Scene1LanguaeData[3] + "!\n" + _languageCnt.Scene1LanguaeData[7];
+                            break;
+                        case "English":
+                            serifTmp = _languageCnt.Scene1LanguaeData[7];
+                            break;                        
+                    }
+                    foxDia2_Text.text = serifTmp;
                     clickJudge = true;
                     break;
 
@@ -402,6 +436,10 @@ public class UICont1 : MonoBehaviour
                     foxDia2.gameObject.SetActive(false);
                     mainUI.gameObject.SetActive(true);
                     strUI.gameObject.SetActive(true);
+                    if(_strStaste)return;
+                    _strExpText._DoSetFirst = true;
+                    _strExpText.SetFirstExp();
+                    _strStaste = true;
                     if (!openPanel)
                     {
                         strDoneButton.gameObject.SetActive(true);
@@ -412,14 +450,26 @@ public class UICont1 : MonoBehaviour
                     mainUI.gameObject.SetActive(false);
                     strUI.gameObject.SetActive(false);
                     foxDia2.gameObject.SetActive(true);
-                    foxDia2_Text.text = "はい！";
+                    //foxDia2_Text.text = "はい！";
+                    serifTmp = _languageCnt.Scene1LanguaeData[8];
+                    foxDia2_Text.text = serifTmp;
                     clickJudge = true;
                     break;
 
                 case 8:
                     foxDia2.gameObject.SetActive(false);
                     foxDia3.gameObject.SetActive(true);
-                    foxDia3_Text.text = "おかしら。\n今日は何を売る？";
+                    //foxDia3_Text.text = "おかしら。\n今日は何を売る？";
+                    switch(_languageCnt.LanguageState_Scene1)
+                    {
+                        case "Japanese":
+                            serifTmp = _languageCnt.Scene1LanguaeData[3] + "。\n" + _languageCnt.Scene1LanguaeData[9];
+                            break;
+                        case "English":
+                            serifTmp = _languageCnt.Scene1LanguaeData[9];
+                            break;                        
+                    }
+                    foxDia3_Text.text = serifTmp;
                     clickJudge = true;
                     break;
 
@@ -438,7 +488,9 @@ public class UICont1 : MonoBehaviour
 
                 case 10:
                     foxDia3.gameObject.SetActive(true);
-                    foxDia3_Text.text ="御意。";
+                    //foxDia3_Text.text ="御意。";
+                    serifTmp = _languageCnt.Scene1LanguaeData[10];
+                    foxDia3_Text.text = serifTmp;
                     mainUI.gameObject.SetActive(false);
                     itemSelectUI.gameObject.SetActive(false);
                     clickJudge = true;
@@ -501,6 +553,7 @@ public class UICont1 : MonoBehaviour
     //戦略決定
     public void StrDone()
     {
+        var serifTmp = "";
         switch (SelectStr)
         {
             case 1:
@@ -524,11 +577,15 @@ public class UICont1 : MonoBehaviour
                 //交渉済みかどうか
                 if (!ParameterCalc.instanceCalc.usePubli)
                 {
-                    foxySay = " 少 し う さ ん く さ い な . . . ";
+                    //foxySay = " 少 し う さ ん く さ い な . . . ";
+                    serifTmp = _languageCnt.Scene1LanguaeData[39];
+                    foxySay = serifTmp;
                 }
                 else
                 {
-                    foxySay = " 忙 し そ う だ . . . ";
+                    //foxySay = " 忙 し そ う だ . . . ";
+                    serifTmp = _languageCnt.Scene1LanguaeData[40];
+                    foxySay = serifTmp;
                 }
                 StartCoroutine(Publi_Log());
                 break;
@@ -543,12 +600,16 @@ public class UICont1 : MonoBehaviour
                 //暗殺パネル
                 if (!ParameterCalc.instanceCalc.ExeKill)
                 {
-                    foxySay = " 裏 工 作 . . . あ ま り 気 が 乗 ら な い 。 ";
+                    //foxySay = " 裏 工 作 . . . あ ま り 気 が 乗 ら な い 。 ";
+                    serifTmp = _languageCnt.Scene1LanguaeData[41];
+                    foxySay = serifTmp;
                     buttonKill.interactable = true;
                 }
                 else
                 {
-                    foxySay = " こ れ 以 上 騒 ぎ は 起 こ せ な い . . . ";
+                    //foxySay = " こ れ 以 上 騒 ぎ は 起 こ せ な い . . . ";
+                    serifTmp = _languageCnt.Scene1LanguaeData[42];
+                    foxySay = serifTmp;
                     buttonKill.interactable = false;
                 }
                 StartCoroutine(Publi_Log());
@@ -610,10 +671,11 @@ public class UICont1 : MonoBehaviour
     public void KillPanelAnim()
     {
         animator = peopleAnim.GetComponent<Animator>();
-
+        string[] peopleName = { 
+            _languageCnt.Scene1LanguaeData[27], _languageCnt.Scene1LanguaeData[28], _languageCnt.Scene1LanguaeData[29], _languageCnt.Scene1LanguaeData[30]
+            }; //名前
         peopleNameText.text = peopleName [selectKill];
         animator.SetInteger("SelectPeo", selectKill);
-
     }
 
     //戻る
@@ -673,6 +735,8 @@ public class UICont1 : MonoBehaviour
     //交渉パネルセリフ更新
     private void DrowPubli()
     {
+        var serifTmp1 = "";
+        var serifTmp2 = "";
         runDispo = false;
         publiDoneBt = publidoneButton.GetComponent<Button>();
         //計算処理
@@ -681,34 +745,46 @@ public class UICont1 : MonoBehaviour
         publiMoneyText.text = ParameterCalc.instanceCalc.PubliWayPay + "";
         if (!ParameterCalc.instanceCalc.usePubli)
         {
-            publiPlayerSay = " . . . " + ParameterCalc.instanceCalc.PubliWayPay + " z で ど う だ ？ ";
-            publiOtherSay = " そ の 報 酬 だ と 成 功 率 は "+ ParameterCalc.instanceCalc.PubliRisk[ParameterCalc.instanceCalc.PubliWay] * 100 +" % っ て と こ だ 。 ";
+            //publiPlayerSay = " . . . " + ParameterCalc.instanceCalc.PubliWayPay + " z で ど う だ ？ ";
+            //publiOtherSay = " そ の 報 酬 だ と 成 功 率 は "+ ParameterCalc.instanceCalc.PubliRisk[ParameterCalc.instanceCalc.PubliWay] * 100 +" % っ て と こ だ 。 ";
+            switch(_languageCnt.LanguageState_Scene1)
+            {
+                case "Japanese":
+                    serifTmp1 = ".^.^.^" + ParameterCalc.instanceCalc.PubliWayPay + _languageCnt.Scene1LanguaeData[43];
+                    serifTmp2 = _languageCnt.Scene1LanguaeData[44] + ParameterCalc.instanceCalc.PubliRisk[ParameterCalc.instanceCalc.PubliWay] * 100 + _languageCnt.Scene1LanguaeData[45];
+                    break;
+                case "English":
+                    serifTmp1 = _languageCnt.Scene1LanguaeData[43] + ParameterCalc.instanceCalc.PubliWayPay + "z？";
+                    serifTmp2 = _languageCnt.Scene1LanguaeData[44] + ParameterCalc.instanceCalc.PubliRisk[ParameterCalc.instanceCalc.PubliWay] * 100 + _languageCnt.Scene1LanguaeData[45];
+                    break;                        
+            }        
         }
         else
         {
-            publiPlayerSay = " . . . . . . ";
-            publiOtherSay = " 大 人 し く 結 果 を 待 つ ん だ な 。 ";
+            //publiPlayerSay = " . . . . . . ";
+            //publiOtherSay = " 大 人 し く 結 果 を 待 つ ん だ な 。 ";
+            serifTmp1 = ".^.^.^.^.^.^";
+            serifTmp2 = _languageCnt.Scene1LanguaeData[46];
             publiDoneBt.interactable = false;
         }
-        StartCoroutine(PubliSay());
+        StartCoroutine(PubliSay(serifTmp1,serifTmp2));
     }
 
     //交渉パネル二人の会話処理
-    IEnumerator PubliSay()
+    IEnumerator PubliSay(string publiPlayerSayTmp ,string publiOtherSayTmp)
     {
         ReadNow = true; //文字表示用SE開始
 
         publiPlayerText.text = "";
         publiOtherText.text = "";
 
-        words = publiPlayerSay.Split(' ');
+        words = publiPlayerSayTmp.Split('^');
         foreach (var word in words)
         {
             publiPlayerText.text = publiPlayerText.text + word;
             yield return new WaitForSeconds(0.05f);
-
         }
-        words = publiOtherSay.Split(' ');
+        words = publiOtherSayTmp.Split('^');
         
         foreach (var word in words)
         {
@@ -804,17 +880,20 @@ public class UICont1 : MonoBehaviour
         }
     }
 
+    
     //株の個数選択
     public void StockCountUp()
     {
+        var serifTmp = "";
         ParameterCalc.instanceCalc.StockReceived += 10;
         if(ParameterCalc.instanceCalc.StockReceived > 500)
         {
             ParameterCalc.instanceCalc.StockReceived = 500;
         }
         stockCountText.text = "" + ParameterCalc.instanceCalc.StockReceived;
-        dNeedPrice.text = ParameterCalc.instanceCalc.StockGet * ParameterCalc.instanceCalc.StockReceived + "z必要";
-
+        //dNeedPrice.text = ParameterCalc.instanceCalc.StockGet * ParameterCalc.instanceCalc.StockReceived + "z必要";
+        serifTmp = ParameterCalc.instanceCalc.StockGet * ParameterCalc.instanceCalc.StockReceived + _languageCnt.Scene1LanguaeData[47];
+        dNeedPrice.text = serifTmp;
         //0個以上かつ買える時はインタラクティブ
         if (ParameterCalc.instanceCalc.HaveMoney >= ParameterCalc.instanceCalc.StockGet * ParameterCalc.instanceCalc.StockReceived && 0 < ParameterCalc.instanceCalc.StockReceived)
         {
@@ -828,13 +907,16 @@ public class UICont1 : MonoBehaviour
 
     public void StockCountDown()
     {
+        var serifTmp = "";
         ParameterCalc.instanceCalc.StockReceived -= 10;
         if (ParameterCalc.instanceCalc.StockReceived < 0)
         {
             ParameterCalc.instanceCalc.StockReceived = 0;
         }
         stockCountText.text = "" + ParameterCalc.instanceCalc.StockReceived;
-        dNeedPrice.text = ParameterCalc.instanceCalc.StockGet * ParameterCalc.instanceCalc.StockReceived + "z必要";
+        //dNeedPrice.text = ParameterCalc.instanceCalc.StockGet * ParameterCalc.instanceCalc.StockReceived + "z必要";
+        serifTmp = ParameterCalc.instanceCalc.StockGet * ParameterCalc.instanceCalc.StockReceived + _languageCnt.Scene1LanguaeData[47];
+        dNeedPrice.text = serifTmp;
 
         //0個以上かつ買える時はインタラクティブ
         if (ParameterCalc.instanceCalc.HaveMoney >= ParameterCalc.instanceCalc.StockGet * ParameterCalc.instanceCalc.StockReceived && 0 < ParameterCalc.instanceCalc.StockReceived)
@@ -867,15 +949,23 @@ public class UICont1 : MonoBehaviour
         }
         //株専用パネルオフ
         stockCountPanel.SetActive(false);
+        //商品名
+        string[] dItemName = new string[5]; //名前
+        //アイテム入荷用
+        dItemName[0] = _languageCnt.Scene1LanguaeData[31];
+        dItemName[1] = _languageCnt.Scene1LanguaeData[32];
+        dItemName[2] = _languageCnt.Scene1LanguaeData[33];
+        dItemName[3] = _languageCnt.Scene1LanguaeData[34];
+        dItemName[4] = _languageCnt.Scene1LanguaeData[34];
 
         //必要価格と商品名と販売価格の入れ替え
         switch (selectItem_D)
         {
             case 0: //剣強化
                 dealItem.text = dItemName[selectItem_D] + " Lv." + ParameterCalc.instanceCalc.BrSwordUpCount; //商品名
-                dNeedPrice.text = ParameterCalc.instanceCalc.BrSwordUp[ParameterCalc.instanceCalc.BrSwordUpCount] + "z必要";
-                dOfferPrice.text = "売値 : " + ParameterCalc.instanceCalc.BrSwordSell[ParameterCalc.instanceCalc.BrSwordUpCount] + " → " + ParameterCalc.instanceCalc.BrSwordSell[ParameterCalc.instanceCalc.BrSwordUpCount + 1];
-                dButton.text = "改良する";
+                dNeedPrice.text = ParameterCalc.instanceCalc.BrSwordUp[ParameterCalc.instanceCalc.BrSwordUpCount] + _languageCnt.Scene1LanguaeData[47];
+                dOfferPrice.text = _languageCnt.Scene1LanguaeData[48] + ParameterCalc.instanceCalc.BrSwordSell[ParameterCalc.instanceCalc.BrSwordUpCount] + " → " + ParameterCalc.instanceCalc.BrSwordSell[ParameterCalc.instanceCalc.BrSwordUpCount + 1];
+                dButton.text = _languageCnt.Scene1LanguaeData[49];
 
                 if (ParameterCalc.instanceCalc.HaveMoney >= ParameterCalc.instanceCalc.BrSwordUp[ParameterCalc.instanceCalc.BrSwordUpCount])
                 {
@@ -889,9 +979,9 @@ public class UICont1 : MonoBehaviour
 
             case 1: //薬強化
                 dealItem.text = dItemName[selectItem_D] + " Lv." + ParameterCalc.instanceCalc.PotionUpCount; //商品名
-                dNeedPrice.text = ParameterCalc.instanceCalc.PotionUp[ParameterCalc.instanceCalc.PotionUpCount] + "z必要";
-                dOfferPrice.text = "売値 : " + ParameterCalc.instanceCalc.PotionSell[ParameterCalc.instanceCalc.PotionUpCount] + " → " + ParameterCalc.instanceCalc.PotionSell[ParameterCalc.instanceCalc.PotionUpCount + 1];
-                dButton.text = "改良する";
+                dNeedPrice.text = ParameterCalc.instanceCalc.PotionUp[ParameterCalc.instanceCalc.PotionUpCount] + _languageCnt.Scene1LanguaeData[47];
+                dOfferPrice.text = _languageCnt.Scene1LanguaeData[48] + ParameterCalc.instanceCalc.PotionSell[ParameterCalc.instanceCalc.PotionUpCount] + " → " + ParameterCalc.instanceCalc.PotionSell[ParameterCalc.instanceCalc.PotionUpCount + 1];
+                dButton.text = _languageCnt.Scene1LanguaeData[49];
                 
                 if (ParameterCalc.instanceCalc.HaveMoney >= ParameterCalc.instanceCalc.PotionUp[ParameterCalc.instanceCalc.PotionUpCount])
                 {
@@ -905,18 +995,18 @@ public class UICont1 : MonoBehaviour
 
             case 2: //株仕入れ
                 dealItem.text = dItemName[selectItem_D]; //商品名
-                dNeedPrice.text = ParameterCalc.instanceCalc.StockGet * ParameterCalc.instanceCalc.StockReceived + "z必要";
-                dOfferPrice.text = "売値 : " + ParameterCalc.instanceCalc.StockSell + "z / かぶ";
-                dButton.text = "仕入れる";
+                dNeedPrice.text = ParameterCalc.instanceCalc.StockGet * ParameterCalc.instanceCalc.StockReceived + _languageCnt.Scene1LanguaeData[47];
+                dOfferPrice.text = _languageCnt.Scene1LanguaeData[48] + ParameterCalc.instanceCalc.StockSell + _languageCnt.Scene1LanguaeData[51];
+                dButton.text = _languageCnt.Scene1LanguaeData[50];
                 stockCountPanel.SetActive(true); //株専用パネルオン
-                stockCountText.text = ""+ ParameterCalc.instanceCalc.StockReceived;
+                stockCountText.text = "" + ParameterCalc.instanceCalc.StockReceived;
                 break;
 
             case 3: //薬入手
                 dealItem.text = dItemName[selectItem_D]; //商品名
-                dNeedPrice.text = ParameterCalc.instanceCalc.PotionGet + "z必要";
+                dNeedPrice.text = ParameterCalc.instanceCalc.PotionGet + _languageCnt.Scene1LanguaeData[47];
                 dOfferPrice.text = " ";
-                dButton.text = "解放する";
+                dButton.text = _languageCnt.Scene1LanguaeData[52];
 
                 if (ParameterCalc.instanceCalc.HaveMoney >= ParameterCalc.instanceCalc.PotionGet)
                 {
@@ -930,9 +1020,9 @@ public class UICont1 : MonoBehaviour
 
             case 4: //株解放
                 dealItem.text = dItemName[selectItem_D]; //商品名
-                dNeedPrice.text = ParameterCalc.instanceCalc.StockOpen + "z必要";
+                dNeedPrice.text = ParameterCalc.instanceCalc.StockOpen + _languageCnt.Scene1LanguaeData[47];
                 dOfferPrice.text = " ";
-                dButton.text = "解放する";
+                dButton.text = _languageCnt.Scene1LanguaeData[52];
                 if (ParameterCalc.instanceCalc.HaveMoney >= ParameterCalc.instanceCalc.StockOpen)
                 {
                     dealButton.interactable = true;
@@ -943,52 +1033,58 @@ public class UICont1 : MonoBehaviour
                 }
                 break;
         }
-
         //右下セリフのテキスト
         switch (selectItem_D)
         {
             case 0:
-                foxySay = " こ の 地 域 で は よ く 売 れ る . . . ";
+                //foxySay = " こ の 地 域 で は よ く 売 れ る . . . ";
+                foxySay = _languageCnt.Scene1LanguaeData[53];
                 break;
 
             case 1:
-                foxySay = " 自 分 に 使 う の は や め て お こ う . . . ";
+                //foxySay = " 自 分 に 使 う の は や め て お こ う . . . ";
+                foxySay = _languageCnt.Scene1LanguaeData[54];
                 break;
 
             case 2:
                 //株を所有していないとき
                 if (ParameterCalc.instanceCalc.StockQuantity == 0)
                 {
-                    foxySay = " 在 庫 . . . . . . な い や . . . ";
+                    //foxySay = " 在 庫 . . . . . . な い や . . . ";
+                    foxySay = _languageCnt.Scene1LanguaeData[55];
                 }
                 else
                 {
-                    foxySay = " 在 庫 . . . . . . " + ParameterCalc.instanceCalc.StockQuantity + " か ぶ . . . ";
-                }
-
+                    //foxySay = " 在 庫 . . . . . . " + ParameterCalc.instanceCalc.StockQuantity + " か ぶ . . . ";
+                    foxySay = _languageCnt.Scene1LanguaeData[56] + ParameterCalc.instanceCalc.StockQuantity + _languageCnt.Scene1LanguaeData[57];
+                }   
                 break;
 
             case 3:
                 if(pushReple)
                 {
-                    foxySay = " 部 下 の 交 渉 を 待 と う . . . . . . ";
+                    //foxySay = " 部 下 の 交 渉 を 待 と う . . . . . . ";
+                    foxySay = _languageCnt.Scene1LanguaeData[58];
                     dDoneButton.SetActive(false);
                 }
                 else
                 {
-                    foxySay = " キ ケ ン な に お い . . . . . . ";
+                    //foxySay = " キ ケ ン な に お い . . . . . . ";
+                    foxySay = _languageCnt.Scene1LanguaeData[59];
                 }
                 break;
 
             case 4:
                 if (pushReple)
                 {
-                    foxySay = " 部 下 の 交 渉 を 待 と う . . . . . . ";
+                    //foxySay = " 部 下 の 交 渉 を 待 と う . . . . . . ";
+                    foxySay = _languageCnt.Scene1LanguaeData[58];
                     dDoneButton.SetActive(false);
                 }
                 else
                 {
-                    foxySay = " 仕 入 れ よ う か な . . . . . . ";
+                    //foxySay = " 仕 入 れ よ う か な . . . . . . ";
+                    foxySay = _languageCnt.Scene1LanguaeData[60];
                 }
                 break;
         }
@@ -1004,8 +1100,15 @@ public class UICont1 : MonoBehaviour
         runDispo = false; //処理中に他のパネルの選択を出来なくする
         ReadNow = true; //文字表示用SE開始
 
+        string[] itemExp = new string[5];
+        itemExp[0] = _languageCnt.Scene1LanguaeData[35];
+        itemExp[1] = _languageCnt.Scene1LanguaeData[36];
+        itemExp[2] = _languageCnt.Scene1LanguaeData[37];
+        itemExp[3] = "     ";
+        itemExp[4] = "     ";
+
         // 半角スペースで文字を分割する。
-        words = itemExp[selectItem_D].Split(' ');
+        words = itemExp[selectItem_D].Split('^');
 
         foreach (var word in words)
         {
@@ -1016,7 +1119,7 @@ public class UICont1 : MonoBehaviour
         }
 
         //主人公のセリフ
-        words = foxySay.Split(' ');
+        words = foxySay.Split('^');
 
         foreach (var word in words)
         {
@@ -1050,7 +1153,7 @@ public class UICont1 : MonoBehaviour
         //runDispo = false;
         foxyText.text = "";
 
-        words = foxySay.Split(' ');
+        words = foxySay.Split('^');
 
         foreach (var word in words)
         {
@@ -1066,38 +1169,58 @@ public class UICont1 : MonoBehaviour
     //表示制御
     public void ForDrawPanel()
     {
+        var stringTmp1 = "";
+        var stringTmp2 = "";
         //アイテム選択のコンポーネント取得
         Image spritePotion = potionFlame.GetComponent<Image>(); //薬
         Image spriteStock = stockFlame.GetComponent<Image>(); //株
+        
+        stringTmp1 = _languageCnt.Scene1LanguaeData[31];
+        BrSwordName.text = stringTmp1;
 
         //アイテム選択画面制御
         if (havePotionN)         
         {
             spritePotion.sprite = havePotion;
-            potionName.text = "こうかなくすり";
+            stringTmp1 = _languageCnt.Scene1LanguaeData[32];
+            potionName.text = stringTmp1;
+        }
+        else
+        {
+            stringTmp1 = _languageCnt.Scene1LanguaeData[34];
         }
 
         if (haveStockN)          
         {
             spriteStock.sprite = haveStock;
-            stockName.text = "まぼろしのかぶ";
+            stringTmp2 = _languageCnt.Scene1LanguaeData[33];
+            stockName.text = stringTmp2;
+        }
+        else
+        {
+            stringTmp1 = _languageCnt.Scene1LanguaeData[34];
         }
     }
     
     public void BrSword()
     {
+        var stringTmp = "";
         ParameterCalc.instanceCalc.ToolType = 0;
-        itemName.text = "どうのつるぎ     売値:" + ParameterCalc.instanceCalc.BrSwordSell[ParameterCalc.instanceCalc.BrSwordUpCount] +"z";
+        //itemName.text = "どうのつるぎ     売値:" + ParameterCalc.instanceCalc.BrSwordSell[ParameterCalc.instanceCalc.BrSwordUpCount] +"z";
+        stringTmp = _languageCnt.Scene1LanguaeData[31] + "     " + _languageCnt.Scene1LanguaeData[48] + ParameterCalc.instanceCalc.BrSwordSell[ParameterCalc.instanceCalc.BrSwordUpCount] +"z";
+        itemName.text = stringTmp;
         buttonSelectItem.interactable = true;
     }
 
     public void HiPotion()
     {
         ParameterCalc.instanceCalc.ToolType = 1;
-
         if (havePotionN)    //解放しているか否か
         {
-            itemName.text = "こうかなくすり     売値:" + ParameterCalc.instanceCalc.PotionSell[ParameterCalc.instanceCalc.PotionUpCount] + "z";
+            var stringTmp = "";
+            //itemName.text = "こうかなくすり     売値:" + ParameterCalc.instanceCalc.PotionSell[ParameterCalc.instanceCalc.PotionUpCount] + "z";
+            stringTmp = _languageCnt.Scene1LanguaeData[32] + "     " + _languageCnt.Scene1LanguaeData[48] + ParameterCalc.instanceCalc.PotionSell[ParameterCalc.instanceCalc.PotionUpCount] + "z";
+            itemName.text = stringTmp;
             buttonSelectItem.interactable = true;
         }
         else
@@ -1110,10 +1233,12 @@ public class UICont1 : MonoBehaviour
     public void LuckyTurnip()
     {
         ParameterCalc.instanceCalc.ToolType = 2;
-
         if (haveStockN)
         {
-            itemName.text = "まぼろしのかぶ × "+ ParameterCalc.instanceCalc.StockQuantity + "  設定価格:" + ParameterCalc.instanceCalc.StockSell +" / かぶ";
+            var stringTmp = "";
+            //itemName.text = "まぼろしのかぶ × "+ ParameterCalc.instanceCalc.StockQuantity + "  設定価格:" + ParameterCalc.instanceCalc.StockSell +" / かぶ";
+            stringTmp = _languageCnt.Scene1LanguaeData[33] + "     " + _languageCnt.Scene1LanguaeData[48] + + ParameterCalc.instanceCalc.StockSell + _languageCnt.Scene1LanguaeData[51];
+            itemName.text = stringTmp;
             buttonSelectItem.interactable = true;
         }
         else 
@@ -1144,7 +1269,6 @@ public class UICont1 : MonoBehaviour
 
     public void GetFirst()
     {
-
         //アイテム獲得パネルのコンポーネント取得
         Image getSpriteItem = getItemFlame.GetComponent<Image>(); //スプライト入れ替え用
         mainUI.gameObject.SetActive(true);
@@ -1153,12 +1277,14 @@ public class UICont1 : MonoBehaviour
         strPanel.gameObject.SetActive(false);
         //狐の会話をオフ、処理の終わりにオン
         clickJudge = false;
-
+        var stringTmp = "";
         if (potionRepleIvent && havePotionN)
         {
             getItemPanel.gameObject.SetActive(true);
             getSpriteItem.sprite = havePotion; //画像入れ替え
-            getPorS = " こ う か な く す り の 　　　　　　交 易 ル ー ト が 確 立 し た よ ! ! ";
+            //getPorS = " こ う か な く す り の 　　　　　　交 易 ル ー ト が 確 立 し た よ ! ! ";
+            stringTmp = _languageCnt.Scene1LanguaeData[32] + "\n" + _languageCnt.Scene1LanguaeData[61];
+            getPorS = stringTmp;
             StartCoroutine(Get_Goods());
             potionRepleIvent = false;
             //アイテム選択画面用
@@ -1169,7 +1295,9 @@ public class UICont1 : MonoBehaviour
         {
             getItemPanel.gameObject.SetActive(true); //株だけ
             getSpriteItem.sprite = haveStock; //画像入れ替え
-            getPorS = " ま ぼ ろ し の か ぶ の 　　　　　　交 易 ル ー ト が 確 立 し た よ ! ! ";
+            //getPorS = " ま ぼ ろ し の か ぶ の 　　　　　　交 易 ル ー ト が 確 立 し た よ ! ! ";
+            stringTmp = _languageCnt.Scene1LanguaeData[33] + "\n" + _languageCnt.Scene1LanguaeData[61];
+            getPorS = stringTmp;
             StartCoroutine(Get_Goods());
             stockRepleIvent = false;
             //アイテム選択画面用
@@ -1195,7 +1323,7 @@ public class UICont1 : MonoBehaviour
         ReadNow = true; //文字表示用SE開始
 
         // 半角スペースで文字を分割する。
-        words = getPorS.Split(' ');
+        words = getPorS.Split('^');
 
         foreach (var word in words)
         {
@@ -1211,26 +1339,35 @@ public class UICont1 : MonoBehaviour
     private void Tutorial()
     {
         firstESC = true;
+        var serifTmp = "";
         switch(pushNtutorial)
         {
             case 1:
                 foxDia1.gameObject.SetActive(true);
-                foxDia1_Text.text = "おかしら！\n今日もいい朝ですね！";
+                //foxDia1_Text.text = "おかしら！\n今日もいい朝ですね！";
+                serifTmp = _languageCnt.Scene1LanguaeData[3] + "! \n" + _languageCnt.Scene1LanguaeData[11];
+                foxDia1_Text.text = serifTmp;
                 clickJudge = true;
                 break;
 
             case 2:
-                foxDia1_Text.text = "ジャンジャン稼ぎましょう！";
+                //foxDia1_Text.text = "ジャンジャン稼ぎましょう！";
+                serifTmp = _languageCnt.Scene1LanguaeData[12];
+                foxDia1_Text.text = serifTmp;
                 clickJudge = true;
                 break;
 
             case 3:
-                foxDia1_Text.text = "え！稼ぎかた\n忘れたんですか！";
+                //foxDia1_Text.text = "え！稼ぎかた\n忘れたんですか！";
+                serifTmp = _languageCnt.Scene1LanguaeData[13];
+                foxDia1_Text.text = serifTmp;
                 clickJudge = true;
                 break;
 
             case 4:
-                foxDia1_Text.text = "困ったらこれを見てください！";
+                //foxDia1_Text.text = "困ったらこれを見てください！";
+                serifTmp = _languageCnt.Scene1LanguaeData[14];
+                foxDia1_Text.text = serifTmp;
                 clickJudge = true;
                 break;
 
@@ -1245,7 +1382,9 @@ public class UICont1 : MonoBehaviour
             case 6:
                 foxDia1.gameObject.SetActive(true);
                 mainUI.gameObject.SetActive(false);
-                foxDia1_Text.text = "あとESC？ってキーを\n押してみてください！";
+                //foxDia1_Text.text = "あとESC？ってキーを\n押してみてください！";
+                serifTmp = _languageCnt.Scene1LanguaeData[15];
+                foxDia1_Text.text = serifTmp;
                 clickJudge = true;
                 if (Input.GetKeyDown(KeyCode.Escape))
                 {
@@ -1255,19 +1394,25 @@ public class UICont1 : MonoBehaviour
                 break;
 
             case 7:
-                foxDia1_Text.text = "これでバッチリですね！";
+                //foxDia1_Text.text = "これでバッチリですね！";
+                serifTmp = _languageCnt.Scene1LanguaeData[16];
+                foxDia1_Text.text = serifTmp;
                 clickJudge = true;
                 break;
 
             case 8:
-                foxDia1_Text.text = "目標は・・・\n１０万Zです！";
+                //foxDia1_Text.text = "目標は・・・\n１０万Zです！";
+                serifTmp = _languageCnt.Scene1LanguaeData[17];
+                foxDia1_Text.text = serifTmp;
                 clickJudge = true;
                 break;
 
             case 9:
                 haveMoneyPanel.gameObject.SetActive(true);
                 slaveTurnPanel.gameObject.SetActive(true);
-                foxDia1_Text.text = "早速稼ぎましょう！";
+                //foxDia1_Text.text = "早速稼ぎましょう！";
+                serifTmp = _languageCnt.Scene1LanguaeData[18];
+                foxDia1_Text.text = serifTmp;
                 clickJudge = true;
                 break;
             
@@ -1292,38 +1437,48 @@ public class UICont1 : MonoBehaviour
     {
         //MenuCntにてescキー無効
         NowClear = true;
-
+        var serifTmp = "";
         switch(PushN)
         {
             case 1:
                 foxDia1.gameObject.SetActive(true);
-                foxDia1_Text.text = "やったー！！";
+                //foxDia1_Text.text = "やったー！！";
+                serifTmp = _languageCnt.Scene1LanguaeData[19];
+                foxDia1_Text.text = serifTmp;
                 clickJudge = true;
                 break;
         
             case 2:
-                foxDia1_Text.text = "おかしら！\n目標達成だ！";
+                //foxDia1_Text.text = "おかしら！\n目標達成だ！";
+                serifTmp = _languageCnt.Scene1LanguaeData[20];
+                foxDia1_Text.text = serifTmp;
                 clickJudge = true;
                 break;
 
             case 3:
                 foxDia1.gameObject.SetActive(false);
                 foxDia2.gameObject.SetActive(true);
-                foxDia2_Text.text = "おかしら！\nおつかれさま！";
+                //foxDia2_Text.text = "おかしら！\nおつかれさま！";
+                serifTmp = _languageCnt.Scene1LanguaeData[3] + "! \n" + _languageCnt.Scene1LanguaeData[21];
+                foxDia2_Text.text = serifTmp;
                 clickJudge = true;
                 break;
 
             case 4:
                 foxDia2.gameObject.SetActive(false);
                 foxDia3.gameObject.SetActive(true);
-                foxDia3_Text.text = "おかしら\n次の町にいこう。";
+                //foxDia3_Text.text = "おかしら\n次の町にいこう。";
+                serifTmp = _languageCnt.Scene1LanguaeData[3] + "\n" + _languageCnt.Scene1LanguaeData[22];
+                foxDia3_Text.text = serifTmp;
                 clickJudge = true;
                 break;
         
             case 5:
                 foxDia3.gameObject.SetActive(false);
                 foxDia2.gameObject.SetActive(true);
-                foxDia2_Text.text = "おかしら！\nいこう！";
+                //foxDia2_Text.text = "おかしら！\nいこう！";
+                serifTmp = _languageCnt.Scene1LanguaeData[3] + "! \n" + _languageCnt.Scene1LanguaeData[23];
+                foxDia2_Text.text = serifTmp;
                 clickJudge = true;
                 break;
 
@@ -1348,30 +1503,39 @@ public class UICont1 : MonoBehaviour
 
     private void GameOverEvent()
     {
+        var serifTmp = "";
         switch(PushN)
         {
             case 1:
                 foxDia1.gameObject.SetActive(true);
-                foxDia1_Text.text = "おかしら...";
+                //foxDia1_Text.text = "おかしら...";
+                serifTmp = _languageCnt.Scene1LanguaeData[3] + "...";
+                foxDia1_Text.text = serifTmp;
                 clickJudge = true;
                 break;
 
             case 2:
-                foxDia1_Text.text = "お金...\nなくなったんですか";
+                //foxDia1_Text.text = "お金...\nなくなったんですか";
+                serifTmp = _languageCnt.Scene1LanguaeData[24];
+                foxDia1_Text.text = serifTmp;
                 clickJudge = true;
                 break;
         
             case 3:
                 foxDia1.gameObject.SetActive(false);
                 foxDia2.gameObject.SetActive(true);
-                foxDia2_Text.text = "おかしら！\n報酬ないの...";
+                //foxDia2_Text.text = "おかしら！\n報酬ないの...";
+                serifTmp = _languageCnt.Scene1LanguaeData[25];
+                foxDia2_Text.text = serifTmp;
                 clickJudge = true;
                 break;
         
             case 4:
                 foxDia2.gameObject.SetActive(false);
                 foxDia3.gameObject.SetActive(true);
-                foxDia3_Text.text = "おかしら\n解散しよう";
+                //foxDia3_Text.text = "おかしら\n解散しよう";
+                serifTmp = _languageCnt.Scene1LanguaeData[3] + "\n" + _languageCnt.Scene1LanguaeData[26];
+                foxDia3_Text.text = serifTmp;
                 clickJudge = true;
                 break;
             

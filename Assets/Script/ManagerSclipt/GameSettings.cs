@@ -10,9 +10,12 @@ public class GameSettings : MonoBehaviour
     //サウンド管理用
     [SerializeField] 
     private SoundCnt soundManager; 
-    //シーン管理用
+    //設定保存用
     [SerializeField]
     private StateManagement settings; 
+    //言語管理用
+    [SerializeField]
+    private LoadLanguage _loadLanguageTitle;
     [SerializeField]
     private Slider sliderBGM;
     [SerializeField]
@@ -21,14 +24,19 @@ public class GameSettings : MonoBehaviour
     private Text textBGM;
     [SerializeField]
     private Text textSE;
+    public string LanguageMode;
 
     void Start()
     {
         soundManager = GameObject.Find("SoundManager").GetComponent<SoundCnt> ();
         settings = GameObject.Find("StateManagement").GetComponent<StateManagement> ();
-        //起動時に前回設定のセット
+        LaunchSystem();
+    }
+    public void LaunchSystem()
+    {
         launchScreenMode();
         LaunchVolume();
+        LaunchLanguage();
     }
 
     /*--画面モード切り替え--*/
@@ -38,12 +46,12 @@ public class GameSettings : MonoBehaviour
     {
         switch (settings.WindowMode)
         {
-            case "Window":
-                Screen.fullScreen = false;
+            case "Window":     
+                Screen.SetResolution(1280, 720, false);
                 break;
 
             case "FullScreen":
-                Screen.fullScreen = true;
+                Screen.SetResolution(1920, 1080, true);
                 break;
 
             default:
@@ -55,25 +63,30 @@ public class GameSettings : MonoBehaviour
     //ウィンドウモード
     public void WindowsScreenMode()
     {
-        Screen.fullScreen = false;
         settings.WindowMode = "Window";
     }
 
     //フルスクリーンモード
     public void FullScreenMode()
     {
-        Screen.fullScreen = true;
         settings.WindowMode = "FullScreen";
+    }
+
+    void LaunchLanguage()
+    {
+        LanguageMode = settings.UseLanguage;
+        _loadLanguageTitle = GameObject.Find("LanguageManager").GetComponent<LoadLanguage> ();
+        _loadLanguageTitle.SetLanguage(LanguageMode);
     }
 
     //言語の設定
     public void SetJapanese()
     {
-        settings.UseLanguage = "Japanese";
+        LanguageMode = "Japanese";
     }
     public void SetEnglish()
     {
-        settings.UseLanguage = "English";
+        LanguageMode = "English";
     }
 
     /*-----サウンド設定-----*/
@@ -115,16 +128,18 @@ public class GameSettings : MonoBehaviour
         switch(settings.WindowMode)
         {
             case "Window":
-            Screen.fullScreen = false;
+            Screen.SetResolution(1280, 720, false);
                 break;
 
             case "FullScreen":
-            Screen.fullScreen = true;
+            Screen.SetResolution(1920, 1080, true);
                 break;
         }
+        settings.UseLanguage = LanguageMode;
         
         settings.SetvolumeBGM = sliderBGM.value;
         settings.SetvolumeSE = sliderSE.value;
+        _loadLanguageTitle.SetLanguage(LanguageMode);
 
         //音量設定反映
         soundManager.SetnewValueBGM(settings.SetvolumeBGM);

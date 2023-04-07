@@ -41,8 +41,10 @@
      <Compile Include="Assets\Script\TittleScript\Tittle_NinjsC.cs" />
      <Compile Include="Assets\importAssets\CreateScene\Standard Assets\Environment\Water\Water\Scripts\Displace.cs" />
      <Compile Include="Assets\QuickSave\Core\Converters\Vector2Converter.cs" />
+     <Compile Include="Assets\Script\Scene2Script\ChangeLanguageScene2.cs" />
      <Compile Include="Assets\2DAssets\Free HDR Skyboxes Pack\Example Scenes\Script\RotateCamera.cs" />
      <Compile Include="Assets\importAssets\CreateScene\Standard Assets\Environment\Water\Water\Scripts\PlanarReflection.cs" />
+     <Compile Include="Assets\Script\Scene2Script\MenuCnt2.cs" />
      <Compile Include="Assets\Script\Scene2Script\HinminAnim.cs" />
      <Compile Include="Assets\importAssets\CreateScene\Standard Assets\Environment\Water (Basic)\Scripts\WaterBasic.cs" />
      <Compile Include="Assets\QuickSave\Core\Converters\Vector4Converter.cs" />
@@ -52,13 +54,17 @@
      <Compile Include="Assets\QuickSave\Core\Converters\Texture2DConverter.cs" />
      <Compile Include="Assets\Script\TittleScript\Title_NinjaB.cs" />
      <Compile Include="Assets\QuickSave\Core\Converters\ColorConverter.cs" />
+     <Compile Include="Assets\Script\TittleScript\ChangeLanguageTitle.cs" />
      <Compile Include="Assets\QuickSave\Core\Serialisers\JsonSerialiser.cs" />
+     <Compile Include="Assets\Script\Scene3Script\ESCCntrol.cs" />
      <Compile Include="Assets\Script\TittleScript\CreditPanelCnt.cs" />
+     <Compile Include="Assets\Terasurware\Classes\TrnMaster.cs" />
      <Compile Include="Assets\QuickSave\Core\Converters\Vector3Converter.cs" />
      <Compile Include="Assets\importAssets\CreateScene\Standard Assets\Environment\Water\Water\Scripts\GerstnerDisplace.cs" />
      <Compile Include="Assets\Script\Scene3Script\SceneCnt3.cs" />
      <Compile Include="Assets\Script\Scene1Script\UICont1.cs" />
      <Compile Include="Assets\QuickSave\Core\Settings\Compression.cs" />
+     <Compile Include="Assets\Script\Scene3Script\ChangeLanguageScene3.cs" />
      <Compile Include="Assets\Script\Scene1Script\Player_ClearWalk.cs" />
      <Compile Include="Assets\Script\Scene3Script\LogSystem.cs" />
      <Compile Include="Assets\QuickSave\QuickSaveBase.cs" />
@@ -68,6 +74,7 @@
      <Compile Include="Assets\Script\TittleScript\SceneCnt_Title.cs" />
      <Compile Include="Assets\importAssets\CreateScene\LightRays2D\Script\LightRays2D.cs" />
      <Compile Include="Assets\QuickSave\Core\Converters\SpriteConverter.cs" />
+     <Compile Include="Assets\Script\ManagerSclipt\LoadLanguage.cs" />
      <Compile Include="Assets\Script\Scene1Script\Scene1_NinC.cs" />
      <Compile Include="Assets\QuickSave\SecurityMode.cs" />
      <Compile Include="Assets\Script\Scene1Script\MenuCnt.cs" />
@@ -83,6 +90,7 @@
      <Compile Include="Assets\QuickSave\Core\Storage\FileAccess.cs" />
      <Compile Include="Assets\Script\Scene1Script\SceneCnt1.cs" />
      <Compile Include="Assets\importAssets\CreateScene\Standard Assets\Environment\Water\Water\Scripts\WaterTile.cs" />
+     <Compile Include="Assets\Script\Scene1Script\ChangeLanguageScene1.cs" />
      <Compile Include="Assets\Script\Scene1Script\Scene1_NinB.cs" />
      <Compile Include="Assets\importAssets\CreateScene\Standard Assets\Environment\Water\Water\Scripts\SpecularLighting.cs" />
      <Compile Include="Assets\Script\Scene2Script\SceneCnt2.cs" />

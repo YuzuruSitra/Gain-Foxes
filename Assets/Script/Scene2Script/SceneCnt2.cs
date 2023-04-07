@@ -13,9 +13,14 @@ public class SceneCnt2: MonoBehaviour
 	private float fadeSpeed = 0.4f;        //透明度が変わるスピードを管理
 	private float red, green, blue, alfa;   //パネルの色、不透明度を管理
 	private bool isFadeIn = false;   //フェードイン処理の開始、完了を管理するフラグ
+	//サウンド用スクリプト取得
+	[SerializeField] 
+    private SoundCnt sound2;
 	[SerializeField]
 	private GameObject fadePanelB;
 	private Image fadeImageB;                //透明度を変更するパネルのイメージ
+	[SerializeField] 
+    private AudioClip pushButtonSE;
 
 
 	void Start()
@@ -24,6 +29,8 @@ public class SceneCnt2: MonoBehaviour
 		isFadeIn = true;
 		//コンポーネント取得・利用
 		volume2 = GameObject.Find("SceneManager_B").GetComponent<Volume2> ();
+		/*---bgm設定---*/
+        sound2 = GameObject.Find("SoundManager").GetComponent<SoundCnt> ();
 		fadeImageB = fadePanelB.GetComponent<Image>();
 
 		red = fadeImageB.color.r;
@@ -77,5 +84,10 @@ public class SceneCnt2: MonoBehaviour
 	public void NextScene()
 	{
 		volume2.IsNextScene = true;
+	}
+	//ボタン押したときの音
+	public void PushButtonSE_2()
+	{
+		sound2.PlaySe(pushButtonSE);
 	}
 }

@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
+
 
 //戦略パネルのテキスト管理
 public class StrExpText : MonoBehaviour
@@ -9,35 +11,38 @@ public class StrExpText : MonoBehaviour
     //UI管理スクリプトの取得
     [SerializeField]
     private UICont1 uiCont1;
+    //言語用のクラス
+    [SerializeField]
+    private ChangeLanguageScene1 _languageCnt;
     private string[] talks = new string[6];
     private string[] words;
     [SerializeField]
     private Text textLabel;
     //テキストが流れているか判定
     private bool runDispo;
+    public bool _DoSetFirst;
+    //コルーチンの取得
+    private Coroutine _dialogCoroutine;
 
     void Start()
     {
+        _DoSetFirst = true;
         //コンポーネント取得
         uiCont1 = GameObject.Find("UICont").GetComponent<UICont1> ();
         //ボタンを押せるように
         runDispo = true;
 
+        //言語設定用
+        _languageCnt = GameObject.Find("LanguageUI_Scene1").GetComponent<ChangeLanguageScene1> ();
+    }
+
+    public void SetFirstExp()
+    {
+        if(!_DoSetFirst)return;
+        //重複処理ケア
+        if(!runDispo)StopCoroutine(_dialogCoroutine);
         //戦略説明をセット
-
-        //デフォ
-        talks[0] = "今日の戦略を子分たちに伝えよう。";
-        //噂
-        talks[1] = "     　　噂 を 流 す　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 民 衆 に 噂 を 流 し 、 貧 民 を 出 現 さ せ や す く す る 。";
-        //祈り
-        talks[2] = "     　　祈 る　　　　　　　　　　　　　　　　　　　　　　　　　　  　　　　　　　　　　　　 祈 り を 捧 げ 、 犯 罪 度 を 下 げ る 。";
-        //交渉
-        talks[3] = "     　　交 渉 す る　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 負 債 者 を 1 人 利 用 し 、 業 者 と 交 渉 す る 。\n  民 衆 の 来 店 率 を あ げ る 。 \n 成 功 率 は 支 払 う 金 額 し だ い だ 。 ";
-        //暗殺
-        talks[4] = "     　　暗 殺 す る　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 負 債 者 を 1 人 利 用 し 事 件 を 起 こ す 。\n  今 日 は 対 象 の 民 衆 が 出 現 し な く な る 。 ";
-        //入荷
-        talks[5] = "     　　仕 入 れ る　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 新 た な 商 品 を 仕 入 れ る 。 ";
-
+        SetExpLanguage();
         textLabel.text = talks[0];
     }
 
@@ -46,8 +51,9 @@ public class StrExpText : MonoBehaviour
         if (runDispo)
         {
             textLabel.text = "";
-            StartCoroutine(Dialogue());
+            _dialogCoroutine = StartCoroutine(Dialogue());
         }
+        _DoSetFirst = false;
     }
 
     // コルーチンを使って、１文字ごと表示する。
@@ -55,9 +61,14 @@ public class StrExpText : MonoBehaviour
     {
         runDispo = false;//処理中に他のパネルの選択を出来なくする
         uiCont1.ReadNow = true;
-
+        SetExpLanguage();
+        //改行コード変換
+        if (talks[uiCont1.SelectStr].Contains("\\n"))
+        {
+            talks[uiCont1.SelectStr] = talks[uiCont1.SelectStr].Replace(@"\n", Environment.NewLine);
+        }
         // 半角スペースで文字を分割する。
-        words = talks[uiCont1.SelectStr].Split(' ');
+        words = talks[uiCont1.SelectStr].Split('^');
 
         foreach (var word in words)
         {
@@ -67,5 +78,22 @@ public class StrExpText : MonoBehaviour
         }
         uiCont1.ReadNow = false; //文字表示用SE終了
         runDispo = true; //他のパネルの選択を可能にする
+    }
+
+    void SetExpLanguage()
+    {
+        //戦略説明をセット
+        //デフォ
+        talks[0] = _languageCnt.Scene1LanguaeData[62];
+        //噂
+        talks[1] = _languageCnt.Scene1LanguaeData[63] + _languageCnt.Scene1LanguaeData[64];
+        //祈り
+        talks[2] = _languageCnt.Scene1LanguaeData[65] +_languageCnt.Scene1LanguaeData[66];
+        //交渉
+        talks[3] = _languageCnt.Scene1LanguaeData[67] +_languageCnt.Scene1LanguaeData[68];
+        //暗殺
+        talks[4] = _languageCnt.Scene1LanguaeData[69] +_languageCnt.Scene1LanguaeData[70];
+        //入荷
+        talks[5] = _languageCnt.Scene1LanguaeData[71] +_languageCnt.Scene1LanguaeData[72];
     }
 }
