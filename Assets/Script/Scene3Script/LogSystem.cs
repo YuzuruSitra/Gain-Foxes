@@ -63,13 +63,38 @@ public class LogSystem : MonoBehaviour
             case 2: //株
                 //_logText += " 今 日 は ま ぼ ろ し の か ぶ を 売 っ た 。 \n";
                 _logTmp += _languageCnt.Scene3LanguaeData[4];
+                int todayStockPrice = (int)ParameterCalc.instanceCalc.StockOutLogSystem;
+                if(todayStockPrice == 0)
+                {
+                    //参入した時期が遅かったようだ、相場が暴落してしまった。
+                    _logTmp += _languageCnt.Scene3LanguaeData[44];
+                }
+                else
+                {
+                    //貴族が富豪が多いようだ、かぶの相場が０００zになった。
+                    _logTmp += _languageCnt.Scene3LanguaeData[45] + todayStockPrice + _languageCnt.Scene3LanguaeData[46];
+                }
                 break;
         }
 
-        if (ParameterCalc.instanceCalc.PoorDebt)
+        if (ParameterCalc.instanceCalc.TodaySlave > 0)
         {
-            //_logText += " 貧 民 は 支 払 え ず 、 負 債 者 と な っ た 。 \n";
+            //_logText += " 貧 民 は 支 払 え ず 、〇 人 負 債 者 と な っ た 。 \n";
             _logTmp += _languageCnt.Scene3LanguaeData[5];
+            if(_languageCnt.LanguageState_Scene3 == "English")
+            {          
+                _logTmp += "T^h^e^ " + ParameterCalc.instanceCalc.TodaySlave + _languageCnt.Scene3LanguaeData[5];
+            }
+            else
+            {
+                _logTmp += ParameterCalc.instanceCalc.TodaySlave + _languageCnt.Scene3LanguaeData[5];
+            }
+        }
+
+        //祈り
+        if(ParameterCalc.instanceCalc.TodayPrayValue > 0)
+        {
+            _logTmp += _languageCnt.Scene3LanguaeData[42] + ParameterCalc.instanceCalc.TodayPrayValue + _languageCnt.Scene3LanguaeData[43];
         }
 
         if (ParameterCalc.instanceCalc.usePubli)
@@ -169,6 +194,12 @@ public class LogSystem : MonoBehaviour
             _logTmp += peopleKindText[i];
         }
 
+        //薬の売却による犯罪度上昇
+        if (ParameterCalc.instanceCalc.ToolType == 1)
+        {
+            _logTmp += _languageCnt.Scene3LanguaeData[40] + ParameterCalc.instanceCalc.TodayPotionCrime + _languageCnt.Scene3LanguaeData[41];
+        }
+
         //市民の反乱
         if(ParameterCalc.instanceCalc.DoRebellionGeneral)
         {
@@ -203,6 +234,10 @@ public class LogSystem : MonoBehaviour
             }
         }
 
+        // 行商税の税率表記
+        float outTaxRate = ParameterCalc.instanceCalc.TaxRate * 100;
+        _logTmp += _languageCnt.Scene3LanguaeData[38] +  (int)outTaxRate + _languageCnt.Scene3LanguaeData[39];
+
         //_logText += " 行 商 税 と し て " + ParameterCalc.instanceCalc.HaveTaxPay + " z 支 払 っ た 。\n";
         if(_languageCnt.LanguageState_Scene3 == "English")
         {          
@@ -228,33 +263,21 @@ public class LogSystem : MonoBehaviour
         {
             _logTmp += _languageCnt.Scene3LanguaeData[23] +  ParameterCalc.instanceCalc.Paycheck[ParameterCalc.instanceCalc.TurnCount] + _languageCnt.Scene3LanguaeData[24];
         }
+
+        // 現在の犯罪度
+        
+        _logTmp += _languageCnt.Scene3LanguaeData[37] + ParameterCalc.instanceCalc.CrimeRate + "\n";
         
         
         int earnings = ParameterCalc.instanceCalc.TotalReceiveMoney - ParameterCalc.instanceCalc.TotalPayment;
         
         if (earnings > 0) //収支
-        {
-            //_logText += " 収 支 ： +" + earnings + "z 　　　所 持 金 ：" + ParameterCalc.instanceCalc.HaveMoney + " z \n";
-            if(_languageCnt.LanguageState_Scene3 == "English")
-            {          
-                _logTmp += _languageCnt.Scene3LanguaeData[28] +  earnings + "z\n" + _languageCnt.Scene3LanguaeData[29] + ParameterCalc.instanceCalc.HaveMoney + "z \n";
-            }
-            else
-            {
-                _logTmp += _languageCnt.Scene3LanguaeData[28] +  earnings + "z 　　　" + _languageCnt.Scene3LanguaeData[29] + ParameterCalc.instanceCalc.HaveMoney + "z \n";
-            }
+        {        
+            _logTmp += _languageCnt.Scene3LanguaeData[28] +  earnings + "z\n" + _languageCnt.Scene3LanguaeData[29] + ParameterCalc.instanceCalc.HaveMoney + "z \n";
         }
         else
-        {
-            //_logText += " 収 支 ： " + earnings + "z 　　　所 持 金 ：" + ParameterCalc.instanceCalc.HaveMoney + " z \n";
-            if(_languageCnt.LanguageState_Scene3 == "English")
-            {          
-                _logTmp += _languageCnt.Scene3LanguaeData[27] +  earnings + "z\n" + _languageCnt.Scene3LanguaeData[29] + ParameterCalc.instanceCalc.HaveMoney + "z \n";
-            }
-            else
-            {
-                _logTmp += _languageCnt.Scene3LanguaeData[27] +  earnings + "z 　　　" + _languageCnt.Scene3LanguaeData[29] + ParameterCalc.instanceCalc.HaveMoney + "z \n";
-            }
+        {         
+            _logTmp += _languageCnt.Scene3LanguaeData[27] +  earnings + "z\n" + _languageCnt.Scene3LanguaeData[29] + ParameterCalc.instanceCalc.HaveMoney + "z \n";
         }
 
         int target = ParameterCalc.instanceCalc.TargetAmount - ParameterCalc.instanceCalc.HaveMoney;

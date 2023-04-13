@@ -101,6 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06f5e60f666cd4ce79a9b770f056a7bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  volume2: {fileID: 0}
   goalA: {fileID: 4151795805634340367, guid: 1cb3ddd0703eb42ffab64d05e31a7ae9, type: 3}
   goalB: {fileID: 3242524370267545125, guid: 0691a632b9b6648428fe5cfdbdd2a9bf, type: 3}
   soundB: {fileID: 0}
@@ -148,7 +149,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3678396596116305185}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 29b6c865cf845c742bdca0d51383dbd9, type: 2}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2

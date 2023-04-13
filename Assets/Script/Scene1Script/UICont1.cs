@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 //シーンAのUI、演出管理
 public class UICont1 : MonoBehaviour
@@ -697,11 +698,6 @@ public class UICont1 : MonoBehaviour
         if(runDispo)
         {
             ParameterCalc.instanceCalc.PubliWay += 1;
-            buttonPubliDown.interactable = true;
-            if (ParameterCalc.instanceCalc.PubliWay > 1)
-            {
-                buttonPubliUp.interactable = false;
-            }
             DrowPubli();
         }
     }
@@ -711,11 +707,6 @@ public class UICont1 : MonoBehaviour
         if(runDispo)
         {
             ParameterCalc.instanceCalc.PubliWay -= 1;
-            buttonPubliUp.interactable = true;
-            if (ParameterCalc.instanceCalc.PubliWay < 1)
-            {
-                buttonPubliDown.interactable = false;
-            }
             DrowPubli();
         }
     }
@@ -735,6 +726,22 @@ public class UICont1 : MonoBehaviour
     //交渉パネルセリフ更新
     private void DrowPubli()
     {
+        // ボタンの制御
+        int publiWayInt = ParameterCalc.instanceCalc.PubliWay;
+        switch(publiWayInt)
+        {
+            case 0:
+                buttonPubliDown.interactable = false;
+                break;
+            case 2:
+                buttonPubliUp.interactable = false;
+                break;
+            default:
+                buttonPubliDown.interactable = true;
+                buttonPubliUp.interactable = true;
+                break;
+        }
+
         var serifTmp1 = "";
         var serifTmp2 = "";
         runDispo = false;
@@ -822,7 +829,6 @@ public class UICont1 : MonoBehaviour
             ParameterCalc.instanceCalc.PopTurnEvent = ParameterCalc.instanceCalc.TurnCount + 1; //次ターン制限
             pushReple = true; //１ターンに入荷は一度まで
         }
-        Debug.Log(ParameterCalc.instanceCalc.PopTurnEvent);
     }
 
     //戻る
@@ -886,9 +892,11 @@ public class UICont1 : MonoBehaviour
     {
         var serifTmp = "";
         ParameterCalc.instanceCalc.StockReceived += 10;
-        if(ParameterCalc.instanceCalc.StockReceived > 500)
+        const int MaxQuantity = 500;
+        int purchaseLimit = MaxQuantity - ParameterCalc.instanceCalc.StockQuantity;
+        if(ParameterCalc.instanceCalc.StockReceived > purchaseLimit)
         {
-            ParameterCalc.instanceCalc.StockReceived = 500;
+            ParameterCalc.instanceCalc.StockReceived = purchaseLimit;
         }
         stockCountText.text = "" + ParameterCalc.instanceCalc.StockReceived;
         //dNeedPrice.text = ParameterCalc.instanceCalc.StockGet * ParameterCalc.instanceCalc.StockReceived + "z必要";
@@ -1107,6 +1115,11 @@ public class UICont1 : MonoBehaviour
         itemExp[3] = "     ";
         itemExp[4] = "     ";
 
+        //改行コード変換
+        if (itemExp[selectItem_D].Contains("\\n"))
+        {
+            itemExp[selectItem_D] = itemExp[selectItem_D].Replace(@"\n", Environment.NewLine);
+        }
         // 半角スペースで文字を分割する。
         words = itemExp[selectItem_D].Split('^');
 
@@ -1207,7 +1220,7 @@ public class UICont1 : MonoBehaviour
         var stringTmp = "";
         ParameterCalc.instanceCalc.ToolType = 0;
         //itemName.text = "どうのつるぎ     売値:" + ParameterCalc.instanceCalc.BrSwordSell[ParameterCalc.instanceCalc.BrSwordUpCount] +"z";
-        stringTmp = _languageCnt.Scene1LanguaeData[31] + "     " + _languageCnt.Scene1LanguaeData[48] + ParameterCalc.instanceCalc.BrSwordSell[ParameterCalc.instanceCalc.BrSwordUpCount] +"z";
+        stringTmp = _languageCnt.Scene1LanguaeData[31] + " Lv." + ParameterCalc.instanceCalc.BrSwordUpCount + "     " + _languageCnt.Scene1LanguaeData[48] + ParameterCalc.instanceCalc.BrSwordSell[ParameterCalc.instanceCalc.BrSwordUpCount] +"z";
         itemName.text = stringTmp;
         buttonSelectItem.interactable = true;
     }
@@ -1219,7 +1232,7 @@ public class UICont1 : MonoBehaviour
         {
             var stringTmp = "";
             //itemName.text = "こうかなくすり     売値:" + ParameterCalc.instanceCalc.PotionSell[ParameterCalc.instanceCalc.PotionUpCount] + "z";
-            stringTmp = _languageCnt.Scene1LanguaeData[32] + "     " + _languageCnt.Scene1LanguaeData[48] + ParameterCalc.instanceCalc.PotionSell[ParameterCalc.instanceCalc.PotionUpCount] + "z";
+            stringTmp = _languageCnt.Scene1LanguaeData[32] + " Lv." + ParameterCalc.instanceCalc.PotionUpCount + "     " + _languageCnt.Scene1LanguaeData[48] + ParameterCalc.instanceCalc.PotionSell[ParameterCalc.instanceCalc.PotionUpCount] + "z";
             itemName.text = stringTmp;
             buttonSelectItem.interactable = true;
         }
@@ -1237,7 +1250,7 @@ public class UICont1 : MonoBehaviour
         {
             var stringTmp = "";
             //itemName.text = "まぼろしのかぶ × "+ ParameterCalc.instanceCalc.StockQuantity + "  設定価格:" + ParameterCalc.instanceCalc.StockSell +" / かぶ";
-            stringTmp = _languageCnt.Scene1LanguaeData[33] + "     " + _languageCnt.Scene1LanguaeData[48] + + ParameterCalc.instanceCalc.StockSell + _languageCnt.Scene1LanguaeData[51];
+            stringTmp = _languageCnt.Scene1LanguaeData[33] + " × " + ParameterCalc.instanceCalc.StockQuantity +"     " + _languageCnt.Scene1LanguaeData[48] + + ParameterCalc.instanceCalc.StockSell + _languageCnt.Scene1LanguaeData[51];
             itemName.text = stringTmp;
             buttonSelectItem.interactable = true;
         }
@@ -1285,7 +1298,10 @@ public class UICont1 : MonoBehaviour
             //getPorS = " こ う か な く す り の 　　　　　　交 易 ル ー ト が 確 立 し た よ ! ! ";
             stringTmp = _languageCnt.Scene1LanguaeData[32] + "\n" + _languageCnt.Scene1LanguaeData[61];
             getPorS = stringTmp;
-            StartCoroutine(Get_Goods());
+            if(runDispo)
+            {
+                StartCoroutine(Get_Goods());
+            }
             potionRepleIvent = false;
             //アイテム選択画面用
             havePotionN = true;
@@ -1318,6 +1334,7 @@ public class UICont1 : MonoBehaviour
     //アイテム解放のテキスト処理
     IEnumerator Get_Goods()
     {
+        yield return new WaitForSeconds(1.0f);
         getExpText.text = "";
         runDispo = false;//処理中に他のパネルの選択を出来なくする
         ReadNow = true; //文字表示用SE開始

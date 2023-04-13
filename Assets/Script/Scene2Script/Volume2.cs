@@ -41,6 +41,7 @@ public class Volume2 : MonoBehaviour
 
     //シーン遷移
     public bool IsNextScene = false;
+    public int Scene2SlaveCount;
 
     void Start()
     {
@@ -73,6 +74,7 @@ public class Volume2 : MonoBehaviour
         talkPanel1.gameObject.SetActive(false);
         talkPanel2.gameObject.SetActive(false);
         ShuAnim = 0;
+        Scene2SlaveCount = ParameterCalc.instanceCalc.TodaySlave;
     }
 
     void Update()

@@ -43,6 +43,7 @@ public class ParameterCalc : MonoBehaviour
     public bool DoRebellionGeneral;
     public int RebellionEarnedMoney; //反乱時の獲得金額
     public int Slave; //奴隷数
+    public int TodaySlave; //ログシステム用カウント
     public int ToolType; //どの商品を選んだか
 
     //銅の剣
@@ -56,6 +57,7 @@ public class ParameterCalc : MonoBehaviour
     public float[] PotionUp = new float[100];
     public int PotionUpCount; //強化回数
     public bool HavePotionJ; //所持チェック用
+    public float TodayPotionCrime;
 
     //株
     public int StockOpen;
@@ -65,6 +67,7 @@ public class ParameterCalc : MonoBehaviour
     public int StockQuantity; //株所有数
     public int StockReceived; //入荷用
     private bool UseStock;
+    public float StockOutLogSystem;
 
     //戦略用変数
     private int useGossip;
@@ -73,6 +76,7 @@ public class ParameterCalc : MonoBehaviour
     public int SelectKillPanel;  //キル画面のUI操作用
     public int SelectRepleItem;  //アイテム強化対象選択
     private int usePray; 
+    public int TodayPrayValue;
     //交渉
     public int PubliWay;
     public int PubliWayPay;
@@ -89,6 +93,7 @@ public class ParameterCalc : MonoBehaviour
     /* 金額天引き用変数 */
     public int[] Paycheck = new int[100];
     public int TaxCount; //貴族がくると税率が上昇
+    public float TaxRate;
     public int HaveTaxPay; //天引き金額
     public int StealPeoplePay;
     public bool StealTaxjuge;
@@ -155,6 +160,7 @@ public class ParameterCalc : MonoBehaviour
         usePubli = false;
         PubliWay = 1;
         usePray = 0;
+        TodayPrayValue = 0;
         PoorDebt = false;
         DoRebellionGeneral = false;
 
@@ -250,6 +256,7 @@ public class ParameterCalc : MonoBehaviour
         //初期化
         TodayCrime = 0.0f;
         TotalReceiveMoney = 0;
+        TodaySlave = 0;
         float stockEnlarge = 1.0f; //株の倍率管理
         int stockCrash = 0; //価格暴落
         bool sellBrswords = false;
@@ -306,8 +313,9 @@ public class ParameterCalc : MonoBehaviour
         //麻薬の犯罪率処理
         if(ToolType == 1)
         {
-            float potionCrime = 7.0f;
-            TodayCrime += potionCrime * GenePeopleCount + 1; 
+            const float potionCrime = 10.0f;
+            TodayPotionCrime = potionCrime * GenePeopleCount + 1;
+            TodayCrime += TodayPotionCrime; 
         }
 
         int Cushion; //民衆選定用クッション
@@ -346,10 +354,13 @@ public class ParameterCalc : MonoBehaviour
             //祈り
             if(i < usePray)
             {
-                CrimeRate -= 25.0f;
+                const float PlayValue = 25.0f;
+                CrimeRate -= PlayValue;
+                TodayPrayValue += (int)PlayValue;
                 if(CrimeRate < 0)
                 {
                     CrimeRate = 0.0f;
+                    TodayPrayValue -= (int)PlayValue;
                 }
             }
 
@@ -365,7 +376,6 @@ public class ParameterCalc : MonoBehaviour
                         GenePeopleType[i] -= 4;
                     }
                 }
-
             }
 
             //支払処理
@@ -385,6 +395,7 @@ public class ParameterCalc : MonoBehaviour
                             PoorMoneyCalc();
                             PoorDebt = true;
                             Slave++;
+                            TodaySlave ++;
                         }
                         break;
                     //市民
@@ -406,7 +417,6 @@ public class ParameterCalc : MonoBehaviour
                         TaxCount++; //行商税率加算
                         break;
                 }
-                TotalReceiveMoney += (int)ReceiveMoney[i];
             }
             else //株使用
             {
@@ -424,6 +434,7 @@ public class ParameterCalc : MonoBehaviour
                             PoorMoneyCalc();
                             PoorDebt = true;
                             Slave++;
+                            TodaySlave ++;
                         }
                         break;
                     //市民
@@ -442,22 +453,21 @@ public class ParameterCalc : MonoBehaviour
                         ReceiveMoney[i] = SelectItem * Noble;
                         break;
                 }
-                //株の崩壊処理
-                if (stockCrash >= 2)
-                {
-                    // 取得金額のクリア
-                    for (int n = 0; n < GenePeopleCount; n++)
-                    {
-                        ReceiveMoney[n] = 0.0f;
-                    }
-                    TotalReceiveMoney = 0;
-                }
-                else
-                {
-                    TotalReceiveMoney += (int)ReceiveMoney[i];
-                }
-
             }
+        }
+
+        //株の崩壊処理
+        if (stockCrash >= 2 || !UseStock)stockEnlarge = 0;
+        StockOutLogSystem = SelectItem * stockEnlarge;
+
+        //お金の合算処理
+        for (int i = 0; i <= GenePeopleCount; ++i)
+        {
+            if(UseStock) //株の倍率反映
+            {
+                ReceiveMoney[i] += ReceiveMoney[i] * stockEnlarge;
+            }
+            TotalReceiveMoney += (int)ReceiveMoney[i];
         }
 
         // 市民の反乱処理
@@ -501,7 +511,8 @@ public class ParameterCalc : MonoBehaviour
         float haveTax = 0.05f; //行商税倍率
         int tmpTax = TaxCount / 3 + 1; //貴族３人につき行商税の倍率が上がる
         if(tmpTax > 8) tmpTax = 8;
-        float Convert = HaveMoney * haveTax * tmpTax;
+        TaxRate = haveTax * tmpTax;
+        float Convert = HaveMoney * TaxRate;
         HaveTaxPay = (int)Convert;
         TotalPayment += HaveTaxPay;
 

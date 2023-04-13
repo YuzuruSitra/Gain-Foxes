@@ -41,6 +41,10 @@ public class SceneCnt3 : MonoBehaviour
 		green = fadeImage_C.color.g;
 		blue = fadeImage_C.color.b;
 		alfa = fadeImage_C.color.a;
+
+		//セーブ処理
+		saveControl.NewGame = false;
+		saveControl.Dosave();
 	}
 
 	void Update()
@@ -76,9 +80,9 @@ public class SceneCnt3 : MonoBehaviour
 		{             
 			isFadeOut3 = false;
 
-			//セーブ処理
-			saveControl.NewGame = false;
-			saveControl.Dosave();
+			// //セーブ処理
+			// saveControl.NewGame = false;
+			// saveControl.Dosave();
 			SceneManager.LoadScene("Scene1");
 		}
 	}

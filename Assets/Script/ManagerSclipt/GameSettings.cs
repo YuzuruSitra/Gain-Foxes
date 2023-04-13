@@ -47,15 +47,17 @@ public class GameSettings : MonoBehaviour
         switch (settings.WindowMode)
         {
             case "Window":     
-                Screen.SetResolution(1280, 720, false);
+                //Screen.SetResolution(1280, 720, false);
+                Screen.fullScreen = false;
                 break;
 
             case "FullScreen":
                 Screen.SetResolution(1920, 1080, true);
+                //Screen.fullScreen = true;
                 break;
 
             default:
-                Screen.fullScreen = true;
+                Screen.SetResolution(1920, 1080, true);
                 break;
         }
     }
@@ -129,10 +131,12 @@ public class GameSettings : MonoBehaviour
         {
             case "Window":
             Screen.SetResolution(1280, 720, false);
+            //Screen.fullScreen = false;
                 break;
 
             case "FullScreen":
             Screen.SetResolution(1920, 1080, true);
+            //Screen.fullScreen = true;
                 break;
         }
         settings.UseLanguage = LanguageMode;

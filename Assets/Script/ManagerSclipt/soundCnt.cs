@@ -11,6 +11,9 @@ public class SoundCnt : MonoBehaviour
     private AudioSource seAudioSource;
     [SerializeField]
     private AudioSource seReadAudioSource;
+    [SerializeField]
+    private AudioSource seEnvironmentalSource;
+
 
     //設定画面による音量変更
     public void SetnewValueBGM(float newValueBGM)    //bgm音変更
@@ -22,6 +25,8 @@ public class SoundCnt : MonoBehaviour
     {
         seAudioSource.volume = Mathf.Clamp01(newValueSE);
         seReadAudioSource.volume = Mathf.Clamp01(newValueSE);
+        seEnvironmentalSource = GameObject.Find("EnvironmentalSource").GetComponent<AudioSource> ();
+        seEnvironmentalSource.volume = Mathf.Clamp01(newValueSE);
     }
 
     void Start()

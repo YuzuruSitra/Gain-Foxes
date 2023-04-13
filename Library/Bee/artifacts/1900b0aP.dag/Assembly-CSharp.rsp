@@ -343,7 +343,6 @@
 "Assets/QuickSave/QuickSaveSettings.cs"
 "Assets/QuickSave/QuickSaveWriter.cs"
 "Assets/QuickSave/SecurityMode.cs"
-"Assets/Script/ManagerSclipt/AspectRatioController.cs"
 "Assets/Script/ManagerSclipt/GameSettings.cs"
 "Assets/Script/ManagerSclipt/LoadLanguage.cs"
 "Assets/Script/ManagerSclipt/ParameterCalc.cs"

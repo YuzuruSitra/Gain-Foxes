@@ -187,17 +187,17 @@ public class LoadLanguage : MonoBehaviour
         }
         changeLanguageScene3.ChangeMenusUI3(menuString);
 
-        string[] trnString = new string[37];
+        string[] trnString = new string[47];
         switch (languageState)
         {
             case "Japanese":
-                for(int i= 0; i < 37; i++)
+                for(int i= 0; i < 47; i++)
                 {
                     trnString[i] = _trnMaster.sheets[2].list[i].Japanese;
                 }
                 break;
             case "English":
-                for(int i= 0; i < 37; i++)
+                for(int i= 0; i < 47; i++)
                 {
                     trnString[i]  = _trnMaster.sheets[2].list[i].English;
                 }
