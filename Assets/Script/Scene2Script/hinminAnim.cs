@@ -51,7 +51,6 @@ public class HinminAnim : MonoBehaviour
     IEnumerator HinAnimCont()
     {
         volume2.ShuAnim++;
-        volume2.Scene2SlaveCount--;
         GetComponent<NavMeshAgent>().isStopped = true;
         animator.SetBool("isFront", true);
         yield return new WaitForSeconds(0.5f);
@@ -62,6 +61,7 @@ public class HinminAnim : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         if(volume2.Scene2SlaveCount > 0)
         {
+            volume2.Scene2SlaveCount--;
             animator.SetBool("isFall",true);
             yield return new WaitForSeconds(2.0f);
             animator.SetBool("isFall",false);

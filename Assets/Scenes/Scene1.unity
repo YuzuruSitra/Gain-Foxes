@@ -654,6 +654,10 @@ MonoBehaviour:
   - 
   - 
   - 
+  - 
+  - 
+  - 
+  - 
   _turtrialImage: {fileID: 1618234078}
   _turtrialSprites:
   - {fileID: 21300000, guid: fa7139ad1903e4266a631fcf3483213c, type: 3}
@@ -2498,7 +2502,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 89f57f74c3d2941118c11f0fad532946, type: 3}
-    m_FontSize: 50
+    m_FontSize: 46
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -4880,18 +4884,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 665684621}
-        m_TargetAssemblyTypeName: UIContA, Assembly-CSharp
-        m_MethodName: PushButtonSE_A
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &443618466
 GameObject:
   m_ObjectHideFlags: 0
@@ -5075,7 +5067,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 1857996515}
+  - {fileID: 1917024286}
   - {fileID: 1787885342}
   - {fileID: 153564158}
   - {fileID: 382311791}
@@ -5330,18 +5322,6 @@ MonoBehaviour:
       - m_Target: {fileID: 665684621}
         m_TargetAssemblyTypeName: UIContA, Assembly-CSharp
         m_MethodName: D_DelectSwords
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 665684621}
-        m_TargetAssemblyTypeName: UIContA, Assembly-CSharp
-        m_MethodName: PushButtonSE_A
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6844,9 +6824,9 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 89f57f74c3d2941118c11f0fad532946, type: 3}
     m_FontSize: 78
     m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 7
-    m_MaxSize: 94
+    m_BestFit: 1
+    m_MinSize: 34
+    m_MaxSize: 78
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -7587,7 +7567,10 @@ MonoBehaviour:
   sceneCnt1: {fileID: 1360150864}
   _languageCnt: {fileID: 0}
   _strExpText: {fileID: 0}
-  tutrialExp: {fileID: 1857996514}
+  tutrialExp: {fileID: 1917024285}
+  _turtrialSprites:
+  - {fileID: 21300000, guid: fa7139ad1903e4266a631fcf3483213c, type: 3}
+  - {fileID: 21300000, guid: 8a0d2cb927de24a438697b3223981792, type: 3}
   haveMoneyPanel: {fileID: 382311790}
   slaveTurnPanel: {fileID: 1183603656}
   slaveTx: {fileID: 1600937385}
@@ -7633,7 +7616,9 @@ MonoBehaviour:
   stockCountText: {fileID: 1947829683}
   getItemPanel: {fileID: 1979869901}
   getItemFlame: {fileID: 443618466}
+  getItemExpText: {fileID: 608153100}
   getExpText: {fileID: 312849766}
+  getChildText: {fileID: 1168223443}
   buttonSelectItem: {fileID: 1422023326}
   buttonKill: {fileID: 717729721}
   buttonPubliUp: {fileID: 398646325}
@@ -8700,18 +8685,6 @@ MonoBehaviour:
       - m_Target: {fileID: 665684620}
         m_TargetAssemblyTypeName: StrExpText, Assembly-CSharp
         m_MethodName: OnButtonClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 665684621}
-        m_TargetAssemblyTypeName: UIContA, Assembly-CSharp
-        m_MethodName: PushButtonSE_A
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10371,7 +10344,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -555.65, y: 0}
+  m_AnchoredPosition: {x: -120, y: -340}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &975268545
@@ -13200,8 +13173,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 880, y: -480}
-  m_SizeDelta: {x: 128, y: 128}
+  m_AnchoredPosition: {x: 880, y: -500}
+  m_SizeDelta: {x: 64, y: 64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1187820581
 MonoBehaviour:
@@ -14090,18 +14063,6 @@ MonoBehaviour:
       - m_Target: {fileID: 665684620}
         m_TargetAssemblyTypeName: StrExpText, Assembly-CSharp
         m_MethodName: OnButtonClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 665684621}
-        m_TargetAssemblyTypeName: UIContA, Assembly-CSharp
-        m_MethodName: PushButtonSE_A
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15355,7 +15316,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1338267693}
   - component: {fileID: 1338267695}
-  - component: {fileID: 1338267694}
   m_Layer: 5
   m_Name: Back (1)
   m_TagString: Untagged
@@ -15379,43 +15339,13 @@ RectTransform:
   - {fileID: 975268544}
   - {fileID: 1952105488}
   m_Father: {fileID: 1830586216}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: -499.99994}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1920, y: 200}
   m_Pivot: {x: 0.5, y: 0}
---- !u!114 &1338267694
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1338267692}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &1338267695
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15843,18 +15773,6 @@ MonoBehaviour:
       - m_Target: {fileID: 665684621}
         m_TargetAssemblyTypeName: UIContA, Assembly-CSharp
         m_MethodName: D_DelectStock
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 665684621}
-        m_TargetAssemblyTypeName: UIContA, Assembly-CSharp
-        m_MethodName: PushButtonSE_A
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -22448,18 +22366,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 665684621}
-        m_TargetAssemblyTypeName: UIContA, Assembly-CSharp
-        m_MethodName: PushButtonSE_A
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &1600855141
 GameObject:
   m_ObjectHideFlags: 0
@@ -23083,18 +22989,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 665684621}
-        m_TargetAssemblyTypeName: UIContA, Assembly-CSharp
-        m_MethodName: PushButtonSE_A
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &1638034385
 GameObject:
   m_ObjectHideFlags: 0
@@ -23632,7 +23526,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -61.042, y: -3.467}
+  m_AnchoredPosition: {x: -170, y: -3.467}
   m_SizeDelta: {x: 1065.235, y: 343.325}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1671068033
@@ -23662,7 +23556,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 5
     m_MaxSize: 82
-    m_Alignment: 4
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -23787,7 +23681,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -1.4746704, y: -1.8989868}
-  m_SizeDelta: {x: 1212.0559, y: 181.0687}
+  m_SizeDelta: {x: 1180, y: 52}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1682671180
 MonoBehaviour:
@@ -24751,7 +24645,7 @@ RectTransform:
   - {fileID: 1850282176}
   - {fileID: 1622388399}
   m_Father: {fileID: 1830586216}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -25279,18 +25173,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 665684621}
-        m_TargetAssemblyTypeName: UIContA, Assembly-CSharp
-        m_MethodName: PushButtonSE_A
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &1821017138
 GameObject:
   m_ObjectHideFlags: 0
@@ -25326,7 +25208,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -833.7, y: 0}
+  m_AnchoredPosition: {x: -270, y: -340}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1821017140
@@ -25464,8 +25346,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1338267693}
   - {fileID: 1776685910}
+  - {fileID: 1338267693}
   - {fileID: 1187820580}
   m_Father: {fileID: 1195030141}
   m_RootOrder: 5
@@ -25912,17 +25794,16 @@ RectTransform:
   m_GameObject: {fileID: 1857996514}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1917024286}
-  m_Father: {fileID: 451740185}
+  m_LocalScale: {x: 0.83, y: 0.83, z: 0.83}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1917024286}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -394.09998, y: 390.20004}
-  m_SizeDelta: {x: 94, y: 106}
+  m_AnchoredPosition: {x: -400, y: 390.20004}
+  m_SizeDelta: {x: 120, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1857996516
 MonoBehaviour:
@@ -26941,13 +26822,14 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1857996515}
+  m_Children:
+  - {fileID: 1857996515}
+  m_Father: {fileID: 451740185}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 394.09998, y: -390.2}
+  m_AnchoredPosition: {x: -0.000030517578, y: 0.000061035156}
   m_SizeDelta: {x: 1442, y: 1018}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1917024287
@@ -27177,7 +27059,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -296.7, y: 0}
+  m_AnchoredPosition: {x: 30, y: -340}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1952105489
@@ -29234,7 +29116,109 @@ MonoBehaviour:
   Noble: 0
   CrimeRate: 0
   TodayCrime: 0
-  PoorMoney: 0
+  PoorMoney:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  nowPoorMoney: 0
+  PoorCount: 0
   RebellionGeneralCount: 0
   DoRebellionGeneral: 0
   RebellionEarnedMoney: 0
@@ -29656,6 +29640,7 @@ MonoBehaviour:
   HaveStockJ: 0
   StockQuantity: 0
   StockReceived: 0
+  StockOutLogSystem: 0
   ExeKill: 0
   killNumber: 0
   SelectKillPanel: 0

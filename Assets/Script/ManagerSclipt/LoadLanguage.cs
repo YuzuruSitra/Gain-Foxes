@@ -87,17 +87,17 @@ public class LoadLanguage : MonoBehaviour
         }   
         changeLanguageScene1.ChangeSettingsUI(settingsString); 
 
-        string[] Scene1String = new string[76];
+        string[] Scene1String = new string[80];
         switch (languageState)
         {
             case "Japanese":
-                for(int i= 0; i < 76; i++)
+                for(int i= 0; i < 80; i++)
                 {
                     Scene1String[i] = _trnMaster.sheets[1].list[i].Japanese;
                 }
                 break;
             case "English":
-                for(int i= 0; i < 76; i++)
+                for(int i= 0; i < 80; i++)
                 {
                     Scene1String[i]  = _trnMaster.sheets[1].list[i].English;
                 }

@@ -23,6 +23,8 @@ public class StrExpText : MonoBehaviour
     public bool _DoSetFirst;
     //コルーチンの取得
     private Coroutine _dialogCoroutine;
+    private const float WaitSecondsJP = 0.03f;
+    private const float WaitSecondsEN = 0.007f;
 
     void Start()
     {
@@ -74,7 +76,15 @@ public class StrExpText : MonoBehaviour
         {
             // 0.1秒刻みで１文字ずつ表示する。
             textLabel.text = textLabel.text + word;
-            yield return new WaitForSeconds(0.02f);
+            switch(_languageCnt.LanguageState_Scene1)
+            {
+            case "Japanese":
+                yield return new WaitForSeconds(WaitSecondsJP);
+                break;
+            case "English":
+                yield return new WaitForSeconds(WaitSecondsEN);
+                break;                        
+            }
         }
         uiCont1.ReadNow = false; //文字表示用SE終了
         runDispo = true; //他のパネルの選択を可能にする

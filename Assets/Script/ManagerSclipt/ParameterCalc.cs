@@ -38,7 +38,9 @@ public class ParameterCalc : MonoBehaviour
     //イベント管理
     public float CrimeRate; //犯罪率
     public float TodayCrime; //今日の犯罪率
-    public float PoorMoney; //貧民所持金
+    public float[] PoorMoney = new float[100]; //貧民所持金
+    public float nowPoorMoney;
+    public int PoorCount = 0;
     public int RebellionGeneralCount; //反乱する市民のカウント
     public bool DoRebellionGeneral;
     public int RebellionEarnedMoney; //反乱時の獲得金額
@@ -355,12 +357,26 @@ public class ParameterCalc : MonoBehaviour
             if(i < usePray)
             {
                 const float PlayValue = 25.0f;
-                CrimeRate -= PlayValue;
-                TodayPrayValue += (int)PlayValue;
+                if(TodayCrime > 0)
+                {
+                    TodayCrime -= PlayValue;
+                    TodayPrayValue += (int)PlayValue;
+                }
+                else if(CrimeRate > 0)
+                {
+                    CrimeRate -= PlayValue;
+                    TodayPrayValue += (int)PlayValue;
+                }
+    
+                if(TodayCrime < 0)
+                {
+                    TodayCrime = 0.0f;
+                    TodayPrayValue -= (int)PlayValue;
+                }
+    
                 if(CrimeRate < 0)
                 {
                     CrimeRate = 0.0f;
-                    TodayPrayValue -= (int)PlayValue;
                 }
             }
 
@@ -388,14 +404,11 @@ public class ParameterCalc : MonoBehaviour
                     case 0:
                         ReceiveMoney[i] = SelectItem * Poor;
                         //貧民所持金処理
-                        PoorMoney -= ReceiveMoney[i];
-                        if (PoorMoney < 0)
+                        PoorMoney[PoorCount] -= ReceiveMoney[i];
+                        if (PoorMoney[PoorCount] <= 0)
                         {
                             //お金をリセットし奴隷追加
                             PoorMoneyCalc();
-                            PoorDebt = true;
-                            Slave++;
-                            TodaySlave ++;
                         }
                         break;
                     //市民
@@ -420,6 +433,7 @@ public class ParameterCalc : MonoBehaviour
             }
             else //株使用
             {
+                const float StockEnlargeAmount = 0.1f;
                 switch (GenePeopleType[i])
                 {
                     //貧民
@@ -427,14 +441,11 @@ public class ParameterCalc : MonoBehaviour
                         stockCrash++;
                         ReceiveMoney[i] = SelectItem * Poor;
                         //貧民所持金処理
-                        PoorMoney -= ReceiveMoney[i];
-                        if (PoorMoney < 0)
+                        PoorMoney[PoorCount] -= ReceiveMoney[i];
+                        if (PoorMoney[PoorCount] <= 0)
                         {
                             //お金をリセットし奴隷追加
                             PoorMoneyCalc();
-                            PoorDebt = true;
-                            Slave++;
-                            TodaySlave ++;
                         }
                         break;
                     //市民
@@ -444,28 +455,33 @@ public class ParameterCalc : MonoBehaviour
                         break;
                     //富豪
                     case 2:
-                        stockEnlarge += 0.2f;
+                        stockEnlarge += StockEnlargeAmount;
                         ReceiveMoney[i] = SelectItem * Millionaire;
                         break;
                     //貴族
                     case 3:
-                        stockEnlarge += 0.2f;
+                        stockEnlarge += StockEnlargeAmount;
                         ReceiveMoney[i] = SelectItem * Noble;
                         break;
                 }
             }
         }
+        
+        //プラスなら価格崩壊
+        int stockCrashCalc = GenePeopleCount + 1 - stockCrash;
 
         //株の崩壊処理
-        if (stockCrash >= 2 || !UseStock)stockEnlarge = 0;
-        StockOutLogSystem = SelectItem * stockEnlarge;
-
+        if (UseStock)
+        {
+            if (stockCrashCalc <= stockCrash)stockEnlarge = 0;
+            StockOutLogSystem = StockSell * stockEnlarge;
+        }
         //お金の合算処理
         for (int i = 0; i <= GenePeopleCount; ++i)
         {
             if(UseStock) //株の倍率反映
             {
-                ReceiveMoney[i] += ReceiveMoney[i] * stockEnlarge;
+                ReceiveMoney[i] = ReceiveMoney[i] * stockEnlarge;
             }
             TotalReceiveMoney += (int)ReceiveMoney[i];
         }
@@ -482,6 +498,8 @@ public class ParameterCalc : MonoBehaviour
             DoRebellionGeneral = true;
         }
 
+        //貧民のお金保持用処理
+        nowPoorMoney = PoorMoney[PoorCount];
         //犯罪率を加算
         CrimeRate += TodayCrime;
         //金額を所持金に追加
@@ -619,10 +637,11 @@ public class ParameterCalc : MonoBehaviour
     //貧民の所持金処理
     void PoorMoneyCalc()
     {
-        const int enf = 200;
-        const float defEnf = 0.2f;
-        var money = enf * TurnCount;
-        PoorMoney = HaveMoney * defEnf + money;
+        PoorCount += 1;
+        if(PoorCount > 99)PoorCount = 99;
+        PoorDebt = true;
+        Slave++;
+        TodaySlave ++;
     } 
 
     //スコア並べ替え用関数

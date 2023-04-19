@@ -54,7 +54,7 @@ public class ChangeLanguageScene3 : MonoBehaviour
             _scene3UIs[i].text = stringData[i];
         }
 
-        for(int i = 0; i < 41; i++)
+        for(int i = 0; i < 47; i++)
         {
             Scene3LanguaeData[i] = stringData[i];
         }

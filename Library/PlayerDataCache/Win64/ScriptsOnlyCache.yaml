@@ -309,13 +309,7 @@ ScriptsOnlyBuild:
     methodName: OnButtonClicked
   - assembly: Assembly-CSharp
     fullTypeName: UICont1
-    methodName: PushButtonSE_A
-  - assembly: Assembly-CSharp
-    fullTypeName: UICont1
     methodName: D_DelectSwords
-  - assembly: Assembly-CSharp
-    fullTypeName: UICont1
-    methodName: PushButtonSE_A
   - assembly: Assembly-CSharp
     fullTypeName: GameSettings
     methodName: SoundSliderOnValueChangeBGM
@@ -363,9 +357,6 @@ ScriptsOnlyBuild:
     methodName: OnButtonClicked
   - assembly: Assembly-CSharp
     fullTypeName: UICont1
-    methodName: PushButtonSE_A
-  - assembly: Assembly-CSharp
-    fullTypeName: UICont1
     methodName: StockCountUp
   - assembly: Assembly-CSharp
     fullTypeName: UICont1
@@ -399,9 +390,6 @@ ScriptsOnlyBuild:
     methodName: OnButtonClicked
   - assembly: Assembly-CSharp
     fullTypeName: UICont1
-    methodName: PushButtonSE_A
-  - assembly: Assembly-CSharp
-    fullTypeName: UICont1
     methodName: Publi_STRback
   - assembly: Assembly-CSharp
     fullTypeName: UICont1
@@ -424,9 +412,6 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: UICont1
     methodName: D_DelectStock
-  - assembly: Assembly-CSharp
-    fullTypeName: UICont1
-    methodName: PushButtonSE_A
   - assembly: Assembly-CSharp
     fullTypeName: UICont1
     methodName: SelectDone
@@ -453,16 +438,10 @@ ScriptsOnlyBuild:
     methodName: OnButtonClicked
   - assembly: Assembly-CSharp
     fullTypeName: UICont1
-    methodName: PushButtonSE_A
-  - assembly: Assembly-CSharp
-    fullTypeName: UICont1
     methodName: SetSteal
   - assembly: Assembly-CSharp
     fullTypeName: StrExpText
     methodName: OnButtonClicked
-  - assembly: Assembly-CSharp
-    fullTypeName: UICont1
-    methodName: PushButtonSE_A
   - assembly: Assembly-CSharp
     fullTypeName: UICont1
     methodName: D_GetItem
@@ -478,9 +457,6 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: UICont1
     methodName: D_DelectPotion
-  - assembly: Assembly-CSharp
-    fullTypeName: UICont1
-    methodName: PushButtonSE_A
   - assembly: Assembly-CSharp
     fullTypeName: UICont1
     methodName: CloseTutorial
@@ -1555,7 +1531,7 @@ ScriptsOnlyBuild:
     className: Button
   - hash:
       serializedVersion: 2
-      Hash: 9b447065dd0c1ce97d6b410928e90b41
+      Hash: b74bfb68a66aa68e041c87b6d7d1eb53
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ParameterCalc
@@ -1783,7 +1759,7 @@ ScriptsOnlyBuild:
     className: UnityOnJointBreak2DMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 09fc442999e6f7fa918e39f4e92026a3
+      Hash: 0e86fecfe33f227dbc10084f6e2b0a43
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UICont1
@@ -2435,4 +2411,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Scene1.unity
   - Assets/Scenes/Scene2.unity
   - Assets/Scenes/Scene3.unity
-  playerPath: "D:/\u4E00\u6642\u4FDD\u5B58/Build/GainFoxes.exe"
+  playerPath: C:/Users/S1r4n/Downloads/GainFoxes_Data/GainFoxes.exe

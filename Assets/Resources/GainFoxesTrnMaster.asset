@@ -161,15 +161,14 @@ MonoBehaviour:
         t^h^e^ h^e^a^r^t^s^ a^n^d^ m^i^n^d^s^ o^f^ o^u^r^ c^u^s^t^o^m^e^r^s^.^
     - ID: 36
       Japanese: "\u5371^\u967A^\u306A^\u306B^\u304A^\u3044^\u304C^\u3059^\u308B^\u3084^\u304F^\u3072^\u3093^\u3002^\\n^\u3059^\u3053^\u3057^\u3046^\u3057^\u308D^\u3081^\u305F^\u3044^\u304C^\u3001^\u9AD8^\u304F^\u58F2^\u308C^\u305D^\u3046^\u3060^"
-      English: "D^a^n^g^e^r^o^u^s^ s^m^e^l^l^i^n^g^ c^h^e^m^i^c^a^l^s^.^ \u3000^T^h^e^r^e^
+      English: D^a^n^g^e^r^o^u^s^ s^m^e^l^l^i^n^g^ c^h^e^m^i^c^a^l^s^.\n^T^h^e^r^e^
         i^s^ a^ l^i^t^t^l^e^ r^e^s^i^s^t^a^n^c^e^,^ b^u^t^ i^t^ w^i^l^l^ s^e^l^l^
-        f^o^r^ a^ h^i^g^h^ p^r^i^c^e^.^"
+        f^o^r^ a^ h^i^g^h^ p^r^i^c^e^.^
     - ID: 37
       Japanese: "\u5E02^\u5834^\u4FA1^\u683C^\u304C^\u5B89^\u5B9A^\u3057^\u306A^\u3044^\u682A^\u3002\\n^\u5927^\u304D^\u304F^\u7A3C^\u3052^\u305D^\u3046^\u3060^\u304C^\u305D^\u306E^\u88CF^\u3067^\u306F^\u591A^\u304F^\u306E^\u30EA^\u30B9^\u30AF^\u3092^\u306F^\u3089^\u3093^\u3067^\u3044^\u308B^\u3002^"
-      English: "S^t^o^c^k^s^\u3000^ w^i^t^h^ \u3000^u^n^s^t^a^b^l^e^ v^a^l^u^e^.^\u3000^
-        I^t^ \u3000^l^o^o^k^s^\u3000^ l^i^k^e^ \u3000^i^t^ \u3000^c^o^u^l^d^ \u3000^m^a^k^e^
-        \u3000^a^ \u3000^l^o^t^ \u3000^o^f^ \u3000^m^o^n^e^y^,^ \u3000^b^u^t^ \u3000^i^t^\u3000^
-        c^a^r^r^i^e^s^\u3000^ a^\u3000^ b^i^g^ r^i^s^k^.^"
+      English: S^t^o^c^k^s^ w^i^t^h^ u^n^s^t^a^b^l^e^ v^a^l^u^e^.\n^I^t^ l^o^o^k^s^
+        l^i^k^e^ i^t^ c^o^u^l^d^ m^a^k^e^ a^ l^o^t^ o^f^ m^o^n^e^y^,^ b^u^t^ ^i^t^
+        c^a^r^r^i^e^s^ a^ b^i^g^ r^i^s^k^.^
     - ID: 38
       Japanese: "\u65E5\u76EE"
       English: Day
@@ -187,11 +186,11 @@ MonoBehaviour:
       English: W^e^ c^a^n^'^t^ m^a^k^e^ a^n^y^ m^o^r^e^ n^o^i^s^e^.^.^.^
     - ID: 43
       Japanese: "z ^\u3067^\u3069^\u3046^\u3060^\uFF1F^"
-      English: 'C^a^n^ y^o^u^ p^a^y^ '
+      English: 'I^ w^i^l^l^ p^a^y^ '
     - ID: 44
       Japanese: "\u305D^\u306E^\u5831^\u916C^\u3060^\u3068^\u6210^\u529F^\u7387^\u306F^"
-      English: 'W^i^t^h^ t^h^a^t^ r^e^w^a^r^d^,^ t^h^e^ s^u^c^c^e^s^s^ r^a^t^e^ i^s^
-        a^b^o^u^t^ '
+      English: 'W^i^t^h^ t^h^a^t^ r^e^w^a^r^d^,\n^t^h^e^ s^u^c^c^e^s^s^ r^a^t^e^
+        i^s^ a^b^o^u^t^ '
     - ID: 45
       Japanese: "%^\u3063^\u3066^\u3068^\u3053^\u3060^\u3002"
       English: ^%.
@@ -212,7 +211,7 @@ MonoBehaviour:
       English: replenish
     - ID: 51
       Japanese: "z / \u304B\u3076"
-      English: 10z / Stocks
+      English: z / Stocks
     - ID: 52
       Japanese: "\u89E3\u653E\u3059\u308B"
       English: Open
@@ -242,7 +241,7 @@ MonoBehaviour:
       English: I^ w^o^n^d^e^r^ i^f^ I^ s^h^o^u^l^d^ s^t^o^c^k^ i^t^.^.^.^
     - ID: 61
       Japanese: "^\u306E^\u4EA4^\u6613^\u30EB^\u30FC^\u30C8^\u304C^\u78BA^\u7ACB^\u3057^\u305F^\u3088^!^!^"
-      English: "\u25EF t^r^a^d^e^ r^o^u^t^e^s^ h^a^v^e^ b^e^e^n^ e^s^t^a^b^l^i^s^h^e^d^!^"
+      English: t^r^a^d^e^ r^o^u^t^e^s^ h^a^v^e^ b^e^e^n^ e^s^t^a^b^l^i^s^h^e^d^!^
     - ID: 62
       Japanese: "\u4ECA\u65E5\u306E\u6226\u7565\u3092\u5B50\u5206\u305F\u3061\u306B\u4F1D\u3048\u3088\u3046\u3002"
       English: Communicate today's strategy to the henchmen.
@@ -283,7 +282,7 @@ MonoBehaviour:
       English: P^u^r^c^h^a^s^e^ g^o^o^d^s^\n\n
     - ID: 72
       Japanese: "\u65B0^\u305F^\u306A^\u5546^\u54C1^\u3092^\u4ED5^\u5165^\u308C^\u308B^\u3002^"
-      English: ' G^o^ t^o^ s^t^o^c^k^ n^e^w^ p^r^o^d^u^c^t^s^.^'
+      English: G^o^ t^o^ s^t^o^c^k^ n^e^w^ p^r^o^d^u^c^t^s^.^
     - ID: 73
       Japanese: "\u6C7A\u884C\u3059\u308B"
       English: Kill.
@@ -293,6 +292,18 @@ MonoBehaviour:
     - ID: 75
       Japanese: "\u4EA4\u6E09\u3059\u308B"
       English: Deal.
+    - ID: 76
+      Japanese: "\u3055^\u3059^\u304C^\u3060^.^.^.^\u304A^\u304B^\u3057^\u3089^"
+      English: T^h^e^ B^o^s^s^ i^s^ a^m^a^z^i^n^g^.
+    - ID: 77
+      Japanese: "\u5951\u7D04\u6210\u7ACB!!"
+      English: Contract formation!!
+    - ID: 78
+      Japanese: "\u3053^\u3046^\u304B^\u306A^\u304F^\u3059^\u308A^"
+      English: E^x^p^e^n^s^i^v^e^ d^r^u^g^s^
+    - ID: 79
+      Japanese: "\u307E^\u307C^\u308D^\u3057^\u306E^\u304B^\u3076^"
+      English: P^h^a^n^t^o^m^ s^t^o^c^k^
   - name: Scene3
     list:
     - ID: 0
@@ -355,8 +366,8 @@ MonoBehaviour:
       Japanese: "z^\u5F97^\u305F^\u3002^\\n"
       English: z ^a^s^ a^ r^e^w^a^r^d^.^\n
     - ID: 18
-      Japanese: "\u72AF^\u7F6A^\u5EA6^\u304C^"
-      English: 'T^h^e^ c^r^i^m^e^ r^a^t^e^ i^n^c^r^e^a^s^e^d^ b^y^ '
+      Japanese: "\u4ECA^\u65E5^\u306F^\u72AF^\u7F6A^\u5EA6^\u304C^"
+      English: 'T^o^d^a^y^ t^h^e^ c^r^i^m^e^ r^a^t^e^ h^a^s^ i^n^c^r^e^a^s^e^d^ b^y^ '
     - ID: 19
       Japanese: "\u5897^\u52A0^\u3057^\u305F^\u3002^\\n"
       English: .\n
@@ -371,7 +382,7 @@ MonoBehaviour:
       English: z a^s^ a^ c^o^m^m^e^r^c^i^a^l^ t^a^x^.^\n
     - ID: 23
       Japanese: "\u5B50^\u5206^\u305F^\u3061^\u306B^"
-      English: ' t^o^ t^h^e^ h^e^n^c^h^m^e^n^.^\n'
+      English: z^ t^o^ t^h^e^ h^e^n^c^h^m^e^n^.^\n
     - ID: 24
       Japanese: "z^\u652F^\u6255^\u3063^\u305F^\u3002^\\n"
       English: 'P^a^i^d^ '
@@ -383,13 +394,13 @@ MonoBehaviour:
       English: z^ f^r^o^m^ u^s^.^\n
     - ID: 27
       Japanese: "\u53CE^\u652F^\uFF1A"
-      English: 'I^n^c^o^m^e^ a^n^d^ E^x^p^e^n^s^e^s^ : ^'
+      English: "I^n^c^o^m^e^\uFF1A^"
     - ID: 28
       Japanese: "\u53CE^\u652F^\uFF1A+"
-      English: 'I^n^c^o^m^e^ a^n^d^ E^x^p^e^n^s^e^s^ : ^+^'
+      English: "I^n^c^o^m^e^\uFF1A^+^"
     - ID: 29
       Japanese: "\u6240^\u6301^\u91D1^\uFF1A"
-      English: 'M^o^n^e^y^ i^n^ p^o^s^s^e^s^s^i^o^n^ : ^'
+      English: "F^u^n^d^s^\uFF1A^"
     - ID: 30
       Japanese: "\u76EE^\u6A19^\u91D1^\u984D^\u9054^\u6210^!^!^\\n"
       English: T^a^r^g^e^t^ a^m^o^u^n^t^ a^c^h^i^e^v^e^d^!^!^\n
@@ -398,7 +409,7 @@ MonoBehaviour:
       English: I^ h^a^v^e^ r^u^n^ o^u^t^ o^f^ m^o^n^e^y^.^.^.^\n
     - ID: 32
       Japanese: "\u76EE^\u6A19^\u307E^\u3067^\u3042^\u3068^\uFF1A^"
-      English: 'T^o^ t^h^e^ t^a^r^g^e^t^ : ^'
+      English: "T^o^ t^h^e^ t^a^r^g^e^t^\uFF1A^"
     - ID: 33
       Japanese: "\u8CA7^\u6C11^"
       English: P^o^o^r^.\n
@@ -412,8 +423,8 @@ MonoBehaviour:
       Japanese: "\u8CB4^\u65CF^"
       English: N^o^b^l^e^.\n
     - ID: 37
-      Japanese: "\u72AF^\u7F6A^\u5EA6^ : ^"
-      English: 'C^r^i^m^e^ ^r^a^t^e^ : ^'
+      Japanese: "\u72AF^\u7F6A^\u5EA6^\uFF1A^"
+      English: "C^r^i^m^e^ ^r^a^t^e^\uFF1A^"
     - ID: 38
       Japanese: "\u73FE^\u5728^\u306E^\u884C^\u5546^\u7A0E^\u306F^"
       English: 'T^h^e^ c^u^r^r^e^n^t^ p^e^d^d^l^e^r^ t^a^x^ i^s^ '
@@ -434,11 +445,14 @@ MonoBehaviour:
       Japanese: "\u4E0B^\u304C^\u3063^\u305F^\u3002^\\n"
       English: .^\n
     - ID: 44
-      Japanese: "\u76F8\u5834\u304C\u66B4\u843D\u3057\u305F\u3088\u3046\u3060\u3002\\n\u5E02\u5834\u306B\u53C2\u5165\u3059\u308B\u306E\u304C\u9045\u304B\u3063\u305F\u306E\u304B\u3082\u3002\\n"
-      English: The market crashed.\nMaybe it was too late to enter the market.\n
+      Japanese: "\u76F8^\u5834^\u304C^\u66B4^\u843D^\u3057^\u305F^\u3088^\u3046^\u3060^\u3002^\\n\u5E02^\u5834^\u306B^\u53C2^\u5165^\u3059^\u308B^\u306E^\u304C^\u9045^\u304B^\u3063^\u305F^\u306E^\u304B^\u3082^\u3002^\\n"
+      English: T^h^e^ m^a^r^k^e^t ^c^r^a^s^h^e^d^.^\nM^a^y^b^e^ ^i^t ^w^a^s^ t^o^o^
+        l^a^t^e^ t^o^ e^n^t^e^r^ t^h^e^ m^a^r^k^e^t^.^\n
     - ID: 45
-      Japanese: "\u76F8\u5834\u304C"
-      English: 'Today''s market was '
+      Japanese: "\u307E^\u307C^\u308D^\u3057^\u306E^\u304B^\u3076^\u306E^\u76F8^\u5834^\u304C^"
+      English: 'T^h^e^ m^a^r^k^e^t^ p^r^i^c^e^ f^o^r ^P^h^a^n^t^o^m^ ^s^t^o^c^k^
+        s^e^e^m^s ^t^o^ b^e^ '
     - ID: 46
-      Japanese: "z\u306B\u306A\u3063\u305F\u3088\u3046\u3060\u3002\\n\u4ECA\u65E5\u306F\u8CB4\u65CF\u304C\u5BCC\u8C6A\u304C\u591A\u304B\u3063\u305F\u306A\u3002\\n"
-      English: z.\n There were many millionaires and aristocrats today.\n
+      Japanese: "z^\u306B^\u306A^\u3063^\u305F^\u3088^\u3046^\u3060^\u3002^\\n\u4ECA^\u65E5^\u306F^\u8CB4^\u65CF^\u3084^\u5BCC^\u8C6A^\u304C^\u591A^\u304B^\u3063^\u305F^\u306A^\u3002^\\n"
+      English: z.\nT^h^e^r^e^ w^e^r^e^ m^a^n^y ^m^i^l^l^i^o^n^a^i^r^e^s^ a^n^d^ a^r^i^s^t^o^c^r^a^t^s^
+        t^o^d^a^y^.\n

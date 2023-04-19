@@ -21,6 +21,8 @@ public class UICont1 : MonoBehaviour
     [SerializeField]
     private GameObject tutrialExp;
     [SerializeField]
+    private Sprite[] _turtrialSprites = new Sprite[2];
+    [SerializeField]
     private GameObject haveMoneyPanel;
     [SerializeField]
     private GameObject slaveTurnPanel;
@@ -136,7 +138,12 @@ public class UICont1 : MonoBehaviour
     [SerializeField]
     private GameObject getItemFlame;
     [SerializeField]
+    private Text getItemExpText; //アイテム獲得
+    [SerializeField]
     private Text getExpText; //一言
+    [SerializeField]
+    private Text getChildText; //子分
+    private string getChildS;
     private string getPorS; //ポーションorカブ格納
 
 
@@ -221,6 +228,8 @@ public class UICont1 : MonoBehaviour
     private bool _strStaste = true;
     //戦略選択チェック
     public int SelectStr;
+    private const float WaitSecondsJP = 0.03f;
+    private const float WaitSecondsEN = 0.007f;
 
     void Start()
     {
@@ -347,6 +356,21 @@ public class UICont1 : MonoBehaviour
             }
         }
 
+        /*--------SE--------*/
+
+        if(ReadNow)
+        {
+            if(!soundA.CheckReadSE())
+            {
+                //テキストを表示している間再生
+                soundA.PlayReadSe(textFlowSE);
+            }
+        }
+        else
+        {
+            soundA.StopSE();
+        }
+
         //チュートリアル
         if(ParameterCalc.instanceCalc.InitialPlay)
         {
@@ -400,6 +424,7 @@ public class UICont1 : MonoBehaviour
                     if(!_strStaste)return;
                     _strExpText._DoSetFirst = true;
                     _strExpText.SetFirstExp();
+                    ReadNow = false;
                     _strStaste = false;
                     if (!openPanel)
                     {
@@ -440,6 +465,7 @@ public class UICont1 : MonoBehaviour
                     if(_strStaste)return;
                     _strExpText._DoSetFirst = true;
                     _strExpText.SetFirstExp();
+                    ReadNow = false;
                     _strStaste = true;
                     if (!openPanel)
                     {
@@ -508,47 +534,41 @@ public class UICont1 : MonoBehaviour
                     break;
             }
         }
-
-        /*--------SE--------*/
-
-        if(ReadNow)
-        {
-            if(!soundA.CheckReadSE())
-            {
-                //テキストを表示している間再生
-                soundA.PlayReadSe(textFlowSE);
-            }
-        }
-        else
-        {
-            soundA.StopSE();
-        }
     }
 
     //戦略選択
     public void SetGossip()
     {
+        if(ReadNow)return;
         SelectStr = 1;
+        PushButtonSE_A();
     }
 
     public void SetPray()
     {
+        if(ReadNow)return;
         SelectStr = 2;
+        PushButtonSE_A();
     }
-
     public void SetSteal()
     {
+        if(ReadNow)return;
         SelectStr = 3;
+        PushButtonSE_A();
     }
 
     public void SetKill()
     {
+        if(ReadNow)return;
         SelectStr = 4;
+        PushButtonSE_A();
     }
 
     public void SetDeal()
     {
+        if(ReadNow)return;
         SelectStr = 5;
+        PushButtonSE_A();
     }
 
     //戦略決定
@@ -761,7 +781,7 @@ public class UICont1 : MonoBehaviour
                     serifTmp2 = _languageCnt.Scene1LanguaeData[44] + ParameterCalc.instanceCalc.PubliRisk[ParameterCalc.instanceCalc.PubliWay] * 100 + _languageCnt.Scene1LanguaeData[45];
                     break;
                 case "English":
-                    serifTmp1 = _languageCnt.Scene1LanguaeData[43] + ParameterCalc.instanceCalc.PubliWayPay + "z？";
+                    serifTmp1 = _languageCnt.Scene1LanguaeData[43] + ParameterCalc.instanceCalc.PubliWayPay + "z.";
                     serifTmp2 = _languageCnt.Scene1LanguaeData[44] + ParameterCalc.instanceCalc.PubliRisk[ParameterCalc.instanceCalc.PubliWay] * 100 + _languageCnt.Scene1LanguaeData[45];
                     break;                        
             }        
@@ -789,18 +809,40 @@ public class UICont1 : MonoBehaviour
         foreach (var word in words)
         {
             publiPlayerText.text = publiPlayerText.text + word;
-            yield return new WaitForSeconds(0.05f);
+            switch(_languageCnt.LanguageState_Scene1)
+            {
+            case "Japanese":
+                yield return new WaitForSeconds(WaitSecondsJP);
+                break;
+            case "English":
+                yield return new WaitForSeconds(WaitSecondsEN);
+                break;                        
+            }
         }
+
+        //改行コード変換
+        if (publiOtherSayTmp.Contains("\\n"))
+        {
+            publiOtherSayTmp = publiOtherSayTmp.Replace(@"\n", Environment.NewLine);
+        }
+
         words = publiOtherSayTmp.Split('^');
         
         foreach (var word in words)
         {
             publiOtherText.text = publiOtherText.text + word;
-            yield return new WaitForSeconds(0.05f);
+            switch(_languageCnt.LanguageState_Scene1)
+            {
+            case "Japanese":
+                yield return new WaitForSeconds(WaitSecondsJP);
+                break;
+            case "English":
+                yield return new WaitForSeconds(WaitSecondsEN);
+                break;                        
+            }
         }
         ReadNow = false; //文字表示用SE終了
         runDispo = true; 
-        
     }
 
     /*----------取引パネル----------*/
@@ -849,6 +891,7 @@ public class UICont1 : MonoBehaviour
         {
             selectItem_D = 0;
             D_Apparent();
+            PushButtonSE_A();
         }
     }
 
@@ -864,8 +907,8 @@ public class UICont1 : MonoBehaviour
             {
                 selectItem_D = 3;
             }
-
             D_Apparent();
+            PushButtonSE_A();
         }
     }
     
@@ -881,8 +924,8 @@ public class UICont1 : MonoBehaviour
             {
                 selectItem_D = 4;
             }
-
             D_Apparent();
+            PushButtonSE_A();
         }
     }
 
@@ -891,7 +934,7 @@ public class UICont1 : MonoBehaviour
     public void StockCountUp()
     {
         var serifTmp = "";
-        ParameterCalc.instanceCalc.StockReceived += 10;
+        ParameterCalc.instanceCalc.StockReceived += 5;
         const int MaxQuantity = 500;
         int purchaseLimit = MaxQuantity - ParameterCalc.instanceCalc.StockQuantity;
         if(ParameterCalc.instanceCalc.StockReceived > purchaseLimit)
@@ -916,7 +959,7 @@ public class UICont1 : MonoBehaviour
     public void StockCountDown()
     {
         var serifTmp = "";
-        ParameterCalc.instanceCalc.StockReceived -= 10;
+        ParameterCalc.instanceCalc.StockReceived -= 5;
         if (ParameterCalc.instanceCalc.StockReceived < 0)
         {
             ParameterCalc.instanceCalc.StockReceived = 0;
@@ -972,7 +1015,7 @@ public class UICont1 : MonoBehaviour
             case 0: //剣強化
                 dealItem.text = dItemName[selectItem_D] + " Lv." + ParameterCalc.instanceCalc.BrSwordUpCount; //商品名
                 dNeedPrice.text = ParameterCalc.instanceCalc.BrSwordUp[ParameterCalc.instanceCalc.BrSwordUpCount] + _languageCnt.Scene1LanguaeData[47];
-                dOfferPrice.text = _languageCnt.Scene1LanguaeData[48] + ParameterCalc.instanceCalc.BrSwordSell[ParameterCalc.instanceCalc.BrSwordUpCount] + " → " + ParameterCalc.instanceCalc.BrSwordSell[ParameterCalc.instanceCalc.BrSwordUpCount + 1];
+                dOfferPrice.text = _languageCnt.Scene1LanguaeData[48] + ParameterCalc.instanceCalc.BrSwordSell[ParameterCalc.instanceCalc.BrSwordUpCount] + "z → " + ParameterCalc.instanceCalc.BrSwordSell[ParameterCalc.instanceCalc.BrSwordUpCount + 1] + "z";
                 dButton.text = _languageCnt.Scene1LanguaeData[49];
 
                 if (ParameterCalc.instanceCalc.HaveMoney >= ParameterCalc.instanceCalc.BrSwordUp[ParameterCalc.instanceCalc.BrSwordUpCount])
@@ -988,7 +1031,7 @@ public class UICont1 : MonoBehaviour
             case 1: //薬強化
                 dealItem.text = dItemName[selectItem_D] + " Lv." + ParameterCalc.instanceCalc.PotionUpCount; //商品名
                 dNeedPrice.text = ParameterCalc.instanceCalc.PotionUp[ParameterCalc.instanceCalc.PotionUpCount] + _languageCnt.Scene1LanguaeData[47];
-                dOfferPrice.text = _languageCnt.Scene1LanguaeData[48] + ParameterCalc.instanceCalc.PotionSell[ParameterCalc.instanceCalc.PotionUpCount] + " → " + ParameterCalc.instanceCalc.PotionSell[ParameterCalc.instanceCalc.PotionUpCount + 1];
+                dOfferPrice.text = _languageCnt.Scene1LanguaeData[48] + ParameterCalc.instanceCalc.PotionSell[ParameterCalc.instanceCalc.PotionUpCount] + "z → " + ParameterCalc.instanceCalc.PotionSell[ParameterCalc.instanceCalc.PotionUpCount + 1] + "z";
                 dButton.text = _languageCnt.Scene1LanguaeData[49];
                 
                 if (ParameterCalc.instanceCalc.HaveMoney >= ParameterCalc.instanceCalc.PotionUp[ParameterCalc.instanceCalc.PotionUpCount])
@@ -1006,6 +1049,15 @@ public class UICont1 : MonoBehaviour
                 dNeedPrice.text = ParameterCalc.instanceCalc.StockGet * ParameterCalc.instanceCalc.StockReceived + _languageCnt.Scene1LanguaeData[47];
                 dOfferPrice.text = _languageCnt.Scene1LanguaeData[48] + ParameterCalc.instanceCalc.StockSell + _languageCnt.Scene1LanguaeData[51];
                 dButton.text = _languageCnt.Scene1LanguaeData[50];
+                //0個以上かつ買える時はインタラクティブ
+                if (ParameterCalc.instanceCalc.HaveMoney >= ParameterCalc.instanceCalc.StockGet * ParameterCalc.instanceCalc.StockReceived && 0 < ParameterCalc.instanceCalc.StockReceived)
+                {
+                    dealButton.interactable = true;
+                }
+                else
+                {
+                    dealButton.interactable = false;
+                }
                 stockCountPanel.SetActive(true); //株専用パネルオン
                 stockCountText.text = "" + ParameterCalc.instanceCalc.StockReceived;
                 break;
@@ -1127,8 +1179,15 @@ public class UICont1 : MonoBehaviour
         {
             // 0.1秒刻みで１文字ずつ表示する。
             dExpText.text = dExpText.text + word;
-            yield return new WaitForSeconds(0.02f);
-
+            switch(_languageCnt.LanguageState_Scene1)
+            {
+            case "Japanese":
+                yield return new WaitForSeconds(WaitSecondsJP);
+                break;
+            case "English":
+                yield return new WaitForSeconds(WaitSecondsEN);
+                break;                        
+            }
         }
 
         //主人公のセリフ
@@ -1138,7 +1197,15 @@ public class UICont1 : MonoBehaviour
         {
             // 0.1秒刻みで１文字ずつ表示する。
             foxyText.text = foxyText.text + word;
-            yield return new WaitForSeconds(0.08f);
+            switch(_languageCnt.LanguageState_Scene1)
+            {
+            case "Japanese":
+                yield return new WaitForSeconds(WaitSecondsJP);
+                break;
+            case "English":
+                yield return new WaitForSeconds(WaitSecondsEN);
+                break;                        
+            }
         }
         ReadNow = false; //文字表示用SE終了
         runDispo = true; //他のパネルの選択を可能にする
@@ -1171,7 +1238,15 @@ public class UICont1 : MonoBehaviour
         foreach (var word in words)
         {
             foxyText.text = foxyText.text + word;
-            yield return new WaitForSeconds(0.08f);
+            switch(_languageCnt.LanguageState_Scene1)
+            {
+            case "Japanese":
+                yield return new WaitForSeconds(WaitSecondsJP);
+                break;
+            case "English":
+                yield return new WaitForSeconds(WaitSecondsEN);
+                break;                        
+            }
         }
         ReadNow = false; //文字表示用SE終了
         //runDispo = true; 
@@ -1282,6 +1357,8 @@ public class UICont1 : MonoBehaviour
 
     public void GetFirst()
     {
+        getExpText.text = "";
+        getChildText.text = "";
         //アイテム獲得パネルのコンポーネント取得
         Image getSpriteItem = getItemFlame.GetComponent<Image>(); //スプライト入れ替え用
         mainUI.gameObject.SetActive(true);
@@ -1291,15 +1368,18 @@ public class UICont1 : MonoBehaviour
         //狐の会話をオフ、処理の終わりにオン
         clickJudge = false;
         var stringTmp = "";
+
         if (potionRepleIvent && havePotionN)
         {
             getItemPanel.gameObject.SetActive(true);
             getSpriteItem.sprite = havePotion; //画像入れ替え
             //getPorS = " こ う か な く す り の 　　　　　　交 易 ル ー ト が 確 立 し た よ ! ! ";
-            stringTmp = _languageCnt.Scene1LanguaeData[32] + "\n" + _languageCnt.Scene1LanguaeData[61];
+            stringTmp = _languageCnt.Scene1LanguaeData[78] + "\n" + _languageCnt.Scene1LanguaeData[61];
             getPorS = stringTmp;
             if(runDispo)
             {
+                getItemExpText.text =  _languageCnt.Scene1LanguaeData[77];
+                getChildS = _languageCnt.Scene1LanguaeData[76];
                 StartCoroutine(Get_Goods());
             }
             potionRepleIvent = false;
@@ -1312,9 +1392,14 @@ public class UICont1 : MonoBehaviour
             getItemPanel.gameObject.SetActive(true); //株だけ
             getSpriteItem.sprite = haveStock; //画像入れ替え
             //getPorS = " ま ぼ ろ し の か ぶ の 　　　　　　交 易 ル ー ト が 確 立 し た よ ! ! ";
-            stringTmp = _languageCnt.Scene1LanguaeData[33] + "\n" + _languageCnt.Scene1LanguaeData[61];
+            stringTmp = _languageCnt.Scene1LanguaeData[79] + "\n" + _languageCnt.Scene1LanguaeData[61];
             getPorS = stringTmp;
-            StartCoroutine(Get_Goods());
+            if(runDispo)
+            {
+                getItemExpText.text =  _languageCnt.Scene1LanguaeData[77];
+                getChildS = _languageCnt.Scene1LanguaeData[76];
+                StartCoroutine(Get_Goods());
+            }
             stockRepleIvent = false;
             //アイテム選択画面用
             haveStockN = true;
@@ -1334,9 +1419,10 @@ public class UICont1 : MonoBehaviour
     //アイテム解放のテキスト処理
     IEnumerator Get_Goods()
     {
-        yield return new WaitForSeconds(1.0f);
-        getExpText.text = "";
         runDispo = false;//処理中に他のパネルの選択を出来なくする
+        yield return new WaitForSeconds(1.0f);
+        // getExpText.text = "";
+        // getChildText.text = "";
         ReadNow = true; //文字表示用SE開始
 
         // 半角スペースで文字を分割する。
@@ -1346,8 +1432,35 @@ public class UICont1 : MonoBehaviour
         {
             // 0.1秒刻みで１文字ずつ表示する
             getExpText.text = getExpText.text + word;
-            yield return new WaitForSeconds(0.1f);
+            switch(_languageCnt.LanguageState_Scene1)
+            {
+            case "Japanese":
+                yield return new WaitForSeconds(WaitSecondsJP);
+                break;
+            case "English":
+                yield return new WaitForSeconds(WaitSecondsEN);
+                break;                        
+            }
         }
+
+        // 半角スペースで文字を分割する。
+        words = getChildS.Split('^');
+
+        foreach (var word in words)
+        {
+            // 0.1秒刻みで１文字ずつ表示する
+            getChildText.text = getChildText.text + word;
+            switch(_languageCnt.LanguageState_Scene1)
+            {
+            case "Japanese":
+                yield return new WaitForSeconds(WaitSecondsJP);
+                break;
+            case "English":
+                yield return new WaitForSeconds(WaitSecondsEN);
+                break;                        
+            }
+        }
+
         runDispo = true; //他のパネルの選択を可能にする
         ReadNow = false; //文字表示用SE終了  
     }
@@ -1390,6 +1503,17 @@ public class UICont1 : MonoBehaviour
 
             case 5:
                 tutrialExp.gameObject.SetActive(true);
+                Image tutrialExpImage = tutrialExp.GetComponent<Image>();
+                //チュートリアル画像入れ替え
+                switch(_languageCnt.LanguageState_Scene1)
+                {
+                    case "Japanese":
+                        tutrialExpImage.sprite = _turtrialSprites[0];
+                        break;
+                    case "English":
+                        tutrialExpImage.sprite = _turtrialSprites[1];
+                        break;
+                }
                 mainUI.gameObject.SetActive(true);
                 foxDia1.gameObject.SetActive(false);
                 haveMoneyPanel.gameObject.SetActive(false);
@@ -1513,6 +1637,7 @@ public class UICont1 : MonoBehaviour
         //主人公のアニメが終わったらパネルを開く
         if(FinClearAnim)
         {
+            clickJudge = false;
             gameClearPanel.SetActive(true);
             clearResultText.text = ParameterCalc.instanceCalc.OutPutResult;   
         }

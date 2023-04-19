@@ -26,6 +26,8 @@ public class LogSystem : MonoBehaviour
     private int _corutineCount;
     private string _logTmp;
     private string languageType;
+    private const float WaitSecondsJP = 0.03f;
+    private const float WaitSecondsEN = 0.007f;
 
     void Start()
     {
@@ -77,26 +79,6 @@ public class LogSystem : MonoBehaviour
                 break;
         }
 
-        if (ParameterCalc.instanceCalc.TodaySlave > 0)
-        {
-            //_logText += " 貧 民 は 支 払 え ず 、〇 人 負 債 者 と な っ た 。 \n";
-            _logTmp += _languageCnt.Scene3LanguaeData[5];
-            if(_languageCnt.LanguageState_Scene3 == "English")
-            {          
-                _logTmp += "T^h^e^ " + ParameterCalc.instanceCalc.TodaySlave + _languageCnt.Scene3LanguaeData[5];
-            }
-            else
-            {
-                _logTmp += ParameterCalc.instanceCalc.TodaySlave + _languageCnt.Scene3LanguaeData[5];
-            }
-        }
-
-        //祈り
-        if(ParameterCalc.instanceCalc.TodayPrayValue > 0)
-        {
-            _logTmp += _languageCnt.Scene3LanguaeData[42] + ParameterCalc.instanceCalc.TodayPrayValue + _languageCnt.Scene3LanguaeData[43];
-        }
-
         if (ParameterCalc.instanceCalc.usePubli)
         {
             if(ParameterCalc.instanceCalc.PubliSuccess)
@@ -141,17 +123,19 @@ public class LogSystem : MonoBehaviour
         //来店
         for (int i = 0; i <= ParameterCalc.instanceCalc.GenePeopleCount; i++ )
         {
+            int[] tmpReceveMoneyInt = new int[5];
+            tmpReceveMoneyInt[i] =  (int)ParameterCalc.instanceCalc.ReceiveMoney[i];
             switch (ParameterCalc.instanceCalc.GenePeopleType[i])
             {
                 case 0://貧民
                     //peopleKindText[i] = " 貧 民 か ら " + ParameterCalc.instanceCalc.ReceiveMoney[i] + " z 得 た 。 \n";
                     if(_languageCnt.LanguageState_Scene3 == "English")
                     {          
-                        peopleKindText[i] = _languageCnt.Scene3LanguaeData[13] + ParameterCalc.instanceCalc.ReceiveMoney[i] +  _languageCnt.Scene3LanguaeData[14] + _languageCnt.Scene3LanguaeData[33];
+                        peopleKindText[i] = _languageCnt.Scene3LanguaeData[13] + tmpReceveMoneyInt[i] +  _languageCnt.Scene3LanguaeData[14] + _languageCnt.Scene3LanguaeData[33];
                     }
                     else
                     {
-                        peopleKindText[i] = _languageCnt.Scene3LanguaeData[33] + _languageCnt.Scene3LanguaeData[13] + ParameterCalc.instanceCalc.ReceiveMoney[i] +  _languageCnt.Scene3LanguaeData[14];
+                        peopleKindText[i] = _languageCnt.Scene3LanguaeData[33] + _languageCnt.Scene3LanguaeData[13] + tmpReceveMoneyInt[i] +  _languageCnt.Scene3LanguaeData[14];
                     }
                     break;
 
@@ -159,11 +143,11 @@ public class LogSystem : MonoBehaviour
                     //peopleKindText[i] = " 市 民 か ら " + ParameterCalc.instanceCalc.ReceiveMoney[i] + " z 得 た 。 \n";
                     if(_languageCnt.LanguageState_Scene3 == "English")
                     {          
-                        peopleKindText[i] = _languageCnt.Scene3LanguaeData[13] + ParameterCalc.instanceCalc.ReceiveMoney[i] +  _languageCnt.Scene3LanguaeData[14] + _languageCnt.Scene3LanguaeData[34];
+                        peopleKindText[i] = _languageCnt.Scene3LanguaeData[13] + tmpReceveMoneyInt[i] +  _languageCnt.Scene3LanguaeData[14] + _languageCnt.Scene3LanguaeData[34];
                     }
                     else
                     {
-                        peopleKindText[i] = _languageCnt.Scene3LanguaeData[34] + _languageCnt.Scene3LanguaeData[13] + ParameterCalc.instanceCalc.ReceiveMoney[i] +  _languageCnt.Scene3LanguaeData[14];
+                        peopleKindText[i] = _languageCnt.Scene3LanguaeData[34] + _languageCnt.Scene3LanguaeData[13] + tmpReceveMoneyInt[i] +  _languageCnt.Scene3LanguaeData[14];
                     }
                     break;
 
@@ -171,11 +155,11 @@ public class LogSystem : MonoBehaviour
                     //peopleKindText[i] = " 富 豪 か ら " + ParameterCalc.instanceCalc.ReceiveMoney[i] + " z 得 た 。 \n";
                     if(_languageCnt.LanguageState_Scene3 == "English")
                     {          
-                        peopleKindText[i] = _languageCnt.Scene3LanguaeData[13] + ParameterCalc.instanceCalc.ReceiveMoney[i] +  _languageCnt.Scene3LanguaeData[14] + _languageCnt.Scene3LanguaeData[35];
+                        peopleKindText[i] = _languageCnt.Scene3LanguaeData[13] + tmpReceveMoneyInt[i] +  _languageCnt.Scene3LanguaeData[14] + _languageCnt.Scene3LanguaeData[35];
                     }
                     else
                     {
-                        peopleKindText[i] = _languageCnt.Scene3LanguaeData[35] + _languageCnt.Scene3LanguaeData[13] + ParameterCalc.instanceCalc.ReceiveMoney[i] +  _languageCnt.Scene3LanguaeData[14];
+                        peopleKindText[i] = _languageCnt.Scene3LanguaeData[35] + _languageCnt.Scene3LanguaeData[13] + tmpReceveMoneyInt[i] +  _languageCnt.Scene3LanguaeData[14];
                     }
                     break;
 
@@ -183,15 +167,28 @@ public class LogSystem : MonoBehaviour
                     //peopleKindText[i] = " 貴 族 か ら " + ParameterCalc.instanceCalc.ReceiveMoney[i] + " z 得 た 。 \n";
                     if(_languageCnt.LanguageState_Scene3 == "English")
                     {          
-                        peopleKindText[i] = _languageCnt.Scene3LanguaeData[13] + ParameterCalc.instanceCalc.ReceiveMoney[i] +  _languageCnt.Scene3LanguaeData[14] + _languageCnt.Scene3LanguaeData[36];
+                        peopleKindText[i] = _languageCnt.Scene3LanguaeData[13] + tmpReceveMoneyInt[i] +  _languageCnt.Scene3LanguaeData[14] + _languageCnt.Scene3LanguaeData[36];
                     }
                     else
                     {
-                        peopleKindText[i] = _languageCnt.Scene3LanguaeData[36] + _languageCnt.Scene3LanguaeData[13] + ParameterCalc.instanceCalc.ReceiveMoney[i] +  _languageCnt.Scene3LanguaeData[14];
+                        peopleKindText[i] = _languageCnt.Scene3LanguaeData[36] + _languageCnt.Scene3LanguaeData[13] + tmpReceveMoneyInt[i] +  _languageCnt.Scene3LanguaeData[14];
                     }
                     break;
             }
             _logTmp += peopleKindText[i];
+        }
+
+        if (ParameterCalc.instanceCalc.TodaySlave > 0)
+        {
+            //_logText += " 貧 民 は 支 払 え ず 、〇 人 負 債 者 と な っ た 。 \n";
+            if(_languageCnt.LanguageState_Scene3 == "English")
+            {          
+                _logTmp += "T^h^e^ " + ParameterCalc.instanceCalc.TodaySlave + _languageCnt.Scene3LanguaeData[5];
+            }
+            else
+            {
+                _logTmp += ParameterCalc.instanceCalc.TodaySlave + _languageCnt.Scene3LanguaeData[5];
+            }
         }
 
         //薬の売却による犯罪度上昇
@@ -207,6 +204,12 @@ public class LogSystem : MonoBehaviour
             //_logText += " お 礼 と し て "+ ParameterCalc.instanceCalc.RebellionEarnedMoney + " z 得 た 。 \n";
             _logTmp += _languageCnt.Scene3LanguaeData[15];         
             _logTmp += _languageCnt.Scene3LanguaeData[16] + ParameterCalc.instanceCalc.RebellionEarnedMoney + _languageCnt.Scene3LanguaeData[17];
+        }
+
+        //祈り
+        if(ParameterCalc.instanceCalc.TodayPrayValue > 0)
+        {
+            _logTmp += _languageCnt.Scene3LanguaeData[42] + ParameterCalc.instanceCalc.TodayPrayValue + _languageCnt.Scene3LanguaeData[43];
         }
 
         /*
@@ -348,7 +351,15 @@ public class LogSystem : MonoBehaviour
         {
             // 0.1秒刻みで１文字ずつ表示する。
             changeLogTex.text = changeLogTex.text + word;
-            yield return new WaitForSeconds(0.04f);
+            switch(_languageCnt.LanguageState_Scene3)
+            {
+            case "Japanese":
+                yield return new WaitForSeconds(WaitSecondsJP);
+                break;
+            case "English":
+                yield return new WaitForSeconds(WaitSecondsEN);
+                break;                        
+            }
         }
         _corutineCount = 0;
         readNowLog = false; //文字表示用SE終了

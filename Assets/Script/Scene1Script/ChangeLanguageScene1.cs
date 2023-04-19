@@ -11,7 +11,7 @@ public class ChangeLanguageScene1 : MonoBehaviour
     private Text[] _menuPanels = new Text[6];
     [SerializeField]
     private Text[] _buttonUIs = new Text[3];
-    public string[] Scene1LanguaeData = new string[76];
+    public string[] Scene1LanguaeData = new string[80];
     [SerializeField]
     private Image _turtrialImage;
     [SerializeField]
@@ -44,7 +44,7 @@ public class ChangeLanguageScene1 : MonoBehaviour
             _menuPanels[i].text = stringData[n];
         }
 
-        for(int i = 0; i < 76; i++)
+        for(int i = 0; i < 80; i++)
         {
             Scene1LanguaeData[i] = stringData[i];
         }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -56,6 +57,9 @@ public class SaveControl : MonoBehaviour
         writer.Write("targetAmount", ParameterCalc.instanceCalc.TargetAmount);
         writer.Write("haveMoney", ParameterCalc.instanceCalc.HaveMoney);
         writer.Write("poor", ParameterCalc.instanceCalc.Poor);
+        writer.Write("poorCount", ParameterCalc.instanceCalc.PoorCount);
+        writer.Write("nowPoorMoney", ParameterCalc.instanceCalc.nowPoorMoney);
+
         writer.Write("general", ParameterCalc.instanceCalc.General);
         writer.Write("millionaire", ParameterCalc.instanceCalc.Millionaire);
         writer.Write("noble", ParameterCalc.instanceCalc.Noble);
@@ -63,7 +67,6 @@ public class SaveControl : MonoBehaviour
         writer.Write("rebellionGeneralCount", ParameterCalc.instanceCalc.RebellionGeneralCount);
         writer.Write("crimeRate", ParameterCalc.instanceCalc.CrimeRate);
         writer.Write("slave", ParameterCalc.instanceCalc.Slave);
-        writer.Write("poorMoney", ParameterCalc.instanceCalc.PoorMoney);
 
         writer.Write("brSwordUpCount", ParameterCalc.instanceCalc.BrSwordUpCount);
 
@@ -100,13 +103,15 @@ public class SaveControl : MonoBehaviour
         ParameterCalc.instanceCalc.TargetAmount = reader.Read<int>("targetAmount");
         ParameterCalc.instanceCalc.HaveMoney = reader.Read<int>("haveMoney");
         ParameterCalc.instanceCalc.Poor = reader.Read<float>("poor");
+        ParameterCalc.instanceCalc.PoorCount = reader.Read<int>("poorCount");
+        ParameterCalc.instanceCalc.nowPoorMoney = reader.Read<float>("nowPoorMoney");
+
         ParameterCalc.instanceCalc.General = reader.Read<float>("general");
         ParameterCalc.instanceCalc.Millionaire = reader.Read<float>("millionaire");
         ParameterCalc.instanceCalc.Noble = reader.Read<float>("noble");
         ParameterCalc.instanceCalc.RebellionGeneralCount = reader.Read<int>("rebellionGeneralCount");
         ParameterCalc.instanceCalc.CrimeRate = reader.Read<float>("crimeRate");
         ParameterCalc.instanceCalc.Slave = reader.Read<int>("slave");
-        ParameterCalc.instanceCalc.PoorMoney = reader.Read<float>("poorMoney");
 
         ParameterCalc.instanceCalc.BrSwordUpCount = reader.Read<int>("brSwordUpCount");
 
@@ -128,32 +133,42 @@ public class SaveControl : MonoBehaviour
 
         //商品の価格を初期値から計算しセット
         int i = 0;
-        int[] brSwordSell = new int[100];
-        int[] brSwordUp = new int[100];
-        int[] potionSell = new int[100];
-        int[] potionUp = new int[100];
+        double[] brSwordSell = new double[100];
+        double[] brSwordUp = new double[100];
+        double[] potionSell = new double[100];
+        double[] potionUp = new double[100];
 
         while (i < 100)
         {
             if(i < 2)
             {
-                brSwordSell[i] = reader.Read<int>("brSwordSell");
-                brSwordUp[i] = reader.Read<int>("brSwordUp");
-                potionSell[i] = reader.Read<int>("potionSell");
-                potionUp[i] = reader.Read<int>("potionUp");
+                brSwordSell[i] = reader.Read<double>("brSwordSell");
+                brSwordUp[i] = reader.Read<double>("brSwordUp");
+                potionSell[i] = reader.Read<double>("potionSell");
+                potionUp[i] = reader.Read<double>("potionUp");
             }
             else
             {
-                brSwordSell[i] = brSwordSell[i-1] + brSwordSell[i-2];
-                brSwordUp[i] = brSwordUp[i-1] + brSwordUp[i-2];
-                potionSell[i] = potionSell[i-1] + potionSell[i-2];
-                potionUp[i] = potionUp[i-1] + potionUp[i-2];
+                const float factor = 1.2f;
+                const float leverageSell = 150.0f;
+                const float leverageUp = 100.0f;
+                brSwordSell[i] = brSwordSell[i-1] * factor + i * leverageSell;
+                brSwordSell[i] = Math.Floor(brSwordSell[i] / 100.0) * 100.0;
+
+                brSwordUp[i] = brSwordUp[i-1] * factor + i * leverageUp;
+                brSwordUp[i] = Math.Floor(brSwordUp[i] / 100.0) * 100.0;
+
+                potionSell[i] = potionSell[i-1] * factor + i * leverageSell;
+                potionSell[i] = Math.Floor(potionSell[i] / 100.0) * 100.0;
+
+                potionUp[i] = potionUp[i-1] * factor + i * leverageUp;
+                potionUp[i] = Math.Floor(potionUp[i] / 100.0) * 100.0;
             }
             //計算結果の格納
-            ParameterCalc.instanceCalc.BrSwordSell[i] = brSwordSell[i];
-            ParameterCalc.instanceCalc.BrSwordUp[i] = brSwordUp[i];
-            ParameterCalc.instanceCalc.PotionSell[i] = potionSell[i];
-            ParameterCalc.instanceCalc.PotionUp[i] = potionUp[i];
+            ParameterCalc.instanceCalc.BrSwordSell[i] = (float)brSwordSell[i];
+            ParameterCalc.instanceCalc.BrSwordUp[i] = (float)brSwordUp[i];
+            ParameterCalc.instanceCalc.PotionSell[i] = (float)potionSell[i];
+            ParameterCalc.instanceCalc.PotionUp[i] = (float)potionUp[i];
             i++;
         }
 
@@ -174,6 +189,29 @@ public class SaveControl : MonoBehaviour
             ParameterCalc.instanceCalc.Paycheck[i] = payCheck[i];
             i++;
         }
+
+        //貧民の財布
+        i = 0;
+        double[] poorMoney = new double[100];
+        while (i < 100)
+        {
+            if(i < 1)
+            {
+                poorMoney[i] = reader.Read<double>("poorMoney");
+            }
+            else
+            {
+                const float factor = 1.2f;
+                const float leverage = 100.0f;
+                poorMoney[i] = poorMoney[i-1] * factor + i * leverage;
+                poorMoney[i] = Math.Floor(poorMoney[i] / 100.0) * 100.0;
+            }
+            ParameterCalc.instanceCalc.PoorMoney[i] = (float)poorMoney[i];
+            i++;
+        }
+
+        //貧民の現在所持金
+        ParameterCalc.instanceCalc.PoorMoney[ParameterCalc.instanceCalc.PoorCount] = ParameterCalc.instanceCalc.nowPoorMoney;
     }
 
     //データ削除
@@ -239,20 +277,23 @@ public class SaveControl : MonoBehaviour
         writer.Write("rebellionGeneralCount",0);
         writer.Write("crimeRate", 0.0);
         writer.Write("slave", 0);
-        writer.Write("poorMoney", 1000.0);
+        writer.Write("poorMoney", 1200.0);
+        writer.Write("poorCount", 0);
+        writer.Write("nowPoorMoney", 1200.0);
+        
 
-        writer.Write("brSwordSell", 400);
-        writer.Write("brSwordUp", 800);
+        writer.Write("brSwordSell", 400.0);
+        writer.Write("brSwordUp", 1200.0);
         writer.Write("brSwordUpCount", 1);
 
         writer.Write("potionGet", 3000);
-        writer.Write("potionSell", 800);
-        writer.Write("potionUp", 1000);
+        writer.Write("potionSell", 1200.0);
+        writer.Write("potionUp", 2400.0);
         writer.Write("potionUpCount", 0);
         writer.Write("havePotionJ", false);
 
-        writer.Write("stockGet", 100);
-        writer.Write("stockSell", 300);
+        writer.Write("stockGet", 500);
+        writer.Write("stockSell", 200);
         writer.Write("stockOpen", 5000);
         writer.Write("haveStockJ", false);
         writer.Write("stockQuantity", 0);

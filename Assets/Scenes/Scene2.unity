@@ -11126,7 +11126,7 @@ MonoBehaviour:
   sliderBGM: {fileID: 374408803}
   sliderSE: {fileID: 746120999}
   textBGM: {fileID: 1991597970}
-  textSE: {fileID: 1896110071}
+  textSE: {fileID: 1526597310}
   LanguageMode: 
 --- !u!224 &1514713043
 RectTransform:

@@ -26,6 +26,11 @@ public class GameSettings : MonoBehaviour
     private Text textSE;
     public string LanguageMode;
 
+    void Awake()
+    {
+        Application.targetFrameRate = 30;
+    }
+
     void Start()
     {
         soundManager = GameObject.Find("SoundManager").GetComponent<SoundCnt> ();
