@@ -5,6 +5,7 @@
 -a="E:\gitFork\GainFoxes\Library\PlayerScriptAssemblies\Unity.TextMeshPro.dll"
 -a="E:\gitFork\GainFoxes\Library\PlayerScriptAssemblies\UnityEngine.UI.dll"
 -a="E:\gitFork\GainFoxes\Library\PlayerScriptAssemblies\Unity.VisualScripting.Flow.dll"
+-a="E:\gitFork\GainFoxes\Library\PlayerScriptAssemblies\com.rlabrecque.steamworks.net.dll"
 -a="E:\gitFork\GainFoxes\Library\PlayerScriptAssemblies\Unity.VisualScripting.State.dll"
 -a="E:\gitFork\GainFoxes\Library\PlayerScriptAssemblies\Unity.VisualScripting.Core.dll"
 -a="E:\gitFork\GainFoxes\Library\PackageCache\com.unity.nuget.newtonsoft-json@3.1.0\Runtime\AOT\Newtonsoft.Json.dll"

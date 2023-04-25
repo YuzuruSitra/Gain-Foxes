@@ -29,6 +29,8 @@ public class Volume2 : MonoBehaviour
     private GameObject talkPanel2;
     //画面遷移
     private bool trnOne;
+    [SerializeField]
+    private AchievementManager _achievementManager;
 
     //サウンド用スクリプト取得
 	[SerializeField] 
@@ -48,6 +50,8 @@ public class Volume2 : MonoBehaviour
         /*---bgm設定---*/
         soundB = GameObject.Find("SoundManager").GetComponent<SoundCnt> ();
         soundB.PlayBgm(sceneB_BGM);
+        // 実績用クラス
+        _achievementManager = GameObject.Find("AchievementManager").GetComponent<AchievementManager> ();
 
         trnOne = true;
         SpriteRenderer spriteToolFlame = toolFlame.GetComponent<SpriteRenderer>();
@@ -115,11 +119,15 @@ public class Volume2 : MonoBehaviour
     private IEnumerator GenePeople()
     {
         int cp = 0;
+        if(ParameterCalc.instanceCalc.GenePeopleCount == 4)
+        {
+            _achievementManager.statsAPIs["fullComing"] += 1;
+        }
 
         while (cp <= ParameterCalc.instanceCalc.GenePeopleCount)
         {
-            
-            Instantiate(peopleIns[ParameterCalc.instanceCalc.GenePeopleType[cp]], this.transform.position, Quaternion.identity);
+            int tmpKind = ParameterCalc.instanceCalc.GenePeopleType[cp];
+            Instantiate(peopleIns[tmpKind], this.transform.position, Quaternion.identity);
             yield return new WaitForSeconds(2.5f);
             cp++;
         }

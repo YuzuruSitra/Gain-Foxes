@@ -10,6 +10,9 @@ public class ParameterCalc : MonoBehaviour
     //セーブ管理用
     [SerializeField] 
     private SaveControl saveControl; 
+    // 実績用クラス
+    [SerializeField]
+    private AchievementManager _achievementManager;
     
     /* パラメータ宣言 */
 
@@ -18,6 +21,8 @@ public class ParameterCalc : MonoBehaviour
 
     //ターンカウント
     public int TurnCount = 0;
+    //クリア日
+    public int ClearDays = 0;
     //イベント施行タイミング用変数
     public int PopTurnEvent;
 
@@ -131,6 +136,8 @@ public class ParameterCalc : MonoBehaviour
         
         //初期化チェック
         saveControl.LoadNewGame();
+        // 実績用クラス
+        _achievementManager = GameObject.Find("AchievementManager").GetComponent<AchievementManager> ();
         
         if (!saveControl.NewGame)
         {
@@ -173,6 +180,8 @@ public class ParameterCalc : MonoBehaviour
 
         //商品選択
         ToolType = 0;
+
+        _achievementManager.LoadStat();
     }
 
     //データをロード
@@ -205,6 +214,7 @@ public class ParameterCalc : MonoBehaviour
     //交渉
     public void PubliCalc()
     {
+        _achievementManager.statsAPIs["negotiate"] += 1;
         Slave -= 1;
         HaveMoney -= PubliWayPay;
         usePubli = true;
@@ -315,8 +325,8 @@ public class ParameterCalc : MonoBehaviour
         //麻薬の犯罪率処理
         if(ToolType == 1)
         {
-            const float potionCrime = 10.0f;
-            TodayPotionCrime = potionCrime * GenePeopleCount + 1;
+            const float potionCrime = 9.0f;
+            TodayPotionCrime = potionCrime * ( GenePeopleCount + 1 );
             TodayCrime += TodayPotionCrime; 
         }
 
@@ -371,7 +381,6 @@ public class ParameterCalc : MonoBehaviour
                 if(TodayCrime < 0)
                 {
                     TodayCrime = 0.0f;
-                    TodayPrayValue -= (int)PlayValue;
                 }
     
                 if(CrimeRate < 0)
@@ -518,6 +527,7 @@ public class ParameterCalc : MonoBehaviour
         //罰金
         if(CrimeRate >= 100)
         {
+            _achievementManager.statsAPIs["penalty"] += 1;
             CrimeRate -= 100.0f;
             float tmp = (float)HaveMoney * 0.7f;
             FineMoneyInt = (int)tmp;
@@ -543,6 +553,7 @@ public class ParameterCalc : MonoBehaviour
 
         if (StealTaxjuge)
         {
+            _achievementManager.statsAPIs["beAttacked"] += 1;
             float tmpSteal = HaveMoney * 0.5f;;
             StealPeoplePay =  (int)tmpSteal;
             TotalPayment += StealPeoplePay;
@@ -558,10 +569,11 @@ public class ParameterCalc : MonoBehaviour
     void EventsJuge()
     {
         //クリア処理
-        if (HaveMoney > TargetAmount)
+        if (HaveMoney >= TargetAmount)
         {
             GameClear = true;
             ClearMethod();
+            ClearDays = TurnCount;
             PopTurnEvent = TurnCount + 1;
         }
         
@@ -575,6 +587,7 @@ public class ParameterCalc : MonoBehaviour
 
     void ClearMethod()
     {
+        _achievementManager.statsAPIs["gameClearCount"] += 1;
         //resultを変数に代入
         if (ResultScore[0] == 0)
         {

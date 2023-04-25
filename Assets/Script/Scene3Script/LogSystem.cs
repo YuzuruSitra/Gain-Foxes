@@ -11,7 +11,8 @@ public class LogSystem : MonoBehaviour
     private Text changeLogTex; //テキストを替えるオブジェクト
     private string[] peopleKindText = new string[5]; //種類ごとに出力するテキストを変更
 
-	[SerializeField] 
+	//音用クラス
+    [SerializeField] 
     private SoundCnt soundCLog;
 	[SerializeField] 
     private AudioClip logFlowSE;
@@ -20,6 +21,9 @@ public class LogSystem : MonoBehaviour
     //言語用のクラス
     [SerializeField]
     private ChangeLanguageScene3 _languageCnt;
+    // 実績用クラス
+    [SerializeField]
+    private AchievementManager _achievementManager;
     //ログシステムのコルーチン取得
     private IEnumerator _logSystemIEnumerator;
     private Coroutine _logSystemCoroutine;
@@ -33,11 +37,21 @@ public class LogSystem : MonoBehaviour
     {
         /*---bgm設定---*/
         soundCLog = GameObject.Find("SoundManager").GetComponent<SoundCnt> ();
+        // 実績用クラス
+        _achievementManager = GameObject.Find("AchievementManager").GetComponent<AchievementManager> ();
         //言語設定用
         _languageCnt = GameObject.Find("LanguageUI_Scene3").GetComponent<ChangeLanguageScene3> ();
         languageType = _languageCnt.LanguageState_Scene3;
         //_logSystemIEnumerator = WriteResult();
         _corutineCount = 0;
+        
+        AchievementCalc();
+    }
+
+    // 実績用処理
+    void AchievementCalc()
+    {
+        _achievementManager.statsAPIs["playTurn"] += 1;
     }
 
     void Update()

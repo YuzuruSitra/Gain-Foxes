@@ -10,6 +10,12 @@ public class SceneCnt3 : MonoBehaviour
     //セーブ管理用
     [SerializeField] 
     private SaveControl saveControl; 
+	//メニュー管理スクリプトの取得
+    [SerializeField]
+    private ESCCntrol _menuCnt3;
+	// 実績用クラス
+    [SerializeField]
+    private AchievementManager _achievementManager;
 	private float fadeSpeed = 0.8f;        //透明度が変わるスピードを管理
 	private float red, green, blue, alfa;   //パネルの色、不透明度を管理
 	public bool isFadeOut3 = false;  //フェードアウト処理の開始、完了を管理するフラグ
@@ -35,6 +41,8 @@ public class SceneCnt3 : MonoBehaviour
 		isFadeIn = true;
 		//コンポーネント取得・利用
         saveControl = GameObject.Find("SaveManager").GetComponent<SaveControl> ();
+		// 実績用クラス
+        _achievementManager = GameObject.Find("AchievementManager").GetComponent<AchievementManager> ();
 		fadeImage_C = fadePanel_C.GetComponent<Image>();
 
 		red = fadeImage_C.color.r;
@@ -45,6 +53,8 @@ public class SceneCnt3 : MonoBehaviour
 		//セーブ処理
 		saveControl.NewGame = false;
 		saveControl.Dosave();
+		//実績をsteamに反映
+		_achievementManager.PushStat();
 	}
 
 	void Update()
@@ -62,10 +72,12 @@ public class SceneCnt3 : MonoBehaviour
 
 	void StartFadeIn()
 	{
+		_menuCnt3.FadeNow3 = true;
 		alfa -= fadeSpeed * Time.deltaTime;
 		SetAlpha();                      
 		if (alfa <= 0)
-		{                    
+		{         
+			_menuCnt3.FadeNow3 = false;           
 			isFadeIn = false;
 			fadeImage_C.enabled = false;    
 		}
@@ -73,13 +85,14 @@ public class SceneCnt3 : MonoBehaviour
 
 	public void StartFadeOut()
 	{
+		_menuCnt3.FadeNow3 = true;
 		fadeImage_C.enabled = true;  
 		alfa += fadeSpeed * Time.deltaTime;         
 		SetAlpha();               
 		if (alfa >= 1)
 		{             
 			isFadeOut3 = false;
-
+			_menuCnt3.FadeNow3 = false; 
 			// //セーブ処理
 			// saveControl.NewGame = false;
 			// saveControl.Dosave();

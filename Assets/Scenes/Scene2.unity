@@ -11494,6 +11494,7 @@ MonoBehaviour:
   inGamePanel: {fileID: 1473803233}
   menuPanel: {fileID: 933819559}
   selectPanel: {fileID: 2033745805}
+  FadeNow2: 0
   tutorialExp: {fileID: 2114190408}
   settingsPanel: {fileID: 2126838448}
 --- !u!1 &1585363923
@@ -12382,8 +12383,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   volume2: {fileID: 0}
   sound2: {fileID: 0}
+  _menuCnt2: {fileID: 1585087610}
   fadePanelB: {fileID: 595471938}
-  pushButtonSE: {fileID: 0}
+  pushButtonSE: {fileID: 8300000, guid: 46690ea2113b5564f9fb2c8e3c8bfd57, type: 3}
 --- !u!114 &1732137429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12408,6 +12410,7 @@ MonoBehaviour:
   ShuAnim: 0
   talkPanel1: {fileID: 359620875}
   talkPanel2: {fileID: 1692701114}
+  _achievementManager: {fileID: 0}
   soundB: {fileID: 0}
   sceneB_BGM: {fileID: 8300000, guid: 393afe5a88a73ab4ca821eed55f2d6a9, type: 3}
   pushButtonSE: {fileID: 8300000, guid: 46690ea2113b5564f9fb2c8e3c8bfd57, type: 3}
@@ -15358,6 +15361,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 3242524370267545144, guid: 0691a632b9b6648428fe5cfdbdd2a9bf, type: 3}
+      propertyPath: m_Size.z
+      value: 3.48
+      objectReference: {fileID: 0}
     - target: {fileID: 3242524370267545145, guid: 0691a632b9b6648428fe5cfdbdd2a9bf, type: 3}
       propertyPath: m_Name
       value: Goalb
@@ -15394,7 +15401,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4151795805634340367, guid: 1cb3ddd0703eb42ffab64d05e31a7ae9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.236
+      value: -1.976
       objectReference: {fileID: 0}
     - target: {fileID: 4151795805634340367, guid: 1cb3ddd0703eb42ffab64d05e31a7ae9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -15443,6 +15450,14 @@ PrefabInstance:
     - target: {fileID: 4151795805634340848, guid: 1cb3ddd0703eb42ffab64d05e31a7ae9, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4151795805634340850, guid: 1cb3ddd0703eb42ffab64d05e31a7ae9, type: 3}
+      propertyPath: m_Size.x
+      value: 1.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 4151795805634340850, guid: 1cb3ddd0703eb42ffab64d05e31a7ae9, type: 3}
+      propertyPath: m_Size.z
+      value: 3.54
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1cb3ddd0703eb42ffab64d05e31a7ae9, type: 3}

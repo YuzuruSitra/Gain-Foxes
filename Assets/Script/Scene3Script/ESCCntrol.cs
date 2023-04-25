@@ -8,6 +8,7 @@ public class ESCCntrol : MonoBehaviour
     //ログシステム
     [SerializeField]
     private LogSystem _logSystem;
+    public bool FadeNow3 = false;
 
     //チュートリアルパネルを展開しているか
     private bool openTutorialPanel;
@@ -41,6 +42,7 @@ public class ESCCntrol : MonoBehaviour
     }
     void Update()
     {
+        if(FadeNow3) return;
         //ESCでメニューを開き、もう一度押すと閉じる
         if (Input.GetKeyDown(KeyCode.Escape))
         {

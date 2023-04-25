@@ -4408,18 +4408,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 665684621}
-        m_TargetAssemblyTypeName: UIContA, Assembly-CSharp
-        m_MethodName: PushButtonSE_A
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &398646326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7566,6 +7554,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneCnt1: {fileID: 1360150864}
   _languageCnt: {fileID: 0}
+  _achievementManager: {fileID: 0}
   _strExpText: {fileID: 0}
   tutrialExp: {fileID: 1917024285}
   _turtrialSprites:
@@ -8724,6 +8713,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiCont1: {fileID: 665684621}
+  FadeNow1: 0
   inGamePanel: {fileID: 1901079707}
   menuPanel: {fileID: 1517796456}
   selectPanel: {fileID: 1994586476}
@@ -15505,6 +15495,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiCont1: {fileID: 0}
   saveControl: {fileID: 0}
+  _menuCnt: {fileID: 747358665}
   IsFadeOut_A: 0
   fadePanel_A: {fileID: 224517737}
   nowLoadUI_A: {fileID: 329189693}
@@ -27983,18 +27974,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 665684621}
-        m_TargetAssemblyTypeName: UIContA, Assembly-CSharp
-        m_MethodName: PushButtonSE_A
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &2009886073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29101,6 +29080,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   saveControl: {fileID: 0}
+  _achievementManager: {fileID: 0}
   InitialPlay: 0
   TurnCount: 0
   PopTurnEvent: 0

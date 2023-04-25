@@ -911,10 +911,10 @@ RectTransform:
   m_Father: {fileID: 1814897341}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 315.5338, y: -429.60852}
-  m_SizeDelta: {x: 611.0676, y: 859.21704}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 611.0676, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &172774288
 MonoBehaviour:
@@ -3440,6 +3440,7 @@ MonoBehaviour:
   soundCLog: {fileID: 0}
   logFlowSE: {fileID: 8300000, guid: 1cfe9688ce9217b47bb8c6aad4d3bb85, type: 3}
   _languageCnt: {fileID: 0}
+  _achievementManager: {fileID: 0}
 --- !u!4 &682497929
 Transform:
   m_ObjectHideFlags: 0
@@ -6072,6 +6073,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   saveControl: {fileID: 0}
+  _menuCnt3: {fileID: 1679011858}
+  _achievementManager: {fileID: 0}
   isFadeOut3: 0
   fadePanel_C: {fileID: 1389283133}
   soundC: {fileID: 0}
@@ -7745,8 +7748,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 351077687}
   m_HandleRect: {fileID: 351077686}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.7914182
+  m_Value: 0.99999934
+  m_Size: 0.79141814
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -13209,6 +13212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _logSystem: {fileID: 682497928}
+  FadeNow3: 0
   inGamePanel: {fileID: 946451108}
   menuPanel: {fileID: 995791114}
   selectPanel: {fileID: 2127935585}

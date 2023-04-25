@@ -17,6 +17,7 @@ public class MenuCnt2 : MonoBehaviour
     private GameObject selectPanel;
     //メニュー用bool
     private bool cloaseEscMenu = true;
+    public bool FadeNow2 = false;
 
     [SerializeField] 
     private GameObject tutorialExp;
@@ -35,6 +36,7 @@ public class MenuCnt2 : MonoBehaviour
     }
     void Update()
     {
+        if(FadeNow2) return;
         //ESCでメニューを開き、もう一度押すと閉じる
         if (Input.GetKeyDown(KeyCode.Escape))
         {

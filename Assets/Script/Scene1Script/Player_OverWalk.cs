@@ -9,7 +9,7 @@ public class Player_OverWalk : MonoBehaviour
     [SerializeField]
     private UICont1 uiCont1;
     private Animator animator;
-    private float speed = 0.9f;
+    private float speed = 0.25f;
 
     void Start()
     {

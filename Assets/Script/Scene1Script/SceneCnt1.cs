@@ -13,6 +13,9 @@ public class SceneCnt1 : MonoBehaviour
     //セーブ管理用
     [SerializeField] 
     private SaveControl saveControl; 
+	//メニュー管理スクリプトの取得
+    [SerializeField]
+    private MenuCnt _menuCnt;
 
 	private float fadeSpeed = 0.8f;        //透明度が変わるスピードを管理
 	private float red, green, blue, alfa;   //パネルの色、不透明度を管理
@@ -66,10 +69,12 @@ public class SceneCnt1 : MonoBehaviour
 
 	void StartFadeIn()
 	{
+		_menuCnt.FadeNow1 = true;
 		alfa -= fadeSpeed * Time.deltaTime;               
 		SetAlpha();                 
 		if (alfa <= 0)
 		{             
+			_menuCnt.FadeNow1 = false;
 			isFadeIn = false;
 			fadeImage_A.enabled = false;   
 		}
@@ -77,11 +82,14 @@ public class SceneCnt1 : MonoBehaviour
 
 	void StartFadeOut()
 	{
+		_menuCnt.FadeNow1 = true;
 		fadeImage_A.enabled = true; 
 		alfa += fadeSpeed * Time.deltaTime;        
 		SetAlpha();            
 		if (alfa >= 1)
-		{            
+		{      
+			_menuCnt.FadeNow1 = false;
+			isFadeIn = false;      
 			IsFadeOut_A = false;
 			//戦略シーンの画面遷移のみロードを挟む
 			StartCoroutine("NowLoad");

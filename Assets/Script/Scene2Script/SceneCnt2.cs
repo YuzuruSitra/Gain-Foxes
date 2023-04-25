@@ -16,6 +16,9 @@ public class SceneCnt2: MonoBehaviour
 	//サウンド用スクリプト取得
 	[SerializeField] 
     private SoundCnt sound2;
+	//メニュー管理スクリプトの取得
+    [SerializeField]
+    private MenuCnt2 _menuCnt2;
 	[SerializeField]
 	private GameObject fadePanelB;
 	private Image fadeImageB;                //透明度を変更するパネルのイメージ
@@ -53,10 +56,12 @@ public class SceneCnt2: MonoBehaviour
 
 	void StartFadeIn()
 	{
+		_menuCnt2.FadeNow2 = true;
 		alfa -= fadeSpeed * Time.deltaTime;
 		SetAlpha();      
 		if (alfa <= 0)
-		{                  
+		{         
+			_menuCnt2.FadeNow2 = false;         
 			isFadeIn = false;
 			fadeImageB.enabled = false;  
 		}
@@ -64,11 +69,13 @@ public class SceneCnt2: MonoBehaviour
 
 	public void StartFadeOut()
 	{
+		_menuCnt2.FadeNow2 = true;
 		fadeImageB.enabled = true;
 		alfa += fadeSpeed * Time.deltaTime; 
 		SetAlpha();   
 		if (alfa >= 1)
 		{           
+			_menuCnt2.FadeNow2 = false;
 			volume2.IsNextScene = false;
 			//シーンのロードを挟む
 			SceneManager.LoadScene("Scene3");

@@ -10,10 +10,12 @@ public class MenuCnt : MonoBehaviour
     //UI管理スクリプトの取得
     [SerializeField]
     private UICont1 uiCont1;
+    
     //ゲーム中断用
     public static bool ESCnow;
     //チュートリアルパネルを展開しているか
     private bool openTutorialPanel;
+    public bool FadeNow1 = false;
 
     //ゲームプレイ中のUIを格納
     [SerializeField] 
@@ -43,6 +45,7 @@ public class MenuCnt : MonoBehaviour
     }
     void Update()
     {
+        if(FadeNow1) return;
         //ESCでメニューを開き、もう一度押すと閉じる
         if (Input.GetKeyDown(KeyCode.Escape) && !uiCont1.NowClear)
         {

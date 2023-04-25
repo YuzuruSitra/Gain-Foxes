@@ -14,6 +14,8 @@ public class UICont1 : MonoBehaviour
     //言語用のクラス
     [SerializeField]
     private ChangeLanguageScene1 _languageCnt;
+    [SerializeField]
+    private AchievementManager _achievementManager;
     //戦略パネル用
     [SerializeField]
     private StrExpText _strExpText;
@@ -266,6 +268,8 @@ public class UICont1 : MonoBehaviour
 
         /*---bgm設定---*/
         soundA = GameObject.Find("SoundManager").GetComponent<SoundCnt> ();
+        // 実績用クラス
+        _achievementManager = GameObject.Find("AchievementManager").GetComponent<AchievementManager> ();
 
         // 言語設定用
         _languageCnt = GameObject.Find("LanguageUI_Scene1").GetComponent<ChangeLanguageScene1> ();
@@ -718,6 +722,7 @@ public class UICont1 : MonoBehaviour
         if(runDispo)
         {
             ParameterCalc.instanceCalc.PubliWay += 1;
+            PushButtonSE_A();
             DrowPubli();
         }
     }
@@ -727,6 +732,7 @@ public class UICont1 : MonoBehaviour
         if(runDispo)
         {
             ParameterCalc.instanceCalc.PubliWay -= 1;
+            PushButtonSE_A();
             DrowPubli();
         }
     }
@@ -1378,6 +1384,7 @@ public class UICont1 : MonoBehaviour
             getPorS = stringTmp;
             if(runDispo)
             {
+                _achievementManager.statsAPIs["getDrugs"] += 1;
                 getItemExpText.text =  _languageCnt.Scene1LanguaeData[77];
                 getChildS = _languageCnt.Scene1LanguaeData[76];
                 StartCoroutine(Get_Goods());
@@ -1396,6 +1403,7 @@ public class UICont1 : MonoBehaviour
             getPorS = stringTmp;
             if(runDispo)
             {
+                _achievementManager.statsAPIs["getStock"] += 1;
                 getItemExpText.text =  _languageCnt.Scene1LanguaeData[77];
                 getChildS = _languageCnt.Scene1LanguaeData[76];
                 StartCoroutine(Get_Goods());
@@ -1578,6 +1586,7 @@ public class UICont1 : MonoBehaviour
     {
         //MenuCntにてescキー無効
         NowClear = true;
+        geneRepleEvent = false;
         var serifTmp = "";
         switch(PushN)
         {
@@ -1591,7 +1600,15 @@ public class UICont1 : MonoBehaviour
         
             case 2:
                 //foxDia1_Text.text = "おかしら！\n目標達成だ！";
-                serifTmp = _languageCnt.Scene1LanguaeData[20];
+                switch(_languageCnt.LanguageState_Scene1)
+                {
+                case "Japanese":
+                    serifTmp = ParameterCalc.instanceCalc.ClearDays + _languageCnt.Scene1LanguaeData[20];
+                    break;
+                case "English":
+                    serifTmp = _languageCnt.Scene1LanguaeData[20] + ParameterCalc.instanceCalc.ClearDays + " days!" ;
+                    break;                        
+                }
                 foxDia1_Text.text = serifTmp;
                 clickJudge = true;
                 break;

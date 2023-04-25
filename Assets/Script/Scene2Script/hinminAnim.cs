@@ -9,6 +9,8 @@ public class HinminAnim : MonoBehaviour
     //シーン２演出管理用
     [SerializeField] 
     private Volume2 volume2; 
+    [SerializeField]
+    private AchievementManager _achievementManager;
     private Animator animator;
     [SerializeField]
     private Transform hinminGoalA;  //目的地格納用
@@ -29,6 +31,8 @@ public class HinminAnim : MonoBehaviour
 		//コンポーネント取得・利用
 		volume2 = GameObject.Find("SceneManager_B").GetComponent<Volume2> ();
         animator = GetComponent<Animator>();
+        // 実績用クラス
+        _achievementManager = GameObject.Find("AchievementManager").GetComponent<AchievementManager> ();
         //エージェントのNaveMeshAgentを取得する
         hinminAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         //目的地となる座標を設定する
@@ -62,6 +66,7 @@ public class HinminAnim : MonoBehaviour
         if(volume2.Scene2SlaveCount > 0)
         {
             volume2.Scene2SlaveCount--;
+            _achievementManager.statsAPIs["debtorCount"] += 1;
             animator.SetBool("isFall",true);
             yield return new WaitForSeconds(2.0f);
             animator.SetBool("isFall",false);

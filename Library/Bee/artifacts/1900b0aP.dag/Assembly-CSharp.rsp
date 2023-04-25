@@ -108,6 +108,7 @@
 -define:ENABLE_TIMELINE
 -define:ENABLE_LEGACY_INPUT_MANAGER
 -define:UNITY_POST_PROCESSING_STACK_V2
+-define:STEAMWORKS_NET
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
 -r:"E:/gitFork/GainFoxes/Library/PackageCache/com.unity.nuget.newtonsoft-json@3.1.0/Runtime/AOT/Newtonsoft.Json.dll"
@@ -300,6 +301,7 @@
 -r:"E:/UnityHub/2021.3.11f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.VRModule.dll"
 -r:"E:/UnityHub/2021.3.11f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.WindModule.dll"
 -r:"E:/UnityHub/2021.3.11f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.XRModule.dll"
+-r:"Library/Bee/artifacts/1900b0aP.dag/com.rlabrecque.steamworks.net.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aP.dag/Unity.Postprocessing.Runtime.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aP.dag/Unity.TextMeshPro.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aP.dag/Unity.Timeline.ref.dll"
@@ -343,6 +345,7 @@
 "Assets/QuickSave/QuickSaveSettings.cs"
 "Assets/QuickSave/QuickSaveWriter.cs"
 "Assets/QuickSave/SecurityMode.cs"
+"Assets/Script/ManagerSclipt/AchievementManager.cs"
 "Assets/Script/ManagerSclipt/GameSettings.cs"
 "Assets/Script/ManagerSclipt/LoadLanguage.cs"
 "Assets/Script/ManagerSclipt/ParameterCalc.cs"
@@ -376,6 +379,11 @@
 "Assets/Script/TittleScript/Title_NinjaA.cs"
 "Assets/Script/TittleScript/Title_NinjaB.cs"
 "Assets/Script/TittleScript/Tittle_NinjsC.cs"
+"Assets/Steamworks.NET-Example-master/Assets/Scripts/GameController/Logger.cs"
+"Assets/Steamworks.NET-Example-master/Assets/Scripts/GameController/QuitScript.cs"
+"Assets/Steamworks.NET-Example-master/Assets/Scripts/SpaceWarClient.cs"
+"Assets/Steamworks.NET-Example-master/Assets/Scripts/SteamStatsAndAchievements.cs"
+"Assets/Steamworks.NET-Example-master/Assets/Scripts/Steamworks.NET/SteamManager.cs"
 "Assets/Terasurware/Classes/TrnMaster.cs"
 -langversion:9.0
 
