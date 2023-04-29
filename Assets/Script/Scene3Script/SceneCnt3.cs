@@ -42,7 +42,7 @@ public class SceneCnt3 : MonoBehaviour
 		//コンポーネント取得・利用
         saveControl = GameObject.Find("SaveManager").GetComponent<SaveControl> ();
 		// 実績用クラス
-        _achievementManager = GameObject.Find("AchievementManager").GetComponent<AchievementManager> ();
+        _achievementManager = AchievementManager.Instance;
 		fadeImage_C = fadePanel_C.GetComponent<Image>();
 
 		red = fadeImage_C.color.r;

@@ -269,7 +269,7 @@ public class UICont1 : MonoBehaviour
         /*---bgm設定---*/
         soundA = GameObject.Find("SoundManager").GetComponent<SoundCnt> ();
         // 実績用クラス
-        _achievementManager = GameObject.Find("AchievementManager").GetComponent<AchievementManager> ();
+        _achievementManager = AchievementManager.Instance;
 
         // 言語設定用
         _languageCnt = GameObject.Find("LanguageUI_Scene1").GetComponent<ChangeLanguageScene1> ();
@@ -398,6 +398,8 @@ public class UICont1 : MonoBehaviour
             var serifTmp = "";
             switch (PushN)
             {
+                case 0:
+                    break;
                 case 1:
                     foxDia1.gameObject.SetActive(true);
                     //foxDia1_Text.text = "おかしら！\n" + ParameterCalc.instanceCalc.TurnCount + "日目ですね！";
@@ -532,7 +534,7 @@ public class UICont1 : MonoBehaviour
                     clickJudge = true;
                     break;
 
-                case 12:
+                default:
                     //シーンコントロールへ
                     sceneCnt1.IsFadeOut_A = true;
                     break;
@@ -651,6 +653,7 @@ public class UICont1 : MonoBehaviour
                 break;
         }
         SelectStr = 0;
+        _strExpText.str_runDispo = true;
     }
 
     /*----------キルパネル----------*/
@@ -662,7 +665,8 @@ public class UICont1 : MonoBehaviour
         PushN++;
         ParameterCalc.instanceCalc.StrKill();
 
-        SelectStr = 4;
+        // SelectStr = 4;
+        SelectStr = 0;
         strDoneButton.gameObject.SetActive(true);
         strPanel.gameObject.SetActive(true);
         killPanel.gameObject.SetActive(false);
@@ -740,13 +744,25 @@ public class UICont1 : MonoBehaviour
     public void PubliDone()
     {
         ParameterCalc.instanceCalc.PubliCalc();
-        SelectStr = 2;
+        //SelectStr = 2;
+        SelectStr = 0;
         strDoneButton.gameObject.SetActive(true);
         strPanel.gameObject.SetActive(true);
         publicityPanel.SetActive(false);
         openPanel = false;
         foxyPanel.SetActive(false);
         PushN++;
+    }
+
+    //戻る
+    public void Publi_STRback()
+    {
+        SelectStr = 3;
+        strDoneButton.gameObject.SetActive(true);
+        strPanel.gameObject.SetActive(true);
+        publicityPanel.SetActive(false);
+        openPanel = false;
+        foxyPanel.SetActive(false);
     }
 
     //交渉パネルセリフ更新
@@ -859,7 +875,8 @@ public class UICont1 : MonoBehaviour
         //商品強化処理
         ParameterCalc.instanceCalc.SelectRepleItem = selectItem_D;
         ParameterCalc.instanceCalc.StrReple();
-        SelectStr = 5;
+        //SelectStr = 5;
+        SelectStr = 0;
         strDoneButton.gameObject.SetActive(true);
         strPanel.gameObject.SetActive(true);
         dealPanel.gameObject.SetActive(false);
@@ -877,17 +894,6 @@ public class UICont1 : MonoBehaviour
             ParameterCalc.instanceCalc.PopTurnEvent = ParameterCalc.instanceCalc.TurnCount + 1; //次ターン制限
             pushReple = true; //１ターンに入荷は一度まで
         }
-    }
-
-    //戻る
-    public void Publi_STRback()
-    {
-        SelectStr = 3;
-        strDoneButton.gameObject.SetActive(true);
-        strPanel.gameObject.SetActive(true);
-        publicityPanel.SetActive(false);
-        openPanel = false;
-        foxyPanel.SetActive(false);
     }
 
     //アイテム選択
@@ -1480,6 +1486,9 @@ public class UICont1 : MonoBehaviour
         var serifTmp = "";
         switch(pushNtutorial)
         {
+            case 0:
+                break;
+
             case 1:
                 foxDia1.gameObject.SetActive(true);
                 //foxDia1_Text.text = "おかしら！\n今日もいい朝ですね！";
@@ -1565,7 +1574,7 @@ public class UICont1 : MonoBehaviour
                 clickJudge = true;
                 break;
             
-            case 10:
+            default:
                 foxDia1.gameObject.SetActive(false);
                 ParameterCalc.instanceCalc.InitialPlay = false;
                 PushN = 0;
@@ -1590,6 +1599,9 @@ public class UICont1 : MonoBehaviour
         var serifTmp = "";
         switch(PushN)
         {
+            case 0:
+                break;
+
             case 1:
                 foxDia1.gameObject.SetActive(true);
                 //foxDia1_Text.text = "やったー！！";
@@ -1646,7 +1658,7 @@ public class UICont1 : MonoBehaviour
                 clickJudge = true;
                 break;
 
-            case 7:
+            default:
                 PlClearDoAnim = true;
                 break;
         }
@@ -1665,6 +1677,9 @@ public class UICont1 : MonoBehaviour
         var serifTmp = "";
         switch(PushN)
         {
+            case 0:
+                break;
+                
             case 1:
                 foxDia1.gameObject.SetActive(true);
                 //foxDia1_Text.text = "おかしら...";
@@ -1703,8 +1718,7 @@ public class UICont1 : MonoBehaviour
                 ClearAnim = true;
                 clickJudge = true;
                 break;
-        
-            case 6:
+            default:
                 sceneCnt1.IsFadeOut_A = true;
                 GameOverFade = true;
                 //フェードアウトの後にゲームオーバーパネルオン

@@ -9,7 +9,7 @@ public class Player_OverWalk : MonoBehaviour
     [SerializeField]
     private UICont1 uiCont1;
     private Animator animator;
-    private float speed = 0.25f;
+    private float speed = 40f;
 
     void Start()
     {
@@ -28,7 +28,7 @@ public class Player_OverWalk : MonoBehaviour
     private void StartFinAnim()
     {
         Vector2 position = transform.position;
-        position.x += speed + Time.deltaTime;
+        position.x += speed * Time.deltaTime;
         transform.position = position;
         if(position.x > 2500)
         {

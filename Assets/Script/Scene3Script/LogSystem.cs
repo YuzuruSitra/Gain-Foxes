@@ -38,7 +38,7 @@ public class LogSystem : MonoBehaviour
         /*---bgm設定---*/
         soundCLog = GameObject.Find("SoundManager").GetComponent<SoundCnt> ();
         // 実績用クラス
-        _achievementManager = GameObject.Find("AchievementManager").GetComponent<AchievementManager> ();
+        _achievementManager = AchievementManager.Instance;
         //言語設定用
         _languageCnt = GameObject.Find("LanguageUI_Scene3").GetComponent<ChangeLanguageScene3> ();
         languageType = _languageCnt.LanguageState_Scene3;
@@ -249,6 +249,10 @@ public class LogSystem : MonoBehaviour
                     _logTmp += _languageCnt.Scene3LanguaeData[20] + ParameterCalc.instanceCalc.FineMoneyInt + _languageCnt.Scene3LanguaeData[21];
                 }
             }
+        }
+        else
+        {
+            _logTmp += _languageCnt.Scene3LanguaeData[47];
         }
 
         // 行商税の税率表記

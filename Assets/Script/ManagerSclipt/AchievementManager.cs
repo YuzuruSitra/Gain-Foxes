@@ -5,6 +5,8 @@ using Steamworks;
 
 public class AchievementManager : MonoBehaviour
 {
+    public static AchievementManager Instance { get; private set; }
+
     public Dictionary<string, int> statsAPIs = new Dictionary<string, int>
     {
         { "playTurn", 0 },
@@ -51,21 +53,18 @@ public class AchievementManager : MonoBehaviour
     private void Awake()
     {
         // シングルトン
-        GameObject achievementManager = CheckAchievementManager();
-        bool checkResult = achievementManager != null && achievementManager != gameObject;
-
-        if (checkResult)
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
         {
             Destroy(gameObject);
         }
-        DontDestroyOnLoad(gameObject);
 
         if (!SteamManager.Initialized) return;
-    }
-
-    GameObject CheckAchievementManager()
-    {
-        return GameObject.FindGameObjectWithTag("AchievementManager");
+        LoadStat();
     }
 
     // Statsの呼び出し
@@ -112,6 +111,7 @@ public class AchievementManager : MonoBehaviour
 
     private void UnlockAchievement(string achievementId)
     {
+        PushStat();
         // If the achievement is already unlocked, skip it
         bool isAchieved;
         SteamUserStats.GetAchievement(achievementId, out isAchieved);
@@ -120,6 +120,28 @@ public class AchievementManager : MonoBehaviour
         SteamUserStats.SetAchievement(achievementId);
         SteamUserStats.StoreStats();
     }
+
+    // //デバッグ用
+    // public void ResetAllAchievementsAndStats()
+    // {
+    //     if (!SteamManager.Initialized) return;
+
+    //     // Clear all achievements
+    //     foreach (AchievementCondition condition in achievementConditions)
+    //     {
+    //         SteamUserStats.ClearAchievement(condition.AchievementID);
+    //     }
+
+    //     // Reset all stats
+    //     List<string> keys = new List<string>(statsAPIs.Keys);
+    //     foreach (string key in keys)
+    //     {
+    //         statsAPIs[key] = 0;
+    //         SteamUserStats.SetStat(key, 0);
+    //     }
+
+    //     SteamUserStats.StoreStats();
+    // }
 
 }
 

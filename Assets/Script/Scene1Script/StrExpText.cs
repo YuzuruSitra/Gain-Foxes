@@ -19,7 +19,7 @@ public class StrExpText : MonoBehaviour
     [SerializeField]
     private Text textLabel;
     //テキストが流れているか判定
-    private bool runDispo;
+    public bool str_runDispo;
     public bool _DoSetFirst;
     //コルーチンの取得
     private Coroutine _dialogCoroutine;
@@ -32,7 +32,7 @@ public class StrExpText : MonoBehaviour
         //コンポーネント取得
         uiCont1 = GameObject.Find("UICont").GetComponent<UICont1> ();
         //ボタンを押せるように
-        runDispo = true;
+        str_runDispo = true;
 
         //言語設定用
         _languageCnt = GameObject.Find("LanguageUI_Scene1").GetComponent<ChangeLanguageScene1> ();
@@ -42,7 +42,7 @@ public class StrExpText : MonoBehaviour
     {
         if(!_DoSetFirst)return;
         //重複処理ケア
-        if(!runDispo)StopCoroutine(_dialogCoroutine);
+        if(!str_runDispo)StopCoroutine(_dialogCoroutine);
         //戦略説明をセット
         SetExpLanguage();
         textLabel.text = talks[0];
@@ -50,7 +50,7 @@ public class StrExpText : MonoBehaviour
 
     public void OnButtonClicked()
     {
-        if (runDispo)
+        if (str_runDispo)
         {
             textLabel.text = "";
             _dialogCoroutine = StartCoroutine(Dialogue());
@@ -61,7 +61,7 @@ public class StrExpText : MonoBehaviour
     // コルーチンを使って、１文字ごと表示する。
     IEnumerator Dialogue()
     {
-        runDispo = false;//処理中に他のパネルの選択を出来なくする
+        str_runDispo = false;//処理中に他のパネルの選択を出来なくする
         uiCont1.ReadNow = true;
         SetExpLanguage();
         //改行コード変換
@@ -87,7 +87,7 @@ public class StrExpText : MonoBehaviour
             }
         }
         uiCont1.ReadNow = false; //文字表示用SE終了
-        runDispo = true; //他のパネルの選択を可能にする
+        str_runDispo = true; //他のパネルの選択を可能にする
     }
 
     void SetExpLanguage()

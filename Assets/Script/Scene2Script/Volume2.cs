@@ -51,7 +51,7 @@ public class Volume2 : MonoBehaviour
         soundB = GameObject.Find("SoundManager").GetComponent<SoundCnt> ();
         soundB.PlayBgm(sceneB_BGM);
         // 実績用クラス
-        _achievementManager = GameObject.Find("AchievementManager").GetComponent<AchievementManager> ();
+        _achievementManager = AchievementManager.Instance;
 
         trnOne = true;
         SpriteRenderer spriteToolFlame = toolFlame.GetComponent<SpriteRenderer>();

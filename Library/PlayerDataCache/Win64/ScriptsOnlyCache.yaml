@@ -65,10 +65,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -2157,7 +2155,7 @@ ScriptsOnlyBuild:
     className: SceneCnt2
   - hash:
       serializedVersion: 2
-      Hash: c84ecc32bdd5b27141a4ff3714b3ce1d
+      Hash: 0c365c1fcd6dde4d28104f2dbcb6a30d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: StrExpText
@@ -2449,4 +2447,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Scene1.unity
   - Assets/Scenes/Scene2.unity
   - Assets/Scenes/Scene3.unity
-  playerPath: D:/GainFoxes_tmpBuild/GainFoxes.exe
+  playerPath: E:/Unity/GainFoxes_Build/GainFoxes/GainFoxes.exe

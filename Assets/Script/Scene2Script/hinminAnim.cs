@@ -32,7 +32,7 @@ public class HinminAnim : MonoBehaviour
 		volume2 = GameObject.Find("SceneManager_B").GetComponent<Volume2> ();
         animator = GetComponent<Animator>();
         // 実績用クラス
-        _achievementManager = GameObject.Find("AchievementManager").GetComponent<AchievementManager> ();
+        _achievementManager = AchievementManager.Instance;
         //エージェントのNaveMeshAgentを取得する
         hinminAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         //目的地となる座標を設定する

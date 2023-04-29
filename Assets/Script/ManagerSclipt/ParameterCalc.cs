@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 //計算処理管理用
 public class ParameterCalc : MonoBehaviour
 {
@@ -132,13 +133,14 @@ public class ParameterCalc : MonoBehaviour
             instanceCalc = this;
         }
 
+        // 実績用クラス
+        _achievementManager = AchievementManager.Instance;
+
         saveControl = GameObject.Find("SaveManager").GetComponent<SaveControl> ();
         
         //初期化チェック
         saveControl.LoadNewGame();
-        // 実績用クラス
-        _achievementManager = GameObject.Find("AchievementManager").GetComponent<AchievementManager> ();
-        
+
         if (!saveControl.NewGame)
         {
             //データのロード
@@ -152,6 +154,7 @@ public class ParameterCalc : MonoBehaviour
             InitialPlay = true;
             saveControl.FirstLunch();
         }
+        
 
         //ターン追加UI制御の都合でAwakeで処理
         TurnCount++;
@@ -159,6 +162,7 @@ public class ParameterCalc : MonoBehaviour
 
     void Start()
     {
+
         //戦略用変数リセット
         useGossip = 0;
         ExeKill = false;
@@ -181,7 +185,6 @@ public class ParameterCalc : MonoBehaviour
         //商品選択
         ToolType = 0;
 
-        _achievementManager.LoadStat();
     }
 
     //データをロード
@@ -272,6 +275,8 @@ public class ParameterCalc : MonoBehaviour
         float stockEnlarge = 1.0f; //株の倍率管理
         int stockCrash = 0; //価格暴落
         bool sellBrswords = false;
+        float todayPoorReceiveMoney = 0;
+        int todayPoorCount = 0;
 
         //商品をセット
         switch (ToolType)
@@ -314,6 +319,10 @@ public class ParameterCalc : MonoBehaviour
         {
             //1以上6未満
             GenePeopleCount = Random.Range(0, 5);   //何人生成するか
+            if(TurnCount < 3 && GenePeopleCount <= 2)
+            {
+                GenePeopleCount += 1;
+            }
         }
 
         //暗殺の犯罪率
@@ -367,26 +376,8 @@ public class ParameterCalc : MonoBehaviour
             if(i < usePray)
             {
                 const float PlayValue = 25.0f;
-                if(TodayCrime > 0)
-                {
-                    TodayCrime -= PlayValue;
-                    TodayPrayValue += (int)PlayValue;
-                }
-                else if(CrimeRate > 0)
-                {
-                    CrimeRate -= PlayValue;
-                    TodayPrayValue += (int)PlayValue;
-                }
-    
-                if(TodayCrime < 0)
-                {
-                    TodayCrime = 0.0f;
-                }
-    
-                if(CrimeRate < 0)
-                {
-                    CrimeRate = 0.0f;
-                }
+                TodayCrime -= PlayValue;
+                TodayPrayValue += (int)PlayValue;
             }
 
             //暗殺
@@ -413,12 +404,8 @@ public class ParameterCalc : MonoBehaviour
                     case 0:
                         ReceiveMoney[i] = SelectItem * Poor;
                         //貧民所持金処理
-                        PoorMoney[PoorCount] -= ReceiveMoney[i];
-                        if (PoorMoney[PoorCount] <= 0)
-                        {
-                            //お金をリセットし奴隷追加
-                            PoorMoneyCalc();
-                        }
+                        todayPoorReceiveMoney +=  ReceiveMoney[i];
+                        todayPoorCount ++;
                         break;
                     //市民
                     case 1:
@@ -449,13 +436,8 @@ public class ParameterCalc : MonoBehaviour
                     case 0:
                         stockCrash++;
                         ReceiveMoney[i] = SelectItem * Poor;
-                        //貧民所持金処理
-                        PoorMoney[PoorCount] -= ReceiveMoney[i];
-                        if (PoorMoney[PoorCount] <= 0)
-                        {
-                            //お金をリセットし奴隷追加
-                            PoorMoneyCalc();
-                        }
+                        todayPoorReceiveMoney +=  ReceiveMoney[i];
+                        todayPoorCount ++;
                         break;
                     //市民
                     case 1:
@@ -484,6 +466,8 @@ public class ParameterCalc : MonoBehaviour
         {
             if (stockCrashCalc <= stockCrash)stockEnlarge = 0;
             StockOutLogSystem = StockSell * stockEnlarge;
+            //貧民の支払計算
+            todayPoorReceiveMoney *= stockEnlarge;
         }
         //お金の合算処理
         for (int i = 0; i <= GenePeopleCount; ++i)
@@ -494,6 +478,29 @@ public class ParameterCalc : MonoBehaviour
             }
             TotalReceiveMoney += (int)ReceiveMoney[i];
         }
+
+        //負債者計算処理
+    
+        while (todayPoorReceiveMoney > 0)
+        {
+            if(todayPoorCount <= 0)return;
+            todayPoorCount --;
+            PoorMoney[PoorCount] -= todayPoorReceiveMoney;
+
+            if (PoorMoney[PoorCount] <= 0 )
+            {
+                float excess = PoorMoney[PoorCount] >= 0 ? PoorMoney[PoorCount] : -PoorMoney[PoorCount];
+                //お金をリセットし奴隷追加
+                PoorMoneyCalc();
+                todayPoorReceiveMoney = excess;
+            }
+            else
+            {
+                todayPoorReceiveMoney = 0;
+            }
+
+        }
+        
 
         // 市民の反乱処理
         const int consumptionCount = 10;
@@ -511,6 +518,7 @@ public class ParameterCalc : MonoBehaviour
         nowPoorMoney = PoorMoney[PoorCount];
         //犯罪率を加算
         CrimeRate += TodayCrime;
+        if(CrimeRate < 0)CrimeRate = 0;
         //金額を所持金に追加
         HaveMoney += TotalReceiveMoney;
         //支出計算を実行
@@ -575,6 +583,7 @@ public class ParameterCalc : MonoBehaviour
             ClearMethod();
             ClearDays = TurnCount;
             PopTurnEvent = TurnCount + 1;
+            _achievementManager.statsAPIs["gameClearCount"] += 1;
         }
         
         //ゲームオーバー処理
@@ -587,7 +596,6 @@ public class ParameterCalc : MonoBehaviour
 
     void ClearMethod()
     {
-        _achievementManager.statsAPIs["gameClearCount"] += 1;
         //resultを変数に代入
         if (ResultScore[0] == 0)
         {
